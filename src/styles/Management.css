@@ -30,7 +30,7 @@
 /* --- HERO SECTION --- */
 .leadership-hero {
     height: 400px;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("https://jeckukas.org.in/static/media/hero.2e587530d72276404d56.png");
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("/images/hero.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
