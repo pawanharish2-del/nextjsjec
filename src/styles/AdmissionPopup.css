@@ -18,13 +18,11 @@
 
 .popup-content {
     background-color: white;
-    /* --- BREATHING SPACE CONTROL --- */
-    /* This pushes the popup 130px down from the top of the screen */
-    margin-top: 10px;
-    /* This ensures there is space at the bottom too */
-    margin-bottom: 50px;
+    /* Minimal top margin to maximize vertical space */
+    margin-top: 5px;
+    margin-bottom: 5px;
     /* Internal spacing for the Close Button */
-    padding-top: 40px;
+    padding-top: 35px;
     padding-bottom: 0px;
     padding-left: 0px;
     padding-right: 0px;
@@ -32,7 +30,20 @@
     position: relative;
     width: 90%;
     max-width: 450px;
+    /* Use viewport height to ensure form fits on screen */
+    max-height: 95vh;
+    overflow-y: auto;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* On smaller screens, make the form take nearly full height */
+@media (max-height: 800px) {
+    .popup-content {
+        margin-top: 2px;
+        margin-bottom: 2px;
+        max-height: 98vh;
+        padding-top: 30px;
+    }
 }
 
 .close-btn {
