@@ -77,7 +77,7 @@ export default function RootLayout({ children }) {
             <button id="admission-close-btn" className="close-btn">&times;</button>
             <div
               className="npf_wgts"
-              data-height="700px"
+              data-height="780px"
               data-w="c1073fe2350d112d90b129addc24e9ff"
               suppressHydrationWarning={true}
             ></div>
