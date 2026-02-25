@@ -1,0 +1,299 @@
+/* ========================================
+   MANDATORY DISCLOSURE PAGE STYLES
+   ========================================
+*/
+
+:root {
+  --md-primary: #0072C6;       
+  --md-primary-dark: #005a9e;
+  --md-accent: #D62828;        
+  --md-gold: #FCA311;          
+  --md-bg-body: #F0F4F8;
+  --md-bg-surface: #FFFFFF;
+  --md-text-main: #1E293B;
+  --md-text-muted: #64748B;
+  --md-border: #E2E8F0;
+  --md-radius: 12px;
+  --md-shadow-card: 0 4px 20px rgba(0,0,0,0.05);
+  --md-shadow-hover: 0 10px 25px rgba(0,0,0,0.1);
+  --md-font-head: 'Poppins', sans-serif;
+  --md-font-body: 'Inter', sans-serif;
+}
+
+.md-page {
+  font-family: var(--md-font-body);
+  background-color: var(--md-bg-body);
+  color: var(--md-text-main);
+  line-height: 1.6;
+}
+
+/* --- Hero Banner --- */
+.md-hero {
+  position: relative;
+  background: linear-gradient(rgba(0, 30, 60, 0.85), rgba(0, 30, 60, 0.75)), 
+              url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1920&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 6rem 1rem 9rem 1rem;
+  text-align: center;
+  color: white;
+}
+
+.md-hero h1 {
+  font-family: var(--md-font-head);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.md-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.15);
+  padding: 8px 24px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(5px);
+}
+
+/* --- Overlapping Highlights --- */
+.md-stats-container {
+  max-width: 1100px;
+  margin: -5rem auto 4rem auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.md-stats-grid {
+  background: var(--md-bg-surface);
+  border-radius: var(--md-radius);
+  box-shadow: var(--md-shadow-card);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  border-bottom: 4px solid var(--md-primary);
+}
+
+.md-stat-item {
+  text-align: center;
+  border-right: 1px solid var(--md-border);
+}
+
+.md-stat-item:last-child {
+  border-right: none;
+}
+
+.md-stat-item h3 {
+  font-size: 2rem;
+  color: var(--md-primary);
+  font-family: var(--md-font-head);
+  margin-bottom: 0.2rem;
+}
+
+.md-stat-item p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--md-text-muted);
+}
+
+/* --- Main Layout --- */
+.md-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem 1.5rem;
+}
+
+.md-section-header {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.md-section-header h2 {
+  font-family: var(--md-font-head);
+  font-size: 1.5rem;
+  color: var(--md-text-main);
+  white-space: nowrap;
+}
+
+.md-section-line {
+  width: 100%;
+  height: 1px;
+  background: var(--md-border);
+}
+
+/* --- Modern Tables --- */
+.md-card {
+  background: var(--md-bg-surface);
+  border-radius: var(--md-radius);
+  box-shadow: var(--md-shadow-card);
+  border: 1px solid var(--md-border);
+  overflow: hidden;
+  margin-bottom: 4rem;
+}
+
+.md-table-wrapper {
+  overflow-x: auto;
+}
+
+.md-table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.md-table-wrapper th {
+  background: #F8FAFC;
+  color: var(--md-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--md-border);
+}
+
+.md-table-wrapper td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--md-border);
+  color: var(--md-text-main);
+  font-size: 0.95rem;
+  vertical-align: top;
+}
+
+.md-table-wrapper tr:last-child td {
+  border-bottom: none;
+}
+
+.md-table-wrapper tr:hover td {
+  background: #F1F5F9;
+}
+
+/* Key-Value Table Styling */
+.md-kv-table th {
+  width: 35%;
+  color: var(--md-primary);
+  font-family: var(--md-font-head);
+}
+
+/* --- Infrastructure Cards --- */
+.md-infra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.md-infra-card {
+  background: var(--md-bg-surface);
+  padding: 2rem;
+  border-radius: var(--md-radius);
+  box-shadow: var(--md-shadow-card);
+  border-top: 4px solid var(--md-primary);
+  transition: transform 0.3s;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.md-infra-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--md-shadow-hover);
+}
+
+.md-infra-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 114, 198, 0.1);
+  color: var(--md-primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.md-infra-content h3 {
+  font-family: var(--md-font-head);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.md-infra-content p {
+  font-size: 0.9rem;
+  color: var(--md-text-muted);
+}
+
+/* --- Download File Cards --- */
+.md-downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.md-file-card {
+  display: flex;
+  align-items: center;
+  background: var(--md-bg-surface);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--md-border);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none; /* Reset link style */
+}
+
+.md-file-card:hover {
+  border-color: var(--md-accent);
+  background: #FEF2F2; /* Light Red Tint */
+  transform: translateX(5px);
+}
+
+.md-file-icon-box {
+  width: 40px;
+  height: 40px;
+  background: rgba(214, 40, 40, 0.1);
+  color: var(--md-accent);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+.md-file-info {
+  flex: 1;
+}
+
+.md-file-name {
+  display: block;
+  font-weight: 600;
+  color: var(--md-text-main);
+  font-size: 0.95rem;
+}
+
+.md-file-meta {
+  font-size: 0.8rem;
+  color: var(--md-text-muted);
+}
+
+.md-download-arrow {
+  color: var(--md-primary);
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.md-file-card:hover .md-download-arrow {
+  opacity: 1;
+}
+

@@ -1,0 +1,138 @@
+/* src/styles/AcademicAchievers.css */
+
+.academic-achievers-page {
+    /* --- 1. LOCAL VARIABLES (Self-contained) --- */
+    --primary: #0072C6;
+    --primary-dark: #005a9e;
+    --accent: #D62828;
+    --gold: #FCA311;
+    --bg-body: #F8FAFC;
+    --bg-surface: #FFFFFF;
+    --text-main: #0F172A;
+    --text-muted: #475569;
+    --border: #E2E8F0;
+    --radius-lg: 12px;
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    line-height: 1.6;
+    background-color: var(--bg-body);
+    padding-bottom: 50px;
+}
+
+.academic-achievers-page .max-width-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* --- HERO --- */
+.academic-achievers-page .hero {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 80px 0 40px;
+    text-align: center;
+}
+.academic-achievers-page .hero h1 { font-family: 'Poppins', sans-serif; font-size: 36px; font-weight: 800; color: white; margin-bottom: 10px; }
+.academic-achievers-page .hero p { font-size: 18px; opacity: 0.95; color: white; }
+
+/* --- INTRO --- */
+.academic-achievers-page .intro-section { padding: 50px 0; text-align: center; }
+.academic-achievers-page .intro-text { max-width: 800px; margin: 0 auto; }
+.academic-achievers-page .intro-text h2 { font-family: 'Poppins', sans-serif; font-size: 32px; color: var(--text-main); margin-bottom: 20px; }
+.academic-achievers-page .intro-text p { color: var(--text-muted); font-size: 16px; text-align: justify; line-height: 1.8; }
+
+/* --- GRID & CARDS --- */
+.academic-achievers-page .year-section { margin-bottom: 40px; }
+
+.academic-achievers-page .year-title {
+    font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 700; color: var(--primary);
+    margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 10px;
+    display: flex; align-items: center; gap: 10px;
+}
+.academic-achievers-page .year-title i { color: var(--gold); }
+
+.academic-achievers-page .branch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.academic-achievers-page .branch-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.academic-achievers-page .branch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+.academic-achievers-page .branch-header {
+    background: var(--primary-dark);
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.academic-achievers-page .branch-header i { color: var(--gold); font-size: 1.2rem; }
+
+/* --- TABLE CONTAINER & ALIGNMENT FIX --- */
+.academic-achievers-page .table-container {
+    padding: 0; /* Can increase if you want space inside the card: padding: 15px; */
+    width: 100%;
+}
+
+.academic-achievers-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.academic-achievers-page td {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+/* FIX ALIGNMENT: Set fixed width for Rank Column so names align vertically */
+.academic-achievers-page td:first-child {
+    width: 60px; 
+    text-align: center;
+    padding-right: 10px;
+}
+
+.academic-achievers-page tr:last-child td { border-bottom: none; }
+.academic-achievers-page tr:nth-child(even) { background-color: #F8FAFC; }
+
+/* FIX VISIBILITY: Stronger colors for names */
+.academic-achievers-page .student-name {
+    color: #111827; /* Very dark grey/black */
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: block;
+}
+
+/* Rank Badges */
+.academic-achievers-page .rank {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    display: inline-block;
+}
+
+.academic-achievers-page .rank-1 { color: #B45309; } /* Dark Gold */
+.academic-achievers-page .rank-2 { color: #475569; } /* Slate */
+.academic-achievers-page .rank-3 { color: #C2410C; } /* Bronze */
+
+/* --- FOOTER --- */
+.academic-achievers-page .page-footer {
+    text-align: center; padding: 40px 20px; margin-top: 50px;
+    background-color: white; border-top: 1px solid var(--border); color: var(--text-muted);
+}

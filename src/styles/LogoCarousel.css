@@ -1,0 +1,96 @@
+/* src/styles/LogoCarousel.css */
+
+/* Note: Assuming global colors are already defined in index.css.
+  If not, the variables below ensure this component works standalone.
+*/
+.logo-carousel-section {
+    --logo-red: #D62828;
+    --logo-blue: #0072C6;
+    --logo-gold: #FCA311;
+    --logo-black: #1D1D1D;
+    --logo-white: #FFFFFF;
+}
+
+.logo-carousel-section {
+    background: var(--logo-white);
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+.carousel-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.carousel-header h2 {
+    font-size: 2rem;
+    color: var(--logo-blue);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.carousel-divider {
+    height: 4px;
+    width: 80px;
+    background: var(--logo-red);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Slider Logic */
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.logo-track {
+    display: flex;
+    /* 14 unique images + 14 duplicates = 28 slides total.
+       28 slides * 200px each.
+    */
+    width: calc(200px * 28);
+    animation: scroll 40s linear infinite;
+    /* Slower speed for more logos */
+}
+
+.logo-slide {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    /* Spacing between logos */
+}
+
+.logo-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    /* Hover-related transition and cursor removed */
+}
+
+/* Infinite Scroll Animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        /* Move exactly the width of the first 14 images (14 * 200px) */
+        transform: translateX(calc(-200px * 14));
+    }
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+    .carousel-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .logo-track {
+        animation: scroll 20s linear infinite;
+    }
+}

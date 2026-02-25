@@ -1,0 +1,121 @@
+/* src/styles/VirtualTour.css */
+
+.take-a-tour {
+    position: relative;
+    padding: 120px 20px;
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden; /* Important: Prevents video from spilling out */
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000; /* Fallback for slow connections */
+}
+
+/* 1. Background Video Layer */
+.tour-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind everything */
+    pointer-events: none; /* Allows user to click buttons through the video layer */
+}
+
+/* 2. The "Object-Fit: Cover" Logic for YouTube Iframe */
+.tour-video-container iframe,
+.tour-video-container div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* We make the video slightly larger than the container to hide black bars */
+    width: 100vw !important;
+    height: 56.25vw !important; /* Standard 16:9 ratio */
+    min-height: 100vh !important;
+    min-width: 177.77vh !important; /* Standard 16:9 ratio */
+    transform: translate(-50%, -50%);
+}
+
+/* 3. Dark Overlay to make text readable */
+.tour-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5));
+    z-index: 1; /* Above video, below text */
+}
+
+/* 4. Text and Button Content */
+.take-a-tour-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2; /* Forces text to stay on top */
+}
+
+.take-a-tour-title {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.take-a-tour-subtitle {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    opacity: 0.95;
+}
+
+/* 5. Custom Unmute Button */
+.tour-mute-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 45px;
+    background: transparent;
+    border: 2px solid #FCA311; /* JEC Gold */
+    color: #FCA311;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    cursor: pointer;
+    touch-action: manipulation;
+    position: relative;
+    z-index: 10; /* Highest priority for clicking */
+}
+
+.tour-mute-btn:hover,
+.tour-mute-btn.active {
+    background: #FCA311;
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(252, 163, 17, 0.4);
+}
+
+/* 6. Mobile Fixes */
+@media (max-width: 768px) {
+    .take-a-tour {
+        padding: 80px 20px;
+        min-height: 450px;
+    }
+
+    .take-a-tour-title {
+        font-size: 32px;
+    }
+
+    .take-a-tour-subtitle {
+        font-size: 16px;
+    }
+
+    .tour-mute-btn {
+        padding: 12px 30px;
+        font-size: 15px;
+    }
+}

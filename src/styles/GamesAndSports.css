@@ -1,0 +1,202 @@
+/* src/styles/GamesAndSports.css */
+
+/* --- 1. DESIGN TOKENS --- */
+.games-page {
+    --primary: #0072C6;        /* JEC Blue */
+    --primary-dark: #005a9e;
+    --accent: #D62828;         /* JEC Red */
+    --gold: #FCA311;           /* Highlight */
+    
+    --bg-body: #F8FAFC;
+    --bg-surface: #FFFFFF;
+    --text-main: #0F172A;
+    --text-muted: #475569;
+    --border: #E2E8F0;
+    
+    --radius-lg: 20px;
+    --shadow-card: 0 4px 6px -1px rgba(0,0,0,0.05);
+    --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1);
+    
+    --font-head: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    font-family: var(--font-body);
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.8;
+}
+
+/* --- 2. HERO SECTION --- */
+.games-page .hero {
+    position: relative;
+    /* Image: Sports / Action Shot */
+    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(214, 40, 40, 0.65)), 
+                url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1920');
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed;
+    padding: 9rem 1rem 12rem 1rem;
+    text-align: center; 
+    color: white;
+    z-index: 0; /* Ensures it sits behind the sticky header */
+}
+
+.games-page .hero h1 {
+    font-family: var(--font-head); font-size: 3.5rem; margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #fff, #ffedd5);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Fallback for browsers that don't support clip */
+    color: white; 
+    letter-spacing: -1px;
+}
+
+.games-page .hero p { font-size: 1.4rem; color: var(--gold); font-weight: 600; letter-spacing: 1px; }
+
+/* --- 3. FLOATING STATS --- */
+.games-page .stats-container {
+    max-width: 1200px; margin: -6rem auto 5rem auto; padding: 0 1.5rem;
+    position: relative; z-index: 10;
+}
+
+.games-page .stats-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;
+}
+
+.games-page .stat-card {
+    background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card); text-align: center; transition: transform 0.3s;
+    border-bottom: 4px solid var(--primary);
+}
+.games-page .stat-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
+
+.games-page .stat-value { font-size: 1.6rem; font-weight: 800; font-family: var(--font-head); color: var(--primary); line-height: 1.2; margin-bottom: 5px; }
+.games-page .stat-label { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
+
+/* --- 4. CONTENT SECTIONS --- */
+.games-page .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 5rem 1.5rem; }
+
+.games-page .section-header { text-align: center; margin-bottom: 4rem; margin-top: 4rem; }
+.games-page .section-header h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--text-main); margin-bottom: 0.5rem; }
+.games-page .section-header span { color: var(--accent); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+.games-page .section-header p { max-width: 700px; margin: 0 auto; color: var(--text-muted); }
+
+/* Quote Banner */
+.games-page .quote-banner {
+    background: #FFFBEB; border-left: 6px solid var(--gold); padding: 2rem;
+    border-radius: 8px; margin-bottom: 4rem; text-align: center; font-size: 1.2rem;
+    color: #78350F; font-style: italic; position: relative;
+}
+/* Note: Using FontAwesome classes in React usually handles the icon rendering, 
+   but this pseudo-element approach works if FA is loaded globally. */
+.games-page .quote-banner::before { 
+    content: '\f10d'; 
+    font-family: 'Font Awesome 6 Free'; 
+    font-weight: 900; 
+    position: absolute; 
+    left: 10px; 
+    top: 10px; 
+    opacity: 0.1; 
+    font-size: 3rem; 
+}
+
+/* Split Layout */
+.games-page .section-split {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 6rem;
+}
+
+.games-page .text-block h3 { font-family: var(--font-head); font-size: 1.8rem; color: var(--text-main); margin-bottom: 1rem; }
+.games-page .text-block p { margin-bottom: 1rem; font-size: 1.05rem; color: var(--text-muted); text-align: justify; }
+
+.games-page .img-block {
+    height: 400px; border-radius: var(--radius-lg); overflow: hidden;
+    box-shadow: var(--shadow-hover); position: relative;
+}
+.games-page .img-block img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.games-page .img-block:hover img { transform: scale(1.05); }
+
+/* --- 5. FACILITIES GRID (Icons) --- */
+.games-page .facility-grid {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 4rem;
+}
+.games-page .fac-badge {
+    background: white; padding: 10px 25px; border-radius: 30px; border: 1px solid var(--border);
+    font-weight: 600; color: var(--text-main); display: flex; align-items: center; gap: 10px;
+    box-shadow: var(--shadow-card); transition: 0.3s;
+}
+.games-page .fac-badge i { color: var(--primary); }
+.games-page .fac-badge:hover { transform: translateY(-3px); border-color: var(--accent); color: var(--accent); }
+.games-page .fac-badge:hover i { color: var(--accent); }
+
+/* --- 6. ACHIEVEMENTS & SELECTIONS --- */
+.games-page .achievements-wrapper {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 6rem;
+}
+
+.games-page .win-card {
+    background: #F8FAFC; border-radius: 12px; padding: 2rem; border-top: 5px solid var(--gold);
+    box-shadow: var(--shadow-card); height: 100%;
+}
+.games-page .win-card h3 { font-family: var(--font-head); color: var(--text-main); margin-bottom: 1.5rem; }
+
+.games-page .win-list { list-style: none; padding: 0; }
+.games-page .win-list li {
+    padding: 10px 0; border-bottom: 1px dashed var(--border); display: flex; justify-content: space-between; align-items: center;
+}
+.games-page .win-list li:last-child { border-bottom: none; }
+.games-page .win-year { font-weight: 700; color: var(--primary); background: #E0F2FE; padding: 2px 8px; border-radius: 4px; font-size: 0.85rem; }
+.games-page .win-desc { text-align: right; font-size: 0.95rem; font-weight: 500; }
+
+/* --- 7. TROPHY CABINET (Image Gallery) --- */
+.games-page .trophy-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 6rem;
+}
+.games-page .trophy-frame {
+    height: 300px; background: white; border: 8px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative; overflow: hidden;
+}
+.games-page .trophy-frame img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.games-page .trophy-frame:hover img { transform: scale(1.1); }
+.games-page .trophy-label {
+    position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(0,0,0,0.8); color: var(--gold);
+    text-align: center; padding: 10px; font-weight: 700; font-family: var(--font-head);
+}
+
+/* --- 8. SPORTS PARTICIPATION GRID --- */
+.games-page .team-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;
+}
+.games-page .team-card {
+    background: white; border-radius: var(--radius-lg); border: 1px solid var(--border); overflow: hidden;
+    transition: 0.3s;
+}
+.games-page .team-card:hover { box-shadow: var(--shadow-hover); border-color: var(--primary); }
+
+.games-page .team-header {
+    background: var(--text-main); color: white; padding: 15px 20px; font-family: var(--font-head);
+    font-weight: 700; display: flex; justify-content: space-between; align-items: center;
+}
+.games-page .team-header i { color: var(--gold); font-size: 1.2rem; }
+
+.games-page .team-body { padding: 1.5rem; }
+.games-page .played-at { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 5px; font-weight: 600; text-transform: uppercase; }
+.games-page .venues { font-size: 0.95rem; color: var(--text-main); line-height: 1.6; }
+
+/* CTA */
+.games-page .cta-section {
+    background: #1E293B; color: white; border-radius: 24px; text-align: center;
+    padding: 4rem; margin-top: 6rem; position: relative; overflow: hidden;
+    box-shadow: var(--shadow-hover);
+}
+.games-page .cta-content h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--gold); margin-bottom: 1rem; }
+.games-page .cta-content p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .games-page .section-split { grid-template-columns: 1fr; }
+    .games-page .img-block { height: 300px; order: -1; }
+    .games-page .hero h1 { font-size: 2.5rem; }
+    .games-page .stats-grid { grid-template-columns: 1fr 1fr; }
+    .games-page .achievements-wrapper { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,348 @@
+/* src/styles/JCES.css */
+
+/* ========================================
+   JAIPUR COLLEGE OF EDUCATION & SCIENCE (JCES)
+   ========================================
+*/
+
+:root {
+  --jces-blue: #0072C6;       
+  --jces-red: #D62828;        
+  --jces-gold: #FCA311;       
+  --jces-bg-body: #F8FAFC;
+  --jces-bg-surface: #FFFFFF;
+  --jces-text-main: #0F172A;
+  --jces-text-muted: #475569;
+  --jces-border: #E2E8F0;
+  --jces-radius-lg: 16px;
+  --jces-shadow-card: 0 4px 6px -1px rgba(0,0,0,0.05);
+  --jces-shadow-hover: 0 20px 25px -5px rgba(0, 114, 198, 0.15);
+  --jces-font-head: 'Poppins', sans-serif;
+  --jces-font-body: 'Inter', sans-serif;
+}
+
+.jces-page {
+  font-family: var(--jces-font-body);
+  background-color: var(--jces-bg-body);
+  color: var(--jces-text-main);
+  line-height: 1.8;
+}
+
+/* --- Hero Section --- */
+.jces-hero {
+  position: relative;
+  /* Background Image handled here */
+  background: linear-gradient(rgba(0, 114, 198, 0.9), rgba(0, 50, 100, 0.8));
+  padding: 9rem 1rem 12rem 1rem;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.jces-hero-overlay {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  /* FIXED: Use absolute path relative to public folder */
+  background: url('/images/hero.jpg') no-repeat center center/cover; 
+  z-index: 0; 
+  opacity: 0.4;
+}
+
+.jces-hero h1, .jces-hero p, .jces-course-container {
+  position: relative;
+  z-index: 1;
+}
+
+.jces-hero h1 {
+  font-family: var(--jces-font-head);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+.jces-hero p {
+  font-size: 1.3rem;
+  color: var(--jces-gold);
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.jces-course-container {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.jces-badge {
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  backdrop-filter: blur(5px);
+  font-size: 0.95rem;
+}
+
+.jces-badge-running {
+  background: var(--jces-red);
+  color: white;
+  box-shadow: 0 4px 15px rgba(214, 40, 40, 0.4);
+}
+
+.jces-badge-proposed {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.5);
+  color: white;
+}
+
+/* --- Content Container --- */
+.jces-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem 1.5rem;
+}
+
+/* --- Intro Card --- */
+.jces-intro-card {
+  background: white;
+  padding: 3rem;
+  border-radius: var(--jces-radius-lg);
+  box-shadow: var(--jces-shadow-card);
+  margin-top: -5rem;
+  margin-bottom: 6rem;
+  position: relative;
+  z-index: 10;
+  border-top: 5px solid var(--jces-gold);
+}
+
+.jces-intro-card h2 {
+  font-family: var(--jces-font-head);
+  font-size: 2rem;
+  color: var(--jces-text-main);
+  margin-bottom: 1rem;
+}
+
+.jces-intro-card p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--jces-text-muted);
+  text-align: justify;
+}
+
+/* --- Split Layout --- */
+.jces-section-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+
+.jces-text-block h3 {
+  font-family: var(--jces-font-head);
+  font-size: 1.8rem;
+  color: var(--jces-blue);
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--jces-red);
+  padding-left: 15px;
+}
+
+.jces-text-block p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--jces-text-muted);
+  text-align: justify;
+}
+
+.jces-img-block {
+  height: 600px;
+  border-radius: var(--jces-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--jces-shadow-hover);
+  position: relative;
+}
+
+.jces-img-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.jces-img-block:hover img {
+  transform: scale(1.05);
+}
+
+.jces-ncte-box {
+  background: #EFF6FF;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  border: 1px solid #BFDBFE;
+}
+
+.jces-ncte-box p {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.jces-ncte-box strong {
+  color: var(--jces-blue);
+}
+
+/* --- Facilities Grid --- */
+.jces-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.jces-section-header h2 {
+  font-family: var(--jces-font-head);
+  font-size: 2.5rem;
+  color: var(--jces-text-main);
+  margin-bottom: 0.5rem;
+}
+
+.jces-section-header span {
+  color: var(--jces-red);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.jces-facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 6rem;
+}
+
+.jces-facility-card {
+  background: var(--jces-bg-surface);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--jces-shadow-card);
+  text-align: center;
+  transition: 0.3s;
+  border-bottom: 3px solid var(--jces-border);
+  height: 100%;
+}
+
+.jces-facility-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--jces-shadow-hover);
+  border-color: var(--jces-blue);
+}
+
+.jces-fc-icon {
+  font-size: 2rem;
+  color: var(--jces-gold);
+  margin-bottom: 0.8rem;
+}
+
+.jces-fc-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--jces-text-main);
+  line-height: 1.3;
+}
+
+.jces-fc-text {
+  font-size: 0.85rem;
+  color: var(--jces-text-muted);
+  line-height: 1.5;
+}
+
+/* --- Values Section --- */
+.jces-values-section {
+  background: #1E293B;
+  color: white;
+  padding: 4rem;
+  border-radius: 24px;
+  margin-bottom: 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.jces-values-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(252, 163, 17, 0.2), transparent 70%);
+}
+
+.jces-values-section h3 {
+  font-family: var(--jces-font-head);
+  font-size: 2.2rem;
+  color: var(--jces-gold);
+  margin-bottom: 1.5rem;
+}
+
+.jces-values-section p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* --- CTA --- */
+.jces-cta-card {
+  background: white;
+  border: 2px solid var(--jces-red);
+  border-radius: var(--jces-radius-lg);
+  padding: 3rem;
+  text-align: center;
+  box-shadow: var(--jces-shadow-card);
+}
+
+.jces-btn-visit {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 1rem 2.5rem;
+  background: var(--jces-red);
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(214, 40, 40, 0.4);
+}
+
+.jces-btn-visit:hover {
+  transform: translateY(-3px);
+  background: #b91c1c;
+  color: white;
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+  .jces-facilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .jces-section-split {
+    grid-template-columns: 1fr;
+  }
+  .jces-img-block {
+    height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .jces-facilities-grid {
+    grid-template-columns: 1fr;
+  }
+  .jces-hero h1 {
+    font-size: 2.2rem;
+  }
+  .jces-values-section {
+    padding: 2rem;
+  }
+}

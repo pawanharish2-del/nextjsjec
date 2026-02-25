@@ -1,0 +1,42 @@
+/* src/styles/PrivacyPolicy.css */
+/* Uses the same base legal-wrapper and legal-card classes as Disclaimer.css */
+
+.section-divider {
+    border-bottom: 1px solid var(--border);
+    margin: 32px 0;
+}
+
+.policy-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.policy-text {
+    padding-left: 28px;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.disclaimer-box {
+    background-color: #f9fafb;
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    margin-top: 16px;
+}
+
+.communication-note {
+    margin-top: 16px;
+    padding: 16px;
+    background-color: #eff6ff;
+    border-left: 4px solid var(--jec-blue);
+    border-radius: var(--radius-sm);
+    display: flex;
+    gap: 12px;
+}

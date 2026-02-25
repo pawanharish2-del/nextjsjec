@@ -1,0 +1,647 @@
+/* src/styles/Gallery.css */
+
+/* --- 1. BRANDING & VARIABLES --- */
+.gallery-page {
+    --jec-blue: #0072C6;
+    --jec-red: #D62828;
+    --jec-gold: #FCA311;
+
+    --bg-body: #F8FAFC;
+    --bg-surface: #FFFFFF;
+    --text-main: #0F172A;
+    --text-muted: #475569;
+    --border: #E2E8F0;
+
+    --radius-lg: 20px;
+    --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 40px -5px rgba(0, 114, 198, 0.15);
+
+    --font-head: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    font-family: var(--font-body);
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    width: 100%;
+}
+
+/* --- 2. MODERN HERO SECTION --- */
+.gallery-page .modern-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    min-height: 80vh;
+    background: #fff;
+    padding: 4rem 2rem;
+    overflow: hidden;
+    padding-top: 8rem;
+}
+
+.gallery-page .modern-hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 114, 198, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: 0;
+}
+
+.gallery-page .hero-content {
+    position: relative;
+    z-index: 2;
+    padding-left: 4rem;
+    animation: slideRight 1s ease-out;
+}
+
+.gallery-page .hero-badge {
+    display: inline-block;
+    background: #FEF2F2;
+    color: var(--jec-red);
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #FECACA;
+    box-shadow: 0 4px 10px rgba(214, 40, 40, 0.1);
+}
+
+.gallery-page .modern-hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+}
+
+.gallery-page .modern-hero h1 span {
+    color: var(--jec-blue);
+    position: relative;
+}
+
+.gallery-page .modern-hero h1 span::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: var(--jec-gold);
+    opacity: 0.3;
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.gallery-page .modern-hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+.gallery-page .scroll-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--jec-blue);
+    font-weight: 600;
+    font-size: 0.9rem;
+    animation: bounce 2s infinite;
+}
+
+/* --- MOTION COLLAGE --- */
+.gallery-page .hero-collage {
+    position: relative;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.gallery-page .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.gallery-page .blob-1 {
+    width: 300px;
+    height: 300px;
+    background: #BFDBFE;
+    top: 10%;
+    right: 10%;
+}
+
+.gallery-page .blob-2 {
+    width: 200px;
+    height: 200px;
+    background: #FDE68A;
+    bottom: 10%;
+    left: 20%;
+}
+
+.gallery-page .collage-img {
+    position: absolute;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+    border: 4px solid white;
+    transition: transform 0.5s;
+}
+
+.gallery-page .collage-img:hover {
+    transform: scale(1.05) !important;
+    z-index: 10;
+}
+
+.gallery-page .img-main {
+    width: 350px;
+    height: 450px;
+    z-index: 2;
+    animation: float 6s ease-in-out infinite;
+}
+
+.gallery-page .img-sub-1 {
+    width: 220px;
+    height: 160px;
+    top: 15%;
+    right: 10%;
+    z-index: 3;
+    transform: rotate(5deg);
+    animation: floatDelayed 7s ease-in-out infinite;
+}
+
+.gallery-page .img-sub-2 {
+    width: 200px;
+    height: 200px;
+    bottom: 15%;
+    left: 10%;
+    z-index: 3;
+    transform: rotate(-5deg);
+    animation: floatReverse 8s ease-in-out infinite;
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes floatDelayed {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(5deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+@keyframes floatReverse {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(15px) rotate(-5deg);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* --- 3. GALLERY CONTAINER & ALBUMS --- */
+.gallery-page .container {
+    max-width: 1280px;
+    margin: 0 auto 0 auto;
+    padding: 0 2rem 4rem 2rem;
+}
+
+.gallery-page .section-header {
+    text-align: left;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.gallery-page .section-header h2 {
+    font-family: var(--font-head);
+    font-size: 2.5rem;
+    color: var(--text-main);
+    line-height: 1;
+}
+
+.gallery-page .section-header span {
+    color: var(--jec-blue);
+}
+
+.gallery-page .section-header p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.gallery-page .album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-page .album-card {
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+}
+
+.gallery-page .album-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--jec-blue);
+}
+
+.gallery-page .album-cover {
+    height: 220px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-page .album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-page .album-card:hover .album-cover img {
+    transform: scale(1.1);
+}
+
+.gallery-page .album-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 114, 198, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s;
+    backdrop-filter: blur(2px);
+}
+
+.gallery-page .album-card:hover .album-overlay {
+    opacity: 1;
+}
+
+.gallery-page .view-btn {
+    color: var(--jec-blue);
+    background: white;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 700;
+    transform: translateY(20px);
+    transition: 0.3s;
+}
+
+.gallery-page .album-card:hover .view-btn {
+    transform: translateY(0);
+}
+
+.gallery-page .album-info {
+    padding: 1.5rem;
+}
+
+.gallery-page .album-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.gallery-page .album-count {
+    font-size: 0.75rem;
+    color: white;
+    font-weight: 700;
+    background: var(--jec-red);
+    padding: 2px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.gallery-page .album-title {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+/* --- 4. MODALS & VIEWER --- */
+.gallery-page .modal {
+    display: block;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    /* Start below the full header (top-bar 48px + nav 76px = 124px) */
+    top: calc(var(--jec-top-bar-height, 48px) + var(--jec-height, 76px));
+    width: 100%;
+    height: calc(100% - var(--jec-top-bar-height, 48px) - var(--jec-height, 76px));
+    background-color: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+    padding: 2rem;
+    animation: fadeIn 0.3s;
+}
+
+/* On mobile, top-bar is hidden so only nav height (76px) applies */
+@media (max-width: 1024px) {
+    .gallery-page .modal {
+        top: var(--jec-height, 76px);
+        height: calc(100% - var(--jec-height, 76px));
+    }
+}
+
+.gallery-page .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 2rem auto;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.gallery-page .modal-title {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    color: var(--jec-gold);
+}
+
+.gallery-page .close-btn {
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+    line-height: 1;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.gallery-page .close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--jec-red);
+}
+
+.gallery-page .modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-page .modal-img-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    height: 250px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+    cursor: zoom-in;
+    position: relative;
+}
+
+.gallery-page .modal-img-wrapper:hover {
+    border-color: var(--jec-gold);
+    transform: scale(1.02);
+    z-index: 2;
+}
+
+.gallery-page .modal-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-page .image-viewer {
+    display: flex;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: zoomIn 0.3s;
+    user-select: none;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.gallery-page .viewer-img {
+    max-width: 95%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--jec-blue);
+}
+
+.gallery-page .viewer-close {
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 3001;
+    transition: 0.3s;
+}
+
+.gallery-page .viewer-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 4rem;
+    cursor: pointer;
+    z-index: 3002;
+    padding: 10px 20px;
+    transition: 0.3s;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.gallery-page .viewer-nav:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--jec-gold);
+}
+
+.gallery-page .viewer-prev {
+    left: 30px;
+}
+
+.gallery-page .viewer-next {
+    right: 30px;
+}
+
+.gallery-page .image-counter {
+    color: var(--jec-gold);
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.gallery-page .viewer-caption {
+    color: #cbd5e1;
+    margin-top: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* --- 5. RESPONSIVE FIXES --- */
+@media (max-width: 900px) {
+    .gallery-page .modern-hero {
+        grid-template-columns: 1fr;
+        padding: 5rem 1rem 3rem 1rem;
+        text-align: center;
+        min-height: auto;
+    }
+
+    .gallery-page .hero-content {
+        padding-left: 0;
+        order: 2;
+    }
+
+    .gallery-page .modern-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .gallery-page .hero-collage {
+        order: 1;
+        height: 400px;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .gallery-page .img-main {
+        width: 240px;
+        height: 320px;
+    }
+
+    .gallery-page .img-sub-1 {
+        width: 140px;
+        height: 100px;
+        right: 5%;
+    }
+
+    .gallery-page .img-sub-2 {
+        width: 130px;
+        height: 130px;
+        left: 5%;
+    }
+
+    .gallery-page .viewer-close {
+        top: 20px;
+        right: 20px;
+        font-size: 2.5rem;
+    }
+
+    .gallery-page .image-viewer img {
+        max-width: 100%;
+        max-height: 70vh;
+    }
+
+    .gallery-page .modal {
+        padding: 80px 1rem 1rem 1rem;
+    }
+
+    .gallery-page .viewer-nav {
+        font-size: 2.5rem;
+        padding: 5px 15px;
+    }
+}

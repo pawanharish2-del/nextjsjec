@@ -1,0 +1,296 @@
+/* src/pages/IIC.css */
+
+.iic-page .max-width-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.iic-page a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Hero Section --- */
+.iic-page .innovation-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px 140px;
+    text-align: center;
+    color: var(--logo-white);
+}
+
+    .iic-page .innovation-hero h1 {
+        font-size: 48px;
+        margin-bottom: 15px;
+        font-weight: 800;
+        letter-spacing: 1px;
+    }
+
+    .iic-page .innovation-hero p {
+        font-size: 20px;
+        font-weight: 300;
+        max-width: 900px;
+        margin: 0 auto;
+        color: var(--logo-gold);
+        font-style: italic;
+    }
+
+/* --- Stats Banner --- */
+.iic-page .stats-bar {
+    margin: -60px auto 0;
+    max-width: 1200px;
+    background: var(--logo-white);
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+    border-bottom: 4px solid var(--logo-blue);
+}
+
+.iic-page .stat-item {
+    text-align: center;
+    border-right: 1px solid #eee;
+}
+
+    .iic-page .stat-item:last-child {
+        border-right: none;
+    }
+
+    .iic-page .stat-item h3 {
+        font-size: 28px;
+        color: var(--logo-red);
+        margin-bottom: 5px;
+    }
+
+    .iic-page .stat-item p {
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #555;
+    }
+
+/* --- Intro Section --- */
+.iic-page .intro-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.iic-page .section-title {
+    font-size: 36px;
+    color: var(--logo-blue);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+    .iic-page .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--logo-gold);
+        margin: 10px auto 0;
+    }
+
+.iic-page .intro-text {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #444;
+    text-align: justify;
+}
+
+    .iic-page .intro-text p {
+        margin-bottom: 1rem;
+    }
+
+/* --- Grid Sections (UPDATED) --- */
+.iic-page .info-grid-section {
+    background-color: var(--color-background-medium);
+    padding: 80px 20px;
+}
+
+.iic-page .grid-container {
+    display: grid;
+    /* UPDATED: Stack cards vertically (1 column) to give full width */
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.iic-page .info-card {
+    background: var(--logo-white);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    border-top: 5px solid transparent;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+    .iic-page .info-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .iic-page .info-card.focus {
+        border-top-color: var(--logo-red);
+    }
+
+    .iic-page .info-card.functions {
+        border-top-color: var(--logo-blue);
+    }
+
+    .iic-page .info-card.benefits {
+        border-top-color: var(--logo-gold);
+    }
+
+    .iic-page .info-card h3 {
+        font-size: 24px;
+        color: var(--logo-black);
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+    }
+
+    /* UPDATED: Make the lists inside Focus & Functions horizontal (2 columns) */
+    .iic-page .info-card ul {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 Columns */
+        gap: 15px 30px; /* Row gap 15px, Column gap 30px */
+    }
+
+    .iic-page .info-card li {
+        margin-bottom: 0; /* Let grid gap handle spacing */
+        padding-left: 30px;
+        position: relative;
+        color: #555;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+        .iic-page .info-card li::before {
+            content: '\f058'; /* FontAwesome Check */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--logo-blue);
+            position: absolute;
+            left: 0;
+            top: 3px;
+            font-size: 1.1rem;
+        }
+
+    .iic-page .info-card.focus li::before {
+        color: var(--logo-red);
+    }
+
+    .iic-page .info-card.benefits li::before {
+        color: var(--logo-gold);
+    }
+
+/* --- Certificates Section --- */
+.iic-page .cert-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.iic-page .cert-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.iic-page .cert-frame {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+}
+
+    .iic-page .cert-frame img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid #eee;
+    }
+
+.iic-page .cert-caption {
+    margin-top: 15px;
+    font-weight: 600;
+    color: var(--logo-blue);
+}
+
+/* --- Contact Section --- */
+.iic-page .contact-section {
+    background: var(--logo-blue);
+    color: var(--logo-white);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.iic-page .contact-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 700px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+    .iic-page .contact-box h3 {
+        font-size: 28px;
+        color: var(--logo-gold);
+        margin-bottom: 20px;
+    }
+
+    .iic-page .contact-box h4 {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    .iic-page .contact-box p {
+        font-size: 16px;
+        opacity: 0.9;
+        margin-bottom: 5px;
+    }
+
+    .iic-page .contact-box a {
+        color: var(--logo-gold);
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .iic-page .stat-item {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .iic-page .innovation-hero h1 {
+        font-size: 32px;
+    }
+
+    /* On mobile, stack list items back to 1 column */
+    .iic-page .info-card ul {
+        grid-template-columns: 1fr;
+    }
+}

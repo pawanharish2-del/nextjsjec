@@ -1,0 +1,290 @@
+/*
+--- ALUMNI PAGE ---
+*/
+
+.alumni-page .max-width-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.alumni-page a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- Hero Section --- */
+.alumni-page .alumni-hero {
+  /* This uses a placeholder image. You can replace it in your /public/images/ folder */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px 140px;
+  text-align: center;
+  color: var(--logo-white);
+}
+
+.alumni-page .alumni-hero h1 {
+  font-size: 52px;
+  margin-bottom: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.alumni-page .alumni-hero p {
+  font-size: 22px;
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--logo-gold);
+}
+
+.alumni-page .alumni-hero-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  background: var(--logo-red);
+  color: white;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: background 0.3s ease;
+}
+
+.alumni-page .alumni-hero-btn:hover {
+  background: #b01e1e;
+}
+
+/* --- Stats Banner --- */
+/* --- Stats Banner --- */
+.alumni-page .stats-bar {
+  margin: -60px auto 0;
+  /* Pulls it up over the hero image */
+  background-color: #ffffff;
+  /* SOLID WHITE BACKGROUND (Fixes transparency) */
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  /* Strong shadow for "pop" */
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  position: relative;
+  z-index: 10;
+  /* Ensures it sits ON TOP of the image */
+  border-bottom: 4px solid var(--logo-blue);
+  max-width: 1200px;
+}
+
+.alumni-page .stat-item {
+  text-align: center;
+  border-right: 1px solid #eee;
+}
+
+.alumni-page .stat-item:last-child {
+  border-right: none;
+}
+
+/* FIXING THE COLORS HERE */
+.alumni-page .stat-item h3 {
+  font-size: 36px;
+  color: #e63946;
+  /* JEC RED for the numbers */
+  margin-bottom: 5px;
+  font-weight: 800;
+}
+
+.alumni-page .stat-item p {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #333333;
+  /* Dark Black for text */
+}
+
+/* --- Content Sections --- */
+.alumni-page .content-section {
+  padding: 80px 20px;
+}
+
+.alumni-page .section-title {
+  font-size: 32px;
+  color: var(--logo-blue);
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.alumni-page .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--logo-gold);
+}
+
+.alumni-page .text-block {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: justify;
+  color: #444;
+  font-size: 16px;
+}
+
+.alumni-page .text-block p {
+  margin-bottom: 20px;
+}
+
+/* --- Benefits Grid --- */
+.alumni-page .benefits-section {
+  /* Changed from var(...) to explicit hex code to ensure grey appears */
+  background-color: #f5f5f5;
+  padding: 80px 20px;
+}
+
+.alumni-page .benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.alumni-page .benefit-card {
+  background: var(--logo-white);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease;
+}
+
+.alumni-page .benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.alumni-page .benefit-card i {
+  font-size: 32px;
+  color: var(--logo-red);
+  margin-bottom: 15px;
+  display: block;
+}
+
+.alumni-page .benefit-card h4 {
+  font-size: 20px;
+  color: var(--logo-black);
+  margin-bottom: 10px;
+}
+
+.alumni-page .benefit-card p {
+  font-size: 15px;
+  color: #666;
+}
+
+/* --- Clubs Section --- */
+.alumni-page .clubs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.alumni-page .club-card {
+  background: var(--logo-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease;
+  border-top: 4px solid var(--logo-blue);
+}
+
+.alumni-page .club-card:hover {
+  transform: translateY(-5px);
+}
+
+.alumni-page .club-content {
+  padding: 25px;
+}
+
+.alumni-page .club-card h4 {
+  font-size: 18px;
+  color: var(--logo-blue);
+  margin-bottom: 10px;
+}
+
+.alumni-page .club-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* --- Activities List --- */
+.alumni-page .activities-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.alumni-page .activity-item {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid var(--logo-gold);
+}
+
+.alumni-page .activity-item h5 {
+  font-size: 18px;
+  color: var(--logo-black);
+  margin-bottom: 5px;
+}
+
+.alumni-page .activity-item p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* --- Contact Bar --- */
+.alumni-page .contact-bar {
+  background: var(--logo-blue);
+  color: var(--logo-white);
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.alumni-page .contact-bar h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.alumni-page .contact-bar a {
+  color: var(--logo-gold);
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .alumni-page .stat-item {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+  }
+
+  .alumni-page .activities-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .alumni-page .alumni-hero h1 {
+    font-size: 36px;
+  }
+}

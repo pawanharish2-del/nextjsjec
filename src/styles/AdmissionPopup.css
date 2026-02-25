@@ -1,0 +1,52 @@
+/* src/components/AdmissionPopup.css */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Very high z-index to ensure it sits ON TOP of your header */
+    z-index: 100000;
+    display: flex;
+    justify-content: center;
+    /* This aligns the popup to the top (so we can push it down) */
+    align-items: flex-start;
+    /* CRITICAL: This allows the user to scroll the page if the form is too tall */
+    overflow-y: auto;
+}
+
+.popup-content {
+    background-color: white;
+    /* --- BREATHING SPACE CONTROL --- */
+    /* This pushes the popup 130px down from the top of the screen */
+    margin-top: 10px;
+    /* This ensures there is space at the bottom too */
+    margin-bottom: 50px;
+    /* Internal spacing for the Close Button */
+    padding-top: 40px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 8px;
+    position: relative;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+    .close-btn:hover {
+        color: red;
+    }

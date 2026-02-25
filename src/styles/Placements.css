@@ -1,0 +1,384 @@
+/* ==========================================================================
+   PLACEMENT GLORY PAGE STYLES
+   ========================================================================== */
+
+.placement-page-wrapper {
+  --pg-primary: var(--logo-blue);       
+  --pg-gold: var(--logo-gold);          
+  --pg-accent: var(--logo-red);
+  --pg-text-main: var(--logo-black);
+  --pg-text-muted: #64748B;
+  --pg-border: #E2E8F0;
+  
+  background-color: #F8FAFC;
+  color: var(--pg-text-main);
+  line-height: 1.6;
+  width: 100%;
+}
+
+/* --- Hero Section --- */
+.pg-hero {
+  position: relative;
+  background: linear-gradient(rgba(0, 30, 60, 0.85), rgba(0, 30, 60, 0.75)), 
+              url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1920&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 8rem 1rem 10rem 1rem;
+  text-align: center;
+  color: white;
+}
+
+.pg-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #fff, #e2e8f0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.pg-hero p { 
+  font-size: 1.5rem; 
+  color: var(--pg-gold); 
+  font-weight: 600; 
+  margin-bottom: 2rem; 
+}
+
+/* --- Overlapping Stats Cards --- */
+.pg-stats-container {
+  max-width: 1200px;
+  margin: -5rem auto 4rem auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.pg-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.pg-stat-card {
+  background-color: #FFFFFF; 
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+  border-bottom: 4px solid var(--pg-primary);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pg-stat-card:hover { 
+  transform: translateY(-10px); 
+}
+
+.pg-stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--pg-primary);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.pg-stat-label { 
+  font-size: 0.9rem; 
+  font-weight: 700; 
+  color: var(--pg-text-muted); 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+}
+
+/* --- Content Container & Narratives --- */
+.pg-container { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 1.5rem 5rem 1.5rem; 
+}
+
+.pg-content-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  margin-bottom: 5rem;
+  align-items: center;
+}
+
+.pg-narrative-text h2 { 
+  font-size: 2.2rem; 
+  margin-bottom: 1.5rem; 
+  color: var(--pg-text-main); 
+}
+
+.pg-narrative-text p { 
+  margin-bottom: 1.5rem; 
+  color: #475569; 
+  font-size: 1.05rem; 
+  text-align: justify; 
+}
+
+.pg-chairman-quote {
+  background: #FFFBEB;
+  border-left: 5px solid var(--pg-gold);
+  padding: 2rem;
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: #78350F;
+  margin-top: 2rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+/* --- Section Headers --- */
+.pg-section-header { 
+  text-align: center; 
+  margin: 5rem 0 3rem 0; 
+}
+
+.pg-section-header h2 { 
+  font-size: 2.5rem; 
+  color: var(--pg-text-main); 
+  font-weight: 800;
+}
+
+.pg-section-header span { 
+  color: var(--pg-accent); 
+}
+
+.pg-section-line { 
+  max-width: 200px; 
+  margin: 10px auto; 
+  height: 4px; 
+  background: var(--pg-gold); 
+  border-radius: 2px;
+}
+
+/* --- Star Achievers (Gold Cards) --- */
+.pg-gold-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.pg-gold-card {
+  background: #1E293B;
+  color: white;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+
+.pg-gold-card:hover { 
+  transform: translateY(-10px); 
+}
+
+.pg-gold-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
+  background: linear-gradient(135deg, var(--pg-gold) 0%, #B7791F 100%);
+}
+
+.pg-student-img-lg {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  border: 4px solid var(--pg-gold);
+  margin: 0 auto 1.5rem auto;
+  object-fit: cover;
+  background: white;
+}
+
+.pg-gold-package { 
+  font-size: 2.2rem; 
+  font-weight: 800; 
+  color: var(--pg-gold); 
+  margin: 0.5rem 0; 
+}
+
+.pg-gold-name { 
+  font-size: 1.3rem; 
+  font-weight: 700; 
+  margin-bottom: 0.2rem; 
+}
+
+.pg-gold-company { 
+  opacity: 0.8; 
+  font-size: 0.9rem; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+  background: rgba(255,255,255,0.1); 
+  padding: 4px 12px; 
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* --- Placement Gallery Grid --- */
+.pg-achievers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.pg-achiever-card {
+  background: white;
+  border: 1px solid var(--pg-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pg-achiever-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-color: var(--pg-primary);
+}
+
+.pg-achiever-card.pg-premium {
+  border: 1.5px solid #93C5FD;
+  background: #EFF6FF;
+}
+
+.pg-student-img {
+  width: 75px; height: 75px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  border: 2px solid var(--pg-border);
+  background: #f8fafc;
+}
+
+.pg-ac-name { 
+  font-weight: 700; 
+  font-size: 0.95rem; 
+  color: var(--pg-text-main); 
+  margin-bottom: 5px; 
+  text-transform: uppercase; 
+}
+
+.pg-ac-comp { 
+  font-size: 0.85rem; 
+  color: var(--pg-text-muted); 
+  margin-bottom: 10px; 
+  min-height: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pg-ac-pkg { 
+  font-size: 1rem; 
+  color: var(--pg-primary); 
+  font-weight: 700; 
+  background: #E0F2FE; 
+  padding: 4px 12px; 
+  border-radius: 20px; 
+  display: inline-block;
+}
+
+.pg-premium .pg-ac-pkg { 
+  background: var(--pg-primary); 
+  color: white; 
+}
+
+/* --- Tabbed Data Tables --- */
+.pg-tabs-wrapper {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  overflow: hidden;
+  border: 1px solid var(--pg-border);
+}
+
+.pg-tabs-nav {
+  display: flex;
+  background: #1E293B;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.pg-tabs-nav::-webkit-scrollbar { display: none; }
+
+.pg-tab-btn {
+  padding: 1.2rem 2.5rem;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+  font-size: 16px;
+}
+
+.pg-tab-btn:hover { 
+  color: white; 
+  background: rgba(255,255,255,0.05); 
+}
+
+.pg-tab-btn.active { 
+  color: var(--pg-gold); 
+  border-bottom: 3px solid var(--pg-gold); 
+  background: rgba(0,0,0,0.2); 
+}
+
+.pg-tab-content table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  min-width: 600px; 
+}
+
+.pg-tab-content th { 
+  background: #F1F5F9; 
+  text-align: left; 
+  padding: 1.2rem 1.5rem; 
+  font-size: 0.85rem; 
+  text-transform: uppercase; 
+  color: var(--pg-text-muted); 
+  font-weight: 700;
+}
+
+.pg-tab-content td { 
+  padding: 1.2rem 1.5rem; 
+  border-bottom: 1px solid var(--pg-border); 
+  font-size: 0.95rem; 
+  color: var(--pg-text-main); 
+}
+
+.pg-tab-content tr:last-child td { border-bottom: none; }
+.pg-tab-content tr:hover { background: #F8FAFC; }
+
+/* --- Placement Footer --- */
+.pg-footer { 
+  background: #0F172A; 
+  color: #94A3B8; 
+  text-align: center; 
+  padding: 4rem 1rem; 
+  margin-top: 5rem; 
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+  .pg-content-grid { 
+    grid-template-columns: 1fr; 
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pg-hero h1 { font-size: 2.2rem; }
+  .pg-hero p { font-size: 1.2rem; }
+  .pg-stats-grid { grid-template-columns: 1fr 1fr; }
+  .pg-stat-value { font-size: 1.8rem; }
+  .pg-section-header h2 { font-size: 1.8rem; }
+  .pg-gold-card { padding: 2rem 1rem; }
+  .pg-gold-package { font-size: 1.8rem; }
+}

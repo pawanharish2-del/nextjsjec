@@ -1,0 +1,324 @@
+/* ========================================
+   REFUEL & RELAX PAGE STYLES
+   ========================================
+*/
+
+:root {
+    /* Scope variables for this page */
+    --refuel-primary: #0072C6;       
+    --refuel-primary-dark: #005a9e;
+    --refuel-accent: #D62828;        
+    --refuel-gold: #FCA311;          
+    --refuel-fresh-green: #10B981;   
+    
+    --refuel-bg-body: #F8FAFC;
+    --refuel-bg-surface: #FFFFFF;
+    --refuel-text-main: #0F172A;
+    --refuel-text-muted: #475569;
+    --refuel-border: #E2E8F0;
+    
+    --refuel-radius-lg: 20px;
+    --refuel-shadow-card: 0 4px 6px -1px rgba(0,0,0,0.05);
+    --refuel-shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1);
+    
+    --refuel-font-head: 'Poppins', sans-serif;
+    --refuel-font-body: 'Inter', sans-serif;
+}
+
+.refuel-page {
+    font-family: var(--refuel-font-body);
+    background-color: var(--refuel-bg-body);
+    color: var(--refuel-text-main);
+    line-height: 1.8;
+}
+
+/* --- Hero Section --- */
+.refuel-hero {
+    position: relative;
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.6)), 
+                url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 9rem 1rem 12rem 1rem;
+    text-align: center;
+    color: white;
+}
+
+.refuel-hero h1 {
+    font-family: var(--refuel-font-head);
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #fff, #cbd5e1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.refuel-hero p { 
+    font-size: 1.4rem; 
+    color: var(--refuel-gold); 
+    font-weight: 600; 
+    letter-spacing: 1px; 
+}
+
+/* --- Highlight Stats (Floating) --- */
+.refuel-stats-container {
+    max-width: 1200px;
+    margin: -6rem auto 5rem auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.refuel-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.refuel-stat-card {
+    background: var(--refuel-bg-surface);
+    padding: 1.5rem;
+    border-radius: var(--refuel-radius-lg);
+    box-shadow: var(--refuel-shadow-card);
+    text-align: center;
+    transition: transform 0.3s;
+    border-bottom: 4px solid var(--refuel-primary);
+}
+
+.refuel-stat-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: var(--refuel-shadow-hover); 
+}
+
+.refuel-stat-value { 
+    font-size: 1.8rem; 
+    font-weight: 800; 
+    font-family: var(--refuel-font-head); 
+    color: var(--refuel-primary); 
+    line-height: 1; 
+    margin-bottom: 5px; 
+}
+
+.refuel-stat-label { 
+    font-size: 0.8rem; 
+    font-weight: 600; 
+    color: var(--refuel-text-muted); 
+    text-transform: uppercase; 
+}
+
+/* --- Facilities (Split Layout) --- */
+.refuel-container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 1.5rem 5rem 1.5rem; 
+}
+
+.refuel-section-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+.refuel-text-block h2 { 
+    font-family: var(--refuel-font-head); 
+    font-size: 2.2rem; 
+    color: var(--refuel-text-main); 
+    margin-bottom: 1rem; 
+}
+
+.refuel-text-block p { 
+    margin-bottom: 1rem; 
+    font-size: 1.05rem; 
+    color: var(--refuel-text-muted); 
+    text-align: justify; 
+}
+
+.refuel-img-block {
+    height: 450px;
+    border-radius: var(--refuel-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--refuel-shadow-hover);
+    position: relative;
+}
+
+.refuel-img-block img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.5s; 
+}
+
+.refuel-img-block:hover img { 
+    transform: scale(1.05); 
+}
+
+/* --- After Hours Card --- */
+.refuel-activity-card {
+    background: #1E293B;
+    color: white;
+    border-radius: 24px;
+    padding: 3rem;
+    text-align: center;
+    margin-bottom: 6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.refuel-activity-card::before {
+    content: ''; 
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at top right, rgba(252, 163, 17, 0.2), transparent 50%);
+}
+
+.refuel-activity-card h3 { 
+    font-family: var(--refuel-font-head); 
+    font-size: 2rem; 
+    color: var(--refuel-gold); 
+    margin-bottom: 1.5rem; 
+    position: relative; 
+    z-index: 2; 
+}
+
+.refuel-activity-card p { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    font-size: 1.1rem; 
+    opacity: 0.9; 
+    position: relative; 
+    z-index: 2; 
+}
+
+/* --- Nutrition & Science (Green Theme) --- */
+.refuel-wellness-header { 
+    text-align: center; 
+    margin-bottom: 3rem; 
+}
+
+.refuel-wellness-header span { 
+    color: var(--refuel-fresh-green); 
+    font-weight: 700; 
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
+}
+
+.refuel-wellness-header h2 { 
+    font-family: var(--refuel-font-head); 
+    font-size: 2.5rem; 
+    color: var(--refuel-text-main); 
+}
+
+.refuel-science-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.refuel-science-card {
+    background: #F0FDF4; /* Light Green Bg */
+    border: 1px solid #BBF7D0;
+    padding: 2rem;
+    border-radius: var(--refuel-radius-lg);
+    transition: 0.3s;
+}
+
+.refuel-science-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: var(--refuel-shadow-hover); 
+    border-color: var(--refuel-fresh-green); 
+}
+
+.refuel-science-card h3 { 
+    font-family: var(--refuel-font-head); 
+    color: #15803D; 
+    margin-bottom: 1rem; 
+    font-size: 1.2rem; 
+}
+
+.refuel-science-card ul { 
+    padding-left: 1.2rem; 
+    color: #334155; 
+}
+
+.refuel-science-card li { 
+    margin-bottom: 0.8rem; 
+    font-size: 0.95rem; 
+}
+
+/* --- Diet Tips Grid --- */
+.refuel-section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.refuel-section-header h2 {
+    font-family: var(--refuel-font-head);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.refuel-tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.refuel-tip-card {
+    background: white;
+    border: 1px solid var(--refuel-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.refuel-tip-card:hover { 
+    border-color: var(--refuel-primary); 
+    box-shadow: var(--refuel-shadow-card); 
+}
+
+.refuel-tip-icon {
+    width: 60px; height: 60px;
+    background: #EFF6FF; 
+    color: var(--refuel-primary);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; 
+    margin: 0 auto 1rem auto;
+}
+
+.refuel-tip-card h4 { 
+    font-weight: 700; 
+    margin-bottom: 0.5rem; 
+    color: var(--refuel-text-main); 
+}
+
+.refuel-tip-card p { 
+    font-size: 0.9rem; 
+    color: var(--refuel-text-muted); 
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .refuel-section-split { 
+        grid-template-columns: 1fr; 
+    }
+    .refuel-img-block { 
+        height: 300px; 
+        order: -1; 
+    }
+    .refuel-hero h1 { 
+        font-size: 2.8rem; 
+    }
+    .refuel-stats-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}

@@ -1,0 +1,226 @@
+/* src/styles/GrievanceRedressal.css */
+
+:root {
+    --jec-red: #D62828;
+    --jec-blue: #0072C6;
+    --jec-gold: #FCA311;
+    --jec-dark: #1D1D1D;
+    --jec-white: #FFFFFF;
+    --bg-light: #f4f6f9;
+}
+
+/* Main Container - Centered with top padding for fixed header */
+.grievance-container {
+    padding: 100px 20px 0px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top so it doesn't cut off on small screens */
+    background: var(--bg-light);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Card Styling */
+.grievance-card {
+    background: var(--jec-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 800px;
+    border-top: 5px solid var(--jec-blue);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+    /* Heading */
+    .grievance-card h2 {
+        color: var(--jec-blue);
+        margin: 0 0 10px 0;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+/* Subtitle */
+.grievance-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 35px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+/* Form Layout */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+.grievance-card label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--jec-dark);
+    font-size: 0.9rem;
+}
+
+    .grievance-card label.required::after {
+        content: " *";
+        color: var(--jec-red);
+    }
+
+/* Inputs & Selects */
+.grievance-card input[type="text"],
+.grievance-card input[type="tel"],
+.grievance-card input[type="email"],
+.grievance-card select,
+.grievance-card textarea {
+    padding: 12px 16px;
+    background-color: #fdfdfd;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: var(--jec-dark);
+    transition: all 0.3s ease;
+    width: 100%;
+    font-family: inherit;
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+    .grievance-card input:focus,
+    .grievance-card select:focus,
+    .grievance-card textarea:focus {
+        border-color: var(--jec-blue);
+        box-shadow: 0 0 0 4px rgba(0, 114, 198, 0.1);
+        outline: none;
+        background-color: #fff;
+    }
+
+/* Textarea specific */
+.grievance-card textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Disclaimer Checkbox Group */
+.disclaimer-group {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+    .disclaimer-group input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-top: 2px;
+        cursor: pointer;
+        accent-color: var(--jec-blue); /* Colors the checkbox blue */
+    }
+
+    .disclaimer-group label {
+        margin: 0;
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: #555;
+        cursor: pointer;
+    }
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: var(--jec-blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 114, 198, 0.2);
+}
+
+    .submit-btn:hover {
+        background: #005a9e;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 114, 198, 0.3);
+    }
+
+    .submit-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+
+/* Notes Section at the bottom */
+.note-section {
+    margin-top: 40px;
+    padding: 20px;
+    background: #fff8e1;
+    border-left: 4px solid var(--jec-gold);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #5d4037;
+}
+
+    .note-section strong {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-size: 0.9rem;
+    }
+
+    .note-section ul {
+        padding-left: 20px;
+        margin: 0;
+    }
+
+    .note-section li {
+        margin-bottom: 4px;
+    }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .grievance-container {
+        padding: 30px 15px;
+        padding-top: 90px;
+        align-items: flex-start;
+    }
+
+    .grievance-card {
+        padding: 25px;
+    }
+}
+/* ... existing styles ... */
+

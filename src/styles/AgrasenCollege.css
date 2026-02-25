@@ -1,0 +1,281 @@
+/* ========================================
+   AGRASEN COLLEGE STYLES
+   ========================================
+*/
+
+:root {
+  --ac-blue: #0072C6;       
+  --ac-red: #D62828;        
+  --ac-gold: #FCA311;       
+  --ac-bg-body: #F8FAFC;
+  --ac-bg-surface: #FFFFFF;
+  --ac-text-main: #0F172A;
+  --ac-text-muted: #475569;
+  --ac-border: #E2E8F0;
+  --ac-radius-lg: 16px;
+  --ac-shadow-card: 0 4px 6px -1px rgba(0,0,0,0.05);
+  --ac-shadow-hover: 0 20px 25px -5px rgba(0, 114, 198, 0.15);
+  --ac-font-head: 'Poppins', sans-serif;
+  --ac-font-body: 'Inter', sans-serif;
+}
+
+.ac-page {
+  font-family: var(--ac-font-body);
+  background-color: var(--ac-bg-body);
+  color: var(--ac-text-main);
+  line-height: 1.8;
+}
+
+/* --- Hero Section --- */
+.ac-hero {
+  position: relative;
+  background: linear-gradient(rgba(0, 114, 198, 0.85), rgba(0, 50, 100, 0.75));
+  padding: 9rem 1rem 12rem 1rem;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.ac-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Use an image available in your public folder */
+  background: url('/images/hero.jpg') no-repeat center center/cover;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.ac-hero h1, .ac-hero p, .ac-course-badges {
+  position: relative;
+  z-index: 1;
+}
+
+.ac-hero h1 {
+  font-family: var(--ac-font-head);
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+.ac-hero p {
+  font-size: 1.4rem;
+  color: var(--ac-gold);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+
+.ac-course-badges {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ac-badge {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  backdrop-filter: blur(5px);
+}
+
+/* --- Content Container --- */
+.ac-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem 1.5rem;
+}
+
+/* --- Split Layout (History) --- */
+.ac-section-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: -5rem; /* Overlap Hero */
+  margin-bottom: 6rem;
+  position: relative;
+  z-index: 10;
+}
+
+.ac-text-block {
+  background: white;
+  padding: 3rem;
+  border-radius: var(--ac-radius-lg);
+  box-shadow: var(--ac-shadow-card);
+  border-top: 5px solid var(--ac-red);
+}
+
+.ac-text-block h2 {
+  font-family: var(--ac-font-head);
+  font-size: 2rem;
+  color: var(--ac-text-main);
+  margin-bottom: 1rem;
+}
+
+.ac-text-block p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--ac-text-muted);
+  text-align: justify;
+}
+
+.ac-img-block {
+  height: 500px;
+  border-radius: var(--ac-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--ac-shadow-hover);
+  border: 5px solid white;
+}
+
+.ac-img-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.ac-img-block:hover img {
+  transform: scale(1.05);
+}
+
+/* --- Philosophy Quote --- */
+.ac-quote-section {
+  text-align: center;
+  margin-bottom: 6rem;
+  padding: 4rem 2rem;
+  background: #F0F9FF;
+  border-radius: var(--ac-radius-lg);
+  border: 1px solid #BAE6FD;
+  position: relative;
+}
+
+.ac-quote-section i {
+  font-size: 3rem;
+  color: var(--ac-blue);
+  opacity: 0.3;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.ac-quote-text {
+  font-family: var(--ac-font-head);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ac-text-main);
+  line-height: 1.4;
+  max-width: 900px;
+  margin: 0 auto 1rem auto;
+}
+
+.ac-quote-sub {
+  font-size: 1.1rem;
+  color: var(--ac-text-muted);
+}
+
+/* --- Features Grid --- */
+.ac-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 6rem;
+}
+
+.ac-feature-card {
+  background: var(--ac-bg-surface);
+  padding: 2rem;
+  border-radius: var(--ac-radius-lg);
+  box-shadow: var(--ac-shadow-card);
+  border-left: 5px solid var(--ac-gold);
+  transition: 0.3s;
+}
+
+.ac-feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--ac-shadow-hover);
+}
+
+.ac-fc-title {
+  font-family: var(--ac-font-head);
+  font-size: 1.4rem;
+  color: var(--ac-blue);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ac-fc-text {
+  font-size: 1rem;
+  color: var(--ac-text-muted);
+  line-height: 1.7;
+}
+
+/* --- CTA Section --- */
+.ac-cta-section {
+  background: #1E293B;
+  color: white;
+  border-radius: var(--ac-radius-lg);
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ac-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--ac-blue), var(--ac-gold), var(--ac-red));
+}
+
+.ac-cta-section h2 {
+  font-family: var(--ac-font-head);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.ac-cta-section p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 0;
+}
+
+.ac-btn-visit {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  background: var(--ac-red);
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(214, 40, 40, 0.4);
+}
+
+.ac-btn-visit:hover {
+  transform: translateY(-3px);
+  background: #b91c1c;
+  color: white;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .ac-section-split {
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+  }
+  .ac-text-block { order: 2; }
+  .ac-img-block { height: 300px; order: 1; }
+  .ac-hero h1 { font-size: 2.5rem; }
+}

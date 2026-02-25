@@ -1,0 +1,265 @@
+/* ==========================================================================
+   MANAGEMENT PAGE STYLES - COMPACT & CLEAN MOBILE
+   ========================================================================== */
+
+.management-page-new {
+    --logo-white: #ffffff;
+    --logo-black: #000000;
+    --logo-blue: #0072c6;
+    --logo-red: #e63946;
+    --logo-gold: #f1c40f;
+    --color-text-primary: #333333;
+    --color-text-secondary: #555555;
+    --color-background-light: #fdfdfd;
+    --shadow-medium: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.management-page-new {
+    background-color: var(--color-background-light);
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-primary);
+    overflow-x: hidden;
+}
+
+.max-width-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- HERO SECTION --- */
+.leadership-hero {
+    height: 400px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("https://jeckukas.org.in/static/media/hero.2e587530d72276404d56.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--logo-white);
+    margin-bottom: 60px;
+}
+
+.leadership-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.leadership-hero p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    opacity: 0.9;
+    color: var(--logo-gold);
+}
+
+/* --- HERO BADGES --- */
+.hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--logo-white);
+}
+
+/* --- MANAGEMENT CONTENT --- */
+.management-section {
+    padding-bottom: 80px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--logo-blue);
+    font-weight: 800;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: var(--logo-red);
+    margin: 15px auto 0;
+    border-radius: 3px;
+}
+
+/* --- LEADER CARDS (Compact & Zig-Zag) --- */
+.leader-card {
+    display: flex;
+    background: var(--logo-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    margin-bottom: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+
+    /* FIXED: Reduced height from 520px to 400px for smaller containers */
+    min-height: 400px;
+    height: 100%;
+}
+
+/* 1. ODD CARDS (Image Left) */
+.leader-card:nth-child(odd) {
+    flex-direction: row;
+}
+
+/* 2. EVEN CARDS (Image Right) */
+.leader-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.leader-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Container */
+.leader-img-container {
+    flex: 0 0 280px;
+    /* Kept narrow to save space */
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    /* White bg ensures no gray bars */
+}
+
+.leader-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.5s ease;
+}
+
+.leader-card:hover .leader-img {
+    transform: scale(1.05);
+}
+
+/* Content Side - REDUCED WHITE SPACE */
+.leader-content {
+    flex: 1;
+    padding: 20px 30px;
+    /* Reduced padding (was 30px 40px) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.leader-name {
+    font-size: 1.5rem;
+    /* Slightly smaller for compact look */
+    font-weight: 700;
+    color: var(--logo-red);
+    margin-bottom: 5px;
+}
+
+.leader-position {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--logo-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.bio-text p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    text-align: justify;
+}
+
+/* --- RESPONSIVE DESIGN (Mobile & Tablet) --- */
+@media (max-width: 992px) {
+
+    /* RESET Zig-Zag on Mobile */
+    .leader-card,
+    .leader-card:nth-child(even),
+    .leader-card:nth-child(odd) {
+        flex-direction: column;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: auto;
+        /* Let it grow naturally */
+        height: auto;
+    }
+
+    /* FIX FOR MOBILE IMAGES & GRAY SPACE */
+    .leader-img-container {
+        flex: none;
+        width: 100%;
+        height: auto;
+        /* Removed fixed heights to prevent cutting */
+        background-color: #ffffff;
+        /* FIXED: Changed from gray to white */
+        display: block;
+        /* Simpler display to let image flow */
+    }
+
+    .leader-img {
+        width: 100%;
+        height: auto;
+        /* Allow natural height */
+        max-height: 450px;
+        /* Cap it so it doesn't get too tall */
+        object-fit: contain;
+        /* Ensures full image is seen */
+        object-position: top;
+        display: block;
+        /* Removes bottom space */
+    }
+
+    .leader-content {
+        padding: 25px 20px;
+        justify-content: flex-start;
+    }
+
+    .leadership-hero {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .leadership-hero h1 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .leader-name {
+        font-size: 1.4rem;
+    }
+
+    .hero-badges {
+        display: none;
+    }
+}

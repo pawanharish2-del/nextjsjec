@@ -1,0 +1,391 @@
+/* src/pages/DocumentsRequired.css */
+
+/* --- Page Container Scope --- */
+.docs-page-container {
+    --doc-primary: #D62828;
+    /* Red */
+    --doc-secondary: #0072C6;
+    /* Blue */
+    --doc-dark: #1D1D1D;
+    /* Black */
+    --doc-accent: #FCA311;
+    /* Gold/Yellow */
+    --doc-bg: #f4f7fa;
+    /* Light Grey Background */
+    --doc-white: #ffffff;
+    --doc-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    --doc-border: #e0e0e0;
+
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    background-color: var(--doc-bg);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+/* --- Layout Container (Strict Alignment) --- */
+.docs-container-layout {
+    /* Matches Header/Subheader exactly */
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* =========================================
+   UPDATED HERO SECTION WITH IMAGE
+   ========================================= */
+.docs-hero-section {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    /* Fixed height to match other pages */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--doc-white);
+    overflow: hidden;
+    background-color: var(--doc-secondary);
+    /* Fallback */
+    padding: 0;
+    /* Remove padding as flexbox handles centering */
+}
+
+/* The Background Image */
+.doc-hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* The Dark Overlay */
+.docs-hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* 60% opacity black */
+    z-index: 2;
+}
+
+/* The Content Wrapper (sits on top of overlay) */
+.doc-hero-overlay {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+}
+
+.docs-hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Added shadow for readability */
+}
+
+.docs-hero-content p {
+    font-size: 1.15rem;
+    opacity: 0.95;
+    margin: 0 auto;
+    max-width: 800px;
+    line-height: 1.5;
+}
+
+/* --- Content Wrapper --- */
+.docs-content-wrapper {
+    /* Only vertical padding; horizontal is handled by .docs-container-layout */
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* --- Notice Box --- */
+.docs-notice-box {
+    background: #fff8e1;
+    border-left: 5px solid var(--doc-accent);
+    padding: 20px;
+    border-radius: 6px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.notice-icon i {
+    font-size: 1.5rem;
+    color: #b77908;
+    margin-top: 3px;
+}
+
+.notice-text {
+    color: #634d1b;
+    font-size: 0.95rem;
+}
+
+/* --- Cards (Main Sections) --- */
+.docs-card {
+    background: var(--doc-white);
+    border-radius: 12px;
+    box-shadow: var(--doc-shadow);
+    overflow: hidden;
+    border-top: 5px solid var(--doc-primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.docs-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.docs-card.mtech-card {
+    border-top-color: var(--doc-secondary);
+}
+
+/* --- Section Headers --- */
+.docs-card-header {
+    padding: 25px 30px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--doc-border);
+    gap: 20px;
+}
+
+.header-icon i {
+    font-size: 2rem;
+    color: var(--doc-secondary);
+    opacity: 0.8;
+}
+
+.header-title {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.header-title h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--doc-dark);
+}
+
+.docs-session-badge {
+    background: var(--doc-primary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.docs-session-badge.badge-blue {
+    background: var(--doc-secondary);
+}
+
+/* --- Tables --- */
+.docs-table-container {
+    overflow-x: auto;
+    padding: 20px 30px;
+}
+
+.docs-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.docs-table th {
+    background: #f8f9fa;
+    color: var(--doc-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid var(--doc-secondary);
+}
+
+.docs-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.docs-table tr:last-child td {
+    border-bottom: none;
+}
+
+.docs-table tr:hover td {
+    background-color: #fcfcfc;
+}
+
+/* Badges in Table */
+.badge-original {
+    color: var(--doc-primary);
+    font-weight: 700;
+}
+
+.badge-copy {
+    color: var(--doc-secondary);
+    font-weight: 600;
+}
+
+.text-muted {
+    color: #999;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+/* --- Subsections --- */
+.docs-subsection {
+    padding: 10px 0;
+}
+
+.subsection-title {
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.subsection-title .dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--doc-accent);
+    border-radius: 50%;
+}
+
+.subsection-title h3 {
+    font-size: 1.1rem;
+    color: var(--doc-primary);
+    margin: 0;
+}
+
+/* --- Contact Section --- */
+.docs-contact-section {
+    background: var(--doc-dark);
+    color: var(--doc-white);
+    padding: 60px 40px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.docs-contact-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.contact-content h2 {
+    color: var(--doc-accent);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.contact-content p {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    opacity: 0.8;
+}
+
+.contact-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 25px;
+    border-radius: 30px;
+    color: var(--doc-white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-pill:hover {
+    background: var(--doc-white);
+    color: var(--doc-dark);
+    transform: translateY(-3px);
+}
+
+.contact-pill i {
+    color: var(--doc-accent);
+}
+
+.contact-pill:hover i {
+    color: var(--doc-primary);
+}
+
+/* --- Responsive Alignment Adjustments --- */
+@media (max-width: 992px) {
+
+    /* Match App.css mobile padding logic for seamless alignment */
+    .docs-container-layout {
+        padding: 0 15px;
+    }
+
+    /* Removed padding from hero since flexbox handles it now */
+}
+
+@media (max-width: 768px) {
+    .header-title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .docs-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .docs-table-container {
+        padding: 15px;
+    }
+
+    .contact-pill {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .docs-hero-content h1 {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,101 @@
+/* AFFILIATION SECTION STYLES */
+
+.affiliation-section {
+    padding: 60px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.aff-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #007bff; /* Bright Blue */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.aff-underline {
+    width: 60px;
+    height: 4px;
+    background-color: #e63946; /* Red underline */
+    margin: 0 auto 50px;
+    border-radius: 2px;
+}
+
+.logo-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.logo-item img {
+    height: 60px; /* Adjust based on your actual logo aspect ratios */
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.logo-item img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* DARK ACTIVITIES BAR */
+.activities-bar {
+    background-color: #1a1a1a; /* Dark Gray/Black */
+    padding: 20px 0;
+    color: white;
+    border-top: 4px solid #f1c40f; /* Yellow top border */
+}
+
+.activities-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.activities-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #aaa;
+    letter-spacing: 1px;
+}
+
+.activities-badges {
+    display: flex;
+    gap: 15px;
+}
+
+.act-badge {
+    background-color: #333;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid #444;
+    transition: 0.3s;
+}
+
+.act-badge:hover {
+    background-color: #f1c40f;
+    color: #000;
+    border-color: #f1c40f;
+}
+
+@media (max-width: 768px) {
+    .activities-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .activities-badges {
+        flex-direction: column;
+        width: 100%;
+    }
+}
