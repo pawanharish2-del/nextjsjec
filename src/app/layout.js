@@ -20,6 +20,20 @@ export default function RootLayout({ children }) {
       </head>
       <body style={{ margin: 0, padding: 0, fontFamily: "'Poppins', sans-serif" }}>
 
+        {/* NoPaperForms DTC Tracking Code */}
+        <Script id="npf-dtc-tracking" strategy="afterInteractive">
+          {`
+            var npf_d='https://admission.jeckukas.org.in';
+            var npf_c='6958';
+            var npf_m='1';
+            var s=document.createElement("script");
+            s.type="text/javascript";
+            s.async=true;
+            s.src="https://track.nopaperforms.com/js/track.js";
+            document.body.appendChild(s);
+          `}
+        </Script>
+
         {/* Google Tag Manager */}
         <Script id="gtm-script" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

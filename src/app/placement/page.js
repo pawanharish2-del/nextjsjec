@@ -105,7 +105,7 @@ function Placements() {
                         <div className="pg-stat-label">Highest Package</div>
                     </div>
                     <div className="pg-stat-card">
-                        <div className="pg-stat-value">4300+</div>
+                        <div className="pg-stat-value">9000+</div>
                         <div className="pg-stat-label">Total Placements</div>
                     </div>
                     <div className="pg-stat-card">
