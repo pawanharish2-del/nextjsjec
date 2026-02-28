@@ -104,7 +104,7 @@ function Department() {
                             />
 
                             <div className="eligibility-action">
-                                <Link href="/admission-enquiry" className="dept-apply-btn">
+                                <Link href="https://admission.jeckukas.org.in/" className="dept-apply-btn">
                                     Apply Now <i className="fas fa-arrow-right" style={{ marginLeft: '8px' }}></i>
                                 </Link>
                             </div>
