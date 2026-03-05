@@ -53,8 +53,13 @@
 .take-a-tour-content {
     max-width: 800px;
     margin: 0 auto;
+    position: static;
+    /* z-index: 2;  force text to stay on top */
+}
+.take-a-tour-title,
+.take-a-tour-subtitle {
     position: relative;
-    z-index: 2; /* Forces text to stay on top */
+    z-index: 2;
 }
 
 .take-a-tour-title {
@@ -87,9 +92,15 @@
     text-transform: uppercase;
     cursor: pointer;
     touch-action: manipulation;
-    position: relative;
-    z-index: 10; /* Highest priority for clicking */
+    /* position: relative; */
+    /* z-index: 10;  */
+    position: absolute; 
+    bottom: 40px; /* Distance from the bottom of the section */
+    left: 40px;   /* Distance from the left side of the section */
+    z-index: 10;
+
 }
+
 
 .tour-mute-btn:hover,
 .tour-mute-btn.active {
@@ -117,5 +128,7 @@
     .tour-mute-btn {
         padding: 12px 30px;
         font-size: 15px;
+        bottom: 20px; /* Reduced distance for mobile */
+        left: 20px;   /* Reduced distance for mobile */
     }
 }
