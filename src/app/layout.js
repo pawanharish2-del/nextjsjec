@@ -17,6 +17,8 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+      </head>
+      <body style={{ margin: 0, padding: 0, fontFamily: "'Poppins', sans-serif" }}>
 
         {/* Google Tag Manager */}
         <Script id="gtm-script" strategy="afterInteractive">
@@ -26,8 +28,6 @@ export default function RootLayout({ children }) {
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-TVSZX7C9');`}
         </Script>
-      </head>
-      <body style={{ margin: 0, padding: 0, fontFamily: "'Poppins', sans-serif" }}>
 
         {/* Google Tag Manager (noscript) */}
         <noscript>
