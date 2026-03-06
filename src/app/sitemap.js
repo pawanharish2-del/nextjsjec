@@ -4,7 +4,7 @@ import { collection, getDocs } from 'firebase/firestore';
 export const revalidate = 3600;
 
 export default async function sitemap() {
-  const baseUrl = 'https://www.jeckukas.org.in';
+  const baseUrl = 'https://jeckukas.org.in';
 
   // 1. Static Routes (All pages existing as physical folders in your src/app)
   const staticRoutes = [
