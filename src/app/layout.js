@@ -17,8 +17,27 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+        {/* Google Tag Manager */}
+        <Script id="gtm-script" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-TVSZX7C9');`}
+        </Script>
       </head>
       <body style={{ margin: 0, padding: 0, fontFamily: "'Poppins', sans-serif" }}>
+
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TVSZX7C9"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
 
         {/* NoPaperForms DTC Tracking Code */}
         <Script id="npf-dtc-tracking" strategy="afterInteractive">
@@ -33,53 +52,6 @@ export default function RootLayout({ children }) {
             document.body.appendChild(s);
           `}
         </Script>
-
-        {/* Google Tag Manager */}
-        <Script id="gtm-script" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-W6GFCXV4');`}
-        </Script>
-
-        {/* Google Analytics (GA4) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-VS43V49H94"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-VS43V49H94');
-          `}
-        </Script>
-
-        {/* Google Tag Manager (New GTAG) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-WETN3TWF7Q"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics-weT" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-WETN3TWF7Q');
-          `}
-        </Script>
-
-        {/* Google Tag Manager (NoScript Fallback) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-W6GFCXV4"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
 
         {/* Meta Pixel Code */}
         <Script id="meta-pixel" strategy="afterInteractive">
