@@ -15,17 +15,6 @@ const ClientLayout = ({ children }) => {
 
     if (pathname === '/') {
       popup.style.display = 'flex';
-
-      // Load NoPaperForms widget script (client-side only to avoid hydration mismatch)
-      const oldScript = document.getElementById('nopaperforms-script');
-      if (oldScript) oldScript.remove();
-
-      const s = document.createElement("script");
-      s.id = "nopaperforms-script";
-      s.type = "text/javascript";
-      s.async = true;
-      s.src = "https://widgets.in4.nopaperforms.com/emwgts.js";
-      document.body.appendChild(s);
     } else {
       popup.style.display = 'none';
     }

@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { db } from '@/firebase'; 
+import { db } from '@/firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
-import '@/styles/VideoGallery.css'; 
+import '@/styles/VideoGallery.css';
 
 
 // export const metadata = {
@@ -52,10 +52,19 @@ const VideoGallery = () => {
   const cover3 = videos[2]?.videoId || 'dQw4w9WgXcQ';
 
   const closeCategoryModal = (e) => {
-    if (e) e.preventDefault(); 
+    if (e) e.preventDefault();
     setSelectedCategory(null);
-    document.body.style.overflow = 'auto'; 
+    document.body.style.overflow = 'auto';
+    document.body.classList.remove('gallery-modal-open');
   };
+
+  // Cleanup class unmount
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove('gallery-modal-open');
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   const closePlayer = (e) => {
     if (e) {
@@ -67,8 +76,9 @@ const VideoGallery = () => {
 
   const openCategory = (categoryName) => {
     setSelectedCategory(categoryName);
-    window.scrollTo(0, 0); 
-    document.body.style.overflow = 'hidden'; 
+    window.scrollTo(0, 0);
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('gallery-modal-open');
   };
 
   const playVideo = (videoId) => {
@@ -77,7 +87,7 @@ const VideoGallery = () => {
 
   if (loading) {
     return (
-      <div className="video-gallery-wrapper" style={{display:'flex', justifyContent:'center', alignItems:'center', height:'100vh', color:'#fff', background:'#0F172A'}}>
+      <div className="video-gallery-wrapper" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', color: '#fff', background: '#0F172A' }}>
         <h2>Loading Gallery...</h2>
       </div>
     );
@@ -85,7 +95,7 @@ const VideoGallery = () => {
 
   return (
     <div className="video-gallery-wrapper">
-      
+
       {/* --- UPDATED HERO SECTION --- */}
       <header className="modern-hero">
         <div className="hero-content">
@@ -96,7 +106,7 @@ const VideoGallery = () => {
             <i className="fas fa-arrow-down"></i> Scroll to Video Albums
           </div>
         </div>
-        
+
         <div className="hero-collage">
           <div className="blob blob-1"></div>
           <div className="blob blob-2"></div>
@@ -114,47 +124,47 @@ const VideoGallery = () => {
             <p style={{ color: 'rgba(255,255,255,0.6)', marginTop: '5px' }}>Select a category to view the playlist.</p>
           </div>
         </div>
-        
+
         {Object.keys(albums).length === 0 ? (
-            <div style={{textAlign:'center', color:'#666', padding:'40px'}}>No video albums found.</div>
+          <div style={{ textAlign: 'center', color: '#666', padding: '40px' }}>No video albums found.</div>
         ) : (
-            <div className="album-grid">
+          <div className="album-grid">
             {Object.entries(albums).map(([category, catVideos]) => {
-                const coverImg = `https://img.youtube.com/vi/${catVideos[0].videoId}/hqdefault.jpg`;
-                return (
-                  <div key={category} className="album-card" onClick={() => openCategory(category)}>
-                    <div className="album-cover">
-                      <img src={coverImg} alt={category} />
-                      <div className="folder-overlay">
-                        <div className="view-btn">View Playlist</div>
-                      </div>
-                    </div>
-                    <div className="album-info">
-                      <span className="album-count">{catVideos.length} Videos</span>
-                      <div className="album-title">{category}</div>
+              const coverImg = `https://img.youtube.com/vi/${catVideos[0].videoId}/hqdefault.jpg`;
+              return (
+                <div key={category} className="album-card" onClick={() => openCategory(category)}>
+                  <div className="album-cover">
+                    <img src={coverImg} alt={category} />
+                    <div className="folder-overlay">
+                      <div className="view-btn">View Playlist</div>
                     </div>
                   </div>
-                );
+                  <div className="album-info">
+                    <span className="album-count">{catVideos.length} Videos</span>
+                    <div className="album-title">{category}</div>
+                  </div>
+                </div>
+              );
             })}
-            </div>
+          </div>
         )}
       </div>
 
       {/* --- ALBUM MODAL (Logic preserved with X icon) --- */}
       {selectedCategory && (
-        <div className="category-modal" style={{ 
-            paddingTop: '130px', 
-            backgroundColor: '#0F172A', 
-            zIndex: 1000 
+        <div className="category-modal" style={{
+          paddingTop: '40px',
+          backgroundColor: '#0F172A',
+          zIndex: 1000
         }}>
           <div className="container">
-            <div style={{ 
-                display: 'flex', 
-                justifyContent: 'space-between', 
-                alignItems: 'center', 
-                paddingBottom: '1rem',
-                marginBottom: '50px', 
-                borderBottom: '1px solid rgba(255,255,255,0.1)' 
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              paddingBottom: '1rem',
+              marginBottom: '50px',
+              borderBottom: '1px solid rgba(255,255,255,0.1)'
             }}>
               <h2 style={{ margin: 0, color: '#f39c12', fontSize: '2rem' }}>{selectedCategory}</h2>
               <div onClick={closeCategoryModal} style={{ cursor: 'pointer' }}>
@@ -184,12 +194,12 @@ const VideoGallery = () => {
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </div>
 
-          <div className="player-wrapper" 
-               onClick={(e) => e.stopPropagation()} 
-               style={{ marginTop: '140px' }} 
+          <div className="player-wrapper"
+            onClick={(e) => e.stopPropagation()}
+            style={{ marginTop: '0px' }}
           >
-            <iframe 
-              src={`https://www.youtube.com/embed/${playingVideoId}?autoplay=1&rel=0`} 
+            <iframe
+              src={`https://www.youtube.com/embed/${playingVideoId}?autoplay=1&rel=0`}
               frameBorder="0" allowFullScreen title="Video Player"
             ></iframe>
           </div>

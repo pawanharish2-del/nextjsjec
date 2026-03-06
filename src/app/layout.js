@@ -57,6 +57,20 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
+        {/* Google Tag Manager (New GTAG) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-WETN3TWF7Q"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics-weT" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-WETN3TWF7Q');
+          `}
+        </Script>
+
         {/* Google Tag Manager (NoScript Fallback) */}
         <noscript>
           <iframe
@@ -85,37 +99,40 @@ export default function RootLayout({ children }) {
           id="admission-popup"
           className="popup-overlay"
           style={{ display: 'none' }}
-          suppressHydrationWarning={true}
-        >
-          <div className="popup-content">
-            <button id="admission-close-btn" className="close-btn">&times;</button>
-            <div
-              className="npf_wgts"
-              data-height="780px"
-              data-w="c1073fe2350d112d90b129addc24e9ff"
-              suppressHydrationWarning={true}
-            ></div>
-          </div>
-        </div>
+          dangerouslySetInnerHTML={{
+            __html: `
+         <div class="popup-content">
+           <button id="admission-close-btn" class="close-btn">&times;</button>
+           <div
+             class="npf_wgts"
+             data-height="780px"
+             data-w="c1073fe2350d112d90b129addc24e9ff"
+           ></div>
+           
+           <!-- Fetch and execute instantly while DOM is pausing here -->
+           <script type="text/javascript" src="https://widgets.in4.nopaperforms.com/emwgts.js"></script>
+         </div>
+         `
+          }}
+        />
 
         {/*
           Inline script — runs immediately when the browser parses this tag,
           BEFORE React hydration. Shows popup on homepage only.
-          The NoPaperForms widget script is loaded in ClientLayout
-          (after hydration) to avoid the iframe hydration mismatch error.
         */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              (function() {
-                if (window.location.pathname === '/' || window.location.pathname === '') {
+        (function() {
+        // Instantly show the popup layer
+        if (window.location.pathname === '/' || window.location.pathname === '') {
                   var popup = document.getElementById('admission-popup');
-                  if (popup) {
-                    popup.style.display = 'flex';
+        if (popup) {
+          popup.style.display = 'flex';
                   }
                 }
               })();
-            `
+        `
           }}
         />
 

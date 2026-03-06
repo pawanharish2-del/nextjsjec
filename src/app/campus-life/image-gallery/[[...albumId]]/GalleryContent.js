@@ -33,13 +33,23 @@ const GalleryContent = () => {
         setSelectedAlbum(album);
         window.scrollTo(0, 0);
         document.body.style.overflow = 'hidden';
+        document.body.classList.add('gallery-modal-open');
     };
 
     const closeAlbum = () => {
         setSelectedAlbum(null);
         setViewerIndex(null);
         document.body.style.overflow = 'auto';
+        document.body.classList.remove('gallery-modal-open');
     };
+
+    // Cleanup class unmount
+    useEffect(() => {
+        return () => {
+            document.body.classList.remove('gallery-modal-open');
+            document.body.style.overflow = 'auto';
+        };
+    }, []);
 
     const openViewer = (index) => {
         setViewerIndex(index);

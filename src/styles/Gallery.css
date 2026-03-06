@@ -393,16 +393,21 @@
     line-height: 1.4;
 }
 
+/* --- HIDE HEADER GLOBALLY WHEN MODAL IS OPEN --- */
+body.gallery-modal-open .sticky-header,
+body.gallery-modal-open .jec-master-header {
+    display: none !important;
+}
+
 /* --- 4. MODALS & VIEWER --- */
 .gallery-page .modal {
     display: block;
     position: fixed;
     z-index: 2000;
     left: 0;
-    /* Start below the full header (top-bar 48px + nav 76px = 124px) */
-    top: calc(var(--jec-top-bar-height, 48px) + var(--jec-height, 76px));
+    top: 0;
     width: 100%;
-    height: calc(100% - var(--jec-top-bar-height, 48px) - var(--jec-height, 76px));
+    height: 100%;
     background-color: rgba(15, 23, 42, 0.98);
     backdrop-filter: blur(10px);
     overflow-y: auto;
@@ -413,8 +418,8 @@
 /* On mobile, top-bar is hidden so only nav height (76px) applies */
 @media (max-width: 1024px) {
     .gallery-page .modal {
-        top: var(--jec-height, 76px);
-        height: calc(100% - var(--jec-height, 76px));
+        top: 0;
+        height: 100%;
     }
 }
 
