@@ -81,8 +81,8 @@ function VirtualTour() {
             </div>
 
             <div className="take-a-tour-content">
-                <h2 className="take-a-tour-title">JEC Campus Experience</h2>
-                <p className="take-a-tour-subtitle">Experience our world-class infrastructure and vibrant campus life in this immersive tour.</p>
+                {/* <h2 className="take-a-tour-title">JEC Campus Experience</h2>
+                <p className="take-a-tour-subtitle">Experience our world-class infrastructure and vibrant campus life in this immersive tour.</p> */}
 
                 <div className="tour-actions">
                     <button

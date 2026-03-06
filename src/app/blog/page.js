@@ -10,6 +10,7 @@ const Blog = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState(''); // added this line now
 
     // Fetch Posts from Firebase
     useEffect(() => {
@@ -44,14 +45,33 @@ const Blog = () => {
         return `/blog/${post.slug || post.id}`;
     };
 
-    // Helper: Separate Featured Post
-    const featuredPost = posts.find(post => post.isFeatured === true);
-    const regularPosts = posts.filter(post => post.id !== featuredPost?.id);
+    // --- NEW FILTERING LOGIC ---
+const isFiltering = searchTerm.trim() !== '' || selectedCategory !== '';
 
-    // Helper: Filter by Search
-    const filteredPosts = regularPosts.filter(post =>
-        post.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+// Only show the big featured post if we are NOT searching or clicking a category
+const featuredPost = !isFiltering ? posts.find(post => post.isFeatured === true) : null;
+
+const filteredPosts = posts.filter(post => {
+    // Hide the featured post from the grid if we are on the default view
+    if (!isFiltering && featuredPost && post.id === featuredPost.id) {
+        return false; 
+    }
+
+    // Check search term (looks in title and excerpt)
+    const matchesSearch = post.title?.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                          post.excerpt?.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    // Check category
+    const matchesCategory = selectedCategory === '' || post.category === selectedCategory;
+
+    return matchesSearch && matchesCategory;
+});
+
+// List of exact categories for your sidebar
+const categories = [
+    "Engineering", "Admissions", "Campus Life", "Placements", 
+    "Career", "Science & Technology", "Why JEC", "Business", "Motivational"
+];
 
     if (loading) {
         return <div className="blog-page-wrapper" style={{ padding: '100px', textAlign: 'center' }}>Loading Articles...</div>;
@@ -160,20 +180,38 @@ const Blog = () => {
                     </div>
 
                     <div className="widget">
-                        <h3 className="widget-title">Categories</h3>
-                        <div className="tag-cloud">
-                            <span className="tag">Engineering</span>
-                            <span className="tag">Admissions</span>
-                            <span className="tag">Campus Life</span>
-                            <span className="tag">Placements</span>
-                            <span className="tag">Career</span>
-                            <span className="tag">Science and Technology</span>
-
-                            <span className="tag">Why JEC</span>
-                            <span className="tag">Business</span>
-                            <span className="tag">Motivation</span>
-                        </div>
-                    </div>
+    <h3 className="widget-title">Categories</h3>
+    <div className="tag-cloud">
+        {/* "All" Button to clear categories */}
+        <span 
+            className="tag" 
+            onClick={() => setSelectedCategory('')}
+            style={{ 
+                cursor: 'pointer', 
+                backgroundColor: selectedCategory === '' ? '#2563EB' : '', 
+                color: selectedCategory === '' ? '#fff' : '' 
+            }}
+        >
+            All
+        </span>
+        
+        {/* Dynamic Category Buttons */}
+        {categories.map(cat => (
+            <span 
+                key={cat}
+                className="tag" 
+                onClick={() => setSelectedCategory(cat)}
+                style={{ 
+                    cursor: 'pointer', 
+                    backgroundColor: selectedCategory === cat ? '#2563EB' : '', 
+                    color: selectedCategory === cat ? '#fff' : '' 
+                }}
+            >
+                {cat}
+            </span>
+        ))}
+    </div>
+</div>
                 </aside>
 
             </div>

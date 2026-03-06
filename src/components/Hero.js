@@ -6,12 +6,16 @@ import { db } from "@/firebase";
 import '@/styles/HeroSlider.css'; // Importing the CSS file
 
 export default function Hero() {
-    const [banners, setBanners] = useState([{
+    // 1. Define the hardcoded banner outside so we can easily use it
+    const hardcodedBanner = {
         imageUrl: "/images/jec-banner-home.png",
         heading: "Jaipur’s best engineering college for your bright future.",
         subheading: "Empowering young minds through innovation.",
         altText: "JEC Main Campus"
-    }]);
+    };
+
+    // 2. Set the initial state to load this banner instantly
+    const [banners, setBanners] = useState([hardcodedBanner]);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
@@ -21,7 +25,11 @@ export default function Hero() {
                 const q = query(bannersRef, orderBy("order"));
                 const querySnapshot = await getDocs(q);
                 const bannerList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                if (bannerList.length > 0) setBanners(bannerList);
+                
+                // 3. COMBINE the hardcoded banner with the Firebase banners
+                if (bannerList.length > 1) {
+                    setBanners([hardcodedBanner, ...bannerList]);
+                }
             } catch (error) { console.error("Error fetching banners:", error); }
         };
         fetchBanners();
