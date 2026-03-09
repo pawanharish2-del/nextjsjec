@@ -7,7 +7,10 @@ import LogoCarousel from '@/components/LogoCarousel';
 export const metadata = {
     title: "Best Courses in Engineering | B. Tech, M. Tech, Karma Courses | JEC Kukas",
     description: "Find Best courses in engineering like B. Tech, M. Tech, B. Voc with thier Fees Structure. Jaipur Engineering College is Top college for engineering.",
-    keywords: "JEC is one of the Best Engineering Colleges of Rajasthan in Jaipur city, Offering Top Quality education in various disciplines of Engineering &amp; Technology. Since 2000, Jaipur Engineering College (JEC) has been known to enable students to develop a strong personality.",
+    keywords: "B.Tech, M.Tech, Karma Courses, Suryamitra, Vayumitra, Engineering, JEC, Jaipur",
+    alternates: {
+        canonical: "/admission/Courses-Offered",
+    },
 };
 
 function CoursesOffered() {
@@ -140,7 +143,7 @@ function CoursesOffered() {
                         <li>5% seats offered to PwD students under fee waiver.</li>
                         <li>Round-the-year admission based on course duration.</li>
                     </ul>
-                    <a href="https://jeckukas.org.in/admission/Skill-Courses-JEC" style={{ color: 'var(--courses-blue)', fontWeight: 'bold', marginTop: '15px', display: 'inline-block' }}>View 24 KARMA Courses &rarr;</a>
+                    <a href="https://www.jeckukas.org.in/admission/Skill-Courses-JEC" style={{ color: 'var(--courses-blue)', fontWeight: 'bold', marginTop: '15px', display: 'inline-block' }}>View 24 KARMA Courses &rarr;</a>
                 </div>
 
 

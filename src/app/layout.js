@@ -9,6 +9,10 @@ import Chatbot from "@/components/Chatbot";
 import Sidebar from "@/components/Sidebar";
 import Script from 'next/script';
 
+export const metadata = {
+  metadataBase: new URL('https://www.jeckukas.org.in'),
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

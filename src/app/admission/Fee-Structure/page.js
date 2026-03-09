@@ -7,7 +7,10 @@ import LogoCarousel from '@/components/LogoCarousel'; // Added this import
 export const metadata = {
     title: "Jaipur Engineering College Courses Fees Structure",
     description: "Check the available Courses with Fees Structure in Jaipur Engineering College (JEC Kukas).",
-    keywords: "JEC is one of the Best Engineering Colleges of Rajasthan in Jaipur city, Offering Top Quality education in various disciplines of Engineering &amp; Technology. Since 2000, Jaipur Engineering College (JEC) has been known to enable students to develop a strong personality.",
+    keywords: "Fees, B.Tech Fees, M.Tech Fees, Hostel Fees, Scholarship, TFWS, JEC Jaipur",
+    alternates: {
+        canonical: "/admission/Fee-Structure",
+    },
 };
 
 export default function FeeStructure() {

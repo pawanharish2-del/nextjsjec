@@ -4,20 +4,22 @@ import LogoCarousel from '@/components/LogoCarousel'; // <--- 1. IMPORT ADDED
 
 // Next.js Metadata
 export const metadata = {
-  title: "About – Jaipur Engineering College | Best Engineering College",
-  description: "Jaipur Engineering College , A best college where people and ideas come together in new ways, Illuminating turnarounds, igniting sparks that fuel new ventures.",
-  keywords:"About us, JEC, Jaipur, Engineering, College, Top, Rajasthan, JEC Group of Colleges",
-
+    title: "About – Jaipur Engineering College | Best Engineering College",
+    description: "Jaipur Engineering College , A best college where people and ideas come together in new ways, Illuminating turnarounds, igniting sparks that fuel new ventures.",
+    keywords: "About us, JEC, Jaipur, Engineering, College, Top, Rajasthan, JEC Group of Colleges",
+    alternates: {
+        canonical: "/jec/about-jec",
+    },
 };
 
 export default function About() {
     return (
         <div className="about-page-new">
-            
+
             {/* --- HERO SECTION --- */}
             <section className="hero">
                 <div className="hero-content">
-                    <h1>About JEC: Engineering <br/> Excellence</h1>
+                    <h1>About JEC: Engineering <br /> Excellence</h1>
                     <p>Committed to creating the next generation of technologically superior and ethically strong professionals.</p>
                     <div className="hero-underline"></div>
                 </div>
