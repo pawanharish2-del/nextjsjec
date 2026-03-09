@@ -1,7 +1,7 @@
 // "use client";
 import React from 'react';
-import '@/styles/AcademicAchievers.css'; 
-import LogoCarousel from '@/components/LogoCarousel'; 
+import '@/styles/AcademicAchievers.css';
+import LogoCarousel from '@/components/LogoCarousel';
 
 
 
@@ -9,12 +9,15 @@ export const metadata = {
   title: "Academic Achievers of Jaipur Engineering College",
   description: "Know about Academic Achievers of Jaipur Engineering College. Academic achievement is defined as working at grade level in writing, reading, and speaking skills..",
   keywords: "Academic achievement achieved by Jec student in various fields of engineering &amp; sports",
+  alternates: {
+    canonical: "https://www.jeckukas.org.in/campus-life/academic-achievers",
+  },
 };
 
 const AcademicAchievers = () => {
   return (
     <div className="academic-achievers-page">
-      
+
       {/* 1. HERO SECTION */}
       <section className="hero">
         <div className="max-width-container">
@@ -36,12 +39,12 @@ const AcademicAchievers = () => {
 
       {/* 3. ACHIEVERS GRID SECTIONS */}
       <div className="max-width-container">
-        
+
         {/* Year IV Achievers */}
         <div className="year-section">
           <div className="year-title"><i className="fas fa-graduation-cap"></i> Year IV</div>
           <div className="branch-grid">
-            
+
             <div className="branch-card">
               <div className="branch-header"><span>Computer Science</span> <span><i className="fas fa-laptop-code"></i></span></div>
               <table>
@@ -73,7 +76,7 @@ const AcademicAchievers = () => {
                 </tbody>
               </table>
             </div>
-            
+
             <div className="branch-card">
               <div className="branch-header"><span>E.C. Engineering</span> <span><i className="fas fa-microchip"></i></span></div>
               <table>
@@ -86,12 +89,12 @@ const AcademicAchievers = () => {
 
           </div>
         </div>
-        
+
         {/* Year III Achievers */}
         <div className="year-section">
           <div className="year-title"><i className="fas fa-bookmark"></i> Year III</div>
           <div className="branch-grid">
-            
+
             <div className="branch-card">
               <div className="branch-header"><span>Computer Science</span> <span><i className="fas fa-laptop-code"></i></span></div>
               <table>
@@ -120,7 +123,7 @@ const AcademicAchievers = () => {
                 </tbody>
               </table>
             </div>
-            
+
             <div className="branch-card">
               <div className="branch-header"><span>E.C. Engineering</span> <span><i className="fas fa-microchip"></i></span></div>
               <table>
@@ -138,7 +141,7 @@ const AcademicAchievers = () => {
         <div className="year-section">
           <div className="year-title"><i className="fas fa-book-open"></i> Year II</div>
           <div className="branch-grid">
-            
+
             <div className="branch-card">
               <div className="branch-header"><span>Computer Science</span> <span><i className="fas fa-laptop-code"></i></span></div>
               <table>
@@ -170,44 +173,44 @@ const AcademicAchievers = () => {
 
           </div>
         </div>
-        
+
         {/* Year I Achievers */}
         <div className="year-section">
-            <div className="year-title"><i className="fas fa-seedling"></i> Year I</div>
-            <div className="branch-grid">
-                
-                <div className="branch-card">
-                    <div className="branch-header"><span>Computer Science</span> <span><i className="fas fa-laptop-code"></i></span></div>
-                    <table>
-                        <tbody>
-                          <tr><td><span className="rank rank-1">I</span></td><td className="student-name">Aman Kumawat</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+          <div className="year-title"><i className="fas fa-seedling"></i> Year I</div>
+          <div className="branch-grid">
 
-                <div className="branch-card">
-                    <div className="branch-header"><span>Mechanical Engg.</span> <span><i className="fas fa-cogs"></i></span></div>
-                    <table>
-                        <tbody>
-                          <tr><td><span className="rank rank-1">I</span></td><td className="student-name">Khushbu Sain</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div className="branch-card">
-                    <div className="branch-header"><span>Civil Engg.</span> <span><i className="fas fa-building"></i></span></div>
-                    <table>
-                        <tbody>
-                          <tr><td><span className="rank rank-1">I</span></td><td className="student-name">Arjun Singh</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
+            <div className="branch-card">
+              <div className="branch-header"><span>Computer Science</span> <span><i className="fas fa-laptop-code"></i></span></div>
+              <table>
+                <tbody>
+                  <tr><td><span className="rank rank-1">I</span></td><td className="student-name">Aman Kumawat</td></tr>
+                </tbody>
+              </table>
             </div>
+
+            <div className="branch-card">
+              <div className="branch-header"><span>Mechanical Engg.</span> <span><i className="fas fa-cogs"></i></span></div>
+              <table>
+                <tbody>
+                  <tr><td><span className="rank rank-1">I</span></td><td className="student-name">Khushbu Sain</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="branch-card">
+              <div className="branch-header"><span>Civil Engg.</span> <span><i className="fas fa-building"></i></span></div>
+              <table>
+                <tbody>
+                  <tr><td><span className="rank rank-1">I</span></td><td className="student-name">Arjun Singh</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
         </div>
 
       </div>
-      
+
       {/* Footer / CTA Section */}
       <footer className="page-footer">
         <p>&copy; 2025 Jaipur Engineering College (JEC). All Rights Reserved. **Excellence Never Stops!**</p>

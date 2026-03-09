@@ -11,6 +11,9 @@ export const metadata = {
         siteName: "Jaipur Engineering College",
         type: "website",
     },
+    alternates: {
+        canonical: "https://www.jeckukas.org.in/jec/Institution-Innovation-Council-JEC",
+    },
 };
 
 export default function Page() {

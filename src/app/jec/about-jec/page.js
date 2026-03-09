@@ -8,7 +8,7 @@ export const metadata = {
     description: "Jaipur Engineering College , A best college where people and ideas come together in new ways, Illuminating turnarounds, igniting sparks that fuel new ventures.",
     keywords: "About us, JEC, Jaipur, Engineering, College, Top, Rajasthan, JEC Group of Colleges",
     alternates: {
-        canonical: "/jec/about-jec",
+        canonical: "https://www.jeckukas.org.in/jec/about-jec",
     },
 };
 

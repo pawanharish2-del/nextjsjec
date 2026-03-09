@@ -6,9 +6,12 @@ import '@/styles/CommitteesZone.css'; // Import the CSS
 
 
 export const metadata = {
-  title: "JAIPUR ENGINEERING COLLEGE | student committees | tudent fraternity | JEC Group of College",
-  description: "The presence of student committees in the campus has given a real and different identity to the college. They stand out amongst their student fraternity by offering best possible contributions to the Institute.",
-  keywords: "The presence of student committees in the campus has given a real and different identity to the college. They stand out amongst their student fraternity by offering best possible contributions to the Institute.",
+    title: "JAIPUR ENGINEERING COLLEGE | student committees | tudent fraternity | JEC Group of College",
+    description: "The presence of student committees in the campus has given a real and different identity to the college. They stand out amongst their student fraternity by offering best possible contributions to the Institute.",
+    keywords: "The presence of student committees in the campus has given a real and different identity to the college. They stand out amongst their student fraternity by offering best possible contributions to the Institute.",
+    alternates: {
+        canonical: "https://www.jeckukas.org.in/campus-life/committees-zone",
+    },
 };
 
 const CommitteeCard = ({ iconClass, name, mentor, achievements, outcomes }) => (
@@ -123,11 +126,11 @@ const CommitteesZone = () => {
                     <p className="intro-text">Engineers in their professional career have to play a multifaceted role which includes leadership, management, administration, policy making and implementation, research, project management and execution. All these skills must be acquired during the engineering degree so that the engineers after graduating can take up all the roles efficiently.</p>
                     <p className="intro-text">JEC provides an opportunity for students to acquire these valuable skills through various Committees and Clubs. The JEC Committees and Clubs are meant to provide students with a harmonious and enriching environment to ensure harmony across campus, develop leadership skills, and contribute to the JEC legacy.</p>
                 </div>
-                
+
                 {/* COMMITTEES LIST */}
                 <div className="committee-list">
                     {committees.map((comm, index) => (
-                        <CommitteeCard 
+                        <CommitteeCard
                             key={index}
                             iconClass={comm.iconClass}
                             name={comm.name}
@@ -139,7 +142,7 @@ const CommitteesZone = () => {
                 </div>
 
                 {/* CTA SECTION */}
-                 {/* redy to section removed */}
+                {/* redy to section removed */}
 
             </div>
         </div>

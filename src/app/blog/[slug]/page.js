@@ -37,10 +37,13 @@ export async function generateMetadata({ params }) {
             title: postData.metaTitle || postData.title,
             description: postData.metaDesc || postData.excerpt,
             keywords: postData.metaKeywords || '',
+            alternates: {
+                canonical: `https://www.jeckukas.org.in/blog/${slug}`,
+            },
             openGraph: {
                 title: postData.metaTitle || postData.title,
                 description: postData.metaDesc || postData.excerpt,
-                images: [postData.image || ''], 
+                images: [postData.image || ''],
             }
         };
     }

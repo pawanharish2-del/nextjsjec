@@ -29,6 +29,9 @@ export async function generateMetadata({ params }) {
         title,
         description,
         keywords,
+        alternates: {
+            canonical: `https://www.jeckukas.org.in/department/${slug}`,
+        },
         openGraph: {
             title,
             description,

@@ -11,6 +11,9 @@ export const metadata = {
         siteName: "Jaipur Engineering College",
         type: "website",
     },
+    alternates: {
+        canonical: "https://www.jeckukas.org.in/Infrastructure/Learning-By-Doing",
+    },
 };
 
 export default function Page() {

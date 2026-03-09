@@ -1,7 +1,7 @@
 // "use client";
 import React from 'react';
-import '@/styles/Skill.css'; 
-import LogoCarousel from '@/components/LogoCarousel'; 
+import '@/styles/Skill.css';
+import LogoCarousel from '@/components/LogoCarousel';
 
 
 
@@ -9,6 +9,9 @@ export const metadata = {
   title: "AICTE Karma Courses : Certificate / Diploma / B.Voc. programmes | Jaipur Engineering College",
   description: "Check details about AICTE Karma Scheme Certificate / Diploma / Bachelor of Vocation (B.Voc) programmes in Jaipur Engineering College. The AICTE has launched a scheme on skills development....",
   keywords: "JEC is one of the Best Engineering Colleges of Rajasthan in Jaipur city, Offering Top Quality education in various disciplines of Engineering &amp; Technology. Since 2000, Jaipur Engineering College (JEC) has been known to enable students to develop a strong personality.",
+  alternates: {
+    canonical: "https://www.jeckukas.org.in/admission/karma",
+  },
 };
 
 function KarmaCourses() {
@@ -34,10 +37,10 @@ function KarmaCourses() {
             <strong>Kaushal Augmentation and Restructuring Mission of AICTE (KARMA)</strong> is an initiative to overcome the dual challenge of scarcity of skilled manpower and low skill levels in the workforce.
           </p>
 
-          <img 
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
-            alt="Vocational Training Laboratory" 
-            className="karma-section-img" 
+          <img
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+            alt="Vocational Training Laboratory"
+            className="karma-section-img"
           />
 
           <div className="karma-stats-grid">
@@ -53,7 +56,7 @@ function KarmaCourses() {
               <h3>30</h3>
               <p>Intake Per Course</p>
             </div>
-            
+
           </div>
 
           <div className="karma-info-grid">
@@ -98,8 +101,8 @@ function KarmaCourses() {
                   <th>Duration</th>
                 </tr>
               </thead>
-               <tbody>
-    
+              <tbody>
+
                 <tr><td>1</td><td>KARMA 1</td><td>Automobile Engg</td><td>Maintenance Technician-Mech</td><td>ITI / Mech / Fitter</td><td>350 Hrs</td></tr>
                 <tr><td>2</td><td>KARMA 1</td><td>CSE</td><td>Web Designing & Multimedia</td><td>10th</td><td>288 Hrs</td></tr>
                 <tr><td>3</td><td>KARMA 1</td><td>CSE</td><td>CRM Domestic Voice</td><td>10th</td><td>518 Hrs</td></tr>
@@ -126,7 +129,7 @@ function KarmaCourses() {
               </tbody>
             </table>
           </div>
-          
+
           <div className="karma-journey-footer">
             <h4>Start Your Skill Journey Today</h4>
             <p>Banking of credits for skill shall be permitted so as to enable mobility of learners (NHEQF).</p>
@@ -139,7 +142,7 @@ function KarmaCourses() {
       <section id="suryamitra" className="karma-section-wrapper bg-light-gray">
         <div className="max-width-container">
           <h2 className="karma-section-title text-center">"SURYAMITRA" Skill Development Programme</h2>
-          
+
           <div className="program-card">
             <div className="program-header">
               <span className="program-tag">Solar Energy</span>
@@ -250,7 +253,7 @@ function KarmaCourses() {
           </div>
         </div>
       </section>
-      
+
       <LogoCarousel />
     </div>
   );

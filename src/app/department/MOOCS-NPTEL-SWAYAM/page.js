@@ -11,6 +11,9 @@ export const metadata = {
     siteName: "Jaipur Engineering College",
     type: "website",
   },
+  alternates: {
+    canonical: "https://www.jeckukas.org.in/department/MOOCS-NPTEL-SWAYAM",
+  },
 };
 
 export default function Page() {

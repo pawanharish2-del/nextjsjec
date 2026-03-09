@@ -8,6 +8,9 @@ export const metadata = {
   description: "JEC Group alumni have a rich heritage and diverse spanning over 19 years. This diversity helps us to think outside the program of study.",
   keywords: "JEC is one of the Best Engineering Colleges of Rajasthan in Jaipur city, Offering Top Quality education in various disciplines of Engineering &amp; Technology. Since 2000, Jaipur Engineering College (JEC) has been known to enable students to develop a strong personality.",
 
+  alternates: {
+    canonical: "https://www.jeckukas.org.in/jec/alumni",
+  },
 };
 
 export default function Alumni() {

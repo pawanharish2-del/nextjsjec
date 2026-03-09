@@ -5,7 +5,7 @@ export const metadata = {
     description: "JEC is one of the Best Engineering Colleges of Rajasthan in Jaipur city, Offering Top Quality education in various disciplines of Engineering &amp; Technology. Since 2000, Jaipur Engineering College (JEC) has been known to enable students to develop a strong personality.",
     keywords: "JEC is one of the Best Engineering Colleges of Rajasthan in Jaipur city, Offering Top Quality education in various disciplines of Engineering &amp; Technology. Since 2000, Jaipur Engineering College (JEC) has been known to enable students to develop a strong personality",
     alternates: {
-        canonical: "/",
+        canonical: "https://www.jeckukas.org.in/",
     },
     openGraph: {
         title: "JAIPUR ENGINEERING COLLEGE | TOP ENGINEERING COLLEGE IN JAIPUR ( JEC ) with Best Placements",

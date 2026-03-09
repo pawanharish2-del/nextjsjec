@@ -3,8 +3,11 @@ import '@/styles/Disclaimer.css';
 import LogoCarousel from '@/components/LogoCarousel'; // Added LogoCarousel
 
 export const metadata = {
-  title: "Disclaimer | JEC",
-  description: "Legal disclaimer for Jaipur Engineering College website usage.",
+    title: "Disclaimer | JEC",
+    description: "Legal disclaimer for Jaipur Engineering College website usage.",
+    alternates: {
+        canonical: "https://www.jeckukas.org.in/Disclaimer",
+    },
 };
 
 const Disclaimer = () => {
@@ -26,7 +29,7 @@ const Disclaimer = () => {
               without altering the 'legal-wrapper' CSS which uses Flex Row.
             */}
             <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '40px' }}>
-                
+
                 <div className="legal-card">
                     <div className="legal-header">
                         <div className="header-accent"></div>
@@ -58,7 +61,7 @@ const Disclaimer = () => {
 
                 {/* Added LogoCarousel Here */}
                 <LogoCarousel />
-            
+
             </div>
         </div>
     );

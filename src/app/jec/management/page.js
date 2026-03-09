@@ -7,7 +7,7 @@ export const metadata = {
   description: "Know about the management team at jaipur engineering college. Check the names who are leading top engineering college in Jaipur, Rajasthan.",
   keywords: "Leadership, Management, BOG, JEC, Jaipur, Engineering, College",
   alternates: {
-    canonical: "/jec/management",
+    canonical: "https://www.jeckukas.org.in/jec/management",
   },
 };
 

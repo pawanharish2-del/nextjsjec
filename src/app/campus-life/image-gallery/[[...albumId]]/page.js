@@ -11,6 +11,9 @@ export const metadata = {
         siteName: "Jaipur Engineering College",
         type: "website",
     },
+    alternates: {
+        canonical: "https://www.jeckukas.org.in/campus-life/image-gallery",
+    },
 };
 
 export default function Page() {

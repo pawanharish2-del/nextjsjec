@@ -9,7 +9,7 @@ export const metadata = {
     description: "Find Best courses in engineering like B. Tech, M. Tech, B. Voc with thier Fees Structure. Jaipur Engineering College is Top college for engineering.",
     keywords: "B.Tech, M.Tech, Karma Courses, Suryamitra, Vayumitra, Engineering, JEC, Jaipur",
     alternates: {
-        canonical: "/admission/Courses-Offered",
+        canonical: "https://www.jeckukas.org.in/admission/Courses-Offered",
     },
 };
 

@@ -1,13 +1,16 @@
 // "use client";
 import React from 'react';
-import '@/styles/GutsNGlory.css'; 
-import LogoCarousel from '@/components/LogoCarousel'; 
+import '@/styles/GutsNGlory.css';
+import LogoCarousel from '@/components/LogoCarousel';
 
 
 export const metadata = {
   title: "Successfull Students of Jaipur Engineering Collge | JEC Kukas",
   description: "Know about Successfull Students of Jaipur Engineering Collge. With the worldwide shortage of qualified engineers expected to hit a critical point in the next 15 years...",
   keywords: "Journey from JEC Group to IIT, Suresh Kumar Choudhary, former Student of Computer Science (CS) Branch, JEC Group got admission in M Tech, IIT Kanpur through GATE-12. His strategy to GATE",
+  alternates: {
+    canonical: "https://www.jeckukas.org.in/campus-life/guts-n-glory",
+  },
 };
 
 const GutsNGlory = () => {
@@ -290,7 +293,7 @@ const GutsNGlory = () => {
         </div>
 
       </div>
-      
+
       <LogoCarousel />
     </div>
   );

@@ -9,7 +9,7 @@ export const metadata = {
     description: "Check the available Courses with Fees Structure in Jaipur Engineering College (JEC Kukas).",
     keywords: "Fees, B.Tech Fees, M.Tech Fees, Hostel Fees, Scholarship, TFWS, JEC Jaipur",
     alternates: {
-        canonical: "/admission/Fee-Structure",
+        canonical: "https://www.jeckukas.org.in/admission/Fee-Structure",
     },
 };
 
