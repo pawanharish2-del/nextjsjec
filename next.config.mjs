@@ -13,6 +13,25 @@ const nextConfig = {
       },
     ],
   },
+  
+  // 👇 ADD THIS NEW SECTION BELOW IMAGES 👇
+  async redirects() {
+    return [
+      {
+        // If anyone visits the non-www version...
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'jeckukas.org.in',
+          },
+        ],
+        // ...instantly forward them to the official www version!
+        destination: 'https://www.jeckukas.org.in/:path*',
+        permanent: true, 
+      },
+    ];
+  },
 };
 
 export default nextConfig;
