@@ -9,7 +9,7 @@ export default function Hero() {
     // 1. Define the hardcoded banner outside so we can easily use it
     const hardcodedBanner = {
         imageUrl: "/images/jec-banner-home.png",
-        heading: "Admission Open 2026",
+        heading: "Admissions Open 2026",
         // subheading: "Empowering young minds through innovation.",
         altText: "JEC Main Campus"
     };
