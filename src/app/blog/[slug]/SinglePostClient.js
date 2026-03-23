@@ -13,6 +13,7 @@ const SinglePost = () => {
     const slug = params?.slug ? decodeURIComponent(params.slug) : null;
 
     const [post, setPost] = useState(null);
+    const [recentPosts, setRecentPosts] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const contentRef = useRef(null);
@@ -66,6 +67,31 @@ const SinglePost = () => {
         };
 
         fetchPost();
+    }, [slug]);
+
+    // Fetch recent posts
+    useEffect(() => {
+        const fetchRecentPosts = async () => {
+            try {
+                const q = query(collection(db, "blog_posts"));
+                const querySnapshot = await getDocs(q);
+
+                let postsData = querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+
+                // Sort by Date (Newest first)
+                postsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                // Take top 3 excluding current post if needed (optional, keeping it simple to just top 3)
+                setRecentPosts(postsData.filter(p => (p.slug || p.id) !== slug).slice(0, 3));
+            } catch (error) {
+                console.error("Error fetching recent blog posts:", error);
+            }
+        };
+
+        fetchRecentPosts();
     }, [slug]);
 
     // Fix links automatically (Your original logic)
@@ -143,6 +169,26 @@ const SinglePost = () => {
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     />
                 </article>
+
+                {/* Sidebar */}
+                <aside className="blog-sidebar">
+                    <div className="widget">
+                        <h3 className="widget-title">Recent Posts</h3>
+                        <ul className="recent-list">
+                            {recentPosts.map(rp => (
+                                <li key={rp.id}>
+                                    <Link href={`/blog/${rp.slug || rp.id}`} className="recent-link">
+                                        <img src={rp.image || "https://via.placeholder.com/60"} className="recent-thumb" alt={rp.title} />
+                                        <div>
+                                            <div className="recent-text">{rp.title}</div>
+                                            <span className="recent-date">{rp.date}</span>
+                                        </div>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </aside>
             </div>
 
              {/* Added LogoCarousel Here */}
