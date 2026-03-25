@@ -284,3 +284,19 @@
         margin: 1rem 0;
     }
 }
+@media (max-width: 1024px) {
+    .dept-hero {
+        /* On tablets, we slightly reduce the height to keep proportions */
+        min-height: 350px; 
+        padding: 3rem 1.5rem;
+    }
+
+    .dept-hero h1 {
+        font-size: 2.2rem; /* Shrink title slightly so it doesn't wrap 3 times */
+    }
+
+    .dept-container {
+        /* Reduce the negative margin so the white box doesn't cover the hero text */
+        margin: -2rem auto 3rem auto; 
+    }
+}
