@@ -135,7 +135,15 @@ const Footer = () => {
                 <div className="bottom-content">
                     <div className="copyright">
                         © 2026 Jaipur Engineering College. All Rights Reserved.
-                        Designed by Amazing IT Solutions.
+                        Designed by{" "}
+      <a
+        href="https://amazingit.in/"
+        target="_blank"
+        rel="noopener noreferrer"
+         style={{ color: "#94A3B8", textDecoration: "none" }}
+      >
+        Amazing IT
+      </a>.
                     </div>
                     <div className="bottom-links">
                         <Link href="/PrivacyPolicy">Privacy Policy</Link>
