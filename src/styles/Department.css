@@ -242,6 +242,36 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+    .dept-hero {
+        /* 1. Remove the strict ratio so the box can grow taller */
+        aspect-ratio: auto; 
+        
+        /* 2. Add padding back so the text doesn't touch the edges */
+        padding: 4rem 1rem; 
+        
+        /* 3. Change background-size to cover so it fills the taller box */
+        background-size: cover; 
+        
+        /* 4. Ensure height covers the content */
+        min-height: 350px; 
+    }
+
+    .dept-hero h1 {
+        /* Shrink the large font so it doesn't wrap awkwardly */
+        font-size: 1.8rem; 
+        line-height: 1.2;
+    }
+
+    .dept-hero p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* This moves the white container down so it doesn't overlap text on mobile */
+    .dept-container {
+        margin: 0 auto 2rem auto; 
+    }
+
     .dept-hod-box {
         flex-direction: column;
         text-align: center;
