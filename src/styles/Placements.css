@@ -19,14 +19,16 @@
 /* --- Hero Section --- */
 .pg-hero {
   position: relative;
-  background: linear-gradient(rgba(0, 30, 60, 0.85), rgba(0, 30, 60, 0.75)), 
-              url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1920&auto=format&fit=crop');
-  background-size: cover;
+  background:  
+              url('https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/plc.png?alt=media&token=8f492dcf-f8af-42c1-ac33-949920a60799');
+  background-size: contain;
+background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   padding: 8rem 1rem 10rem 1rem;
   text-align: center;
   color: white;
+  
 }
 
 .pg-hero h1 {
