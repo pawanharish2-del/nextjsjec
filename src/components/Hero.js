@@ -42,7 +42,7 @@ export default function Hero() {
                     key={index}
                     className={`hero-slide ${index === currentIndex ? 'active' : ''}`}
                     // FIX: Use backgroundImage so text sits on top (Matches your CSS rules)
-                    style={{ backgroundImage: `url(${banner.imageUrl})` }}
+                    style={{ backgroundImage: `url('${banner.imageUrl}')` }}
                 >
                     {/* Removed the <img> tag because it was blocking the text */}
 

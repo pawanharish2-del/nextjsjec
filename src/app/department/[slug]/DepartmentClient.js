@@ -55,7 +55,7 @@ function Department() {
                 but we keep the logic clean here. The content will render normally. */}
             
             {/* 1. HERO SECTION */}
-            <header className="dept-hero" style={{ backgroundImage: `url(${data.bannerImage || '/images/hero.jpg'})` }}>
+            <header className="dept-hero" style={{ backgroundImage: `url('${data.bannerImage || '/images/hero.jpg'}')` }}>
                 <div className="dept-hero-content">
                     <h1 className="dept-animated-section">{data.title || data.name}</h1>
                     <p className="dept-animated-section" style={{ animationDelay: '0.1s' }}>
