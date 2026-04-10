@@ -14,6 +14,7 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
+  // I have added google console tag here 
   verification: {
     google: 'HR5aeJjG4TVkdSOm6_kKAInVVo0lwRDiueS22GYH3wU', 
   },
