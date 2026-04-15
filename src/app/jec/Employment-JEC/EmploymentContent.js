@@ -83,13 +83,31 @@ export default function Employment() {
             <div className="vacancy-card"><i className="fas fa-database"></i><h4>AI & Data Science</h4></div>
             <div className="vacancy-card"><i className="fas fa-network-wired"></i><h4>Information Technology</h4></div>
             <div className="vacancy-card"><i className="fas fa-microchip"></i><h4>Electronics & Comm. Engg.</h4></div>
-            <div className="vacancy-card"><i className="fas fa-bolt"></i><h4>Electrical & Electronics Engg.</h4></div>
+            <div className="vacancy-card"><i className="fas fa-bolt"></i><h4>Electrical Engg.</h4></div>
             <div className="vacancy-card"><i className="fas fa-cogs"></i><h4>Mechanical Engineering</h4></div>
             <div className="vacancy-card"><i className="fas fa-building"></i><h4>Civil Engineering</h4></div>
             <div className="vacancy-card"><i className="fas fa-atom"></i><h4>Applied Physics</h4></div>
-            <div className="vacancy-card"><i className="fas fa-flask"></i><h4>Applied Chemistry</h4></div>
+            <div className="vacancy-card"><i className="fas fa-flask"></i><h4>Environmental Engineering</h4></div>
             <div className="vacancy-card"><i className="fas fa-square-root-alt"></i><h4>Engineering Mathematics</h4></div>
             <div className="vacancy-card"><i className="fas fa-language"></i><h4>Communicative English</h4></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="requirements-section" style={{ padding: '60px 0', backgroundColor: '#f9f9f9', textAlign: 'center' }}>
+        <div style={{ backgroundColor: '#dca315', color: '#000000', padding: '12px 0', marginBottom: '40px', overflow: 'hidden' }}>
+          <marquee behavior="scroll" direction="left" scrollamount="12" style={{ fontSize: '1.5rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '2px' }}>
+            🎉 Hiring Now • Apply Today • Hiring Now • Apply Today • Hiring Now • Apply Today • Hiring Now • Apply Today 🎉
+          </marquee>
+        </div>
+        <div className="max-width-container">
+          <div className="requirements-content" style={{ backgroundColor: '#ffffff', padding: '40px', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+            <h3 style={{ marginBottom: '20px', color: '#333' }}>Require : Professor, Associate Professor, Assistant Professor</h3>
+            <p style={{ margin: '10px 0', fontSize: '1.1rem' }}><strong>Qualification</strong> - As per AICTE Norms</p>
+            <p style={{ margin: '10px 0', fontSize: '1.1rem' }}><strong>Salary</strong> - As per AICTE Norms, No Bar for deserving candidates</p>
+            <div style={{ marginTop: '30px' }}>
+              <p style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Apply Now | Send Your Resume at <a href="mailto:principal@jeckukas.org.in" style={{ color: '#0056b3', textDecoration: 'none' }}>principal@jeckukas.org.in</a></p>
+            </div>
           </div>
         </div>
       </section>
