@@ -95,10 +95,10 @@ export default function Employment() {
       </section>
 
       <section className="requirements-section" style={{ padding: '60px 0', backgroundColor: '#f9f9f9', textAlign: 'center' }}>
-        <div style={{ backgroundColor: '#dca315', color: '#000000', padding: '12px 0', marginBottom: '40px', overflow: 'hidden' }}>
-          <marquee behavior="scroll" direction="left" scrollamount="12" style={{ fontSize: '1.5rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '2px' }}>
-            🎉 Hiring Now • Apply Today • Hiring Now • Apply Today • Hiring Now • Apply Today • Hiring Now • Apply Today 🎉
-          </marquee>
+        <div style={{ backgroundColor: '#dca315', color: '#000000', padding: '12px 0', marginBottom: '40px', textAlign: 'center' }}>
+          <div style={{ fontSize: '1.5rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '2px' }}>
+            Apply Now
+          </div>
         </div>
         <div className="max-width-container">
           <div className="requirements-content" style={{ backgroundColor: '#ffffff', padding: '40px', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
