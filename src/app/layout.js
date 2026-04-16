@@ -91,6 +91,20 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17078012048"
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag-aw-17078012048" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17078012048');
+          `}
+        </Script>
+
         {/* Google Tag Manager (NoScript Fallback) */}
         <noscript>
           <iframe
