@@ -1,9 +1,34 @@
 "use client";
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import '@/styles/Contact.css'; // Import the CSS file
 import LogoCarousel from '@/components/LogoCarousel'; // Import the Carousel
 
 export default function Contact() {
+  const formRef = useRef();
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs.sendForm(
+      'service_kcn1n48',
+      'template_atvfcqx',
+      formRef.current,
+      'nhoxd53WbgpVLdNFF'
+    )
+    .then(() => {
+        alert("Inquiry Sent Successfully!");
+        setLoading(false);
+        formRef.current.reset();
+    }, (error) => {
+        console.error(error);
+        alert("Failed to send inquiry. Please try again.");
+        setLoading(false);
+    });
+  };
+
   return (
     <div className="contact-page-v4">
       {/* Hero Section */}
@@ -118,21 +143,24 @@ export default function Contact() {
 
         {/* Inquiry Form */}
         <div className="form-card">
-            <form action="#" method="POST">
+            <form ref={formRef} onSubmit={handleSubmit}>
                 <h3>Send Your Inquiry</h3>
                 <div className="form-group">
-                    <input type="text" id="name" name="Name" required placeholder="Name" />
+                    <input type="text" id="name" name="name" required placeholder="Name" />
                 </div>
                 <div className="form-group">
-                    <input type="email" id="email" name="Email" required placeholder="Email" />
+                    <input type="email" id="email" name="email" required placeholder="Email" />
                 </div>
                 <div className="form-group">
-                    <input type="tel" id="contact" name="Contact Number" required placeholder="Contact Number" />
+                    <input type="tel" id="contact" name="mobile" required placeholder="Contact Number" />
                 </div>
                 <div className="form-group">
-                    <textarea id="message" name="Message" rows="5" required placeholder="Message"></textarea>
+                    <textarea id="message" name="message" rows="5" required placeholder="Message"></textarea>
                 </div>
-                <button type="submit" className="send-btn">SEND</button>
+                <input type="hidden" name="time" value={new Date().toLocaleString()} />
+                <button type="submit" className="send-btn" disabled={loading}>
+                    {loading ? 'SENDING...' : 'SEND'}
+                </button>
             </form>
             <p className="disclaimer">By submitting this data to Jaipur Engineering College you are authorising us to hold your details for us to respond to your submission. Jaipur Engineering College will not pass this information onto any third parties.</p>
         </div>
