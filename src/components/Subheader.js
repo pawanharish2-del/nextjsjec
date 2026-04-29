@@ -220,7 +220,7 @@ function Subheader() {
                                     <li><Link href="/admission/Fee-Structure" className="jec-dropdown-link">Fee Structure</Link></li>
                                     <li><Link href="/admission/Documents-Required" className="jec-dropdown-link">Documents Required</Link></li>
                                     <li><Link href="/admission/Courses-Offered" className="jec-dropdown-link">Courses Offered</Link></li>
-                                    <li><Link href="/admission/REAP-2025" className="jec-dropdown-link">REAP-2025</Link></li>
+                                    <li><Link href="/admission/REAP" className="jec-dropdown-link">REAP-2026</Link></li>
                                     <li><Link href="/admission/Financial-Aids-Bank-Loans" className="jec-dropdown-link">Financial Aids & Loans</Link></li>
                                     <li><Link href="/admission/Mandatory-Disclosure" className="jec-dropdown-link">Mandatory Disclosure</Link></li>
                                     <li><Link href="/admission/karma" className="jec-dropdown-link">Skill Courses @JEC</Link></li>

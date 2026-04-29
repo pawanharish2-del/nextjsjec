@@ -6,22 +6,22 @@ import LogoCarousel from '@/components/LogoCarousel'; // 1. Import Added
 
 
 export const metadata = {
-    title: "Rajasthan Engineering Admission Process (REAP)-2021 | JEC Jaipur",
-    description: "Know about Rajasthan Engineering Admission Process (REAP)-2021 with Jaipur Engineering College. Check details of taking admission in B.Tech courses and...",
+    title: "Rajasthan Engineering Admission Process (REAP)-2026 | JEC Jaipur",
+    description: "Know about Rajasthan Engineering Admission Process (REAP)-2026 with Jaipur Engineering College. Check details of taking admission in B.Tech courses and...",
     keywords: "JEC is one of the Best Engineering Colleges of Rajasthan in Jaipur city, Offering Top Quality education in various disciplines of Engineering &amp; Technology. Since 2000, Jaipur Engineering College (JEC) has been known to enable students to develop a strong personality.",
     alternates: {
-        canonical: "https://www.jeckukas.org.in/admission/REAP-2025",
+        canonical: "https://www.jeckukas.org.in/admission/REAP",
     },
 };
 
-function Reap2025() {
+function Reap2026() {
     return (
         <div className="reap-page">
 
             {/* Hero Section */}
             <section className="reap-hero">
                 <div className="reap-badge">Session 2026-27</div>
-                <h1>REAP-2025 Disclosure</h1>
+                <h1>REAP-2026 Disclosure</h1>
                 <p>Rajasthan Engineering Admission Process</p>
                 <div style={{ marginTop: '1rem' }}>
                     <span style={{ background: 'rgba(214, 40, 40, 0.9)', color: 'white', padding: '5px 15px', borderRadius: '5px', fontWeight: '600' }}>
@@ -91,7 +91,7 @@ function Reap2025() {
                             <tbody>
                                 <tr>
                                     <td><strong>1st</strong></td>
-                                    <td>Rank in JEE (Mains) 2025</td>
+                                    <td>Rank in JEE (Mains) 2026</td>
                                     <td>Minimum 20 percentile required</td>
                                 </tr>
                                 <tr>
@@ -237,7 +237,7 @@ function Reap2025() {
                     <div className="reap-card">
                         <h4 style={{ color: 'var(--reap-primary)', marginBottom: '0.5rem' }}><i className="fas fa-exchange-alt"></i> Internal Sliding</h4>
                         <p style={{ fontSize: '0.9rem', color: 'var(--reap-text-muted)' }}>
-                            Candidates can apply for Internal Sliding at the institute level as per the schedule. Lists will be displayed at the institute according to REAP-2025 rules.
+                            Candidates can apply for Internal Sliding at the institute level as per the schedule. Lists will be displayed at the institute according to REAP-2026 rules.
                         </p>
                     </div>
                     <div className="reap-card">
@@ -257,4 +257,4 @@ function Reap2025() {
     );
 }
 
-export default Reap2025;
+export default Reap2026;
