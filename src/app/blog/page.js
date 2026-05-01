@@ -11,6 +11,7 @@ const Blog = () => {
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(''); // added this line now
+    const [visibleCount, setVisibleCount] = useState(10);
 
     // Fetch Posts from Firebase
     useEffect(() => {
@@ -67,6 +68,18 @@ const filteredPosts = posts.filter(post => {
     return matchesSearch && matchesCategory;
 });
 
+// Calculate posts to display
+const displayedPosts = filteredPosts.slice(0, visibleCount);
+
+const handleLoadMore = () => {
+    setVisibleCount(prev => prev + 10);
+};
+
+// Reset visible count when filters change
+useEffect(() => {
+    setVisibleCount(10);
+}, [searchTerm, selectedCategory]);
+
 // List of exact categories for your sidebar
 const categories = [
     "Engineering", "Admissions", "Campus Life", "Placements", 
@@ -116,7 +129,7 @@ const categories = [
 
                     {/* 2. Regular Feed */}
                     {filteredPosts.length > 0 ? (
-                        filteredPosts.map((post) => (
+                        displayedPosts.map((post) => (
                             <article className="blog-card" key={post.id}>
                                 <div className="blog-img-wrapper">
                                     <img src={post.image || "https://via.placeholder.com/600x300"} alt={post.title} />
@@ -139,10 +152,14 @@ const categories = [
                         <p>No articles found matching your search.</p>
                     )}
 
-                    <div className="pagination">
-                        <span className="page-link active">1</span>
-                        <span className="page-link"><i className="fas fa-chevron-right"></i></span>
-                    </div>
+                    {/* Load More Button */}
+                    {visibleCount < filteredPosts.length && (
+                        <div className="load-more-container">
+                            <button className="load-more-btn" onClick={handleLoadMore}>
+                                Load More Articles
+                            </button>
+                        </div>
+                    )}
                 </main>
 
                 {/* Sidebar */}

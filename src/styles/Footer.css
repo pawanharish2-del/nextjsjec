@@ -120,7 +120,7 @@ h2.brand-name {
     line-height: 1.2;
 }
 
-h3.widget-title {
+.footer-wrapper h3.widget-title {
     font-family: var(--font-head);
     color: var(--text-white) !important;
     font-size: 1.1rem;
@@ -130,7 +130,7 @@ h3.widget-title {
     padding-bottom: 10px;
 }
 
-h3.widget-title::after {
+.footer-wrapper h3.widget-title::after {
     content: '';
     position: absolute;
     left: 0;
