@@ -29,6 +29,20 @@ const getExperienceYears = (expString) => {
     return match ? parseInt(match[0], 10) : 0;
 };
 
+const getRolePriority = (member) => {
+    if (isHOD(member)) return 0;
+    const role = (member.role || "").toLowerCase();
+    // Order: Professor > Assistant Professor > Technical Assistant > Others
+    if (role.includes('professor')) {
+        if (role.includes('assistant')) return 2;
+        if (role.includes('associate')) return 1.5; // Handling Associate if it exists
+        return 1;
+    }
+    if (role.includes('technical assistant')) return 3;
+    return 4;
+};
+
+
 // --- Sub-Component: Faculty Card ---
 const FacultyCard = ({ member }) => {
     const isHead = isHOD(member);
@@ -218,14 +232,19 @@ function HumanNetwork() {
                     });
 
                     const deptMembers = [...rawMembers].sort((a, b) => {
-                        const aIsHod = isHOD(a);
-                        const bIsHod = isHOD(b);
-                        if (aIsHod && !bIsHod) return -1;
-                        if (!aIsHod && bIsHod) return 1;
+                        const priorityA = getRolePriority(a);
+                        const priorityB = getRolePriority(b);
+
+                        if (priorityA !== priorityB) {
+                            return priorityA - priorityB;
+                        }
+
+                        // Same priority, sort by experience
                         const expA = getExperienceYears(a.experience);
                         const expB = getExperienceYears(b.experience);
                         return expB - expA;
                     });
+
 
                     if (deptMembers.length === 0) return null;
 
