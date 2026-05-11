@@ -23,11 +23,15 @@ function Reap2026() {
                 <div className="reap-badge">Session 2026-27</div>
                 <h1>REAP-2026 Disclosure</h1>
                 <p>Rajasthan Engineering Admission Process</p>
-                <div style={{ marginTop: '1rem' }}>
-                    <span style={{ background: 'rgba(214, 40, 40, 0.9)', color: 'white', padding: '5px 15px', borderRadius: '5px', fontWeight: '600' }}>
-                        <i className="fas fa-phone-alt"></i> Helpline: 84400 44826
-                    </span>
-                </div>
+
+                <a href="tel:8440044826" className="reap-helpline-btn">
+                    <i className="fas fa-phone-alt"></i>
+                    <div className="reap-helpline-content">
+                        <span className="reap-helpline-text">For REAP Guidance</span>
+                        <span className="reap-helpline-number">Call Us: 8440044826</span>
+                    </div>
+                </a>
+
             </section>
 
             {/* Stats Container */}
@@ -55,12 +59,22 @@ function Reap2026() {
             <div className="reap-container">
 
                 {/* Alert Box */}
+
                 <div className="reap-alert-box">
                     <h4 style={{ color: 'var(--reap-primary)', marginBottom: '0.5rem' }}>General Instructions session 2026-27</h4>
                     <p style={{ color: 'var(--reap-text-main)', fontSize: '0.95rem' }}>
                         Department of Technical Education, Rajasthan has appointed <strong>Centre for Electronic Governance (CEG), Jaipur</strong> to conduct the centralized admission process for the academic session 2026-27. Eligible candidates may apply for admission in B. Tech (I year).
                     </p>
+                    <a 
+                        href="/documents/Schedule_REAP_2026.pdf" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="reap-btn-blue"
+                    >
+                        REAP 2026 Counseling Schedule <i className="fas fa-download"></i>
+                    </a>
                 </div>
+
 
                 {/* Admission Process Section */}
                 <div className="reap-section-header">

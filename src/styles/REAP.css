@@ -287,3 +287,71 @@
     border-bottom: none;
   }
 }
+
+/* --- Buttons --- */
+.reap-btn-blue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background-color: var(--reap-primary);
+  color: white !important;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1.2rem;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.reap-btn-blue:hover {
+  background-color: var(--reap-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+
+.reap-helpline-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--reap-accent);
+  color: white !important;
+  padding: 0.6rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(214, 40, 40, 0.3);
+  margin-top: 1rem;
+}
+
+.reap-helpline-btn:hover {
+  background-color: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(214, 40, 40, 0.4);
+}
+
+.reap-helpline-btn i {
+  font-size: 1.5rem;
+  opacity: 0.9;
+}
+
+.reap-helpline-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.reap-helpline-text {
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+.reap-helpline-number {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
