@@ -3,13 +3,14 @@ import React from 'react';
 import '@/styles/REAP.css';
 import LogoCarousel from '@/components/LogoCarousel'; // 1. Import Added
 import Link from 'next/link';
+import ReapFAQ from './ReapFAQ';
 
 
 
 export const metadata = {
-    title: "Rajasthan Engineering Admission Process (REAP)-2026 | JEC Jaipur",
-    description: "Know about Rajasthan Engineering Admission Process (REAP)-2026 with Jaipur Engineering College. Check details of taking admission in B.Tech courses and...",
-    keywords: "JEC is one of the Best Engineering Colleges of Rajasthan in Jaipur city, Offering Top Quality education in various disciplines of Engineering &amp; Technology. Since 2000, Jaipur Engineering College (JEC) has been known to enable students to develop a strong personality.",
+    title: "REAP 2026: Rajasthan Engineering Admission Process | JEC Kukas (Code 1019)",
+    description: "Looking for B.Tech Admissions via REAP Rajasthan 2026? Check the JEC Kukas REAP 2026 schedule, academic eligibility, fee structure, and seat allotment priority here.",
+    keywords: "REAP 2026, REAP Rajasthan 2026, REAP counselling 2026, Rajasthan engineering admission process 2026, JEC Kukas REAP code 1019, BTech admission through REAP Rajasthan, REAP 2026 eligibility criteria, direct admission in engineering college Jaipur.",
     alternates: {
         canonical: "https://www.jeckukas.org.in/admission/reap-2026",
     },
@@ -22,8 +23,8 @@ function Reap2026() {
             {/* Hero Section */}
             <section className="reap-hero">
                 <div className="reap-badge">Session 2026-27</div>
-                <h1>REAP-2026 Disclosure</h1>
-                <p>Rajasthan Engineering Admission Process</p>
+                <h1>REAP 2026:Admission Process at JEC Kukas</h1>
+                <p>Welcome to the definitive guide for <Link href="/admission/reap-2026" style={{ color: '#2563EB' }}>REAP</Link> 2026 at Jaipur Engineering College (JEC), Kukas.</p>
 
                 <a href="tel:8440044826" className="reap-helpline-btn">
                     <i className="fas fa-phone-alt"></i>
@@ -79,13 +80,14 @@ function Reap2026() {
 
                 {/* Admission Process Section */}
                 <div className="reap-section-header">
-                    <h2>Admission Process</h2>
+                    <h2>REAP 2026 Centralized Counseling & Seat Matrix</h2>
                     <div className="reap-section-line"></div>
                 </div>
 
                 <div className="reap-card">
                     <h3 style={{ marginBottom: '1rem', color: 'var(--reap-text-main)' }}>1. Centralized Counseling Process</h3>
-                    <p style={{ marginBottom: '1rem', color: 'var(--reap-text-muted)' }}>Candidates are required to fill the Application-cum-Registration Form on the <Link href="/admission/reap-2026">REAP</Link> portal.</p>
+                    <p style={{ marginBottom: '1rem', color: 'var(--reap-text-main)' }}>The <Link href="/admission/reap-2026" style={{ color: '#2563EB' }}>REAP</Link> 2026 counseling distributes admission seats transparently across three major categories to accommodate both local and out-of-state engineering aspirants:</p>
+                    <p style={{ marginBottom: '1rem', color: 'var(--reap-text-muted)' }}>Candidates are required to fill the Application-cum-Registration Form on the <Link href="/admission/reap-2026" style={{ color: '#2563EB' }}>REAP</Link> portal.</p>
                     <ul style={{ marginBottom: '1.5rem', paddingLeft: '1.5rem', color: 'var(--reap-text-main)' }}>
                         <li><strong>70% Seats:</strong> Candidates having Rajasthan State domicile.</li>
                         <li><strong>15% Seats:</strong> Candidates from Out of Rajasthan.</li>
@@ -94,6 +96,7 @@ function Reap2026() {
                     </ul>
 
                     <h4 style={{ marginBottom: '0.5rem', color: 'var(--reap-primary)' }}>Priority for Seat Allotment</h4>
+                    <p style={{ marginBottom: '1rem', color: 'var(--reap-text-muted)' }}>Seats during the Rajasthan engineering admission process 2026 are assigned strictly on merit based on the following prioritization levels:</p>
                     <div className="reap-table-wrapper">
                         <table>
                             <thead>
@@ -133,13 +136,19 @@ function Reap2026() {
 
                 {/* Academic Qualification Section */}
                 <div className="reap-section-header">
-                    <h2>Academic Qualification</h2>
+                    <h2>REAP Rajasthan 2026 Academic Eligibility Criteria</h2>
                     <div className="reap-section-line"></div>
                 </div>
 
                 <div className="reap-card">
+                    <p style={{ marginBottom: '1.5rem', color: 'var(--reap-text-muted)' }}>
+                        Before registering on the <Link href="/admission/reap-2026" style={{ color: '#2563EB' }}>REAP</Link> official website, candidates must ensure they satisfy the educational baselines outlined below.
+                    </p>
+                    <p style={{ marginBottom: '0.5rem' }}>
+                        <strong>Minimum Marks:</strong> Must have cleared Class-12 (10+2) with a minimum of 45% marks (General category) or 40% marks (Reserved categories of Rajasthan).
+                    </p>
                     <p style={{ marginBottom: '1.5rem' }}>
-                        Candidate must have passed Class-12 exam from a recognized board with minimum <strong>45% marks</strong> (General) or <strong>40% marks</strong> (Reserved Category).
+                        <strong>Age Limit:</strong> There is no age limit for admission into B.Tech courses via REAP 2026.
                     </p>
                     <div className="reap-table-wrapper">
                         <table>
@@ -184,9 +193,12 @@ function Reap2026() {
 
                 {/* Reservation Section */}
                 <div className="reap-section-header">
-                    <h2>Reservation of Seats</h2>
+                    <h2>Category-Wise Seat Reservation Percentage</h2>
                     <div className="reap-section-line"></div>
                 </div>
+                <p style={{ textAlign: 'center', marginBottom: '1.5rem', color: 'var(--reap-text-muted)' }}>
+                    JEC Kukas strictly complies with the reservation guidelines of the Government of Rajasthan during <Link href="/admission/reap-2026" style={{ color: '#2563EB' }}>REAP</Link> 2026 counseling:
+                </p>
                 <div className="reap-res-grid">
                     <div className="reap-res-card">
                         <span className="reap-res-percent">21%</span>
@@ -245,24 +257,25 @@ function Reap2026() {
 
                 {/* Additional Schemes Section */}
                 <div className="reap-section-header">
-                    <h2>Additional Schemes</h2>
+                    <h2>Special Academic Schemes at JEC</h2>
                     <div className="reap-section-line"></div>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
                     <div className="reap-card">
-                        <h4 style={{ color: 'var(--reap-primary)', marginBottom: '0.5rem' }}><i className="fas fa-exchange-alt"></i> Internal Sliding</h4>
+                        <h4 style={{ color: 'var(--reap-primary)', marginBottom: '0.5rem' }}><i className="fas fa-exchange-alt"></i> Internal Sliding Option</h4>
                         <p style={{ fontSize: '0.9rem', color: 'var(--reap-text-muted)' }}>
-                            Candidates can apply for Internal Sliding at the institute level as per the schedule. Lists will be displayed at the institute according to <Link href="/admission/reap-2026">REAP</Link>-2026 rules.
+                            Students who have successfully registered and reported can opt for "Internal Sliding" at the institute level to change their engineering branch based on the vacant seats available. This process is governed strictly by REAP 2026 institutional guidelines.
                         </p>
                     </div>
                     <div className="reap-card">
-                        <h4 style={{ color: 'var(--reap-primary)', marginBottom: '0.5rem' }}><i className="fas fa-graduation-cap"></i> TFWS Scheme</h4>
+                        <h4 style={{ color: 'var(--reap-primary)', marginBottom: '0.5rem' }}><i className="fas fa-graduation-cap"></i> Tuition Fee Waiver Scheme (TFWS)</h4>
                         <p style={{ fontSize: '0.9rem', color: 'var(--reap-text-muted)' }}>
-                            Tuition Fee Waiver Scheme is applicable for students whose Parents’ Income is <strong>less than ₹8.00 Lacs per annum</strong>. Allotment is made through REAP only.
+                            The TFWS scheme provides a massive financial relief for meritorious students whose parental income is less than ₹8.00 Lakhs per annum. Allotments for these competitive seats are executed directly through the centralized REAP Rajasthan 2026 portal.
                         </p>
                     </div>
                 </div>
 
+                <ReapFAQ />
             </div>
 
             {/* 2. LogoCarousel Added Here */}
