@@ -25,7 +25,7 @@ export default async function sitemap() {
     '/admission/Fee-Structure',
     '/admission/Financial-Aids-Bank-Loans',
     '/admission/Mandatory-Disclosure',
-    '/admission/REAP',
+    '/admission/reap-2026',
     '/admission/karma',
     '/admission-enquiry',
     '/department/MTech',

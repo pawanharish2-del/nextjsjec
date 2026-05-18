@@ -2,6 +2,7 @@
 import React from 'react';
 import '@/styles/REAP.css';
 import LogoCarousel from '@/components/LogoCarousel'; // 1. Import Added
+import Link from 'next/link';
 
 
 
@@ -10,7 +11,7 @@ export const metadata = {
     description: "Know about Rajasthan Engineering Admission Process (REAP)-2026 with Jaipur Engineering College. Check details of taking admission in B.Tech courses and...",
     keywords: "JEC is one of the Best Engineering Colleges of Rajasthan in Jaipur city, Offering Top Quality education in various disciplines of Engineering &amp; Technology. Since 2000, Jaipur Engineering College (JEC) has been known to enable students to develop a strong personality.",
     alternates: {
-        canonical: "https://www.jeckukas.org.in/admission/REAP",
+        canonical: "https://www.jeckukas.org.in/admission/reap-2026",
     },
 };
 
@@ -84,7 +85,7 @@ function Reap2026() {
 
                 <div className="reap-card">
                     <h3 style={{ marginBottom: '1rem', color: 'var(--reap-text-main)' }}>1. Centralized Counseling Process</h3>
-                    <p style={{ marginBottom: '1rem', color: 'var(--reap-text-muted)' }}>Candidates are required to fill the Application-cum-Registration Form on the REAP portal.</p>
+                    <p style={{ marginBottom: '1rem', color: 'var(--reap-text-muted)' }}>Candidates are required to fill the Application-cum-Registration Form on the <Link href="/admission/reap-2026">REAP</Link> portal.</p>
                     <ul style={{ marginBottom: '1.5rem', paddingLeft: '1.5rem', color: 'var(--reap-text-main)' }}>
                         <li><strong>70% Seats:</strong> Candidates having Rajasthan State domicile.</li>
                         <li><strong>15% Seats:</strong> Candidates from Out of Rajasthan.</li>
@@ -251,7 +252,7 @@ function Reap2026() {
                     <div className="reap-card">
                         <h4 style={{ color: 'var(--reap-primary)', marginBottom: '0.5rem' }}><i className="fas fa-exchange-alt"></i> Internal Sliding</h4>
                         <p style={{ fontSize: '0.9rem', color: 'var(--reap-text-muted)' }}>
-                            Candidates can apply for Internal Sliding at the institute level as per the schedule. Lists will be displayed at the institute according to REAP-2026 rules.
+                            Candidates can apply for Internal Sliding at the institute level as per the schedule. Lists will be displayed at the institute according to <Link href="/admission/reap-2026">REAP</Link>-2026 rules.
                         </p>
                     </div>
                     <div className="reap-card">
