@@ -25,8 +25,32 @@ const isHOD = (member) => {
 
 const getExperienceYears = (expString) => {
     if (!expString) return 0;
-    const match = expString.toString().match(/(\d+)/);
-    return match ? parseInt(match[0], 10) : 0;
+    const str = expString.toString().toLowerCase().trim();
+
+    let years = 0;
+    let months = 0;
+
+    // Parse years (matches integers/decimals followed by optional space and 'year', 'years', 'yr', 'yrs')
+    const yearMatch = str.match(/([\d.]+)\s*(year|yr)/);
+    // Parse months (matches integers/decimals followed by optional space and 'month', 'months', 'mth', 'mths', 'mon')
+    const monthMatch = str.match(/([\d.]+)\s*(month|mth|mon)/);
+
+    if (yearMatch) {
+        years = parseFloat(yearMatch[1]) || 0;
+    }
+    if (monthMatch) {
+        months = parseFloat(monthMatch[1]) || 0;
+    }
+
+    // If neither matched (e.g., just "12" or "3.9" without units), extract any float/int and assume it represents years
+    if (!yearMatch && !monthMatch) {
+        const fallbackMatch = str.match(/([\d.]+)/);
+        if (fallbackMatch) {
+            years = parseFloat(fallbackMatch[1]) || 0;
+        }
+    }
+
+    return years + (months / 12);
 };
 
 const getRolePriority = (member) => {
@@ -34,11 +58,11 @@ const getRolePriority = (member) => {
     const role = (member.role || "").toLowerCase();
     // Order: Professor > Assistant Professor > Technical Assistant > Others
     if (role.includes('professor')) {
-        if (role.includes('assistant')) return 2;
-        if (role.includes('associate')) return 1.5; // Handling Associate if it exists
+        if (role.includes('assistant') || role.includes('asst')) return 2;
+        if (role.includes('associate') || role.includes('assoc')) return 1.5; // Handling Associate if it exists
         return 1;
     }
-    if (role.includes('technical assistant')) return 3;
+    if (role.includes('technical assistant') || role.includes('tech') || role.includes('ta')) return 3;
     return 4;
 };
 
@@ -108,7 +132,8 @@ function HumanNetwork() {
         { id: 'ece', title: 'Electronics & Comm. Engg.' },
         { id: 'me', title: 'Mechanical Engineering' },
         { id: 'ash', title: 'Applied Sciences & Humanities' },
-        { id: 'civil', title: 'Civil Engineering' }
+        { id: 'civil', title: 'Civil Engineering' },
+        { id: 'pe', title: 'Physical Education' }
     ];
 
     useEffect(() => {
@@ -217,6 +242,7 @@ function HumanNetwork() {
                 <button className={`filter-btn ${activeFilter === 'me' ? 'active' : ''}`} onClick={() => filterFaculty('me')}>Mechanical Engg.</button>
                 <button className={`filter-btn ${activeFilter === 'ash' ? 'active' : ''}`} onClick={() => filterFaculty('ash')}>Applied Sciences</button>
                 <button className={`filter-btn ${activeFilter === 'civil' ? 'active' : ''}`} onClick={() => filterFaculty('civil')}>Civil Engg.</button>
+                <button className={`filter-btn ${activeFilter === 'pe' ? 'active' : ''}`} onClick={() => filterFaculty('pe')}>Physical Education</button>
             </div>
 
             <div className="max-width-container faculty-section">

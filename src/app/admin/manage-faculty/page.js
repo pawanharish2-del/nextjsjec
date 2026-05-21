@@ -1,10 +1,10 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { db, storage } from '@/firebase'; 
+import { db, storage } from '@/firebase';
 import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc, query, orderBy } from "firebase/firestore";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"; 
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
+import 'react-toastify/dist/ReactToastify.css';
 
 const departments = [
     { id: 'cse', title: 'Computer Science Engineering' },
@@ -13,7 +13,9 @@ const departments = [
     { id: 'ece', title: 'Electronics & Comm. Engg.' },
     { id: 'me', title: 'Mechanical Engineering' },
     { id: 'civil', title: 'Civil Engineering' },
-    { id: 'ash', title: 'Applied Sciences & Humanities' }
+    { id: 'ash', title: 'Applied Sciences & Humanities' },
+    { id: 'pe', title: 'Physical Education' }
+
 ];
 
 const EditFaculty = () => {
@@ -28,7 +30,7 @@ const EditFaculty = () => {
     // Form State
     const [name, setName] = useState('');
     const [role, setRole] = useState('');
-    const [isHod, setIsHod] = useState(false); 
+    const [isHod, setIsHod] = useState(false);
     const [qualification, setQualification] = useState('');
     const [experience, setExperience] = useState('');
     const [researchArea, setResearchArea] = useState('');
@@ -74,7 +76,7 @@ const EditFaculty = () => {
         const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
         if (file.size > 1048576) {
             alert(`File is too large (${fileSizeMB}MB). Max allowed: 1.00MB`);
-            return; 
+            return;
         }
 
         // 2. Upload to Firebase
@@ -158,7 +160,7 @@ const EditFaculty = () => {
             experience,
             researchArea,
             email,
-            department: selectedDepartments, 
+            department: selectedDepartments,
             image,
             imageAlt,
             order: Number(order)
@@ -264,12 +266,12 @@ const EditFaculty = () => {
                     {/* Left Column: Image (UPDATED WITH DRAG & DROP) */}
                     <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '8px', textAlign: 'center' }}>
                         <label style={styles.label}>Profile Photo</label>
-                        
+
                         {!image ? (
                             // Upload Box
-                            <label 
-                                style={{ 
-                                    ...styles.uploadBox, 
+                            <label
+                                style={{
+                                    ...styles.uploadBox,
                                     backgroundColor: dragActive ? '#e2e8f0' : 'white',
                                     borderColor: dragActive ? '#0072C6' : '#cbd5e1'
                                 }}
@@ -282,17 +284,17 @@ const EditFaculty = () => {
                                     <p style={{ color: '#0072C6', fontWeight: 'bold' }}>Uploading...</p>
                                 ) : (
                                     <>
-                                        <input 
-                                            type="file" 
-                                            accept="image/*" 
+                                        <input
+                                            type="file"
+                                            accept="image/*"
                                             onChange={(e) => {
                                                 processUpload(e.target.files[0]);
-                                                e.target.value = null; 
+                                                e.target.value = null;
                                             }}
-                                            style={{ display: 'none' }} 
+                                            style={{ display: 'none' }}
                                         />
                                         <div style={{ cursor: 'pointer', color: '#0072C6', fontWeight: '600' }}>
-                                            <i className="fas fa-cloud-upload-alt" style={{ fontSize: '24px', marginBottom: '5px' }}></i><br/>
+                                            <i className="fas fa-cloud-upload-alt" style={{ fontSize: '24px', marginBottom: '5px' }}></i><br />
                                             Drag & drop or click
                                         </div>
                                         <small style={{ color: '#64748B', display: 'block', marginTop: '5px' }}>Max: 1.00 MB</small>
@@ -303,8 +305,8 @@ const EditFaculty = () => {
                             // Preview with Remove Button
                             <div style={{ position: 'relative', width: '150px', margin: '0 auto' }}>
                                 <img src={image} alt="Preview" style={{ width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', marginTop: '15px', border: '3px solid #ddd' }} />
-                                <button 
-                                    type="button" 
+                                <button
+                                    type="button"
                                     onClick={handleRemoveImage}
                                     style={{
                                         position: 'absolute',
@@ -509,14 +511,14 @@ const styles = {
     editBtn: { background: '#FFC107', border: 'none', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer', marginRight: '5px', fontWeight: '600' },
     deleteBtn: { background: '#DC3545', border: 'none', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer', color: 'white', fontWeight: '600' },
     // ADDED STYLE FOR DRAG BOX
-    uploadBox: { 
-        border: '2px dashed #cbd5e1', 
-        borderRadius: '6px', 
-        padding: '20px', 
-        textAlign: 'center', 
-        display: 'block', 
-        cursor: 'pointer', 
-        transition: '0.2s all' 
+    uploadBox: {
+        border: '2px dashed #cbd5e1',
+        borderRadius: '6px',
+        padding: '20px',
+        textAlign: 'center',
+        display: 'block',
+        cursor: 'pointer',
+        transition: '0.2s all'
     }
 };
 
