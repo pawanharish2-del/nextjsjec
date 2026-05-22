@@ -258,6 +258,12 @@ function HumanNetwork() {
                     });
 
                     const deptMembers = [...rawMembers].sort((a, b) => {
+                        const isTpoA = a.role && a.role.toLowerCase().includes('tpo');
+                        const isTpoB = b.role && b.role.toLowerCase().includes('tpo');
+
+                        if (isTpoA && !isTpoB) return 1;
+                        if (!isTpoA && isTpoB) return -1;
+
                         const priorityA = getRolePriority(a);
                         const priorityB = getRolePriority(b);
 
