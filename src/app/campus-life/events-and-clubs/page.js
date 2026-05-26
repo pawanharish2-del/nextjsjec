@@ -70,7 +70,7 @@ const EventsAndClubs = () => {
     const getStyleForType = (type) => {
         switch (type) {
             case 'Competition':
-                return { bg: 'bg-red-50', text: 'text-red-500', grad: 'from-red-600 to-red-500', icon: 'fa-laptop-code', hover: 'group-hover:bg-red-500', hoverText: 'group-hover:text-jec-red' };
+                return { bg: 'bg-red-50', text: 'text-red-600', grad: 'from-red-600 to-red-500', icon: 'fa-laptop-code', hover: 'group-hover:bg-red-600', hoverText: 'group-hover:text-red-600' };
             case 'Seminar':
             case 'Guest Lecture':
                 return { bg: 'bg-blue-50', text: 'text-blue-600', grad: 'from-blue-700 to-blue-600', icon: 'fa-brain', hover: 'group-hover:bg-blue-600', hoverText: 'group-hover:text-blue-600' };
@@ -359,7 +359,24 @@ const EventsAndClubs = () => {
                                         <div key={event.id} className="bg-white rounded-2xl shadow-soft hover:shadow-hover transition-all duration-300 border border-gray-100 p-8 relative group cursor-pointer jec-events-reveal flex flex-col h-full hover:-translate-y-1" style={{ transitionDelay: `${index * 100}ms` }}>
 
                                             <div className="absolute top-0 right-8 transform -translate-y-1/2 group-hover:-translate-y-2 transition-transform duration-300">
-                                                <span className={`bg-gradient-to-r ${style.grad} text-white text-[10px] font-bold px-4 py-1.5 rounded-full shadow-md tracking-widest uppercase`}>
+                                                {/* Explicitly using inline styles to completely bypass Tailwind template literal processing bugs */}
+                                                <span
+                                                    style={{
+                                                        background: event.type === 'Competition' ? 'linear-gradient(to right, #dc2626, #ef4444)' :
+                                                            event.type === 'Seminar' || event.type === 'Guest Lecture' ? 'linear-gradient(to right, #1d4ed8, #2563eb)' :
+                                                                event.type === 'Workshop' || event.type === 'Technical Workshop' ? 'linear-gradient(to right, #f97316, #f59e0b)' :
+                                                                    'linear-gradient(to right, #7e22ce, #4f46e5)',
+                                                        color: '#ffffff',
+                                                        fontSize: '10px',
+                                                        fontWeight: 'bold',
+                                                        padding: '6px 16px',
+                                                        borderRadius: '9999px',
+                                                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                                                        letterSpacing: '0.1em',
+                                                        textTransform: 'uppercase',
+                                                        display: 'inline-block'
+                                                    }}
+                                                >
                                                     {event.type}
                                                 </span>
                                             </div>
@@ -374,7 +391,7 @@ const EventsAndClubs = () => {
                                             <div className="space-y-3 pt-6 border-t border-gray-100 text-sm text-gray-600 font-medium">
                                                 <div className="flex items-center">
                                                     <i className="fa-regular fa-calendar text-gray-400 w-6"></i>
-                                                    <span>{event.date}</span>
+                                                    <span className="font-semibold text-gray-700">{event.displayDate}</span>
                                                 </div>
                                                 <div className="flex items-start">
                                                     <i className="fa-solid fa-location-dot text-gray-400 w-6 mt-1"></i>

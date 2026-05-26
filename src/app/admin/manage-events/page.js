@@ -8,11 +8,11 @@ const ManageEvents = () => {
     const [loading, setLoading] = useState(false);
     const [fetching, setFetching] = useState(true);
 
-    // Form State
     const [formData, setFormData] = useState({
         title: '',
         description: '',
-        date: '',
+        date: '',         // Used for backend sorting & auto-status logic
+        displayDate: '',  // Used for custom frontend layout strings (e.g., Oct 15-16, 2024)
         time: '',
         location: '',
         type: 'Competition'
@@ -28,7 +28,6 @@ const ManageEvents = () => {
         setFetching(true);
         try {
             const eventsRef = collection(db, 'events');
-            // Order by date descending (newest first)
             const q = query(eventsRef, orderBy('date', 'desc'));
             const querySnapshot = await getDocs(q);
 
@@ -40,7 +39,7 @@ const ManageEvents = () => {
             setEvents(eventsList);
         } catch (error) {
             console.error("Error fetching events: ", error);
-            alert("Failed to load events. Check console for details.");
+            alert("Failed to load events.");
         } finally {
             setFetching(false);
         }
@@ -67,12 +66,10 @@ const ManageEvents = () => {
             });
 
             alert("Event added successfully!");
-            // Reset form
             setFormData({
-                title: '', description: '', date: '',
+                title: '', description: '', date: '', displayDate: '',
                 time: '', location: '', type: 'Competition'
             });
-            // Refresh the list
             fetchEvents();
         } catch (error) {
             console.error("Error adding event: ", error);
@@ -119,9 +116,15 @@ const ManageEvents = () => {
                     </div>
 
                     <div style={styles.formGroup}>
-                        <label style={styles.label}>Event Date</label>
+                        <label style={styles.label}>Backend Event Date (For Sorting & Status)</label>
                         <input type="date" name="date" required value={formData.date} onChange={handleInputChange}
                             style={styles.input} />
+                    </div>
+
+                    <div style={styles.formGroup}>
+                        <label style={styles.label}>Date to Display on Frontend Card</label>
+                        <input type="text" name="displayDate" required value={formData.displayDate} onChange={handleInputChange}
+                            style={styles.input} placeholder="e.g. Oct 15-16, 2024 or Mar 20-22, 2025" />
                     </div>
 
                     <div style={styles.formGroup}>
@@ -153,7 +156,7 @@ const ManageEvents = () => {
                 </form>
             </div>
 
-            {/* Added Events List */}
+            {/* Added Events List Table */}
             <div style={styles.card}>
                 <h3 style={styles.sectionHeader}>Existing Events</h3>
 
@@ -167,7 +170,8 @@ const ManageEvents = () => {
                             <thead>
                                 <tr>
                                     <th style={styles.th}>Event Name</th>
-                                    <th style={styles.th}>Date & Time</th>
+                                    <th style={styles.th}>Backend Date</th>
+                                    <th style={styles.th}>Display Date</th>
                                     <th style={styles.th}>Type</th>
                                     <th style={styles.th}>Actions</th>
                                 </tr>
@@ -175,21 +179,30 @@ const ManageEvents = () => {
                             <tbody>
                                 {events.map((event) => (
                                     <tr key={event.id}>
+                                        {/* Column 1: Event Name & Location Info (Was Missing) */}
                                         <td style={styles.td}>
-                                            <div style={{ fontWeight: '600', color: '#1e293b' }}>{event.title}</div>
-                                            <div style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>{event.location}</div>
+                                            <div style={{ fontWeight: '600', color: '#1e293b' }}>{event.title || 'Untitled Event'}</div>
+                                            <div style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>{event.location || 'No Location Set'}</div>
                                         </td>
-                                        <td style={styles.td}>
-                                            <div style={{ color: '#334155' }}>{event.date}</div>
-                                            <div style={{ fontSize: '12px', color: '#64748b' }}>{event.time}</div>
+
+                                        {/* Column 2: Backend sorting date */}
+                                        <td style={{ ...styles.td, color: '#64748b', fontSize: '13px' }}>
+                                            {event.date}
                                         </td>
+
+                                        {/* Column 3: Display Date string block */}
+                                        <td style={{ ...styles.td, fontWeight: '600', color: '#0f172a' }}>
+                                            {event.displayDate || event.date}
+                                        </td>
+
+                                        {/* Column 4: Category type bubble badge */}
                                         <td style={styles.td}>
                                             <span style={styles.badge}>{event.type}</span>
                                         </td>
+
+                                        {/* Column 5: Actions delete handler block */}
                                         <td style={styles.td}>
-                                            <button onClick={() => handleDelete(event.id)} style={styles.deleteBtn}>
-                                                Delete
-                                            </button>
+                                            <button onClick={() => handleDelete(event.id)} style={styles.deleteBtn}>Delete</button>
                                         </td>
                                     </tr>
                                 ))}
@@ -203,27 +216,24 @@ const ManageEvents = () => {
     );
 };
 
-// Styling to match the rest of the Admin Panel
+// Layout Styling Config Matrix
 const styles = {
     container: { padding: '20px', maxWidth: '1200px', margin: '0 auto', fontFamily: 'system-ui, -apple-system, sans-serif' },
     pageTitle: { marginBottom: '25px', color: '#1e293b', fontSize: '24px', fontWeight: 'bold' },
     card: { background: 'white', padding: '25px', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0', marginBottom: '30px' },
     sectionHeader: { margin: '0 0 20px 0', fontSize: '18px', color: '#0f172a', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px' },
-
     formGrid: { display: 'flex', flexWrap: 'wrap', gap: '20px' },
     formGroup: { flex: '1 1 calc(50% - 20px)', minWidth: '250px' },
     fullWidthGroup: { flex: '1 1 100%' },
-
     label: { display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#475569' },
-    input: { width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '14px', boxSizing: 'border-box', outline: 'none', transition: 'border 0.2s' },
+    input: { width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '14px', boxSizing: 'border-box', outline: 'none' },
     textarea: { width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '14px', boxSizing: 'border-box', outline: 'none', resize: 'vertical' },
-    submitBtn: { background: '#2563EB', color: 'white', border: 'none', padding: '14px 20px', borderRadius: '8px', fontSize: '15px', fontWeight: 'bold', cursor: 'pointer', width: '100%', marginTop: '10px', transition: 'background 0.2s' },
-
+    submitBtn: { background: '#2563EB', color: 'white', border: 'none', padding: '14px 20px', borderRadius: '8px', fontSize: '15px', fontWeight: 'bold', cursor: 'pointer', width: '100%', marginTop: '10px' },
     table: { width: '100%', borderCollapse: 'collapse', textAlign: 'left' },
-    th: { padding: '12px 15px', background: '#f8fafc', color: '#475569', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px', borderBottom: '2px solid #e2e8f0' },
+    th: { padding: '12px 15px', background: '#f8fafc', color: '#475569', fontSize: '13px', textTransform: 'uppercase', borderBottom: '2px solid #e2e8f0' },
     td: { padding: '15px', borderBottom: '1px solid #f1f5f9', fontSize: '14px' },
-    badge: { background: '#EFF6FF', color: '#2563EB', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', fontWeight: '600' },
-    deleteBtn: { background: '#fee2e2', color: '#ef4444', border: 'none', padding: '6px 12px', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '13px', transition: 'background 0.2s' }
+    badge: { background: '#EFF6FF', color: '#2563EB', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', fontWeight: '600', display: 'inline-block' },
+    deleteBtn: { background: '#fee2e2', color: '#ef4444', border: 'none', padding: '6px 12px', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '13px' }
 };
 
 export default ManageEvents;
