@@ -267,6 +267,7 @@ function Subheader() {
                                     <li><Link href="/campus-life/committees-zone" className="jec-dropdown-link">Committees Zone</Link></li>
                                     <li><Link href="/campus-life/mental-health" className="jec-dropdown-link">Student Mental Health</Link></li>
                                     <li><Link href="/campus-life/students-corner" className="jec-dropdown-link">JEC Students Corner</Link></li>
+                                    <li><Link href="/campus-life/events-and-clubs" className="jec-dropdown-link">Event and Clubs</Link></li>
                                     <li><Link href="/campus-life/image-gallery" className="jec-dropdown-link">Image Gallery</Link></li>
                                     <li><Link href="/campus-life/video-gallery" className="jec-dropdown-link">Video Gallery</Link></li>
                                 </ul>

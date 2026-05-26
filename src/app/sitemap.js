@@ -39,6 +39,7 @@ export default async function sitemap() {
     '/campus-life/jec-vibrant-india',
     '/campus-life/mental-health',
     '/campus-life/students-corner',
+    '/campus-life/events-and-clubs',
     '/campus-life/video-gallery',
     '/campus-life/image-gallery',
     '/Infrastructure/Convenience-and-Safety',

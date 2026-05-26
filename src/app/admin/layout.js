@@ -43,6 +43,7 @@ export default function AdminLayout({ children }) {
             <Link href="/admin/manage-home" className={`nav-item ${pathname.includes('manage-home') ? 'active' : ''}`}>Home Page</Link>
 
             <p className="menu-label">Dynamic Updates</p>
+            <Link href="/admin/manage-events" className={`nav-item ${pathname.includes('manage-events') ? 'active' : ''}`}>Manage Events</Link>
             <Link href="/admin/manage-blogs" className={`nav-item ${pathname.includes('manage-blogs') ? 'active' : ''}`}>Blogs & News</Link>
             <Link href="/admin/manage-gallery" className={`nav-item ${pathname.includes('manage-gallery') ? 'active' : ''}`}>Gallery Manager</Link>
             <Link href="/admin/manage-faculty" className={`nav-item ${pathname.includes('manage-faculty') ? 'active' : ''}`}>Faculty Members</Link>

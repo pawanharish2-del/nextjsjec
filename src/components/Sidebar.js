@@ -33,7 +33,7 @@ function Sidebar() {
         { id: 'helpline', icon: 'fas fa-phone', label: 'Helpline', path: 'tel:+918875071333' },
         { id: 'brochure', icon: 'fas fa-book-open', label: 'Brochure', path: '/brocher.pdf' },
         { id: 'admissions', icon: 'fas fa-user-graduate', label: 'Admissions', path: 'https://admission.jeckukas.org.in/' },
-        { id: 'events', icon: 'fas fa-calendar-alt', label: 'Events', path: '/jec/alumni' },
+        { id: 'events', icon: 'fas fa-calendar-alt', label: 'Events', path: '/campus-life/events-and-clubs' },
         { id: 'whatsapp', icon: 'fab fa-whatsapp', label: 'WhatsApp', path: 'https://api.whatsapp.com/send/?phone=918058799017&text&type=phone_number&app_absent=0' },
     ];
 
