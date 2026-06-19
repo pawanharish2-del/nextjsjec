@@ -68,7 +68,7 @@ function Reap2026() {
                         Department of Technical Education, Rajasthan has appointed <strong>Centre for Electronic Governance (CEG), Jaipur</strong> to conduct the centralized admission process for the academic session 2026-27. Eligible candidates may apply for admission in B. Tech (I year).
                     </p>
                     <a
-                        href="/documents/New%20REAP-2026_Schedule.pdf"
+                        href="/documents/reap-schedule-updated-2026.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="reap-btn-blue"
