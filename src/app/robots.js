@@ -1,5 +1,4 @@
 export default function robots() {
-  // Replace with your actual live domain if different
   const baseUrl = 'https://www.jeckukas.org.in';
 
   return {
@@ -7,20 +6,11 @@ export default function robots() {
       userAgent: '*',
       allow: '/',
       disallow: [
-        '/admin/',       // Keep Google out of your Admin Panel
+        '/admin/',       // Keep search engines out of your management dashboard
         '/private/',
         '/api/',
       ],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
   };
-}
-export default function robots() {
-  return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-    },
-    sitemap: 'https://jeckukas.org.in/sitemap.xml',
-  }
 }
