@@ -15,3 +15,12 @@ export default function robots() {
     sitemap: `${baseUrl}/sitemap.xml`,
   };
 }
+export default function robots() {
+  return {
+    rules: {
+      userAgent: '*',
+      allow: '/',
+    },
+    sitemap: 'https://jeckukas.org.in/sitemap.xml',
+  }
+}
