@@ -33,3 +33,7 @@ yarn-error.log*
 .vercel
 
 .vs/
+
+.firebase/
+functions/node_modules
+node_modules
