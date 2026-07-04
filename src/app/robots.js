@@ -1,11 +1,12 @@
 export default function robots() {
   const baseUrl = 'https://www.jeckukas.org.in';
   
-  // Define sensitive paths that should be universally blocked
+  // Define sensitive paths that should be blocked for all bots
   const sensitivePaths = [
     '/admin/',
     '/api/',
     '/_next/',
+    '/private/', // Added from remote version
   ];
 
   return {
@@ -17,40 +18,21 @@ export default function robots() {
         disallow: sensitivePaths,
       },
       
-      // 2. OpenAI Bots
+      // 2. Specific AI Bots (Grouped for cleaner maintenance)
       {
-        userAgent: ['GPTBot', 'ChatGPT-User', 'OAI-SearchBot'],
+        userAgent: [
+          'GPTBot', 
+          'ChatGPT-User', 
+          'OAI-SearchBot', 
+          'ClaudeBot', 
+          'Claude-Web', 
+          'Google-Extended', 
+          'PerplexityBot', 
+          'Applebot-Extended'
+        ],
         allow: '/',
         disallow: sensitivePaths,
       },
-      
-      // 3. Anthropic Bots
-      {
-        userAgent: ['ClaudeBot', 'Claude-Web'],
-        allow: '/',
-        disallow: sensitivePaths,
-      },
-      
-      // 4. Google Gemini / AI Overview
-      {
-        userAgent: ['Google-Extended'],
-        allow: '/',
-        disallow: sensitivePaths,
-      },
-      
-      // 5. Perplexity AI
-      {
-        userAgent: ['PerplexityBot'],
-        allow: '/',
-        disallow: sensitivePaths,
-      },
-
-      // 6. Apple Intelligence
-      {
-        userAgent: ['Applebot-Extended'],
-        allow: '/',
-        disallow: sensitivePaths,
-      }
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
   };
