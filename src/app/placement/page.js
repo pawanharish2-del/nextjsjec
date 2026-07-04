@@ -66,7 +66,7 @@ function Placements() {
                 let interceptedStudent = null;
                 
                 if (targetStudentIndex !== -1) {
-                    interceptedStudent = { ...rawStars[targetStudentIndex], package: 'Placed Successfully' };
+                    interceptedStudent = { ...rawStars[targetStudentIndex], package: '25 LPA' };
                     rawStars.splice(targetStudentIndex, 1); 
                 }
 
