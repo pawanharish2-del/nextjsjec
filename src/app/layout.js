@@ -19,7 +19,7 @@ export const metadata = {
     google: 'HR5aeJjG4TVkdSOm6_kKAInVVo0lwRDiueS22GYH3wU', 
   },
   icons: {
-    icon: '/favicon.png',
+    icon: '/icon.png',
   },
 };
 
