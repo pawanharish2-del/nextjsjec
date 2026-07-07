@@ -84,11 +84,11 @@ function Placements() {
                 
                 setGallery(sortedGallery);
 
-                // 4. Fetch Drives (Custom Logic for Highest CTC + Random Shuffle)
+                // 4. Fetch Drives (Sorted Highest to Lowest CTC)
                 const drivesSnap = await getDocs(query(collection(db, "placement_drives")));
                 let rawDrives = drivesSnap.docs.map(doc => doc.data());
 
-                // Group drives by year to ensure each tab is sorted/shuffled correctly
+                // Group drives by year
                 const drivesByYear = {};
                 rawDrives.forEach(drive => {
                     const y = drive.year || 'Unknown';
@@ -102,29 +102,15 @@ function Placements() {
                     let currentYearDrives = drivesByYear[year];
                     
                     if (currentYearDrives.length > 0) {
-                        // a & b) Parse CTC and find the entry with the highest package
-                        let highestIndex = 0;
-                        let maxCtc = -1;
-                        
-                        currentYearDrives.forEach((drive, idx) => {
-                            const ctcValue = parseFloat(drive.ctc) || 0;
-                            if (ctcValue > maxCtc) {
-                                maxCtc = ctcValue;
-                                highestIndex = idx;
-                            }
+                        // Sort all records from Highest CTC to Lowest CTC
+                        currentYearDrives.sort((a, b) => {
+                            const ctcA = parseFloat(a.ctc) || 0;
+                            const ctcB = parseFloat(b.ctc) || 0;
+                            return ctcB - ctcA; // Descending order
                         });
 
-                        // Extract the highest drive to lock it at index 0
-                        const topDrive = currentYearDrives.splice(highestIndex, 1)[0];
-
-                        // c) Shuffle all remaining records randomly using Fisher-Yates algorithm
-                        for (let i = currentYearDrives.length - 1; i > 0; i--) {
-                            const j = Math.floor(Math.random() * (i + 1));
-                            [currentYearDrives[i], currentYearDrives[j]] = [currentYearDrives[j], currentYearDrives[i]];
-                        }
-
-                        // Append the locked top drive followed by the randomized array
-                        finalProcessedDrives = [...finalProcessedDrives, topDrive, ...currentYearDrives];
+                        // Append sorted array
+                        finalProcessedDrives = [...finalProcessedDrives, ...currentYearDrives];
                     }
                 }
 
