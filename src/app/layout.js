@@ -10,17 +10,23 @@ import Sidebar from "@/components/Sidebar";
 import Script from 'next/script';
 
 export const metadata = {
-  metadataBase: new URL('https://www.jeckukas.org.in'),
+  metadataBase: new URL("https://www.jeckukas.org.in"),
+
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
-  // I have added google console tag here 
+
   verification: {
-    google: 'HR5aeJjG4TVkdSOm6_kKAInVVo0lwRDiueS22GYH3wU', 
+    google: "HR5aeJjG4TVkdSOm6_kKAInVVo0lwRDiueS22GYH3wU",
   },
+
   icons: {
-    icon: '/icon.png',
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
+
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({ children }) {
