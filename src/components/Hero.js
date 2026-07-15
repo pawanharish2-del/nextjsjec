@@ -26,14 +26,22 @@ export default function Hero() {
                 const querySnapshot = await getDocs(q);
                 const bannerList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 
-                // 3. COMBINE the hardcoded banner with the Firebase banners
-                if (bannerList.length > 1) {
-                    setBanners([hardcodedBanner, ...bannerList]);
+                // Use the Firebase banners
+                if (bannerList.length > 0) {
+                    setBanners(bannerList);
                 }
             } catch (error) { console.error("Error fetching banners:", error); }
         };
         fetchBanners();
     }, []);
+
+    useEffect(() => {
+        if (banners.length <= 1) return;
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [currentIndex, banners.length]);
 
     return (
         <section className="hero-slider">
@@ -44,15 +52,30 @@ export default function Hero() {
                     // FIX: Use backgroundImage so text sits on top (Matches your CSS rules)
                     style={{ backgroundImage: `url('${banner.imageUrl}')` }}
                 >
+                    {index !== 0 && (
+                        <Link 
+                            href="/admission-enquiry" 
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                zIndex: 10,
+                                cursor: 'pointer'
+                            }}
+                        />
+                    )}
                     {/* Removed the <img> tag because it was blocking the text */}
 
                     <div className="hero-overlay"></div>
                     <div className="hero-content">
                         <h1>{banner.heading}</h1>
-                        <div className="hero-underline"></div>
                         {banner.subheading && <p>{banner.subheading}</p>}
 
-                        <Link href="https://admission.jeckukas.org.in/" className="apply-btn" target="_blank">Apply for Admission</Link>
+                        {index === 0 && (
+                            <Link href="https://admission.jeckukas.org.in/" className="apply-btn" target="_blank">Apply for Admission</Link>
+                        )}
                     </div>
                 </div>
             ))}
