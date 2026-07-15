@@ -68,15 +68,16 @@ export default function Hero() {
                     )}
                     {/* Removed the <img> tag because it was blocking the text */}
 
-                    <div className="hero-overlay"></div>
-                    <div className="hero-content">
-                        <h1>{banner.heading}</h1>
-                        {banner.subheading && <p>{banner.subheading}</p>}
-
-                        {index === 0 && (
+                    {index === 0 && (
+                        <div className="hero-content">
+                            <h1>{banner.heading}</h1>
+                            <div className="hero-underline"></div>
+                            {(banner.subheading || banner.description) && (
+                                <p>{banner.subheading || banner.description}</p>
+                            )}
                             <Link href="https://admission.jeckukas.org.in/" className="apply-btn" target="_blank">Apply for Admission</Link>
-                        )}
-                    </div>
+                        </div>
+                    )}
                 </div>
             ))}
 
