@@ -68,6 +68,7 @@ export default function Hero() {
                     )}
                     {/* Removed the <img> tag because it was blocking the text */}
 
+                    {index === 0 && <div className="hero-overlay"></div>}
                     {index === 0 && (
                         <div className="hero-content">
                             <h1>{banner.heading}</h1>
