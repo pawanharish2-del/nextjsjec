@@ -14,12 +14,16 @@ const EditHero = () => {
   const [heading, setHeading] = useState('');
   const [subheading, setSubheading] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+  const [mobileImageUrl, setMobileImageUrl] = useState('');
   const [altText, setAltText] = useState(''); 
   const [editingId, setEditingId] = useState(null);
+  const [showOverlay, setShowOverlay] = useState(false);
 
   // Upload State
   const [uploading, setUploading] = useState(false);
+  const [uploadingMobile, setUploadingMobile] = useState(false);
   const [dragActive, setDragActive] = useState(false);
+  const [dragActiveMobile, setDragActiveMobile] = useState(false);
 
   // 1. Fetch Existing Banners
   const fetchBanners = async () => {
@@ -39,7 +43,7 @@ const EditHero = () => {
   }, []);
 
   // --- NEW UPLOAD LOGIC ---
-  const processUpload = async (file) => {
+  const processUpload = async (file, isMobile = false) => {
     if (!file) return;
 
     // 1. Check Size (1.00 MB Limit)
@@ -51,7 +55,9 @@ const EditHero = () => {
 
     // 2. Upload to Firebase
     try {
-        setUploading(true);
+        if (isMobile) setUploadingMobile(true);
+        else setUploading(true);
+        
         const storageRef = ref(storage, `home_banners/${Date.now()}-${file.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -61,44 +67,57 @@ const EditHero = () => {
             (error) => {
                 console.error(error);
                 toast.error("Upload failed");
-                setUploading(false);
+                if (isMobile) setUploadingMobile(false);
+                else setUploading(false);
             },
             async () => {
                 const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-                setImageUrl(downloadURL);
-                setUploading(false);
+                if (isMobile) setMobileImageUrl(downloadURL);
+                else setImageUrl(downloadURL);
+                
+                if (isMobile) setUploadingMobile(false);
+                else setUploading(false);
+                
                 toast.success("Image uploaded!");
             }
         );
     } catch (error) {
         console.error(error);
-        setUploading(false);
+        if (isMobile) setUploadingMobile(false);
+        else setUploading(false);
         toast.error("Something went wrong");
     }
   };
 
   // Drag & Drop Handlers
-  const handleDrag = (e) => {
+  const handleDrag = (e, isMobile = false) => {
     e.preventDefault();
     e.stopPropagation();
     if (e.type === "dragenter" || e.type === "dragover") {
-        setDragActive(true);
+        if (isMobile) setDragActiveMobile(true);
+        else setDragActive(true);
     } else if (e.type === "dragleave") {
-        setDragActive(false);
+        if (isMobile) setDragActiveMobile(false);
+        else setDragActive(false);
     }
   };
 
-  const handleDrop = (e) => {
+  const handleDrop = (e, isMobile = false) => {
     e.preventDefault();
     e.stopPropagation();
-    setDragActive(false);
+    if (isMobile) setDragActiveMobile(false);
+    else setDragActive(false);
+    
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-        processUpload(e.dataTransfer.files[0]);
+        processUpload(e.dataTransfer.files[0], isMobile);
     }
   };
 
   const handleRemoveImage = () => {
     setImageUrl('');
+  };
+  const handleRemoveMobileImage = () => {
+    setMobileImageUrl('');
   };
   // ------------------------
 
@@ -115,7 +134,9 @@ const EditHero = () => {
         heading,
         subheading,
         imageUrl,
+        mobileImageUrl,
         altText, 
+        showOverlay,
         order: Date.now()
       };
 
@@ -132,7 +153,9 @@ const EditHero = () => {
       setHeading('');
       setSubheading('');
       setImageUrl('');
+      setMobileImageUrl('');
       setAltText(''); 
+      setShowOverlay(false);
       setEditingId(null);
       fetchBanners();
 
@@ -160,7 +183,9 @@ const EditHero = () => {
     setHeading(banner.heading);
     setSubheading(banner.subheading);
     setImageUrl(banner.imageUrl);
+    setMobileImageUrl(banner.mobileImageUrl || '');
     setAltText(banner.altText || ''); 
+    setShowOverlay(banner.showOverlay || false);
     setEditingId(banner.id);
     window.scrollTo(0,0);
   };
@@ -170,7 +195,9 @@ const EditHero = () => {
     setHeading('');
     setSubheading('');
     setImageUrl('');
+    setMobileImageUrl('');
     setAltText('');
+    setShowOverlay(false);
     setEditingId(null);
   }
 
@@ -187,7 +214,7 @@ const EditHero = () => {
           
           {/* --- IMAGE UPLOAD (UPDATED) --- */}
           <div style={{ marginBottom: '20px' }}>
-            <label style={{ display: 'block', marginBottom: '10px', fontWeight: 'bold' }}>1. Upload Banner Image</label>
+            <label style={{ display: 'block', marginBottom: '10px', fontWeight: 'bold' }}>1. Upload Desktop Banner Image</label>
             
             {!imageUrl ? (
                 <label 
@@ -196,10 +223,10 @@ const EditHero = () => {
                         backgroundColor: dragActive ? '#e2e8f0' : '#fafafa',
                         borderColor: dragActive ? '#0072C6' : '#ccc'
                     }}
-                    onDragEnter={handleDrag}
-                    onDragLeave={handleDrag}
-                    onDragOver={handleDrag}
-                    onDrop={handleDrop}
+                    onDragEnter={(e) => handleDrag(e, false)}
+                    onDragLeave={(e) => handleDrag(e, false)}
+                    onDragOver={(e) => handleDrag(e, false)}
+                    onDrop={(e) => handleDrop(e, false)}
                 >
                     {uploading ? (
                         <p style={{ color: '#0072C6', fontWeight: 'bold', margin:0 }}>Uploading...</p>
@@ -209,14 +236,14 @@ const EditHero = () => {
                                 type="file" 
                                 accept="image/*" 
                                 onChange={(e) => {
-                                    processUpload(e.target.files[0]);
+                                    processUpload(e.target.files[0], false);
                                     e.target.value = null; 
                                 }}
                                 style={{ display: 'none' }} 
                             />
                             <div style={{ cursor: 'pointer', color: '#0072C6', fontWeight: '600' }}>
                                 <i className="fas fa-cloud-upload-alt" style={{ fontSize: '24px', marginBottom: '5px' }}></i><br/>
-                                Drag & Drop or Click to Upload
+                                Drag & Drop or Click to Upload Desktop Banner
                             </div>
                             <small style={{ color: '#64748B', display: 'block', marginTop: '5px' }}>Max: 1.00 MB</small>
                         </>
@@ -224,7 +251,7 @@ const EditHero = () => {
                 </label>
             ) : (
                 <div style={{ position: 'relative', marginTop: '10px' }}>
-                    <p style={{ fontSize: '12px', color: 'green', marginBottom:'5px' }}>✓ Image Ready</p>
+                    <p style={{ fontSize: '12px', color: 'green', marginBottom:'5px' }}>✓ Desktop Image Ready</p>
                     <img src={imageUrl} alt="Preview" style={{ width: '100%', maxHeight: '200px', objectFit: 'cover', borderRadius:'4px' }} />
                     <button 
                         type="button" 
@@ -240,11 +267,66 @@ const EditHero = () => {
                 </div>
             )}
           </div>
+
+          <div style={{ marginBottom: '20px' }}>
+            <label style={{ display: 'block', marginBottom: '10px', fontWeight: 'bold' }}>2. Upload Mobile Banner (Portrait - Recommended 1080x1350) - Optional</label>
+            
+            {!mobileImageUrl ? (
+                <label 
+                    style={{ 
+                        ...styles.uploadBox, 
+                        backgroundColor: dragActiveMobile ? '#e2e8f0' : '#fafafa',
+                        borderColor: dragActiveMobile ? '#0072C6' : '#ccc'
+                    }}
+                    onDragEnter={(e) => handleDrag(e, true)}
+                    onDragLeave={(e) => handleDrag(e, true)}
+                    onDragOver={(e) => handleDrag(e, true)}
+                    onDrop={(e) => handleDrop(e, true)}
+                >
+                    {uploadingMobile ? (
+                        <p style={{ color: '#0072C6', fontWeight: 'bold', margin:0 }}>Uploading...</p>
+                    ) : (
+                        <>
+                            <input 
+                                type="file" 
+                                accept="image/*" 
+                                onChange={(e) => {
+                                    processUpload(e.target.files[0], true);
+                                    e.target.value = null; 
+                                }}
+                                style={{ display: 'none' }} 
+                            />
+                            <div style={{ cursor: 'pointer', color: '#0072C6', fontWeight: '600' }}>
+                                <i className="fas fa-cloud-upload-alt" style={{ fontSize: '24px', marginBottom: '5px' }}></i><br/>
+                                Drag & Drop or Click to Upload Mobile Banner
+                            </div>
+                            <small style={{ color: '#64748B', display: 'block', marginTop: '5px' }}>Max: 1.00 MB</small>
+                        </>
+                    )}
+                </label>
+            ) : (
+                <div style={{ position: 'relative', marginTop: '10px' }}>
+                    <p style={{ fontSize: '12px', color: 'green', marginBottom:'5px' }}>✓ Mobile Image Ready</p>
+                    <img src={mobileImageUrl} alt="Preview" style={{ width: '100%', maxHeight: '200px', objectFit: 'contain', borderRadius:'4px' }} />
+                    <button 
+                        type="button" 
+                        onClick={handleRemoveMobileImage}
+                        style={{
+                            position: 'absolute', top: '5px', right: '5px', background: 'rgba(255, 0, 0, 0.9)', color: 'white', 
+                            border: 'none', borderRadius: '50%', width: '30px', height: '30px', cursor: 'pointer', fontWeight: 'bold', display:'flex', alignItems:'center', justifyContent:'center'
+                        }}
+                        title="Remove Image"
+                    >
+                        &times;
+                    </button>
+                </div>
+            )}
+          </div>
           {/* ----------------------------- */}
 
           {/* Text Fields */}
           <div style={{ marginBottom: '15px' }}>
-            <label style={{ display: 'block', marginBottom: '5px' }}>2. Image Alt Text (SEO)</label>
+            <label style={{ display: 'block', marginBottom: '5px' }}>3. Image Alt Text (SEO)</label>
             <input 
               type="text" 
               value={altText} 
@@ -256,7 +338,7 @@ const EditHero = () => {
           </div>
 
           <div style={{ marginBottom: '15px' }}>
-            <label style={{ display: 'block', marginBottom: '5px' }}>3. Main Heading</label>
+            <label style={{ display: 'block', marginBottom: '5px' }}>4. Main Heading</label>
             <input 
               type="text" 
               value={heading} 
@@ -267,7 +349,7 @@ const EditHero = () => {
           </div>
 
           <div style={{ marginBottom: '15px' }}>
-            <label style={{ display: 'block', marginBottom: '5px' }}>4. Subheading (Optional)</label>
+            <label style={{ display: 'block', marginBottom: '5px' }}>5. Subheading (Optional)</label>
             <input 
               type="text" 
               value={subheading} 
@@ -275,6 +357,18 @@ const EditHero = () => {
               style={{ width: '100%', padding: '10px', fontSize: '16px' }}
               placeholder="e.g. Empowering Future Engineers"
             />
+          </div>
+
+          <div style={{ marginBottom: '15px' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', fontWeight: 'bold' }}>
+              <input 
+                type="checkbox" 
+                checked={showOverlay} 
+                onChange={(e) => setShowOverlay(e.target.checked)} 
+                style={{ width: '18px', height: '18px' }}
+              />
+              6. Show "Admission Open" Overlay on this banner?
+            </label>
           </div>
 
           <div style={{ display: 'flex', gap: '10px' }}>

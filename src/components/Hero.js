@@ -50,9 +50,12 @@ export default function Hero() {
                     key={index}
                     className={`hero-slide ${index === currentIndex ? 'active' : ''}`}
                     // FIX: Use backgroundImage so text sits on top (Matches your CSS rules)
-                    style={{ backgroundImage: `url('${banner.imageUrl}')` }}
+                    style={{ 
+                        '--bg-desktop': `url('${banner.imageUrl}')`,
+                        '--bg-mobile': `url('${banner.mobileImageUrl || banner.imageUrl}')` 
+                    }}
                 >
-                    {index !== 0 && (
+                    {banner.showOverlay !== true && (
                         <Link 
                             href="/admission-enquiry" 
                             style={{
@@ -68,16 +71,18 @@ export default function Hero() {
                     )}
                     {/* Removed the <img> tag because it was blocking the text */}
 
-                    {index === 0 && <div className="hero-overlay"></div>}
-                    {index === 0 && (
-                        <div className="hero-content">
-                            <h1>{banner.heading}</h1>
-                            <div className="hero-underline"></div>
-                            {(banner.subheading || banner.description) && (
-                                <p>{banner.subheading || banner.description}</p>
-                            )}
-                            <Link href="https://admission.jeckukas.org.in/" className="apply-btn" target="_blank">Apply for Admission</Link>
-                        </div>
+                    {banner.showOverlay === true && (
+                        <>
+                            <div className="hero-overlay"></div>
+                            <div className="hero-content">
+                                <h1>{banner.heading}</h1>
+                                <div className="hero-underline"></div>
+                                {(banner.subheading || banner.description) && (
+                                    <p>{banner.subheading || banner.description}</p>
+                                )}
+                                <Link href="https://admission.jeckukas.org.in/" className="apply-btn" target="_blank">Apply for Admission</Link>
+                            </div>
+                        </>
                     )}
                 </div>
             ))}
