@@ -1,0 +1,353 @@
+:root {
+    /* Brand Palette */
+    --logo-red: #D62828;
+    --logo-blue: #0072C6;
+    --logo-gold: #FCA311;
+    --logo-black: #1D1D1D;
+    --logo-white: #FFFFFF;
+    /* Functional Colors */
+    --color-header-bg: var(--logo-black);
+    --color-header-text: var(--logo-white);
+    --color-background-light: var(--logo-white);
+    --color-background-medium: #f7f7f7;
+    --color-text-main: #333;
+    --color-text-light: #555;
+    --color-border: #e0e0e0;
+    --shadow-card: 0 5px 15px rgba(0,0,0,0.08);
+    --shadow-hover: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.courses-offered-page {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--color-text-main);
+    line-height: 1.65;
+    background-color: var(--color-background-light);
+}
+
+    .courses-offered-page .max-width-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .courses-offered-page a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* --- Side Bar --- */
+    .courses-offered-page .college-side-bar {
+        position: fixed;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        background: rgba(29, 29, 29, 0.95);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 1001;
+        border-radius: 6px 0 0 6px;
+        padding: 8px;
+    }
+
+        .courses-offered-page .college-side-bar a {
+            display: flex;
+            align-items: center;
+            color: var(--logo-white);
+            width: 44px;
+            height: 44px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+            .courses-offered-page .college-side-bar a i {
+                width: 44px;
+                height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                flex-shrink: 0;
+            }
+
+            .courses-offered-page .college-side-bar a span {
+                display: inline-block;
+                width: 0;
+                opacity: 0;
+                transition: all 0.3s ease;
+                white-space: nowrap;
+                font-size: 13px;
+                margin-left: 8px;
+            }
+
+            .courses-offered-page .college-side-bar a:hover {
+                width: 160px;
+            }
+
+                .courses-offered-page .college-side-bar a:hover span {
+                    width: auto;
+                    opacity: 1;
+                }
+
+            .courses-offered-page .college-side-bar a:nth-child(1):hover {
+                background: var(--logo-blue);
+            }
+
+            .courses-offered-page .college-side-bar a:nth-child(2):hover {
+                background: var(--logo-gold);
+                color: var(--logo-black);
+            }
+
+    /* --- Hero Section --- */
+    .courses-offered-page .courses-hero {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        background-size: cover;
+        background-position: center;
+        padding: 100px 20px 140px; /* Extra bottom padding for stats overlap */
+        text-align: center;
+        color: var(--logo-white);
+    }
+
+        .courses-offered-page .courses-hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .courses-offered-page .courses-hero p {
+            font-size: 20px;
+            font-weight: 300;
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--logo-gold);
+        }
+
+    /* --- Stats Banner --- */
+    .courses-offered-page .stats-bar {
+        margin-top: -60px;
+        background: var(--logo-white);
+        border-radius: 12px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        padding: 30px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        position: relative;
+        z-index: 2;
+        border-bottom: 4px solid var(--logo-blue);
+    }
+
+    .courses-offered-page .stat-item {
+        text-align: center;
+        border-right: 1px solid #eee;
+    }
+
+        .courses-offered-page .stat-item:last-child {
+            border-right: none;
+        }
+
+        .courses-offered-page .stat-item h3 {
+            font-size: 28px;
+            color: var(--logo-red);
+            margin-bottom: 5px;
+        }
+
+        .courses-offered-page .stat-item p {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+    /* --- Main Content Styling --- */
+    .courses-offered-page .content-section {
+        padding: 80px 20px;
+    }
+
+    .courses-offered-page .section-title {
+        font-size: 32px;
+        color: var(--logo-blue);
+        margin-bottom: 30px;
+        border-left: 5px solid var(--logo-gold);
+        padding-left: 15px;
+        font-weight: 700;
+    }
+
+    .courses-offered-page .text-block {
+        font-size: 16px;
+        color: #444;
+        text-align: justify;
+        margin-bottom: 20px;
+    }
+
+    .courses-offered-page .highlight-box {
+        background: #f9f9f9;
+        border-left: 4px solid var(--logo-blue);
+        padding: 20px;
+        margin: 20px 0;
+        font-size: 15px;
+    }
+
+    /* --- Course Cards --- */
+    .courses-offered-page .course-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Forces 2 columns */
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .courses-offered-page .course-card {
+        background: var(--logo-white);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: var(--shadow-card);
+        transition: transform 0.3s ease;
+        border-top: 4px solid transparent;
+    }
+
+        .courses-offered-page .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .courses-offered-page .course-card.btech {
+            border-top-color: var(--logo-red);
+        }
+
+        .courses-offered-page .course-card.mtech {
+            border-top-color: var(--logo-blue);
+        }
+
+        .courses-offered-page .course-card.bvoc {
+            border-top-color: var(--logo-gold);
+        }
+
+        .courses-offered-page .course-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--logo-black);
+        }
+
+        .courses-offered-page .course-card .duration {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 15px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .courses-offered-page .course-card p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+    /* --- Tables Styling --- */
+    .courses-offered-page .table-container {
+        overflow-x: auto;
+        margin: 30px 0;
+        box-shadow: var(--shadow-card);
+        border-radius: 8px;
+    }
+
+    .courses-offered-page .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 600px;
+    }
+
+        .courses-offered-page .data-table th, .courses-offered-page .data-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .courses-offered-page .data-table th {
+            background: var(--logo-blue);
+            color: white;
+            font-weight: 600;
+        }
+
+        .courses-offered-page .data-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .courses-offered-page .data-table tr:last-child td {
+            border-bottom: none;
+            font-weight: bold;
+            color: var(--logo-red);
+        }
+
+    /* --- Karma Section --- */
+    .courses-offered-page .karma-section {
+        background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        padding: 60px 20px;
+        border-radius: 15px;
+        margin-top: 60px;
+        border: 1px solid #ddd;
+    }
+
+        .courses-offered-page .karma-section h3 {
+            font-size: 24px;
+            color: var(--logo-red);
+            margin-bottom: 20px;
+        }
+
+    .courses-offered-page .karma-list li {
+        margin-bottom: 10px;
+        font-size: 15px;
+        color: #444;
+    }
+
+    /* --- Contact Bar --- */
+    .courses-offered-page .contact-bar {
+        background: var(--logo-black);
+        color: var(--logo-white);
+        padding: 40px 20px;
+        text-align: center;
+        margin-top: 60px;
+    }
+
+        .courses-offered-page .contact-bar h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--logo-gold);
+        }
+
+        .courses-offered-page .contact-bar p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .courses-offered-page .contact-bar a {
+            color: var(--logo-gold);
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .courses-offered-page .stat-item {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .courses-offered-page .courses-hero h1 {
+        font-size: 36px;
+    }
+
+    .courses-offered-page .course-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Add this to your CSS file */
+.section-title.career-blue {
+    border-left-color: var(--logo-blue);
+    margin-top: 60px;
+}

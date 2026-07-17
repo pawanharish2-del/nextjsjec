@@ -1,0 +1,142 @@
+/* src/styles/CommitteesZone.css */
+
+/* --- 1. DESIGN TOKENS (Prepare & Present System) --- */
+.committees-page {
+    --primary: #0072C6;        /* JEC Blue */
+    --primary-dark: #005a9e;
+    --accent: #D62828;         /* JEC Red */
+    --gold: #FCA311;           /* Highlight */
+    
+    --bg-body: #F8FAFC;
+    --bg-surface: #FFFFFF;
+    --text-main: #0F172A;
+    --text-muted: #475569;
+    --border: #E2E8F0;
+    
+    --radius-lg: 20px;
+    --shadow-card: 0 4px 6px -1px rgba(0,0,0,0.05);
+    --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1);
+    
+    --font-head: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    font-family: var(--font-body);
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.8;
+}
+
+/* --- 2. HERO SECTION --- */
+.committees-page .hero {
+    position: relative;
+    /* Image: Group discussion / Teamwork */
+    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(0, 114, 198, 0.8)), 
+                url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1920');
+    background-size: cover; background-position: center; background-attachment: fixed;
+    padding: 9rem 1rem 12rem 1rem;
+    text-align: center; color: white;
+}
+
+.committees-page .hero h1 {
+    font-family: var(--font-head); font-size: 3.5rem; margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.committees-page .hero p { font-size: 1.4rem; color: var(--gold); font-weight: 600; letter-spacing: 1px; }
+
+/* --- 3. FLOATING STATS --- */
+.committees-page .stats-container {
+    max-width: 1200px; margin: -6rem auto 5rem auto; padding: 0 1.5rem;
+    position: relative; z-index: 10;
+}
+.committees-page .stats-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;
+}
+.committees-page .stat-card {
+    background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card); text-align: center; transition: transform 0.3s;
+    border-bottom: 4px solid var(--primary);
+}
+.committees-page .stat-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
+
+.committees-page .stat-icon { font-size: 2rem; color: var(--primary); margin-bottom: 10px; }
+.committees-page .stat-label { font-size: 1rem; font-weight: 700; color: var(--text-main); }
+
+/* --- 4. CONTENT SECTIONS --- */
+.committees-page .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 5rem 1.5rem; }
+
+.committees-page .section-header { text-align: center; margin-bottom: 4rem; margin-top: 4rem; }
+.committees-page .section-header h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--text-main); margin-bottom: 0.5rem; }
+.committees-page .section-header span { color: var(--accent); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+
+/* Quote/Intro Box */
+.committees-page .intro-box {
+    background: white; border-radius: var(--radius-lg); padding: 3rem;
+    box-shadow: var(--shadow-card); margin-bottom: 5rem;
+    border-left: 8px solid var(--gold);
+}
+.committees-page .intro-text { font-size: 1.05rem; color: var(--text-muted); text-align: justify; margin-bottom: 1.5rem; }
+
+/* --- 5. COMMITTEE CARDS (List Layout) --- */
+.committees-page .committee-list { display: flex; flex-direction: column; gap: 3rem; }
+.committees-page .comm-card { 
+    background: white; border-radius: var(--radius-lg); overflow: hidden; 
+    box-shadow: var(--shadow-card); border: 1px solid var(--border); 
+    transition: 0.3s; position: relative; 
+}
+.committees-page .comm-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--primary); }
+
+/* Card Header */
+.committees-page .comm-header { 
+    background: #F8FAFC; padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); 
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; 
+}
+.committees-page .comm-title { display: flex; align-items: center; gap: 15px; }
+.committees-page .comm-icon { 
+    width: 50px; height: 50px; background: white; border-radius: 12px; 
+    display: flex; align-items: center; justify-content: center; font-size: 1.5rem; 
+    color: var(--primary); box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+}
+.committees-page .comm-name { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+.committees-page .comm-mentor { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
+.committees-page .comm-mentor i { color: var(--accent); margin-right: 5px; }
+
+/* Card Body (Two Columns) */
+.committees-page .comm-body {
+    padding: 2rem; display: grid; grid-template-columns: 2fr 1fr; gap: 3rem;
+}
+.committees-page .comm-col h4 { 
+    font-family: var(--font-head); font-size: 1.2rem; color: var(--accent); 
+    margin-bottom: 1rem; padding-bottom: 5px; border-bottom: 2px solid var(--border); 
+}
+.committees-page .comm-col p { margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted); text-align: justify; }
+
+.committees-page .learning-col {
+    background: #FFFBEB; border-radius: 10px; padding: 1.5rem;
+}
+.committees-page .learning-col h4 { border-color: var(--gold); }
+
+/* --- 6. CTA Section --- */
+.committees-page .cta-section { 
+    background: var(--primary); border-radius: var(--radius-lg); 
+    padding: 4rem; margin-top: 6rem; text-align: center; color: white;
+}
+.committees-page .cta-content h2 { 
+    font-family: var(--font-head); font-size: 2.5rem; margin-bottom: 1rem; color: var(--gold);
+}
+.committees-page .cta-content p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; }
+.committees-page .btn-cta { 
+    background: white; color: var(--primary); padding: 12px 30px; 
+    border-radius: 30px; font-weight: 700; text-decoration: none; 
+    transition: 0.3s; display: inline-block;
+}
+.committees-page .btn-cta:hover { background: var(--primary-dark); color: white; transform: translateY(-3px); }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .committees-page .comm-body { grid-template-columns: 1fr; gap: 1.5rem; }
+    .committees-page .comm-header { flex-direction: column; align-items: flex-start; }
+    .committees-page .hero h1 { font-size: 2.5rem; }
+    .committees-page .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .committees-page .cta-section { padding: 2rem; }
+}

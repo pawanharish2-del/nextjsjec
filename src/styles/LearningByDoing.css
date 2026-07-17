@@ -1,0 +1,358 @@
+/* ========================================
+   LEARNING BY DOING PAGE STYLES
+   ========================================
+*/
+
+:root {
+    /* Scope variables for this page */
+    --learning-primary: #0072C6;       
+    --learning-primary-dark: #005a9e;
+    --learning-accent: #D62828;        
+    --learning-gold: #FCA311;          
+    
+    --learning-bg-body: #F8FAFC;
+    --learning-bg-surface: #FFFFFF;
+    --learning-text-main: #0F172A;
+    --learning-text-muted: #475569;
+    --learning-border: #E2E8F0;
+    
+    --learning-radius-lg: 20px;
+    --learning-shadow-card: 0 4px 6px -1px rgba(0,0,0,0.05);
+    --learning-shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1);
+    
+    --learning-font-head: 'Poppins', sans-serif;
+    --learning-font-body: 'Inter', sans-serif;
+}
+
+.learning-page {
+    font-family: var(--learning-font-body);
+    background-color: var(--learning-bg-body);
+    color: var(--learning-text-main);
+    line-height: 1.8;
+}
+
+/* --- Hero Section --- */
+.learning-hero {
+    position: relative;
+    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.75)), 
+                url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 9rem 1rem 12rem 1rem;
+    text-align: center;
+    color: white;
+}
+
+.learning-hero h1 {
+    font-family: var(--learning-font-head);
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.learning-hero p { 
+    font-size: 1.4rem; 
+    color: var(--learning-gold); 
+    font-weight: 600; 
+    letter-spacing: 1px; 
+}
+
+/* --- Highlight Stats (Floating) --- */
+.learning-stats-container {
+    max-width: 1200px;
+    margin: -6rem auto 5rem auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.learning-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.learning-stat-card {
+    background: var(--learning-bg-surface);
+    padding: 2rem;
+    border-radius: var(--learning-radius-lg);
+    box-shadow: var(--learning-shadow-card);
+    text-align: left;
+    transition: transform 0.3s;
+    border-bottom: 4px solid var(--learning-primary);
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.learning-stat-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: var(--learning-shadow-hover); 
+}
+
+.learning-stat-icon { 
+    font-size: 2rem; 
+    color: var(--learning-primary); 
+    background: #EFF6FF;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.learning-stat-content h3 { 
+    font-size: 1.1rem; 
+    font-weight: 700; 
+    color: var(--learning-text-main); 
+    margin-bottom: 5px; 
+}
+
+.learning-stat-content p { 
+    font-size: 0.9rem; 
+    color: var(--learning-text-muted); 
+    line-height: 1.4; 
+}
+
+/* --- Content Sections --- */
+.learning-container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 1.5rem 5rem 1.5rem; 
+}
+
+.learning-section-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+.learning-text-block h2 {
+    font-family: var(--learning-font-head);
+    font-size: 2.5rem;
+    color: var(--learning-text-main);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    position: relative;
+}
+
+.learning-text-block h2::after {
+    content: ''; display: block; 
+    width: 80px; height: 4px; 
+    background: var(--learning-gold); 
+    margin-top: 10px; 
+    border-radius: 2px;
+}
+
+.learning-text-block p { 
+    margin-bottom: 1.5rem; 
+    font-size: 1.05rem; 
+    color: var(--learning-text-muted); 
+}
+
+.learning-img-block {
+    height: 450px;
+    border-radius: var(--learning-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--learning-shadow-hover);
+    position: relative;
+}
+
+.learning-img-block img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.learning-img-block:hover img { 
+    transform: scale(1.05); 
+}
+
+/* --- Lab Ecosystem Grid --- */
+.learning-lab-section { 
+    margin-bottom: 6rem; 
+}
+
+.learning-lab-header { 
+    text-align: center; 
+    margin-bottom: 3rem; 
+}
+
+.learning-lab-header h2 { 
+    font-family: var(--learning-font-head); 
+    font-size: 2.5rem; 
+    color: var(--learning-text-main); 
+}
+
+.learning-lab-header p { 
+    color: var(--learning-text-muted); 
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
+.learning-lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.learning-lab-card {
+    background: var(--learning-bg-surface);
+    border: 1px solid var(--learning-border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+}
+
+.learning-lab-card:hover {
+    border-color: var(--learning-primary);
+    background: #F0F9FF;
+    transform: translateY(-3px);
+    box-shadow: var(--learning-shadow-card);
+}
+
+.learning-lab-card i { 
+    color: var(--learning-accent); 
+    font-size: 1.1rem; 
+    width: 24px; 
+    text-align: center; 
+}
+
+.learning-lab-name { 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+    color: var(--learning-text-main); 
+    line-height: 1.3; 
+}
+
+/* --- Featured Case Study (FUSE) --- */
+.learning-story-wrapper {
+    background: #1E293B; /* Dark theme for impact */
+    color: white;
+    border-radius: 24px;
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--learning-shadow-hover);
+}
+
+.learning-story-wrapper::before {
+    content: ''; 
+    position: absolute; 
+    top: -50%; right: -20%; 
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,114,198,0.2) 0%, rgba(0,0,0,0) 70%);
+}
+
+.learning-story-header { 
+    margin-bottom: 2rem; 
+    border-bottom: 1px solid rgba(255,255,255,0.1); 
+    padding-bottom: 1rem; 
+}
+
+.learning-story-header h3 { 
+    font-family: var(--learning-font-head); 
+    font-size: 2.2rem; 
+    color: var(--learning-gold); 
+}
+
+.learning-story-header span { 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    font-size: 0.9rem; 
+    opacity: 0.7; 
+}
+
+.learning-story-content { 
+    display: grid; 
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 4rem; 
+    position: relative; 
+    z-index: 2; 
+}
+
+.learning-story-text p { 
+    margin-bottom: 1.5rem; 
+    font-size: 1.05rem; 
+    opacity: 0.9; 
+    line-height: 1.8; 
+}
+
+.learning-story-sidebar {
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.learning-quote-block {
+    border-left: 4px solid var(--learning-accent);
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.learning-quote-author { 
+    display: block; 
+    margin-top: 10px; 
+    color: var(--learning-gold); 
+    font-weight: 700; 
+    font-style: normal; 
+    font-size: 0.9rem; 
+}
+
+.learning-project-details { 
+    margin-top: 2rem; 
+}
+
+.learning-project-details h4 { 
+    color: var(--learning-primary); 
+    font-family: var(--learning-font-head); 
+    margin-bottom: 1rem; 
+}
+
+.learning-detail-item { 
+    display: flex; 
+    gap: 10px; 
+    margin-bottom: 10px; 
+    align-items: baseline; 
+}
+
+.learning-detail-item i { 
+    color: var(--learning-gold); 
+    font-size: 0.9rem; 
+}
+
+.learning-detail-item span { 
+    font-size: 0.95rem; 
+    opacity: 0.8; 
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .learning-section-split, .learning-story-content { 
+        grid-template-columns: 1fr; 
+    }
+    .learning-img-block { 
+        height: 300px; 
+        order: -1; 
+    } 
+    .learning-hero h1 { 
+        font-size: 2.8rem; 
+    }
+    .learning-story-wrapper { 
+        padding: 2rem; 
+    }
+    .learning-stats-grid { 
+        grid-template-columns: 1fr; 
+    }
+}

@@ -1,0 +1,1580 @@
+[debug] [2026-07-04T07:54:21.447Z] ----------------------------------------------------------------------
+[debug] [2026-07-04T07:54:21.448Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DELL\AppData\Local\npm-cache\_npx\7750544ccf494d8b\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2026-07-04T07:54:21.449Z] CLI Version:   15.22.4
+[debug] [2026-07-04T07:54:21.449Z] Platform:      win32
+[debug] [2026-07-04T07:54:21.449Z] Node Version:  v22.23.1
+[debug] [2026-07-04T07:54:21.449Z] Detected Agent: unknown
+[debug] [2026-07-04T07:54:21.449Z] Time:          Sat Jul 04 2026 13:24:21 GMT+0530 (India Standard Time)
+[debug] [2026-07-04T07:54:21.449Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-04T07:54:21.452Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-07-04T07:54:26.446Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-04T07:54:26.446Z] > authorizing via signed-in user (pawanharish2@gmail.com)
+[debug] [2026-07-04T07:54:26.446Z] [iam] checking project jec-website-55397 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-04T07:54:26.447Z] Checked if tokens are valid: false, expires at: 1782893850299
+[debug] [2026-07-04T07:54:26.447Z] Checked if tokens are valid: false, expires at: 1782893850299
+[debug] [2026-07-04T07:54:26.447Z] > refreshing access token with scopes: []
+[debug] [2026-07-04T07:54:26.448Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-07-04T07:54:26.448Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-07-04T07:54:26.778Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-07-04T07:54:26.778Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-07-04T07:54:26.791Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions [none]
+[debug] [2026-07-04T07:54:26.791Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions  x-goog-user-project=jec-website-55397
+[debug] [2026-07-04T07:54:26.792Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-04T07:54:27.170Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-07-04T07:54:27.170Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2026-07-04T07:54:27.406Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions 200
+[debug] [2026-07-04T07:54:27.406Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-04T07:54:27.407Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:54:27.407Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:54:27.407Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jec-website-55397 [none]
+[debug] [2026-07-04T07:54:28.027Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jec-website-55397 200
+[debug] [2026-07-04T07:54:28.028Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jec-website-55397 {"projectId":"jec-website-55397","projectNumber":"297805586522","displayName":"JEC-Website","name":"projects/jec-website-55397","resources":{"hostingSite":"jec-website-55397","realtimeDatabaseInstance":"jec-website-55397-default-rtdb"},"state":"ACTIVE","labels":{"firebase":"enabled","firebase/storage-default-bucket":"created"},"etag":"1_4f397cdf-743a-4bd6-a9fe-b410e6c14c43"}
+[debug] [2026-07-04T07:54:30.206Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:54:30.206Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:54:30.206Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites pageToken=&pageSize=10
+[debug] [2026-07-04T07:54:31.817Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites 200
+[debug] [2026-07-04T07:54:31.817Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites {"sites":[{"name":"projects/jec-website-55397/sites/jec-website-55397","defaultUrl":"https://jec-website-55397.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-07-04T07:54:31.818Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:54:31.818Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:54:31.819Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites 
+[debug] [2026-07-04T07:54:32.736Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites 200
+[debug] [2026-07-04T07:54:32.736Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites {"sites":[{"name":"projects/jec-website-55397/sites/jec-website-55397","defaultUrl":"https://jec-website-55397.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-07-04T07:54:32.736Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:54:32.737Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:54:32.737Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jec-website-55397/webApps/-/config [none]
+[debug] [2026-07-04T07:54:34.509Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jec-website-55397/webApps/-/config 200
+[debug] [2026-07-04T07:54:34.509Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jec-website-55397/webApps/-/config {"projectId":"jec-website-55397","appId":"1:297805586522:web:141f9b17b4bff8622ef863","databaseURL":"https://jec-website-55397-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"jec-website-55397.firebasestorage.app","apiKey":"AIzaSyC7-cNMK6ssZt5FmWhnA88LhF_kJRoj56A","authDomain":"jec-website-55397.firebaseapp.com","messagingSenderId":"297805586522","projectNumber":"297805586522","version":"2"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 16.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2026-07-04T07:54:39.805Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:54:39.805Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:54:39.805Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites/jec-website-55397 [none]
+[debug] [2026-07-04T07:54:41.558Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites/jec-website-55397 200
+[debug] [2026-07-04T07:54:41.559Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites/jec-website-55397 {"name":"projects/jec-website-55397/sites/jec-website-55397","defaultUrl":"https://jec-website-55397.web.app","type":"DEFAULT_SITE"}
+[info] ▲ Next.js 16.2.9 (Turbopack)
+
+[info] - Environments: .env.local
+
+
+[info]   Creating an optimized production build ...
+
+[info] ✓ Compiled successfully in 5.1s
+
+[info]   Running TypeScript ...
+
+[info]   Finished TypeScript in 96ms ...
+
+[info]   Collecting page data using 11 workers ...
+
+[info]   Generating static pages using 11 workers (0/67) ...
+
+[info]   Generating static pages using 11 workers (16/67) 
+
+[info]   Generating static pages using 11 workers (33/67) 
+
+[info]   Generating static pages using 11 workers (50/67) 
+
+[info] ✓ Generating static pages using 11 workers (67/67) in 3.6s
+
+[info]   Finalizing page optimization ...
+
+[info] 
+
+[info] Route (app)                                                                Revalidate  Expire
+┌ ○ /
+├ ○ /_not-found
+├ ○ /admin
+├ ○ /admin/login
+├ ○ /admin/manage-blogs
+├ ○ /admin/manage-campus-life
+├ ○ /admin/manage-departments
+├ ○ /admin/manage-events
+├ ○ /admin/manage-faculty
+├ ○ /admin/manage-gallery
+├ ○ /admin/manage-home
+├ ○ /admin/manage-placements
+├ ○ /admin/manage-testimonials
+├ ○ /admin/manage-video-gallery
+├ ○ /admin/manage-video-testimonials
+├ ○ /admin/user-management
+├ ○ /admission-enquiry
+├ ○ /admission/Admission-Open
+├ ○ /admission/Admission-Procedure
+├ ○ /admission/Courses-Offered
+├ ○ /admission/Documents-Required
+├ ○ /admission/Fee-Structure
+├ ○ /admission/Financial-Aids-Bank-Loans
+├ ○ /admission/karma
+├ ○ /admission/Mandatory-Disclosure
+├ ○ /admission/reap-2026
+├ ○ /blog
+├ ƒ /blog/[slug]
+├ ○ /campus-life/academic-achievers
+├ ○ /campus-life/committees-zone
+├ ○ /campus-life/engineering-projects
+├ ○ /campus-life/events-and-clubs
+├ ○ /campus-life/games-and-sports
+├ ○ /campus-life/guts-n-glory
+├ ƒ /campus-life/image-gallery/[[...albumId]]
+├ ○ /campus-life/jec-vibrant-india
+├ ○ /campus-life/mental-health
+├ ○ /campus-life/students-corner
+├ ○ /campus-life/video-gallery
+├ ○ /contact
+├ ƒ /department/[slug]
+├ ○ /department/MOOCS-NPTEL-SWAYAM
+├ ○ /department/MTech
+├ ○ /Disclaimer
+├ ○ /grievance
+├ ○ /icon.png
+├ ○ /Infrastructure/Convenience-and-Safety
+├ ○ /Infrastructure/Learning-By-Doing
+├ ○ /Infrastructure/Prepare-and-Present
+├ ○ /Infrastructure/Refuel-and-Relax
+├ ○ /jec/about-jec
+├ ○ /jec/alumni
+├ ○ /jec/Anti-Ragging-Committee
+├ ○ /jec/Employment-JEC
+├ ○ /jec/Institution-Innovation-Council-JEC
+├ ○ /jec/JEC-FAQ
+├ ○ /jec/management
+├ ○ /jec/network
+├ ○ /jec/Students-Testimonials
+├ ○ /Our-Society/Foundation-for-Better-Tomorrow
+├ ○ /Our-Society/Key-Teams-Functions
+├ ○ /Our-Society/Other-Institutes-Agrasen-College
+├ ○ /Our-Society/Other-Institutes-Jaipur-College-of-Education-and-Science
+├ ○ /placement
+├ ○ /PrivacyPolicy
+├ ○ /robots.txt
+├ ○ /sitemap.xml                                                                   1h      1y
+├ ○ /terms
+└ ○ /virtual-tour
+
+
+[info] 
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • use of revalidate /sitemap.xml
+[info]  • non-static component /blog/[slug]/page
+[info]  • non-static component /campus-life/image-gallery/[[...albumId]]/page
+[info]  • non-static component /department/[slug]/page
+[info]  • advanced redirects
+[info] 
+[debug] [2026-07-04T07:54:56.499Z] skipping / due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /_global-error due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /_not-found due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin/login due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin/manage-blogs due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin/manage-campus-life due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin/manage-departments due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin/manage-events due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin/manage-faculty due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin/manage-gallery due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin/manage-home due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin/manage-placements due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin/manage-testimonials due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin/manage-video-gallery due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin/manage-video-testimonials due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admin/user-management due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admission/Admission-Open due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admission/Admission-Procedure due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admission/Courses-Offered due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admission/Documents-Required due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admission/Fee-Structure due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admission/Financial-Aids-Bank-Loans due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admission/karma due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admission/Mandatory-Disclosure due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admission/reap-2026 due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /admission-enquiry due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /blog due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /campus-life/academic-achievers due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /campus-life/committees-zone due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /campus-life/engineering-projects due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /campus-life/events-and-clubs due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /campus-life/games-and-sports due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /campus-life/guts-n-glory due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /campus-life/jec-vibrant-india due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /campus-life/mental-health due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /campus-life/students-corner due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /campus-life/video-gallery due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /contact due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /department/MOOCS-NPTEL-SWAYAM due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.499Z] skipping /department/MTech due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /Disclaimer due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /grievance due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /icon.png due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /Infrastructure/Convenience-and-Safety due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /Infrastructure/Learning-By-Doing due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /Infrastructure/Prepare-and-Present due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /Infrastructure/Refuel-and-Relax due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /jec/about-jec due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /jec/alumni due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /jec/Anti-Ragging-Committee due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /jec/Employment-JEC due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /jec/Institution-Innovation-Council-JEC due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /jec/JEC-FAQ due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /jec/management due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /jec/network due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /jec/Students-Testimonials due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /Our-Society/Foundation-for-Better-Tomorrow due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /Our-Society/Key-Teams-Functions due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /Our-Society/Other-Institutes-Agrasen-College due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /Our-Society/Other-Institutes-Jaipur-College-of-Education-and-Science due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /placement due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /PrivacyPolicy due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /robots.txt due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /sitemap.xml due to revalidate
+[debug] [2026-07-04T07:54:56.500Z] skipping /terms due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /virtual-tour due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /404 due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:54:56.500Z] skipping /500 due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2026-07-04T07:55:01.686Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:01.686Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:01.686Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites/jec-website-55397 [none]
+[debug] [2026-07-04T07:55:03.117Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites/jec-website-55397 200
+[debug] [2026-07-04T07:55:03.117Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites/jec-website-55397 {"name":"projects/jec-website-55397/sites/jec-website-55397","defaultUrl":"https://jec-website-55397.web.app","type":"DEFAULT_SITE"}
+[debug] [2026-07-04T07:55:24.164Z] [web frameworks] effective firebase.json:  {
+  "hosting": [
+    {
+      "source": ".",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "jec-website-55397",
+      "rewrites": [
+        {
+          "source": "**",
+          "function": {
+            "functionId": "ssrjecwebsite55397",
+            "region": "us-central1",
+            "pinTag": true
+          }
+        }
+      ],
+      "redirects": [],
+      "headers": [
+        {
+          "source": "/Disclaimer",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/Disclaimer/layout,_N_T_/Disclaimer/page,_N_T_/Disclaimer"
+            }
+          ]
+        },
+        {
+          "source": "/Infrastructure/Convenience-and-Safety",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/Infrastructure/layout,_N_T_/Infrastructure/Convenience-and-Safety/layout,_N_T_/Infrastructure/Convenience-and-Safety/page,_N_T_/Infrastructure/Convenience-and-Safety"
+            }
+          ]
+        },
+        {
+          "source": "/Infrastructure/Refuel-and-Relax",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/Infrastructure/layout,_N_T_/Infrastructure/Refuel-and-Relax/layout,_N_T_/Infrastructure/Refuel-and-Relax/page,_N_T_/Infrastructure/Refuel-and-Relax"
+            }
+          ]
+        },
+        {
+          "source": "/Infrastructure/Learning-By-Doing",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/Infrastructure/layout,_N_T_/Infrastructure/Learning-By-Doing/layout,_N_T_/Infrastructure/Learning-By-Doing/page,_N_T_/Infrastructure/Learning-By-Doing"
+            }
+          ]
+        },
+        {
+          "source": "/Our-Society/Foundation-for-Better-Tomorrow",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/Our-Society/layout,_N_T_/Our-Society/Foundation-for-Better-Tomorrow/layout,_N_T_/Our-Society/Foundation-for-Better-Tomorrow/page,_N_T_/Our-Society/Foundation-for-Better-Tomorrow"
+            }
+          ]
+        },
+        {
+          "source": "/Our-Society/Key-Teams-Functions",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/Our-Society/layout,_N_T_/Our-Society/Key-Teams-Functions/layout,_N_T_/Our-Society/Key-Teams-Functions/page,_N_T_/Our-Society/Key-Teams-Functions"
+            }
+          ]
+        },
+        {
+          "source": "/Infrastructure/Prepare-and-Present",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/Infrastructure/layout,_N_T_/Infrastructure/Prepare-and-Present/layout,_N_T_/Infrastructure/Prepare-and-Present/page,_N_T_/Infrastructure/Prepare-and-Present"
+            }
+          ]
+        },
+        {
+          "source": "/PrivacyPolicy",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/PrivacyPolicy/layout,_N_T_/PrivacyPolicy/page,_N_T_/PrivacyPolicy"
+            }
+          ]
+        },
+        {
+          "source": "/_global-error",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/_global-error/layout,_N_T_/_global-error/page,_N_T_/_global-error"
+            }
+          ]
+        },
+        {
+          "source": "/Our-Society/Other-Institutes-Jaipur-College-of-Education-and-Science",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/Our-Society/layout,_N_T_/Our-Society/Other-Institutes-Jaipur-College-of-Education-and-Science/layout,_N_T_/Our-Society/Other-Institutes-Jaipur-College-of-Education-and-Science/page,_N_T_/Our-Society/Other-Institutes-Jaipur-College-of-Education-and-Science"
+            }
+          ]
+        },
+        {
+          "source": "/Our-Society/Other-Institutes-Agrasen-College",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/Our-Society/layout,_N_T_/Our-Society/Other-Institutes-Agrasen-College/layout,_N_T_/Our-Society/Other-Institutes-Agrasen-College/page,_N_T_/Our-Society/Other-Institutes-Agrasen-College"
+            }
+          ]
+        },
+        {
+          "source": "/admin/manage-campus-life",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/manage-campus-life/layout,_N_T_/admin/manage-campus-life/page,_N_T_/admin/manage-campus-life"
+            }
+          ]
+        },
+        {
+          "source": "/_not-found",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/_not-found/layout,_N_T_/_not-found/page,_N_T_/_not-found"
+            }
+          ]
+        },
+        {
+          "source": "/admin/login",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/login/layout,_N_T_/admin/login/page,_N_T_/admin/login"
+            }
+          ]
+        },
+        {
+          "source": "/admin/manage-blogs",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/manage-blogs/layout,_N_T_/admin/manage-blogs/page,_N_T_/admin/manage-blogs"
+            }
+          ]
+        },
+        {
+          "source": "/admin/manage-departments",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/manage-departments/layout,_N_T_/admin/manage-departments/page,_N_T_/admin/manage-departments"
+            }
+          ]
+        },
+        {
+          "source": "/admin/manage-gallery",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/manage-gallery/layout,_N_T_/admin/manage-gallery/page,_N_T_/admin/manage-gallery"
+            }
+          ]
+        },
+        {
+          "source": "/admin/manage-faculty",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/manage-faculty/layout,_N_T_/admin/manage-faculty/page,_N_T_/admin/manage-faculty"
+            }
+          ]
+        },
+        {
+          "source": "/admin/manage-testimonials",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/manage-testimonials/layout,_N_T_/admin/manage-testimonials/page,_N_T_/admin/manage-testimonials"
+            }
+          ]
+        },
+        {
+          "source": "/admin/manage-events",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/manage-events/layout,_N_T_/admin/manage-events/page,_N_T_/admin/manage-events"
+            }
+          ]
+        },
+        {
+          "source": "/admin/manage-placements",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/manage-placements/layout,_N_T_/admin/manage-placements/page,_N_T_/admin/manage-placements"
+            }
+          ]
+        },
+        {
+          "source": "/admin/manage-video-gallery",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/manage-video-gallery/layout,_N_T_/admin/manage-video-gallery/page,_N_T_/admin/manage-video-gallery"
+            }
+          ]
+        },
+        {
+          "source": "/admin/manage-home",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/manage-home/layout,_N_T_/admin/manage-home/page,_N_T_/admin/manage-home"
+            }
+          ]
+        },
+        {
+          "source": "/admin",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/page,_N_T_/admin"
+            }
+          ]
+        },
+        {
+          "source": "/admin/manage-video-testimonials",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/manage-video-testimonials/layout,_N_T_/admin/manage-video-testimonials/page,_N_T_/admin/manage-video-testimonials"
+            }
+          ]
+        },
+        {
+          "source": "/admin/user-management",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/user-management/layout,_N_T_/admin/user-management/page,_N_T_/admin/user-management"
+            }
+          ]
+        },
+        {
+          "source": "/admission/Admission-Open",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admission/layout,_N_T_/admission/Admission-Open/layout,_N_T_/admission/Admission-Open/page,_N_T_/admission/Admission-Open"
+            }
+          ]
+        },
+        {
+          "source": "/admission/Courses-Offered",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admission/layout,_N_T_/admission/Courses-Offered/layout,_N_T_/admission/Courses-Offered/page,_N_T_/admission/Courses-Offered"
+            }
+          ]
+        },
+        {
+          "source": "/admission-enquiry",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admission-enquiry/layout,_N_T_/admission-enquiry/page,_N_T_/admission-enquiry"
+            }
+          ]
+        },
+        {
+          "source": "/admission/Admission-Procedure",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admission/layout,_N_T_/admission/Admission-Procedure/layout,_N_T_/admission/Admission-Procedure/page,_N_T_/admission/Admission-Procedure"
+            }
+          ]
+        },
+        {
+          "source": "/admission/Documents-Required",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admission/layout,_N_T_/admission/Documents-Required/layout,_N_T_/admission/Documents-Required/page,_N_T_/admission/Documents-Required"
+            }
+          ]
+        },
+        {
+          "source": "/admission/Fee-Structure",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admission/layout,_N_T_/admission/Fee-Structure/layout,_N_T_/admission/Fee-Structure/page,_N_T_/admission/Fee-Structure"
+            }
+          ]
+        },
+        {
+          "source": "/admission/Financial-Aids-Bank-Loans",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admission/layout,_N_T_/admission/Financial-Aids-Bank-Loans/layout,_N_T_/admission/Financial-Aids-Bank-Loans/page,_N_T_/admission/Financial-Aids-Bank-Loans"
+            }
+          ]
+        },
+        {
+          "source": "/admission/Mandatory-Disclosure",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admission/layout,_N_T_/admission/Mandatory-Disclosure/layout,_N_T_/admission/Mandatory-Disclosure/page,_N_T_/admission/Mandatory-Disclosure"
+            }
+          ]
+        },
+        {
+          "source": "/campus-life/academic-achievers",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/campus-life/layout,_N_T_/campus-life/academic-achievers/layout,_N_T_/campus-life/academic-achievers/page,_N_T_/campus-life/academic-achievers"
+            }
+          ]
+        },
+        {
+          "source": "/admission/reap-2026",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admission/layout,_N_T_/admission/reap-2026/layout,_N_T_/admission/reap-2026/page,_N_T_/admission/reap-2026"
+            }
+          ]
+        },
+        {
+          "source": "/blog",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/blog/layout,_N_T_/blog/page,_N_T_/blog"
+            }
+          ]
+        },
+        {
+          "source": "/admission/karma",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admission/layout,_N_T_/admission/karma/layout,_N_T_/admission/karma/page,_N_T_/admission/karma"
+            }
+          ]
+        },
+        {
+          "source": "/campus-life/engineering-projects",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/campus-life/layout,_N_T_/campus-life/engineering-projects/layout,_N_T_/campus-life/engineering-projects/page,_N_T_/campus-life/engineering-projects"
+            }
+          ]
+        },
+        {
+          "source": "/campus-life/committees-zone",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/campus-life/layout,_N_T_/campus-life/committees-zone/layout,_N_T_/campus-life/committees-zone/page,_N_T_/campus-life/committees-zone"
+            }
+          ]
+        },
+        {
+          "source": "/campus-life/events-and-clubs",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/campus-life/layout,_N_T_/campus-life/events-and-clubs/layout,_N_T_/campus-life/events-and-clubs/page,_N_T_/campus-life/events-and-clubs"
+            }
+          ]
+        },
+        {
+          "source": "/campus-life/games-and-sports",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/campus-life/layout,_N_T_/campus-life/games-and-sports/layout,_N_T_/campus-life/games-and-sports/page,_N_T_/campus-life/games-and-sports"
+            }
+          ]
+        },
+        {
+          "source": "/campus-life/jec-vibrant-india",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/campus-life/layout,_N_T_/campus-life/jec-vibrant-india/layout,_N_T_/campus-life/jec-vibrant-india/page,_N_T_/campus-life/jec-vibrant-india"
+            }
+          ]
+        },
+        {
+          "source": "/campus-life/mental-health",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/campus-life/layout,_N_T_/campus-life/mental-health/layout,_N_T_/campus-life/mental-health/page,_N_T_/campus-life/mental-health"
+            }
+          ]
+        },
+        {
+          "source": "/campus-life/guts-n-glory",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/campus-life/layout,_N_T_/campus-life/guts-n-glory/layout,_N_T_/campus-life/guts-n-glory/page,_N_T_/campus-life/guts-n-glory"
+            }
+          ]
+        },
+        {
+          "source": "/department/MOOCS-NPTEL-SWAYAM",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/department/layout,_N_T_/department/MOOCS-NPTEL-SWAYAM/layout,_N_T_/department/MOOCS-NPTEL-SWAYAM/page,_N_T_/department/MOOCS-NPTEL-SWAYAM"
+            }
+          ]
+        },
+        {
+          "source": "/contact",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/contact/layout,_N_T_/contact/page,_N_T_/contact"
+            }
+          ]
+        },
+        {
+          "source": "/grievance",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/grievance/layout,_N_T_/grievance/page,_N_T_/grievance"
+            }
+          ]
+        },
+        {
+          "source": "/campus-life/video-gallery",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/campus-life/layout,_N_T_/campus-life/video-gallery/layout,_N_T_/campus-life/video-gallery/page,_N_T_/campus-life/video-gallery"
+            }
+          ]
+        },
+        {
+          "source": "/campus-life/students-corner",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/campus-life/layout,_N_T_/campus-life/students-corner/layout,_N_T_/campus-life/students-corner/page,_N_T_/campus-life/students-corner"
+            }
+          ]
+        },
+        {
+          "source": "/icon.png",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            },
+            {
+              "key": "content-type",
+              "value": "image/png"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/icon.png/layout,_N_T_/icon.png/route,_N_T_/icon.png"
+            }
+          ]
+        },
+        {
+          "source": "/jec/Anti-Ragging-Committee",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/jec/layout,_N_T_/jec/Anti-Ragging-Committee/layout,_N_T_/jec/Anti-Ragging-Committee/page,_N_T_/jec/Anti-Ragging-Committee"
+            }
+          ]
+        },
+        {
+          "source": "/jec/Employment-JEC",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/jec/layout,_N_T_/jec/Employment-JEC/layout,_N_T_/jec/Employment-JEC/page,_N_T_/jec/Employment-JEC"
+            }
+          ]
+        },
+        {
+          "source": "/jec/JEC-FAQ",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/jec/layout,_N_T_/jec/JEC-FAQ/layout,_N_T_/jec/JEC-FAQ/page,_N_T_/jec/JEC-FAQ"
+            }
+          ]
+        },
+        {
+          "source": "/jec/Students-Testimonials",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/jec/layout,_N_T_/jec/Students-Testimonials/layout,_N_T_/jec/Students-Testimonials/page,_N_T_/jec/Students-Testimonials"
+            }
+          ]
+        },
+        {
+          "source": "/jec/Institution-Innovation-Council-JEC",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/jec/layout,_N_T_/jec/Institution-Innovation-Council-JEC/layout,_N_T_/jec/Institution-Innovation-Council-JEC/page,_N_T_/jec/Institution-Innovation-Council-JEC"
+            }
+          ]
+        },
+        {
+          "source": "/jec/about-jec",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/jec/layout,_N_T_/jec/about-jec/layout,_N_T_/jec/about-jec/page,_N_T_/jec/about-jec"
+            }
+          ]
+        },
+        {
+          "source": "/department/MTech",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/department/layout,_N_T_/department/MTech/layout,_N_T_/department/MTech/page,_N_T_/department/MTech"
+            }
+          ]
+        },
+        {
+          "source": "/sitemap.xml",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            },
+            {
+              "key": "content-type",
+              "value": "application/xml"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/sitemap.xml/layout,_N_T_/sitemap.xml/route,_N_T_/sitemap.xml"
+            }
+          ]
+        },
+        {
+          "source": "/jec/management",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/jec/layout,_N_T_/jec/management/layout,_N_T_/jec/management/page,_N_T_/jec/management"
+            }
+          ]
+        },
+        {
+          "source": "/jec/alumni",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/jec/layout,_N_T_/jec/alumni/layout,_N_T_/jec/alumni/page,_N_T_/jec/alumni"
+            }
+          ]
+        },
+        {
+          "source": "/robots.txt",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            },
+            {
+              "key": "content-type",
+              "value": "text/plain"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/robots.txt/layout,_N_T_/robots.txt/route,_N_T_/robots.txt"
+            }
+          ]
+        },
+        {
+          "source": "/placement",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/placement/layout,_N_T_/placement/page,_N_T_/placement"
+            }
+          ]
+        },
+        {
+          "source": "/jec/network",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/jec/layout,_N_T_/jec/network/layout,_N_T_/jec/network/page,_N_T_/jec/network"
+            }
+          ]
+        },
+        {
+          "source": "/virtual-tour",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/virtual-tour/layout,_N_T_/virtual-tour/page,_N_T_/virtual-tour"
+            }
+          ]
+        },
+        {
+          "source": "/terms",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/terms/layout,_N_T_/terms/page,_N_T_/terms"
+            }
+          ]
+        },
+        {
+          "source": "**/*.[jt]s",
+          "headers": [
+            {
+              "key": "Set-Cookie",
+              "value": "__FIREBASE_DEFAULTS__=eyJjb25maWciOnsicHJvamVjdElkIjoiamVjLXdlYnNpdGUtNTUzOTciLCJhcHBJZCI6IjE6Mjk3ODA1NTg2NTIyOndlYjoxNDFmOWIxN2I0YmZmODYyMmVmODYzIiwiZGF0YWJhc2VVUkwiOiJodHRwczovL2plYy13ZWJzaXRlLTU1Mzk3LWRlZmF1bHQtcnRkYi5hc2lhLXNvdXRoZWFzdDEuZmlyZWJhc2VkYXRhYmFzZS5hcHAiLCJzdG9yYWdlQnVja2V0IjoiamVjLXdlYnNpdGUtNTUzOTcuZmlyZWJhc2VzdG9yYWdlLmFwcCIsImFwaUtleSI6IkFJemFTeUM3LWNOTUs2c3NadDVGbVdobkE4OExoRl9rSlJvajU2QSIsImF1dGhEb21haW4iOiJqZWMtd2Vic2l0ZS01NTM5Ny5maXJlYmFzZWFwcC5jb20iLCJtZXNzYWdpbmdTZW5kZXJJZCI6IjI5NzgwNTU4NjUyMiIsInByb2plY3ROdW1iZXIiOiIyOTc4MDU1ODY1MjIiLCJ2ZXJzaW9uIjoiMiJ9LCJfYXV0aFRva2VuU3luY1VSTCI6Ii9fX3Nlc3Npb24ifQ; SameSite=Strict; Expires=2028-05-28T18:35:24.163Z; Path=/;"
+            }
+          ]
+        }
+      ],
+      "cleanUrls": true,
+      "trailingSlash": false,
+      "public": ".firebase\\jec-website-55397\\hosting",
+      "webFramework": "next_ssr"
+    }
+  ],
+  "functions": [
+    {
+      "source": ".firebase\\jec-website-55397\\functions",
+      "codebase": "firebase-frameworks-jec-website-55397"
+    }
+  ]
+}
+[debug] [2026-07-04T07:55:24.165Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-04T07:55:24.165Z] > authorizing via signed-in user (pawanharish2@gmail.com)
+[debug] [2026-07-04T07:55:24.165Z] [iam] checking project jec-website-55397 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2026-07-04T07:55:24.165Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:24.165Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:24.166Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions [none]
+[debug] [2026-07-04T07:55:24.166Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions  x-goog-user-project=jec-website-55397
+[debug] [2026-07-04T07:55:24.166Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-07-04T07:55:24.651Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions 200
+[debug] [2026-07-04T07:55:24.651Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[info] 
+[info] === Deploying to 'jec-website-55397'...
+[info] 
+[info] i  deploying functions, hosting 
+[debug] [2026-07-04T07:55:24.654Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:24.654Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:24.654Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397 [none]
+[debug] [2026-07-04T07:55:25.948Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397 200
+[debug] [2026-07-04T07:55:25.949Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397 {"projectNumber":"297805586522","projectId":"jec-website-55397","lifecycleState":"ACTIVE","name":"JEC-Website","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-11-20T11:16:05.203301Z"}
+[info] i  functions: preparing codebase firebase-frameworks-jec-website-55397 for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2026-07-04T07:55:25.954Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:25.954Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:25.954Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/jec-website-55397/adminSdkConfig [none]
+[debug] [2026-07-04T07:55:27.148Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/jec-website-55397/adminSdkConfig 200
+[debug] [2026-07-04T07:55:27.148Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/jec-website-55397/adminSdkConfig {"projectId":"jec-website-55397","databaseURL":"https://jec-website-55397-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"jec-website-55397.firebasestorage.app"}
+[debug] [2026-07-04T07:55:27.148Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:27.148Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:27.148Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/jec-website-55397/configs [none]
+[debug] [2026-07-04T07:55:29.032Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/jec-website-55397/configs 200
+[debug] [2026-07-04T07:55:29.033Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/jec-website-55397/configs {}
+[debug] [2026-07-04T07:55:29.034Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-07-04T07:55:30.126Z] > [functions] package.json contents: {
+  "name": "jec-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "country-state-city": "^3.2.1",
+    "firebase": "^12.11.0",
+    "fuse.js": "^7.1.0",
+    "glob": "^13.0.1",
+    "next": "^16.1.6",
+    "quill-blot-formatter": "^1.0.5",
+    "quill-html-edit-button": "^2.2.12",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-dropzone": "^14.3.8",
+    "react-easy-crop": "^5.5.6",
+    "react-quill": "^2.0.0",
+    "react-toastify": "^11.0.5",
+    "uuid": "^13.0.0",
+    "firebase-frameworks": "^0.11.0",
+    "firebase-functions": "^6.0.1",
+    "firebase-admin": "^11.11.1"
+  },
+  "overrides": {
+    "react-quill": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
+  },
+  "main": "server.js",
+  "engines": {
+    "node": "22"
+  }
+}
+[debug] [2026-07-04T07:55:30.127Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase firebase-frameworks-jec-website-55397 to determine what to deploy 
+[debug] [2026-07-04T07:55:30.127Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-07-04T07:55:30.134Z] Found firebase-functions binary at 'D:\nextjsjec\.firebase\jec-website-55397\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8483
+
+[debug] [2026-07-04T07:55:31.242Z] Got response from /__/functions.yaml {"endpoints":{"ssrjecwebsite55397":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"ssrjecwebsite55397"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2026-07-04T07:55:35.280Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:35.280Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:35.281Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/jec-website-55397/locations/-/functions [none]
+[debug] [2026-07-04T07:55:36.395Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/jec-website-55397/locations/-/functions 200
+[debug] [2026-07-04T07:55:36.395Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/jec-website-55397/locations/-/functions {}
+[debug] [2026-07-04T07:55:36.396Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:36.396Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:36.397Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/jec-website-55397/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2026-07-04T07:55:38.155Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/jec-website-55397/locations/-/functions 200
+[debug] [2026-07-04T07:55:38.155Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/jec-website-55397/locations/-/functions {"functions":[{"name":"projects/jec-website-55397/locations/us-central1/functions/ssrjecwebsite55397","buildConfig":{"build":"projects/297805586522/locations/us-central1/builds/3f293028-09e3-495a-be81-3863d6bf14f1","runtime":"nodejs22","entryPoint":"ssrjecwebsite55397","source":{"storageSource":{"bucket":"gcf-v2-sources-297805586522-us-central1","object":"ssrjecwebsite55397/function-source.zip","generation":"1782889820116412"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/jec-website-55397/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-297805586522-us-central1","object":"ssrjecwebsite55397/function-source.zip","generation":"1782889820116412"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/jec-website-55397/serviceAccounts/297805586522-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/jec-website-55397/locations/us-central1/services/ssrjecwebsite55397","timeoutSeconds":60,"environmentVariables":{"VERCEL_URL":"jec-website-55397.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"jec-website-55397\",\"appId\":\"1:297805586522:web:141f9b17b4bff8622ef863\",\"databaseURL\":\"https://jec-website-55397-default-rtdb.asia-southeast1.firebasedatabase.app\",\"storageBucket\":\"jec-website-55397.firebasestorage.app\",\"apiKey\":\"AIzaSyC7-cNMK6ssZt5FmWhnA88LhF_kJRoj56A\",\"authDomain\":\"jec-website-55397.firebaseapp.com\",\"messagingSenderId\":\"297805586522\",\"projectNumber\":\"297805586522\",\"version\":\"2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"jec-website-55397\",\"databaseURL\":\"https://jec-website-55397-default-rtdb.asia-southeast1.firebasedatabase.app\",\"storageBucket\":\"jec-website-55397.firebasestorage.app\"}","GCLOUD_PROJECT":"jec-website-55397","EVENTARC_CLOUD_EVENT_SOURCE":"projects/jec-website-55397/locations/us-central1/services/ssrjecwebsite55397","FUNCTION_TARGET":"ssrjecwebsite55397","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrjecwebsite55397-53qra5ipva-uc.a.run.app","serviceAccountEmail":"297805586522-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrjecwebsite55397-00001-hev","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","updateTime":"2026-07-01T07:13:40.428814165Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-jec-website-55397","firebase-functions-hash":"625f9a9e76431f8863ebe35c45c90dc492702b4e"},"environment":"GEN_2","url":"https://us-central1-jec-website-55397.cloudfunctions.net/ssrjecwebsite55397","createTime":"2026-07-01T07:10:20.412721276Z","satisfiesPzi":true}]}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2026-07-04T07:55:38.158Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-04T07:55:38.159Z] > authorizing via signed-in user (pawanharish2@gmail.com)
+[debug] [2026-07-04T07:55:38.159Z] [iam] checking project jec-website-55397 for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2026-07-04T07:55:38.159Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:38.159Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:38.159Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions [none]
+[debug] [2026-07-04T07:55:38.159Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions  x-goog-user-project=jec-website-55397
+[debug] [2026-07-04T07:55:38.159Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-07-04T07:55:38.679Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions 200
+[debug] [2026-07-04T07:55:38.679Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-07-04T07:55:38.680Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:38.680Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:55:38.680Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/jec-website-55397/instances pageSize=100&pageToken=
+[debug] [2026-07-04T07:55:40.698Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/jec-website-55397/instances 200
+[debug] [2026-07-04T07:55:40.698Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/jec-website-55397/instances {}
+[info] i  functions: Loaded environment variables from .env. 
+[info] i  functions: preparing .firebase\jec-website-55397\functions directory for uploading... 
+[info] i  functions: packaged D:\nextjsjec\.firebase\jec-website-55397\functions (376.93 MB) for uploading 
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2026-07-04T07:56:17.406Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:17.406Z] Checked if tokens are valid: true, expires at: 1783155265778
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2026-07-04T07:56:17.407Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:17.407Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:17.407Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/297805586522/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2026-07-04T07:56:17.407Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1beta1/projects/297805586522/services/pubsub.googleapis.com:generateServiceIdentity  x-goog-user-project=297805586522
+[debug] [2026-07-04T07:56:17.407Z] >>> [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/297805586522/services/pubsub.googleapis.com:generateServiceIdentity {}
+[debug] [2026-07-04T07:56:17.410Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/297805586522/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2026-07-04T07:56:17.410Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1beta1/projects/297805586522/services/eventarc.googleapis.com:generateServiceIdentity  x-goog-user-project=297805586522
+[debug] [2026-07-04T07:56:17.410Z] >>> [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/297805586522/services/eventarc.googleapis.com:generateServiceIdentity {}
+[debug] [2026-07-04T07:56:19.713Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/297805586522/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2026-07-04T07:56:19.713Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/297805586522/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-297805586522@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"109704254171298191188"}}
+[debug] [2026-07-04T07:56:19.735Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/297805586522/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2026-07-04T07:56:19.735Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/297805586522/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-297805586522@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"102288397606248395113"}}
+[debug] [2026-07-04T07:56:19.738Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:19.738Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:19.738Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397 [none]
+[debug] [2026-07-04T07:56:21.434Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397 200
+[debug] [2026-07-04T07:56:21.434Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/jec-website-55397 {"projectNumber":"297805586522","projectId":"jec-website-55397","lifecycleState":"ACTIVE","name":"JEC-Website","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-11-20T11:16:05.203301Z"}
+[debug] [2026-07-04T07:56:21.434Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:21.434Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:21.435Z] >>> [apiv2][query] GET https://compute.googleapis.com/compute/v1/projects/297805586522 [none]
+[debug] [2026-07-04T07:56:22.245Z] <<< [apiv2][status] GET https://compute.googleapis.com/compute/v1/projects/297805586522 403
+[debug] [2026-07-04T07:56:22.245Z] <<< [apiv2][body] GET https://compute.googleapis.com/compute/v1/projects/297805586522 {"error":{"code":403,"message":"Compute Engine API has not been used in project 297805586522 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=297805586522 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 297805586522 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=297805586522 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"serviceTitle":"Compute Engine API","service":"compute.googleapis.com","activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=297805586522","consumer":"projects/297805586522","containerInfo":"297805586522"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 297805586522 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=297805586522 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=297805586522"}]}]}}
+[debug] [2026-07-04T07:56:22.246Z] unable to look up default compute service account. Falling back to 297805586522-compute@developer.gserviceaccount.com. Error: {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":403,"message":"Compute Engine API has not been used in project 297805586522 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=297805586522 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 297805586522 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=297805586522 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"serviceTitle":"Compute Engine API","service":"compute.googleapis.com","activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=297805586522","consumer":"projects/297805586522","containerInfo":"297805586522"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 297805586522 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=297805586522 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=297805586522"}]}]}},"response":{"statusCode":403}},"exit":1,"message":"Request to https://compute.googleapis.com/compute/v1/projects/297805586522 had HTTP Error: 403, Compute Engine API has not been used in project 297805586522 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=297805586522 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","status":403}
+[debug] [2026-07-04T07:56:22.246Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:22.246Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:22.246Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites/jec-website-55397 [none]
+[debug] [2026-07-04T07:56:23.636Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites/jec-website-55397 200
+[debug] [2026-07-04T07:56:23.637Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/jec-website-55397/sites/jec-website-55397 {"name":"projects/jec-website-55397/sites/jec-website-55397","defaultUrl":"https://jec-website-55397.web.app","type":"DEFAULT_SITE"}
+[debug] [2026-07-04T07:56:23.642Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:23.642Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:23.642Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/jec-website-55397/versions [none]
+[debug] [2026-07-04T07:56:23.642Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/jec-website-55397/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase","firebase-web-framework":"next_ssr"}}
+[debug] [2026-07-04T07:56:25.152Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/jec-website-55397/versions 200
+[debug] [2026-07-04T07:56:25.153Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/jec-website-55397/versions {"name":"projects/297805586522/sites/jec-website-55397/versions/a1840504881f5fbc","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase","firebase-web-framework":"next_ssr"}}
+[debug] [2026-07-04T07:56:25.155Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:25.155Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:25.155Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/jec-website-55397/billingInfo [none]
+[debug] [2026-07-04T07:56:25.155Z] >>> [apiv2][(partial)header] GET https://cloudbilling.googleapis.com/v1/projects/jec-website-55397/billingInfo  x-goog-user-project=jec-website-55397
+[debug] [2026-07-04T07:56:26.977Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/jec-website-55397/billingInfo 200
+[debug] [2026-07-04T07:56:26.977Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/jec-website-55397/billingInfo {"name":"projects/jec-website-55397/billingInfo","projectId":"jec-website-55397","billingAccountName":"billingAccounts/0140F1-A0DFD8-D9439B","billingEnabled":true}
+[debug] [2026-07-04T07:56:26.979Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:26.979Z] Checked if tokens are valid: true, expires at: 1783155265778
+[debug] [2026-07-04T07:56:26.980Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/jec-website-55397/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2026-07-04T07:56:28.565Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/jec-website-55397/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2026-07-04T07:56:28.565Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/jec-website-55397/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/gcf-v2-uploads-297805586522.us-central1.cloudfunctions.appspot.com/6021dfcd-40c9-4b6e-86bd-9d5cb2e9cdee.zip?GoogleAccessId=service-297805586522@gcf-admin-robot.iam.gserviceaccount.com&Expires=1783153588&Signature=E6rjvdw7RVm2b7Na%2FqtXHyWOtVWlrExROocaEQo5lLAOl7Stv5IREiYl3xQUOPWpl6S8gHwDwFrokbmpqoSkvgxXmIf4%2Fbs4O7DeCBfmOBJmzggVg1N9QHPn1Ov2UJqKSJsNj3mSyp0oI5Gvw0XLVV%2ByXkJiZvduuBX8i57Ccc6OP01ixHeboNWcXaAer%2BOoMyhEh3IqIdzDBhMoIbcrNkcmGKtd1REyABdXm5BqCqNvVNwX1UcHqEM%2BXZz0pCO%2F1u16Lbr1vfzUxtUbA9%2ByQa5lfGkYMAkCoESkh2Uq93V%2BXpX%2BIglppbNPt2CcjxcNriyWugLQ24iy7gveeAdrBQ%3D%3D","storageSource":{"bucket":"gcf-v2-uploads-297805586522.us-central1.cloudfunctions.appspot.com","object":"6021dfcd-40c9-4b6e-86bd-9d5cb2e9cdee.zip"}}
+[debug] [2026-07-04T07:56:28.566Z] >>> [apiv2][query] PUT https://storage.googleapis.com/gcf-v2-uploads-297805586522.us-central1.cloudfunctions.appspot.com/6021dfcd-40c9-4b6e-86bd-9d5cb2e9cdee.zip GoogleAccessId=service-297805586522%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1783153588&Signature=E6rjvdw7RVm2b7Na%2FqtXHyWOtVWlrExROocaEQo5lLAOl7Stv5IREiYl3xQUOPWpl6S8gHwDwFrokbmpqoSkvgxXmIf4%2Fbs4O7DeCBfmOBJmzggVg1N9QHPn1Ov2UJqKSJsNj3mSyp0oI5Gvw0XLVV%2ByXkJiZvduuBX8i57Ccc6OP01ixHeboNWcXaAer%2BOoMyhEh3IqIdzDBhMoIbcrNkcmGKtd1REyABdXm5BqCqNvVNwX1UcHqEM%2BXZz0pCO%2F1u16Lbr1vfzUxtUbA9%2ByQa5lfGkYMAkCoESkh2Uq93V%2BXpX%2BIglppbNPt2CcjxcNriyWugLQ24iy7gveeAdrBQ%3D%3D
+[debug] [2026-07-04T07:56:28.567Z] >>> [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-297805586522.us-central1.cloudfunctions.appspot.com/6021dfcd-40c9-4b6e-86bd-9d5cb2e9cdee.zip [stream]

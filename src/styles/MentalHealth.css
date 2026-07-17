@@ -1,0 +1,154 @@
+/* src/styles/MentalHealth.css */
+
+/* --- Page Wrapper & Variables --- */
+.mental-health-page {
+    /* Brand Colors */
+    --logo-red: #D62828; 
+    --logo-blue: #0072C6; 
+    --logo-gold: #FCA311; 
+    --logo-black: #1D1D1D; 
+    --logo-white: #FFFFFF;
+    --logo-green: #10B981; 
+
+    /* Functional Palette */
+    --color-primary: var(--logo-red);
+    --color-secondary: var(--logo-blue);
+    --color-text-primary: var(--logo-black);
+    --color-text-secondary: #444444; 
+    --color-background-light: var(--logo-white);
+    --color-background-medium: #f7f7f7; 
+    
+    --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    color: var(--color-text-primary);
+    line-height: 1.65;
+    background-color: var(--color-background-light);
+    overflow-x: hidden;
+}
+
+.mental-health-page .max-width-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* --- 1. HERO SECTION --- */
+.mental-health-page .hero {
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background-image: url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1920"); 
+    background-size: cover;
+    background-position: center;
+}
+
+.mental-health-page .hero::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0, 114, 198, 0.8)); z-index: 1;
+}
+
+.mental-health-page .hero-content { position: relative; z-index: 2; padding: 20px; color: white; animation: mh-fadeIn 1s ease-out; }
+
+.mental-health-page .hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+.mental-health-page .hero p { font-size: 20px; font-weight: 300; margin-bottom: 20px; opacity: 0.9; }
+
+.mental-health-page .hero-badge {
+    display: inline-block; background: var(--logo-gold); color: var(--logo-black);
+    font-weight: 700; padding: 5px 15px; border-radius: 4px; font-size: 14px; margin-bottom: 15px;
+    text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* --- 2. INTRO & VIDEO SPLIT SECTION --- */
+.mental-health-page .intro-section { padding: 60px 0; background: white; }
+
+.mental-health-page .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Split layout: Text | Video */
+    gap: 40px;
+    align-items: center;
+}
+
+.mental-health-page .intro-text h2 { font-size: 32px; color: var(--color-primary); margin-bottom: 20px; line-height: 1.3; }
+
+.mental-health-page .intro-paragraph { 
+    font-size: 18px; color: var(--color-text-secondary); 
+    border-left: 5px solid var(--logo-gold); padding-left: 20px; 
+    text-align: justify;
+}
+
+/* Video Wrapper */
+.mental-health-page .video-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    border: 4px solid white;
+}
+
+.mental-health-page .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    background: #000;
+}
+
+.mental-health-page .video-container iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+
+/* --- 3. TIPS GRID SECTION --- */
+.mental-health-page .card-section { padding: 60px 20px 80px; background-color: var(--color-background-medium); }
+
+.mental-health-page .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.mental-health-page .core-card {
+    background: var(--logo-white);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-subtle);
+    border-top: 5px solid var(--logo-blue);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mental-health-page .core-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); }
+
+/* Alternating Colors */
+.mental-health-page .core-card:nth-child(1), .mental-health-page .core-card:nth-child(4) { border-top-color: var(--logo-green); }
+.mental-health-page .core-card:nth-child(2), .mental-health-page .core-card:nth-child(5) { border-top-color: var(--logo-blue); }
+.mental-health-page .core-card:nth-child(3), .mental-health-page .core-card:nth-child(6) { border-top-color: var(--logo-red); }
+
+.mental-health-page .card-icon-wrapper {
+    margin-bottom: 20px; display: inline-block; padding: 15px; border-radius: 50%;
+    background: var(--color-background-medium); color: var(--color-secondary); font-size: 24px; transition: 0.3s;
+}
+
+.mental-health-page .core-card:nth-child(1):hover .card-icon-wrapper { background: #ECFDF5; color: var(--logo-green); }
+.mental-health-page .core-card:nth-child(2):hover .card-icon-wrapper { background: #EFF6FF; color: var(--logo-blue); }
+.mental-health-page .core-card:nth-child(3):hover .card-icon-wrapper { background: #FEF2F2; color: var(--logo-red); }
+
+.mental-health-page .core-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: var(--color-text-primary); }
+.mental-health-page .core-card p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.6; }
+
+.mental-health-page .card-number { position: absolute; top: 15px; right: 20px; font-size: 40px; font-weight: 900; color: #f0f0f0; z-index: 0; }
+.mental-health-page .card-content { position: relative; z-index: 1; }
+
+/* --- 4. CTA BANNER --- */
+.mental-health-page .cta-banner { background: var(--logo-blue); color: white; text-align: center; padding: 40px 20px; }
+.mental-health-page .cta-banner h3 { font-size: 24px; margin-bottom: 10px; color: var(--logo-gold); }
+
+@keyframes mh-fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .mental-health-page .intro-grid { grid-template-columns: 1fr; } 
+    .mental-health-page .hero h1 { font-size: 36px; }
+    .mental-health-page .intro-paragraph { border-left: none; padding-left: 0; text-align: center; }
+    .mental-health-page .intro-text h2 { text-align: center; }
+}

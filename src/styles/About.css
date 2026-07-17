@@ -1,0 +1,331 @@
+/* ==========================================================================
+   ABOUT US PAGE STYLES (Next.js Version)
+   ========================================================================== */
+
+/* Define variables locally to ensure colors work immediately */
+:root {
+  --logo-white: #ffffff;
+  --logo-blue: #0072C6;
+  --logo-red: #D62828;
+  --logo-gold: #FCA311;
+  --logo-black: #1D1D1D;
+  --color-text-primary: #333;
+  --color-text-secondary: #555;
+  --color-background-medium: #f4f7fa;
+  --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.about-page-new {
+  background-color: var(--logo-white);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden; /* Safety net to prevent horizontal scroll */
+}
+
+.about-page-new .max-width-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Hero Section --- */
+.about-page-new .hero {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--logo-white);
+  text-align: center;
+  position: relative;
+  /* Updated path for Next.js public folder */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/campus-intro.jpeg") center/cover no-repeat;
+}
+
+.about-page-new .hero h1 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: -1px;
+  padding: 0 15px;
+}
+
+.about-page-new .hero p {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  max-width: 800px;
+  margin: 0 auto 25px;
+  font-weight: 300;
+  padding: 0 20px;
+}
+
+.about-page-new .hero-underline {
+  width: 80px;
+  height: 5px;
+  background: var(--logo-gold);
+  margin: 0 auto;
+}
+
+/* --- Milestones Section --- */
+.about-page-new .milestones {
+  padding: 60px 0;
+  background: var(--color-background-medium);
+}
+
+.about-page-new .milestone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+.about-page-new .milestone-item {
+  text-align: center;
+  padding: 25px 15px;
+  background: var(--logo-white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.about-page-new .milestone-item h3 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--logo-red);
+  margin-bottom: 5px;
+  word-wrap: break-word;
+}
+
+.about-page-new .milestone-item p {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+/* --- Introduction Section --- */
+.about-page-new .introduction {
+  padding: 80px 0;
+}
+
+.about-page-new .intro-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.about-page-new .intro-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: var(--shadow-medium);
+  margin-top: 20px;
+}
+
+/* --- Strategic Principles Section --- */
+.about-page-new .strategic-section {
+  padding: 80px 0;
+  background: linear-gradient(to bottom, #ffffff 0%, var(--color-background-medium) 100%);
+}
+
+.about-page-new .section-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 50px auto;
+}
+
+.about-page-new .section-header h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--logo-blue);
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.about-page-new .section-header h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--logo-red);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.about-page-new .intro-text {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  padding: 0 10px;
+}
+
+/* --- Strategy Grid & Cards --- */
+.about-page-new .strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 25px;
+  align-items: stretch;
+}
+
+.about-page-new .strategy-card {
+  background: var(--logo-white);
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: var(--shadow-subtle);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.about-page-new .strategy-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium);
+}
+
+.about-page-new .card-vision { border-top: 6px solid var(--logo-gold); }
+.about-page-new .card-mission { border-top: 6px solid var(--logo-red); }
+.about-page-new .card-values { border-top: 6px solid var(--logo-blue); }
+
+.about-page-new .card-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.about-page-new .icon-vision { background: rgba(252, 163, 17, 0.1); color: var(--logo-gold); }
+.about-page-new .icon-mission { background: rgba(214, 40, 40, 0.1); color: var(--logo-red); }
+.about-page-new .icon-values { background: rgba(0, 114, 198, 0.1); color: var(--logo-blue); }
+
+.about-page-new .card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--logo-black);
+}
+
+.about-page-new .card-statement {
+  font-size: 0.95rem;
+  color: #444;
+  font-weight: 500;
+  margin-bottom: 20px;
+  font-style: italic;
+  border-left: 3px solid #eee;
+  padding-left: 12px;
+  min-height: 60px;
+}
+
+.about-page-new .plain-statement {
+  font-style: normal;
+  border-left: none;
+  padding-left: 0;
+  font-weight: 600;
+}
+
+.about-page-new .card-list {
+  list-style: none;
+  margin-top: auto;
+  padding: 0;
+}
+
+.about-page-new .card-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 14px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  flex-direction: column;
+}
+
+.about-page-new .list-icon {
+  position: absolute;
+  left: 0;
+  top: 3px;
+  font-size: 12px;
+}
+
+.about-page-new .list-header {
+  display: block;
+  color: var(--logo-black);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+/* --- Accreditation Section --- */
+.about-page-new .card-section {
+  padding: 80px 0;
+}
+
+.about-page-new .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 25px;
+}
+
+.about-page-new .core-card {
+  background: var(--logo-white);
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-subtle);
+  border-top: 6px solid var(--logo-gold);
+  transition: transform 0.3s ease;
+}
+
+/* --- Salient Features --- */
+.about-page-new .features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 15px;
+}
+
+.about-page-new .feature-item {
+  background: var(--logo-white);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid var(--logo-blue);
+  box-shadow: var(--shadow-subtle);
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 992px) {
+  .about-page-new .hero {
+      height: 400px;
+  }
+  .about-page-new .introduction,
+  .about-page-new .strategic-section,
+  .about-page-new .card-section {
+      padding: 60px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page-new h2 {
+      font-size: 1.8rem;
+  }
+  .about-page-new .milestone-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page-new .milestone-grid {
+      grid-template-columns: 1fr;
+  }
+  .about-page-new .hero h1 {
+      font-size: 1.8rem;
+  }
+  .about-page-new .card-title {
+      font-size: 1.2rem;
+  }
+  .about-page-new .intro-text {
+      font-size: 0.9rem;
+  }
+}

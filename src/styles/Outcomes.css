@@ -1,0 +1,204 @@
+/* ==========================================================================
+   STUDENT OUTCOMES COMPONENT
+   ========================================================================== */
+
+.outcomes {
+  padding: 80px 0 0 0;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Pattern */
+.outcomes::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.outcomes-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Titles --- */
+.outcomes-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--logo-blue);
+  text-align: center;
+  position: relative;
+  animation: jec-fade-down 0.8s ease-out;
+}
+
+.outcomes-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, var(--logo-blue), var(--logo-red), var(--logo-gold));
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.outcomes-subtitle {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  line-height: 1.6;
+  animation: jec-fade-up 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+/* --- Grid --- */
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* --- Card --- */
+.outcome-card {
+  background: var(--logo-white);
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  animation: jec-fade-up 0.6s ease-out forwards;
+}
+
+/* Staggered Delay */
+.outcome-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.outcome-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.outcome-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.outcome-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+  border-color: transparent;
+}
+
+.outcome-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, var(--logo-blue), var(--logo-red), var(--logo-gold));
+  transition: height 0.3s ease, opacity 0.3s ease;
+  z-index: 0;
+}
+
+.outcome-card:hover::before {
+  height: 100%;
+  opacity: 0.03;
+}
+
+/* --- Icon --- */
+.outcome-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F0F9FF;
+  border-radius: 50%;
+  color: var(--logo-blue);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.outcome-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--logo-blue);
+  transition: stroke 0.3s ease;
+}
+
+.outcome-card:hover .outcome-icon {
+  background: var(--logo-blue);
+  transform: scale(1.1);
+}
+
+.outcome-card:hover .outcome-icon svg {
+  stroke: var(--logo-white);
+}
+
+/* --- Text --- */
+.outcome-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--logo-black);
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.outcome-card:hover h3 {
+  color: var(--logo-blue);
+}
+
+.outcome-card p {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .outcomes {
+    padding: 60px 0;
+  }
+
+  .outcomes-content {
+    padding: 0 20px;
+  }
+
+  .outcomes-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .outcomes-title {
+    font-size: 32px;
+  }
+
+  .outcome-card {
+    padding: 30px 20px;
+  }
+}

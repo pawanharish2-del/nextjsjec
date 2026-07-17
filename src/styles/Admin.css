@@ -1,0 +1,104 @@
+/* src/styles/Admin.css */
+
+/* RESET DEFAULT BROWSER MARGINS */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f8;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.admin-sidebar {
+  width: 250px;
+  background-color: #1a202c; /* Dark Sidebar */
+  color: white;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.admin-brand {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #3182ce;
+}
+
+.menu-label {
+  color: #718096;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.nav-item {
+  display: block;
+  color: #cbd5e0;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background-color: #2d3748;
+  color: white;
+}
+
+/* This allows the Sidebar to highlight the current page */
+.nav-item.active {
+  background-color: #3182ce;
+  color: white;
+}
+
+.admin-content {
+  flex-grow: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.logout-btn {
+  margin-top: 40px;
+  width: 100%;
+  padding: 10px;
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* --- Quill Editor Toolbar Fixes --- */
+.ql-snow.ql-toolbar button.ql-table {
+    width: 50px !important;
+    font-weight: bold;
+}
+
+.ql-snow.ql-toolbar button.ql-table::after {
+    content: "Table"; 
+    font-size: 11px;
+    color: #444;
+    position: absolute;
+    left: 5px;
+    top: 4px;
+}
+
+/* Styling for tables inside the editor */
+.ql-editor table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.ql-editor td {
+    border: 1px solid #ccc;
+    padding: 5px;
+}

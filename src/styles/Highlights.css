@@ -1,0 +1,169 @@
+/* ==========================================================================
+   HIGHLIGHTS COMPONENT (3 Cards Section)
+   ========================================================================== */
+
+.highlights {
+  padding: 80px 0;
+  background: var(--logo-white);
+  position: relative;
+}
+
+.highlights-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+  text-align: center;
+}
+
+/* --- Grid Layout --- */
+.highlight-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* --- Individual Card --- */
+.highlight-card {
+  background: var(--color-background-medium);
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.highlight-card:hover {
+  transform: translateY(-10px);
+  background: var(--logo-white);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+  border-color: transparent;
+}
+
+/* --- Colored Top Borders --- */
+.card-graphic-top-blue,
+.card-graphic-top-yellow,
+.card-graphic-top-pink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  transform-origin: center;
+  transition: transform 0.4s ease, height 0.3s ease;
+}
+
+.highlight-card:hover .card-graphic-top-blue,
+.highlight-card:hover .card-graphic-top-yellow,
+.highlight-card:hover .card-graphic-top-pink {
+  transform: scaleX(1.05);
+  height: 8px;
+}
+
+.card-graphic-top-blue {
+  background: var(--logo-blue);
+}
+
+.card-graphic-top-yellow {
+  background: var(--logo-gold);
+}
+
+.card-graphic-top-pink {
+  background: var(--logo-red);
+}
+
+/* --- Typography --- */
+.highlight-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: black;
+  transition: color 0.3s ease;
+  line-height: 1.3;
+}
+
+.highlight-card:hover h3 {
+  color: var(--logo-blue);
+}
+
+.highlight-card p {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+/* --- Arrow Icon --- */
+.card-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--logo-blue);
+  background: rgba(0, 114, 198, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.highlight-card:hover .card-arrow {
+  background: var(--logo-blue);
+  color: var(--logo-white);
+  transform: translateX(5px);
+}
+
+/* --- Carousel Navigation (Mobile) --- */
+.highlights .carousel-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.highlights .nav-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--color-border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.highlights .nav-dot.active {
+  background: var(--logo-red);
+  width: 30px;
+  border-radius: 10px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+  .highlight-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .highlights-content {
+    padding: 0 20px;
+  }
+
+  .highlight-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .highlight-card {
+    padding: 30px 20px;
+  }
+}

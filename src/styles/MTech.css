@@ -1,0 +1,484 @@
+/* src/styles/mtech.css */
+
+.mtech-page {
+    /* Brand Palette */
+    --logo-red: #D62828;
+    --logo-blue: #0072C6;
+    --logo-gold: #FCA311;
+    --logo-black: #1D1D1D;
+    --logo-white: #FFFFFF;
+    /* UI Variables */
+    --bg-light: #f8f9fa;
+    --text-main: #333;
+    --text-light: #666;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+.mtech-page {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-main);
+    background: var(--bg-light);
+    line-height: 1.6;
+}
+
+/* --- Header / Hero --- */
+.hero-section {
+    background: linear-gradient(135deg, var(--logo-black) 0%, var(--logo-blue) 100%);
+    color: var(--logo-white);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+.program-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.highlight-pill {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.highlight-pill i {
+    color: var(--logo-gold);
+    margin-right: 8px;
+}
+
+/* --- Main Container --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: var(--logo-blue);
+    margin-bottom: 10px;
+}
+
+.section-header .divider {
+    height: 4px;
+    width: 60px;
+    background: var(--logo-red);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* --- Course Cards Grid --- */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.course-card {
+    background: var(--logo-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    border-top: 5px solid var(--logo-blue);
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Specialized top borders */
+.course-card:nth-child(2) {
+    border-top-color: var(--logo-red);
+}
+
+.course-card:nth-child(3) {
+    border-top-color: var(--logo-gold);
+}
+
+.course-card:nth-child(4) {
+    border-top-color: var(--logo-black);
+}
+
+.course-card:nth-child(5) {
+    border-top-color: #2D6A4F;
+}
+
+/* Env Green */
+
+.card-header {
+    padding: 25px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--bg-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--logo-blue);
+    flex-shrink: 0;
+}
+
+.course-card:nth-child(2) .card-icon {
+    color: var(--logo-red);
+}
+
+.course-card:nth-child(3) .card-icon {
+    color: var(--logo-gold);
+}
+
+.course-card:nth-child(4) .card-icon {
+    color: var(--logo-black);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--logo-black);
+}
+
+.card-body {
+    padding: 25px;
+    flex-grow: 1;
+}
+
+.course-desc {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.focus-area-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--logo-black);
+    margin-bottom: 10px;
+}
+
+.focus-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.focus-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.focus-list li::before {
+    content: '▹';
+    color: var(--logo-blue);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.card-footer {
+    background: #fcfcfc;
+    padding: 20px 25px;
+    border-top: 1px solid #eee;
+}
+
+.career-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--logo-red);
+    margin-bottom: 5px;
+    display: block;
+}
+
+.career-text {
+    font-size: 0.9rem;
+    color: #444;
+    font-style: italic;
+}
+
+/* --- Alumni / Success Section --- */
+.alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.alumni-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    border-bottom: 4px solid var(--logo-gold);
+    transition: var(--transition);
+}
+
+.alumni-card:hover {
+    transform: translateY(-5px);
+}
+
+.alumni-img-wrapper {
+    width: 120px;
+    /* Consistent circular size */
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--logo-blue);
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alumni-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Prevents image stretching */
+    object-position: center;
+    /* Keeps faces centered */
+    display: block;
+}
+
+.alumni-img-wrapper i {
+    font-size: 40px;
+    color: #ccc;
+}
+
+.alumni-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--logo-black);
+    margin-bottom: 5px;
+}
+
+.alumni-role {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--logo-red);
+    margin-bottom: 5px;
+}
+
+.alumni-company {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.alumni-details {
+    background: var(--bg-light);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+.pkg-badge {
+    background: var(--logo-blue);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+/* --- Scholarship Section --- */
+.scholarship-section {
+    margin-bottom: 80px;
+}
+
+.scholarship-highlight-box {
+    background: var(--logo-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border-right: 6px solid var(--logo-blue);
+    transition: var(--transition);
+}
+
+.scholarship-highlight-box:hover {
+    transform: translateY(-5px);
+}
+
+.scholarship-icon-circle {
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 114, 198, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--logo-blue);
+    flex-shrink: 0;
+}
+
+.scholarship-text-content h3 {
+    font-size: 1.5rem;
+    color: var(--logo-black);
+    margin-bottom: 12px;
+}
+
+.scholarship-text-content p {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.scholarship-text-content strong {
+    color: var(--logo-red);
+}
+
+/* --- Eligibility Section --- */
+.eligibility-section {
+    background: var(--logo-white);
+    padding: 60px 40px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    border-left: 6px solid var(--logo-gold);
+}
+
+.eligibility-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.eligibility-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.eligibility-item i {
+    color: var(--logo-blue);
+    font-size: 1.2rem;
+    margin-top: 4px;
+}
+
+.eligibility-item p {
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+/* --- Contact Footer --- */
+.contact-bar {
+    background: var(--logo-blue);
+    color: var(--logo-white);
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 60px;
+    position: relative;
+}
+
+.max-width-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-bar h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.contact-bar p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.apply-btn {
+    display: inline-block;
+    background: var(--logo-gold);
+    color: var(--logo-black);
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.apply-btn:hover {
+    transform: translateY(-3px);
+    background: #e59400;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .eligibility-list {
+        grid-template-columns: 1fr;
+    }
+
+    .eligibility-section {
+        padding: 30px 20px;
+    }
+
+    .scholarship-highlight-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+}

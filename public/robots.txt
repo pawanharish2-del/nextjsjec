@@ -1,0 +1,19 @@
+User-agent: GPTBot
+Allow: /blog
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /blog
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /blog
+Allow: /
+
+User-agent: Google-Extended
+Allow: /blog
+Allow: /
+
+User-agent: *
+Disallow: /admin
+Disallow: /_next

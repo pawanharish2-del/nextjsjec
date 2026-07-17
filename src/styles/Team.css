@@ -1,0 +1,176 @@
+/* ==========================================================================
+   TEAM SECTION (Carousel Styles)
+   ========================================================================== */
+
+.stories {
+  padding: px 0;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.stories-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+}
+
+.stories-title {
+  padding-top: 40px;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--logo-blue);
+  text-align: center;
+}
+
+.stories-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, var(--logo-blue), var(--logo-red));
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.stories-subtitle {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+/* --- Carousel --- */
+.stories-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 30px;
+  padding: 10px 10px 40px;
+  scrollbar-width: none;
+}
+
+.stories-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Team Member Card --- */
+.story-card {
+  flex: 0 0 320px;
+  background: var(--logo-white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.story-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+.story-image {
+  width: 100%;
+  height: 380px;
+  /* Adjusted for portrait faculty photos */
+  object-fit: cover;
+}
+
+.story-content {
+  padding: 25px;
+  text-align: center;
+}
+
+.story-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--logo-black);
+}
+
+.story-card p {
+  font-size: 15px;
+  color: var(--logo-red);
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+/* --- Navigation --- */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: -30px;
+}
+
+.nav-button {
+  position: absolute;
+  top: -200px;
+  /* Positioned relative to card center */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--logo-white);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background: var(--logo-blue);
+  color: white;
+}
+
+.nav-button.prev {
+  left: -25px;
+}
+
+.nav-button.next {
+  right: -25px;
+}
+
+.view-all-btn {
+  display: block;
+  width: fit-content;
+  margin: 40px auto 0;
+  padding: 12px 35px;
+  border: 2px solid var(--logo-blue);
+  border-radius: 50px;
+  color: var(--logo-blue);
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background: var(--logo-blue);
+  color: var(--logo-white);
+}
+
+@media (max-width: 768px) {
+  .stories-content {
+    padding: 0 20px;
+  }
+
+  .stories-title {
+    font-size: 32px;
+  }
+
+  .story-card {
+    flex: 0 0 280px;
+  }
+
+  .nav-button {
+    display: none;
+  }
+}

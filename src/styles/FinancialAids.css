@@ -1,0 +1,342 @@
+/* ========================================
+   FINANCIAL AIDS PAGE STYLES
+   ========================================
+*/
+
+:root {
+    /* Brand Palette */
+    --finaid-logo-red: #D62828; 
+    --finaid-logo-blue: #0072C6; 
+    --finaid-logo-gold: #FCA311; 
+    --finaid-logo-black: #1D1D1D; 
+    --finaid-logo-white: #FFFFFF; 
+
+    /* Functional Colors */
+    --finaid-bg-light: #FFFFFF;
+    --finaid-bg-medium: #f7f7f7;
+    --finaid-text-main: #333;
+    --finaid-text-light: #555;
+    --finaid-border: #e0e0e0;
+
+    /* Effects */
+    --finaid-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    --finaid-shadow-hover: 0 10px 25px rgba(0,0,0,0.12);
+
+    /* Alignment Variables (Matching Global Header/Subheader) */
+    --finaid-container-width: 1300px;
+    --finaid-container-padding: 40px;
+}
+
+.finaid-page {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--finaid-text-main);
+    line-height: 1.65;
+    background-color: var(--finaid-bg-light);
+    width: 100%;
+}
+
+.finaid-page a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+
+/* --- Reusable Container for Perfect Alignment with Header --- */
+.finaid-page .max-width-container {
+    max-width: var(--finaid-container-width);
+    margin: 0 auto;
+    padding: 0 var(--finaid-container-padding);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* --- Hero Section --- */
+.finaid-hero {
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax Effect */
+    padding: 120px 20px 160px; /* Increased bottom padding for stats overlap */
+    text-align: center;
+    color: var(--finaid-logo-white);
+    z-index: 1;
+}
+
+.finaid-hero h1 { 
+    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive font sizing */
+    margin-bottom: 1rem; 
+    font-weight: 800; 
+    letter-spacing: 1px; 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.finaid-hero p { 
+    font-size: clamp(1.1rem, 2vw, 1.4rem); 
+    font-weight: 300; 
+    max-width: 800px; 
+    margin: 0 auto; 
+    color: var(--finaid-logo-gold); 
+}
+
+/* --- Quick Links Banner (Floating) --- */
+.finaid-quick-links-bar {
+    margin-top: -80px; /* Negative margin creates overlap effect */
+    background: var(--finaid-logo-white);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 10;
+    border-bottom: 5px solid var(--finaid-logo-red);
+}
+
+.finaid-quick-link-item { 
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.finaid-quick-link-item:hover {
+    transform: translateY(-5px);
+    background-color: #fcfcfc;
+}
+
+/* Add vertical dividers on desktop */
+@media (min-width: 992px) {
+    .finaid-quick-link-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: -15px;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: #eee;
+    }
+}
+
+.finaid-quick-link-item i { 
+    font-size: 2.5rem; 
+    color: var(--finaid-logo-blue); 
+    margin-bottom: 15px; 
+    display: block;
+}
+
+.finaid-quick-link-item h4 { 
+    font-size: 1.1rem; 
+    color: var(--finaid-logo-black); 
+    font-weight: 700; 
+    position: center;
+}
+
+/* --- Intro & Objectives --- */
+.finaid-content-section { padding: 80px 0; }
+
+.finaid-section-title { 
+    font-size: 2.2rem; 
+    color: var(--finaid-logo-blue); 
+    margin-bottom: 2rem; 
+    position: relative; 
+    display: inline-block;
+    padding-bottom: 10px;
+    font-weight: 700;
+}
+
+.finaid-section-title::after { 
+    content: ''; 
+    display: block; 
+    width: 80px; 
+    height: 4px; 
+    background: var(--finaid-logo-gold); 
+    margin-top: 8px; 
+    border-radius: 2px;
+}
+
+.finaid-intro-text { 
+    max-width: 1000px; 
+    margin: 0 auto 50px; 
+    text-align: justify; 
+    font-size: 1.05rem; 
+    color: #444; 
+    line-height: 1.8;
+}
+
+/* Objective Cards Grid */
+.finaid-objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.finaid-objective-card {
+    padding: 40px 30px;
+    border-radius: 16px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    box-shadow: var(--finaid-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.finaid-objective-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--finaid-shadow-hover);
+}
+
+.finaid-bg-red { background-color: #c0392b; }
+.finaid-bg-green { background-color: #27ae60; }
+.finaid-bg-purple { background-color: #8e44ad; }
+.finaid-bg-teal { background-color: #16a085; }
+
+/* --- Table Styles --- */
+.finaid-table-container {
+    overflow-x: auto;
+    margin-top: 40px;
+    box-shadow: var(--finaid-shadow);
+    border-radius: 12px;
+    border: 1px solid #eee;
+    background: white;
+}
+
+.finaid-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.finaid-data-table th, 
+.finaid-data-table td {
+    padding: 18px 20px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+}
+
+.finaid-data-table th {
+    background-color: var(--finaid-logo-blue);
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.finaid-data-table tr:nth-child(even) { background-color: #f8fbff; }
+.finaid-data-table tr:hover { background-color: #eef6ff; }
+
+.finaid-data-table a { 
+    color: var(--finaid-logo-blue); 
+    font-weight: 600; 
+    transition: color 0.2s;
+}
+
+.finaid-data-table a:hover { 
+    text-decoration: underline; 
+    color: var(--finaid-logo-red); 
+}
+
+/* --- Budgeting Section --- */
+.finaid-budget-section {
+    background-color: var(--finaid-bg-medium);
+    padding: 80px 0;
+}
+
+.finaid-budget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.finaid-budget-card {
+    background: var(--finaid-logo-white);
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: var(--finaid-shadow);
+    border-top: 5px solid var(--finaid-logo-gold);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.finaid-budget-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--finaid-shadow-hover);
+}
+
+.finaid-budget-card h4 { 
+    font-size: 1.3rem; 
+    color: var(--finaid-logo-black); 
+    margin-bottom: 20px; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    font-weight: 700;
+}
+
+.finaid-budget-card i { 
+    color: var(--finaid-logo-gold); 
+    font-size: 1.5rem;
+}
+
+.finaid-budget-card p, 
+.finaid-budget-card ul { 
+    font-size: 1rem; 
+    color: #555; 
+    line-height: 1.6; 
+}
+
+.finaid-budget-card ul { 
+    padding-left: 20px; 
+    margin-top: 10px; 
+}
+
+.finaid-budget-card li {
+    margin-bottom: 8px;
+}
+
+/* --- External Links Banner --- */
+.finaid-external-links {
+    background: var(--finaid-logo-blue);
+    color: var(--finaid-logo-white);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.finaid-external-links p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 5px 0;
+}
+
+.finaid-external-links a { 
+    color: var(--finaid-logo-gold); 
+    font-weight: 700; 
+    text-decoration: none; 
+    margin: 0 5px; 
+    border-bottom: 1px dotted var(--finaid-logo-gold);
+    transition: all 0.3s ease;
+}
+
+.finaid-external-links a:hover {
+    color: #fff;
+    border-bottom-style: solid;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    /* Reset Container Padding for Mobile */
+    .finaid-page .max-width-container {
+        padding: 0 20px;
+    }
+    
+    .finaid-hero {
+        padding: 100px 20px 140px;
+    }
+}

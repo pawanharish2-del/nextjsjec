@@ -1,0 +1,65 @@
+# Next.js JEC (Jaipur Engineering College) Website
+
+An AICTE-approved and Rajasthan Technical University (RTU) affiliated engineering college portal built with Next.js (App Router), styled with modular CSS, and integrated with Firebase for data management and administration.
+
+## System Architecture & Tech Stack
+- **Framework:** Next.js (React Server Components, App Router lifecycle)
+- **Styling:** Vanilla CSS using CSS Modules and global asset sheets (`src/styles/*`)
+- **Backend/Database:** Firebase Service Core (`src/firebase.js`)
+- **State Management:** Mix of Next.js Server Routing and React Client Hooks (`useClient`)
+- **SEO/Metadata:** Static and dynamic metadata mapping via `robots.js` and `sitemap.js`
+
+## Directory Structure Map
+- `/scripts/generate-search.js` — Node engine build script compiling static page search arrays.
+- `/public/search.json` — Pre-compiled context database utilized for semantic or exact match client search routing.
+- `/public/documents/` — Legal/institutional compliance files (REAP schedules, EOA AICTE Reports, Affiliation certificates).
+- `/src/firebase.js` — Core administration bridge initialized for global auth context, database listeners, and image blob structures.
+- `/src/app/` — Structural App Router setup:
+  - `admin/` — Protected content dashboard containing authentication logic, blog handlers, department lists, and student metrics.
+  - `admission/` — Dynamic informative endpoints detailing REAP workflows, transparent fees, checklists, and skill initiatives (KARMA, Suryamitra).
+  - `campus-life/` — Student-centric UI segments: achievements, project directories, wellbeing assets, and photo/video albums.
+  - `department/` — Dynamic and structural pages highlighting academic branches, curriculum metrics, and postgraduate parameters (M.Tech).
+  - `Our-Society/` — Foundations, leadership matrices, and satellite institutional profiles (Agrasen College, JCES).
+- `/src/components/` — Modularity layouts: Global Navigations, Footers, Chatbots, Protected Route wrappers, and Dynamic Hero Carousels.
+
+## Dynamic Content Profiles & Schemas
+
+### 1. Admissions & Structural Workflows (`REAP 2026`)
+- **RTU Code:** 1019
+- **Seat Distributions:** 70% State Domicile, 15% Out-of-State, 15% Management Quota.
+- **Tuition Thresholds:** Base Tuition: ₹95,500/yr | Caution (Refundable): ₹5,000 | Hostel Base: ₹90,000/yr | Transport: ₹38,000/yr.
+- **Tuition Fee Waiver Scheme (TFWS):** Automatic execution for high-merit allocations matching household criteria under ₹8.00 LPA.
+
+### 2. Specialized Academic Schemes (`KARMA` & Government Initatives)
+- **Execution Framework:** National Skills Qualification Framework (NSQF) criteria mapping.
+- **Core Free Certifications:**
+  - *Suryamitra solar program:* Technical photovoltaic engineering modules (Target bracket: 18-40 yrs).
+  - *Vayumitra wind farm initiative:* Comprehensive 81-day residential wind infrastructure syllabus.
+  - *KARMA mechanical/CS tracks:* Modular slots (200-780 Hours) scaling from elementary Web Design to advanced PLC/SCADA pipelines.
+
+### 3. Postgraduate Division (`M.Tech`)
+- **Available Streams:** Computer Science Engineering, Digital Communication, Power Systems, Production Engineering, Environmental Engineering.
+- **Capacities:** 18 Seats allocated per specialisation.
+- **Financial Integration:** Standard AICTE GATE stipend mapping (₹12,400 per month distribution matrix).
+
+### 4. Student Innovation Matrix (`Engineering Projects`)
+Provides programmatic contexts mapping architectural features built out by past design cohorts:
+- *Automatic Pneumatic Drilling Unit* (Time control cylinder logic).
+- *Brass Casing Collector* (Defense sector range clean-up automation).
+- *Follow Me Oxygen Tank Cart* (Low-cost contextual tracking payload with medical alert hooks).
+- *Amazon Picking Challenge Core* (Unstructured automated retrieval logic).
+
+## Contextual Search Database (`public/search.json`)
+The application implements an indexed dataset architecture for global search parameters. Key routing contexts include:
+- `path: "/"` — Institutional index.
+- `path: "/terms"` — Core programmatic liability disclosures, zero-refund definitions on admission finalizations, data utilization waivers.
+- `path: "/placement"` — Metrics index logging 94%+ standard placement history, Cr packages, and live enterprise projects.
+- `path: "/campus-life/jec-vibrant-india"` — Multi-faith social calendars (Vivekananda, Keshvanand, Arya Samaj havan engineering mappings).
+- `path: "/campus-life/students-corner"` — Central mapping interface linking remote IIT certification databases (NPTEL chapters), open academic data wrappers (MIT, Yale, CMU), and utility sub-forms.
+
+## Administrative Engine Design
+All routing matrices grouped inside `/src/app/admin/` use client-side authentication loops built on Top-Level Route Protection guards (`ProtectedRoute.js`). They orchestrate state updates directly through downstream forms executing write rules on:
+- Testimonial carousel content arrays
+- Dynamic departmental text bodies
+- Integrated engineering project entries
+- Dynamic system logs

@@ -1,0 +1,284 @@
+/* ==========================================================================
+   TESTIMONIALS PAGE STYLES - EXACT REPLICA
+   ========================================================================== */
+
+/* Define Variables locally to guarantee exact colors */
+.testimonials-page {
+    --logo-white: #ffffff;
+    --logo-black: #000000;
+    --logo-blue: #0072c6;
+    --logo-red: #e63946;
+    --logo-gold: #f1c40f;
+    --color-text-main: #333333;
+    --color-text-light: #555555;
+    --color-background-medium: #f4f4f4;
+    --color-background-dark: #f0f0f0;
+    --color-border: #eeeeee;
+    --shadow-card: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.testimonials-page {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-main);
+}
+
+.testimonials-page .max-width-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.testimonials-page a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.testimonials-page .testimonial-hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    /* Fixed height for the banner */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    background-color: #0072c6;
+    /* Fallback color */
+    margin-bottom: 2rem;
+    border-bottom: 5px solid var(--logo-gold);
+}
+
+/* The Background Image */
+.testimonials-page .t-hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* The Dark Overlay */
+.testimonial-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* Black overlay 60% opacity */
+    z-index: 2;
+}
+
+/* The Content Wrapper */
+.testimonials-page .t-hero-overlay {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Typography for the Hero Section */
+.testimonials-page .t-hero-overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.testimonials-page .t-hero-overlay p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #f0f0f0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   GRID & CARD SECTION
+   ========================================= */
+
+.testimonials-page .testimonial-grid-section {
+    padding: 80px 20px;
+    background: var(--color-background-medium);
+}
+
+.testimonials-page .t-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+}
+
+/* Card Styling */
+.testimonials-page .t-card {
+    background: var(--logo-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--logo-red);
+}
+
+.testimonials-page .t-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.testimonials-page .quote-icon {
+    font-size: 28px;
+    color: var(--logo-gold);
+    opacity: 0.7;
+    margin-bottom: 15px;
+}
+
+/* Content wrapper */
+.testimonials-page .quote-content-wrapper {
+    flex: 1;
+    margin-bottom: 25px;
+}
+
+.testimonials-page .quote-text {
+    font-size: 16px;
+    color: var(--color-text-light);
+    font-style: italic;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.testimonials-page .read-more-btn {
+    background: none;
+    border: none;
+    color: var(--logo-blue);
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 8px;
+    font-size: 14px;
+    display: block;
+}
+
+.testimonials-page .read-more-btn:hover {
+    text-decoration: underline;
+}
+
+.testimonials-page .student-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    border-top: 1px solid var(--color-border);
+    padding-top: 20px;
+    margin-top: auto;
+}
+
+.testimonials-page .student-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-background-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--logo-blue);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.testimonials-page .student-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonials-page .student-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.testimonials-page .student-details h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--logo-blue);
+    margin-bottom: 2px;
+}
+
+.testimonials-page .student-details .course {
+    font-size: 14px;
+    color: #777;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.testimonials-page .placement-badge {
+    background: var(--logo-red);
+    color: var(--logo-white);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    width: fit-content;
+}
+
+.testimonials-page .salary-badge {
+    background: var(--color-background-dark);
+    color: var(--color-text-main);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: fit-content;
+}
+
+/* Load More Button Styling */
+.testimonials-page .load-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.testimonials-page .load-more-main-btn {
+    background-color: var(--logo-blue);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials-page .load-more-main-btn:hover {
+    background-color: var(--logo-red);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .testimonials-page .t-hero-overlay h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .testimonials-page .t-grid {
+        grid-template-columns: 1fr;
+    }
+}

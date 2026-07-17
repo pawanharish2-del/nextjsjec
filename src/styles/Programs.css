@@ -1,0 +1,249 @@
+/* ==========================================================================
+   PROGRAMS / SCHOOLS SECTION
+   ========================================================================== */
+
+.schools {
+  padding: 80px 0;
+  background: var(--color-background-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Pattern */
+.schools::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,20 L100,100 L0,80 Z" fill="%23ffffff" opacity="0.05"/></svg>') repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.schools-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Section Titles --- */
+.schools-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--logo-blue);
+  text-align: center;
+  position: relative;
+  animation: schools-fade-down 0.8s ease-out;
+}
+
+.schools-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--logo-blue);
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
+
+/* --- Grid Layout --- */
+.schools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 20px;
+}
+
+/* --- Card Styling --- */
+.school-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--logo-white);
+  padding: 50px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  animation: schools-fade-up 0.6s ease-out forwards;
+  opacity: 0;
+  /* Animated in */
+}
+
+/* Staggered Animation Delays */
+.school-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.school-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.school-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.school-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.school-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.school-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.school-item:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+.school-item:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+/* Hover Effects */
+.school-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+  border-color: transparent;
+}
+
+/* Colored Side Bar Animation */
+.school-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--logo-blue);
+  transition: width 0.4s ease, opacity 0.3s ease;
+  z-index: 0;
+}
+
+.school-item:hover::before {
+  width: 100%;
+  opacity: 0.05;
+}
+
+.school-info {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.program-type {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--logo-blue);
+  background: rgba(0, 114, 198, 0.1);
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.school-item:hover .program-type {
+  background: var(--logo-blue);
+  color: var(--logo-white);
+}
+
+.program-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+  /* FORCE BLACK COLOR HERE */
+  margin: 0 0 5px;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.school-item:hover .program-name {
+  color: var(--logo-blue);
+  /* TURNS BLUE ON HOVER */
+}
+
+/* --- Arrow Icon --- */
+.school-item .arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.03);
+  font-size: 20px;
+  color: var(--logo-blue);
+  text-decoration: none;
+  transition: all 0.4s ease;
+  margin-left: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.school-item:hover .arrow {
+  transform: translateX(5px);
+  background: var(--logo-blue);
+  color: var(--logo-white);
+}
+
+/* --- Keyframes --- */
+@keyframes schools-fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes schools-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .schools-content {
+    padding: 0 20px;
+  }
+
+  .schools-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .schools-title {
+    font-size: 32px;
+  }
+
+  .school-item {
+    padding: 25px 20px;
+  }
+
+  .program-name {
+    font-size: 18px;
+  }
+}
