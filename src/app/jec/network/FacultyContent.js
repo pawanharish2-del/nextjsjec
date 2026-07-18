@@ -121,10 +121,10 @@ const FacultyCard = ({ member }) => {
 };
 
 // --- Main Component ---
-function HumanNetwork({ initialFaculty }) {
+function HumanNetwork() {
     const [activeFilter, setActiveFilter] = useState('all');
-    const [faculty, setFaculty] = useState(initialFaculty || []);
-    const [loading, setLoading] = useState(false);
+    const [faculty, setFaculty] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const departments = [
         { id: 'cse', title: 'Computer Science Engineering' },
@@ -136,7 +136,28 @@ function HumanNetwork({ initialFaculty }) {
         { id: 'pe', title: 'Physical Education' }
     ];
 
+    useEffect(() => {
+        const fetchFaculty = async () => {
+            try {
+                const facultyRef = collection(db, "faculty_members");
+                const q = query(facultyRef, orderBy("order"));
+                const querySnapshot = await getDocs(q);
 
+                const data = querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+
+                setFaculty(data);
+            } catch (error) {
+                console.error("Error fetching faculty:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchFaculty();
+    }, []);
 
     const filterFaculty = (dept) => {
         setActiveFilter(dept);

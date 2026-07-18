@@ -42,17 +42,6 @@ export async function generateMetadata({ params }) {
     };
 }
 
-export default async function Page({ params }) {
-    const slug = (await params).slug || '';
-    
-    let dept = null;
-    try {
-        const q = query(collection(db, "departments"), where("slug", "==", slug));
-        const snap = await getDocs(q);
-        if (!snap.empty) dept = snap.docs[0].data();
-    } catch (e) {
-        console.error("fetch error:", e);
-    }
-
-    return <DepartmentContent initialData={dept} slug={slug} />;
+export default function Page() {
+    return <DepartmentContent />;
 }

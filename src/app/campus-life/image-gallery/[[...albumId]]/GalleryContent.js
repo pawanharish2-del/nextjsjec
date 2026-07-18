@@ -5,13 +5,29 @@ import { db } from '@/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import '@/styles/Gallery.css';
 
-const GalleryContent = ({ initialAlbums }) => {
-    const [albums, setAlbums] = useState(initialAlbums || []);
-    const [loading, setLoading] = useState(false);
+const GalleryContent = () => {
+    const [albums, setAlbums] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [selectedAlbum, setSelectedAlbum] = useState(null);
     const [viewerIndex, setViewerIndex] = useState(null);
 
-
+    useEffect(() => {
+        const fetchAlbums = async () => {
+            try {
+                const querySnapshot = await getDocs(collection(db, "albums"));
+                const list = querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+                setAlbums(list);
+            } catch (error) {
+                console.error("Error fetching albums:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchAlbums();
+    }, []);
 
     const openAlbum = (album) => {
         setSelectedAlbum(album);

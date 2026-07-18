@@ -7,18 +7,92 @@ import { collection, query, where, getDocs, doc, getDoc } from 'firebase/firesto
 import '@/styles/Blog.css';
 import LogoCarousel from '@/components/LogoCarousel'; 
 
-const SinglePost = ({ initialPost, initialRecentPosts }) => {
+const SinglePost = () => {
     const params = useParams();
     // Decode the slug to handle spaces/special characters (e.g., "my%20blog" -> "my blog")
     const slug = params?.slug ? decodeURIComponent(params.slug) : null;
 
-    const [post, setPost] = useState(initialPost || null);
-    const [recentPosts, setRecentPosts] = useState(initialRecentPosts || []);
-    const [loading, setLoading] = useState(false); // No loading state needed since SSR provides data
+    const [post, setPost] = useState(null);
+    const [recentPosts, setRecentPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const contentRef = useRef(null);
 
+    useEffect(() => {
+        const fetchPost = async () => {
+            if (!slug) return;
+            setLoading(true);
+            
+            try {
+                let foundPost = null;
 
+                // STRATEGY 1: Exact Slug Match (Preferred)
+                // This finds posts where the 'slug' field matches the URL exactly.
+                const q = query(collection(db, "blog_posts"), where("slug", "==", slug));
+                const querySnapshot = await getDocs(q);
+
+                if (!querySnapshot.empty) {
+                    const docData = querySnapshot.docs[0];
+                    foundPost = { id: docData.id, ...docData.data() };
+                } else {
+                    // STRATEGY 2: Case-Insensitive Slug Match
+                    // If URL is "My-Post" but DB has "my-post", this finds it.
+                    const qLower = query(collection(db, "blog_posts"), where("slug", "==", slug.toLowerCase()));
+                    const querySnapshotLower = await getDocs(qLower);
+
+                    if (!querySnapshotLower.empty) {
+                        const docData = querySnapshotLower.docs[0];
+                        foundPost = { id: docData.id, ...docData.data() };
+                    } else {
+                        // STRATEGY 3: Document ID Match (Fallback for old blogs)
+                        // This checks if the URL is actually a Document ID (e.g., "8f6278...")
+                        try {
+                            const docRef = doc(db, "blog_posts", slug);
+                            const docSnap = await getDoc(docRef);
+                            if (docSnap.exists()) {
+                                foundPost = { id: docSnap.id, ...docSnap.data() };
+                            }
+                        } catch (e) {
+                            // Not a valid ID format, ignore error
+                        }
+                    }
+                }
+
+                setPost(foundPost);
+            } catch (error) {
+                console.error("Error fetching post:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchPost();
+    }, [slug]);
+
+    // Fetch recent posts
+    useEffect(() => {
+        const fetchRecentPosts = async () => {
+            try {
+                const q = query(collection(db, "blog_posts"));
+                const querySnapshot = await getDocs(q);
+
+                let postsData = querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+
+                // Sort by Date (Newest first)
+                postsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                // Take top 3 excluding current post if needed (optional, keeping it simple to just top 3)
+                setRecentPosts(postsData.filter(p => (p.slug || p.id) !== slug).slice(0, 3));
+            } catch (error) {
+                console.error("Error fetching recent blog posts:", error);
+            }
+        };
+
+        fetchRecentPosts();
+    }, [slug]);
 
     // Fix links automatically (Your original logic)
     useEffect(() => {

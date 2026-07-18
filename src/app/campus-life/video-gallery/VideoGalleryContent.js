@@ -12,13 +12,30 @@ import '@/styles/VideoGallery.css';
 //   keywords: "",
 // };
 
-const VideoGalleryContent = ({ initialVideos }) => {
-  const [videos, setVideos] = useState(initialVideos || []);
-  const [loading, setLoading] = useState(false);
+const VideoGallery = () => {
+  const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [playingVideoId, setPlayingVideoId] = useState(null);
 
-
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const q = query(collection(db, "video_gallery"), orderBy("createdAt", "desc"));
+        const querySnapshot = await getDocs(q);
+        const videoList = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setVideos(videoList);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching video gallery:", error);
+        setLoading(false);
+      }
+    };
+    fetchVideos();
+  }, []);
 
   const albums = useMemo(() => {
     const grouped = {};
@@ -192,4 +209,4 @@ const VideoGalleryContent = ({ initialVideos }) => {
   );
 };
 
-export default VideoGalleryContent;
+export default VideoGallery;

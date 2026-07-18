@@ -1,6 +1,5 @@
 import GalleryContent from './GalleryContent';
-import { db } from '@/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+
 export const metadata = {
     title: "JEC: Photo Gallery",
     description: "Browse through JEC's photo gallery — classrooms, labs, library, auditorium, sports grounds, hostels, and campus events showcasing vibrant college life.",
@@ -17,17 +16,6 @@ export const metadata = {
     },
 };
 
-export default async function Page() {
-    let initialAlbums = [];
-    try {
-        const querySnapshot = await getDocs(collection(db, "albums"));
-        initialAlbums = querySnapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data()
-        }));
-    } catch (error) {
-        console.error("Error fetching albums on server:", error);
-    }
-
-    return <GalleryContent initialAlbums={initialAlbums} />;
+export default function Page() {
+    return <GalleryContent />;
 }
