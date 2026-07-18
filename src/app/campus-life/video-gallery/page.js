@@ -1,5 +1,6 @@
 import VideoGalleryContent from './VideoGalleryContent';
-
+import { db } from '@/firebase';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 export const metadata = {
     title: "JEC: Video Gallery",
     description: "Watch videos of JEC's campus life, events, student activities, faculty lectures, and college tours to get a feel of life at Jaipur Engineering College.",
@@ -16,6 +17,18 @@ export const metadata = {
     },
 };
 
-export default function Page() {
-    return <VideoGalleryContent />;
+export default async function Page() {
+    let initialVideos = [];
+    try {
+        const q = query(collection(db, "video_gallery"), orderBy("createdAt", "desc"));
+        const querySnapshot = await getDocs(q);
+        initialVideos = querySnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+    } catch (error) {
+        console.error("Error fetching video gallery on server:", error);
+    }
+
+    return <VideoGalleryContent initialVideos={initialVideos} />;
 }

@@ -231,6 +231,7 @@ fbq('track', 'PageView');
           id="admission-popup"
           className="popup-overlay"
           style={{ display: 'none' }}
+          suppressHydrationWarning={true}
           dangerouslySetInnerHTML={{
             __html: `
          <div class="popup-content">

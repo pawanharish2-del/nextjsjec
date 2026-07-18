@@ -1,5 +1,6 @@
 import TestimonialsContent from './TestimonialsContent';
-
+import { db } from '@/firebase';
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 export const metadata = {
     title: "Students Testimonials",
     description: "Students Testimonials",
@@ -16,6 +17,20 @@ export const metadata = {
     },
 };
 
-export default function Page() {
-    return <TestimonialsContent />;
+export default async function Page() {
+    let initialTestimonials = [];
+    try {
+        const testimonialsRef = collection(db, "student_testimonials");
+        const q = query(testimonialsRef, orderBy("order"));
+        const querySnapshot = await getDocs(q);
+
+        initialTestimonials = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+    } catch (error) {
+        console.error("Error fetching testimonials on server:", error);
+    }
+
+    return <TestimonialsContent initialTestimonials={initialTestimonials} />;
 }

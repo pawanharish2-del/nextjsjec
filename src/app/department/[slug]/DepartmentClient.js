@@ -7,38 +7,14 @@ import Link from 'next/link'; // Next.js Link
 import LogoCarousel from '@/components/LogoCarousel'; // Assuming this component exists
 import '@/styles/Department.css'; // Import the CSS file directly
 
-function Department() {
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
+function Department({ initialData, slug }) {
+    const [data, setData] = useState(initialData || null);
+    const [loading, setLoading] = useState(false);
 
-    const params = useParams(); // Get slug from URL automatically
+    // We don't need useParams anymore since slug is passed from the server Component, but we can keep it as fallback.
+    const params = useParams();
 
-    useEffect(() => {
-        const fetchDepartmentData = async () => {
-            setLoading(true);
-            try {
-                // Next.js handles the slug extraction for us via params.slug
-                const urlSlug = decodeURIComponent(params.slug);
 
-                const q = query(collection(db, "departments"), where("slug", "==", urlSlug));
-                const querySnapshot = await getDocs(q);
-
-                if (!querySnapshot.empty) {
-                    setData(querySnapshot.docs[0].data());
-                } else {
-                    setData(null);
-                }
-            } catch (error) {
-                console.error("Error fetching department:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        if (params.slug) {
-            fetchDepartmentData();
-        }
-    }, [params.slug]);
 
     if (loading) return <div style={{ padding: "100px", textAlign: "center" }}>Loading...</div>;
 

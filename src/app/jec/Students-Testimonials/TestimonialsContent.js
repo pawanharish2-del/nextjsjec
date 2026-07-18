@@ -58,9 +58,9 @@ const TestimonialCard = ({ item }) => {
   );
 };
 
-export default function Testimonials() {
-  const [testimonials, setTestimonials] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function TestimonialsContent({ initialTestimonials }) {
+  const [testimonials, setTestimonials] = useState(initialTestimonials || []);
+  const [loading, setLoading] = useState(false);
   const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
@@ -69,28 +69,6 @@ export default function Testimonials() {
       else setVisibleCount(100);
     };
     handleResize();
-
-    const fetchTestimonials = async () => {
-      try {
-        const testimonialsRef = collection(db, "student_testimonials");
-        const q = query(testimonialsRef, orderBy("order"));
-        const querySnapshot = await getDocs(q);
-
-        const data = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-
-        setTestimonials(data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching testimonials:", error);
-        // Even if error, stop loading so page renders
-        setLoading(false);
-      }
-    };
-
-    fetchTestimonials();
   }, []);
 
   const handleShowMore = () => {
