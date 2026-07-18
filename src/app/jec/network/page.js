@@ -1,4 +1,5 @@
 import FacultyContent from './FacultyContent';
+import { fetchCollectionREST } from '@/lib/firestoreRest';
 
 export const metadata = {
     title: "JAIPUR ENGINEERING COLLEGE | Human-Network",
@@ -16,6 +17,17 @@ export const metadata = {
     },
 };
 
-export default function Page() {
-    return <FacultyContent />;
+export const revalidate = 60; // Refresh data periodically
+
+export default async function Page() {
+    let faculty = await fetchCollectionREST("faculty_members");
+    
+    // Default sorting based on 'order' field
+    faculty.sort((a, b) => {
+        const orderA = a.order !== undefined ? a.order : 999;
+        const orderB = b.order !== undefined ? b.order : 999;
+        return orderA - orderB;
+    });
+
+    return <FacultyContent initialFaculty={faculty} />;
 }

@@ -1,4 +1,5 @@
 import VideoGalleryContent from './VideoGalleryContent';
+import { fetchCollectionREST } from '@/lib/firestoreRest';
 
 export const metadata = {
     title: "JEC: Video Gallery",
@@ -16,6 +17,17 @@ export const metadata = {
     },
 };
 
-export default function Page() {
-    return <VideoGalleryContent />;
+export const revalidate = 60; // Refresh data periodically
+
+export default async function Page() {
+    let videos = await fetchCollectionREST("video_gallery");
+    
+    // Sort by createdAt descending
+    videos.sort((a, b) => {
+        const dateA = new Date(a.createdAt || 0);
+        const dateB = new Date(b.createdAt || 0);
+        return dateB - dateA;
+    });
+
+    return <VideoGalleryContent initialVideos={videos} />;
 }

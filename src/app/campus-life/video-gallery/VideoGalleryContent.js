@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { db } from '@/firebase';
-import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+// Removed firebase imports as fetching is now done on the server via REST API
 import '@/styles/VideoGallery.css';
 
 
@@ -12,30 +11,13 @@ import '@/styles/VideoGallery.css';
 //   keywords: "",
 // };
 
-const VideoGallery = () => {
-  const [videos, setVideos] = useState([]);
-  const [loading, setLoading] = useState(true);
+const VideoGallery = ({ initialVideos = [] }) => {
+  const [videos, setVideos] = useState(initialVideos);
+  const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [playingVideoId, setPlayingVideoId] = useState(null);
 
-  useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const q = query(collection(db, "video_gallery"), orderBy("createdAt", "desc"));
-        const querySnapshot = await getDocs(q);
-        const videoList = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        setVideos(videoList);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching video gallery:", error);
-        setLoading(false);
-      }
-    };
-    fetchVideos();
-  }, []);
+  // No client-side fetching on mount needed, as data is provided by SSR
 
   const albums = useMemo(() => {
     const grouped = {};

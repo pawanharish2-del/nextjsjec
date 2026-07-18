@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
-import { db } from '@/firebase';
+// Removed firebase imports as fetching is now done on the server via REST API
 import '@/styles/Testimonials.css';
 import LogoCarousel from '@/components/LogoCarousel';
 
@@ -58,9 +57,9 @@ const TestimonialCard = ({ item }) => {
   );
 };
 
-export default function Testimonials() {
-  const [testimonials, setTestimonials] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function Testimonials({ initialTestimonials = [] }) {
+  const [testimonials, setTestimonials] = useState(initialTestimonials);
+  const [loading, setLoading] = useState(false); // Instantly loaded via SSR
   const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
@@ -68,30 +67,11 @@ export default function Testimonials() {
       if (window.innerWidth < 768) setVisibleCount(4);
       else setVisibleCount(100);
     };
+    window.addEventListener('resize', handleResize);
     handleResize();
-
-    const fetchTestimonials = async () => {
-      try {
-        const testimonialsRef = collection(db, "student_testimonials");
-        const q = query(testimonialsRef, orderBy("order"));
-        const querySnapshot = await getDocs(q);
-
-        const data = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-
-        setTestimonials(data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching testimonials:", error);
-        // Even if error, stop loading so page renders
-        setLoading(false);
-      }
-    };
-
-    fetchTestimonials();
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
+    // No client-side fetching on mount needed, as data is provided by SSR
 
   const handleShowMore = () => {
     setVisibleCount(prevCount => prevCount + 4);

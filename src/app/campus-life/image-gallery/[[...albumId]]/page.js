@@ -1,4 +1,5 @@
 import GalleryContent from './GalleryContent';
+import { fetchCollectionREST } from '@/lib/firestoreRest';
 
 export const metadata = {
     title: "JEC: Photo Gallery",
@@ -16,6 +17,11 @@ export const metadata = {
     },
 };
 
-export default function Page() {
-    return <GalleryContent />;
+export const revalidate = 60; // Refresh data periodically
+
+export default async function Page() {
+    let albums = await fetchCollectionREST("albums");
+    
+    // Sort logic if needed, currently original just fetched them as is. Let's pass them as is.
+    return <GalleryContent initialAlbums={albums} />;
 }

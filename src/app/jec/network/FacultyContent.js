@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
-import { db } from '@/firebase';
+// Removed firebase imports as fetching is now done on the server via REST API
 import Image from 'next/image';
 import LogoCarousel from '@/components/LogoCarousel';
 import '@/styles/network.css';
@@ -121,10 +120,10 @@ const FacultyCard = ({ member }) => {
 };
 
 // --- Main Component ---
-function HumanNetwork() {
+function FacultyContent({ initialFaculty = [] }) {
     const [activeFilter, setActiveFilter] = useState('all');
-    const [faculty, setFaculty] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [faculty, setFaculty] = useState(initialFaculty);
+    const [loading, setLoading] = useState(false); // SSR data is ready instantly
 
     const departments = [
         { id: 'cse', title: 'Computer Science Engineering' },
@@ -136,28 +135,7 @@ function HumanNetwork() {
         { id: 'pe', title: 'Physical Education' }
     ];
 
-    useEffect(() => {
-        const fetchFaculty = async () => {
-            try {
-                const facultyRef = collection(db, "faculty_members");
-                const q = query(facultyRef, orderBy("order"));
-                const querySnapshot = await getDocs(q);
-
-                const data = querySnapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
-
-                setFaculty(data);
-            } catch (error) {
-                console.error("Error fetching faculty:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchFaculty();
-    }, []);
+    // No client-side fetching on mount needed, as data is provided by SSR
 
     const filterFaculty = (dept) => {
         setActiveFilter(dept);
@@ -302,4 +280,4 @@ function HumanNetwork() {
     );
 }
 
-export default HumanNetwork;
+export default FacultyContent;

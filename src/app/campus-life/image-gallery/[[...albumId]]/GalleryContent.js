@@ -1,33 +1,16 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { db } from '@/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+// Removed firebase imports as fetching is now done on the server via REST API
 import '@/styles/Gallery.css';
 
-const GalleryContent = () => {
-    const [albums, setAlbums] = useState([]);
-    const [loading, setLoading] = useState(true);
+const GalleryContent = ({ initialAlbums = [] }) => {
+    const [albums, setAlbums] = useState(initialAlbums);
+    const [loading, setLoading] = useState(false); // SSR data is ready instantly
     const [selectedAlbum, setSelectedAlbum] = useState(null);
     const [viewerIndex, setViewerIndex] = useState(null);
 
-    useEffect(() => {
-        const fetchAlbums = async () => {
-            try {
-                const querySnapshot = await getDocs(collection(db, "albums"));
-                const list = querySnapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
-                setAlbums(list);
-            } catch (error) {
-                console.error("Error fetching albums:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchAlbums();
-    }, []);
+    // No client-side fetching on mount needed, as data is provided by SSR
 
     const openAlbum = (album) => {
         setSelectedAlbum(album);

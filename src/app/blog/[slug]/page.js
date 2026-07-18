@@ -1,5 +1,4 @@
-import { db } from '@/firebase';
-import { collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
+import { fetchCollectionREST } from '@/lib/firestoreRest';
 import SinglePostClient from './SinglePostClient';
 
 // 1. THIS FUNCTION RUNS ON THE SERVER FOR GOOGLE SEO
@@ -13,22 +12,24 @@ export async function generateMetadata({ params }) {
     let postData = null;
 
     try {
-        // Strategy 1: Find the blog post by exact Slug
-        const q = query(collection(db, "blog_posts"), where("slug", "==", slug));
-        const querySnapshot = await getDocs(q);
-
-        if (!querySnapshot.empty) {
-            postData = querySnapshot.docs[0].data();
-        } else {
-            // Strategy 2: Fallback to Document ID Match
-            const docRef = doc(db, "blog_posts", slug);
-            const docSnap = await getDoc(docRef);
-            if (docSnap.exists()) {
-                postData = docSnap.data();
-            }
+        // Fetch using safe REST API to prevent Vercel 503 crash
+        const allPosts = await fetchCollectionREST("blog_posts");
+        
+        // Find by exact slug
+        postData = allPosts.find(p => p.slug === slug);
+        
+        // Fallback: Case-insensitive slug
+        if (!postData) {
+            postData = allPosts.find(p => p.slug?.toLowerCase() === slug.toLowerCase());
         }
+        
+        // Fallback: Document ID Match
+        if (!postData) {
+            postData = allPosts.find(p => p.id === slug);
+        }
+
     } catch (error) {
-        console.error("Error fetching metadata:", error);
+        console.error("Error fetching metadata via REST:", error);
     }
 
     // If we successfully found the post, generate perfect SEO Meta Tags!
@@ -53,6 +54,25 @@ export async function generateMetadata({ params }) {
 }
 
 // 2. THIS RENDERS THE ACTUAL VISUAL PAGE FOR THE USER
-export default function BlogPage() {
-    return <SinglePostClient />;
+export default async function BlogPage({ params }) {
+    const resolvedParams = await params;
+    const slug = resolvedParams?.slug ? decodeURIComponent(resolvedParams.slug) : null;
+    
+    let postData = null;
+    let recentPosts = [];
+
+    try {
+        const allPosts = await fetchCollectionREST("blog_posts");
+        allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        postData = allPosts.find(p => p.slug === slug) 
+                || allPosts.find(p => p.slug?.toLowerCase() === slug?.toLowerCase())
+                || allPosts.find(p => p.id === slug);
+
+        recentPosts = allPosts.filter(p => (p.slug || p.id) !== slug).slice(0, 3);
+    } catch (e) {
+        console.error(e);
+    }
+
+    return <SinglePostClient initialPost={postData} initialRecentPosts={recentPosts} />;
 }
