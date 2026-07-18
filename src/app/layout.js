@@ -221,11 +221,7 @@ fbq('track', 'PageView');
         </Suspense>
 
         {/* =====================================================
-            ADMISSION POPUP — Raw HTML (No React Component)
-            Renders instantly before React hydration.
-            JS logic to show/hide is handled by:
-              1) The inline <script> below (first paint)
-              2) ClientLayout useEffect (on route changes)
+            ADMISSION POPUP
         ===================================================== */}
         <div
           id="admission-popup"
@@ -240,13 +236,13 @@ fbq('track', 'PageView');
              data-height="780px"
              data-w="c1073fe2350d112d90b129addc24e9ff"
            ></div>
-           
-           <!-- Fetch and execute instantly while DOM is pausing here -->
-           <script type="text/javascript" src="https://widgets.in4.nopaperforms.com/emwgts.js"></script>
          </div>
          `
           }}
         />
+
+        {/* Load the heavy widget script lazily to prevent render blocking */}
+        <Script src="https://widgets.in4.nopaperforms.com/emwgts.js" strategy="lazyOnload" />
 
         {/*
           Inline script — runs immediately when the browser parses this tag,

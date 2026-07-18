@@ -33,10 +33,10 @@ export default function Hero({ initialBanners = [] }) {
                 <div
                     key={index}
                     className={`hero-slide ${index === currentIndex ? 'active' : ''}`}
-                    // FIX: Use backgroundImage so text sits on top (Matches your CSS rules)
+                    // FIX: Remove background-image for the FIRST slide to fix LCP.
                     style={{ 
-                        '--bg-desktop': `url('${banner.imageUrl}')`,
-                        '--bg-mobile': `url('${banner.mobileImageUrl || banner.imageUrl}')` 
+                        '--bg-desktop': index === 0 ? 'none' : `url('${banner.imageUrl}')`,
+                        '--bg-mobile': index === 0 ? 'none' : `url('${banner.mobileImageUrl || banner.imageUrl}')` 
                     }}
                 >
                     {/* OPTIMIZATION: LCP Image element for the FIRST banner to load immediately. */}
