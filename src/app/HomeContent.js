@@ -11,18 +11,18 @@ import CampusLife from "@/components/CampusLife";
 import VirtualTour from "@/components/VirtualTour";
 import LogoCarousel from "@/components/LogoCarousel";
 
-export default function HomePage() {
+export default function HomePage({ initialBanners, initialTeam, initialVideoTestimonials, initialCampusGallery }) {
   return (
     <>
-      <Hero />
+      <Hero initialBanners={initialBanners} />
       <Highlights />
       <Stats />
       <Programs />
-      <Team />
+      <Team initialTeam={initialTeam} />
       <WhyJEC />
       <Outcomes />
-      <VideoTestimonials />
-      <CampusLife />
+      <VideoTestimonials initialTestimonials={initialVideoTestimonials} />
+      <CampusLife initialGallery={initialCampusGallery} />
       <VirtualTour />
       <LogoCarousel />
     </>

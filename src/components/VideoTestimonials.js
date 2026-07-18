@@ -1,34 +1,18 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { db } from '../firebase';
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import '../styles/VideoTestimonials.css';
 
-function VideoTestimonials() {
-    const [videos, setVideos] = useState([]);
-    const [loading, setLoading] = useState(true);
+function VideoTestimonials({ initialTestimonials = [] }) {
+    const [videos, setVideos] = useState(initialTestimonials);
+    const [loading, setLoading] = useState(false);
     const [mutedStates, setMutedStates] = useState({});
     const players = useRef({});
 
-    // 1. Fetch data from Firestore
     useEffect(() => {
-        const fetchVideos = async () => {
-            try {
-                const q = query(collection(db, "video_testimonials"), orderBy("order"));
-                const querySnapshot = await getDocs(q);
-                const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                setVideos(data);
-
-                const initialMute = {};
-                data.forEach(v => initialMute[v.id] = true);
-                setMutedStates(initialMute);
-            } catch (error) {
-                console.error("Firestore Error:", error);
-            }
-            setLoading(false);
-        };
-        fetchVideos();
-    }, []);
+        const initialMute = {};
+        videos.forEach(v => initialMute[v.id] = true);
+        setMutedStates(initialMute);
+    }, [videos]);
 
     // 2. Robust API Initialization (Works on Localhost & Vercel)
     useEffect(() => {

@@ -1,43 +1,24 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; 
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
-import { db } from '@/firebase';
+// Removed firebase imports as fetching is now done on the server
 import Link from 'next/link';
 import '@/styles/CampusLife.css'; // Ensure this file exists!
 
-function CampusLife() {
-    const [galleryItems, setGalleryItems] = useState([]);
-    const [loading, setLoading] = useState(true);
+function CampusLife({ initialGallery = [] }) {
+    // FALLBACK DATA: Shows images if Firebase is empty (Matches your screenshot)
+    const fallbackGallery = [
+        { id: 1, imageUrl: "https://picsum.photos/800/600?random=1", alt: "Library", linkedAlbumId: "" },
+        { id: 2, imageUrl: "https://picsum.photos/800/600?random=2", alt: "Hostel Life", linkedAlbumId: "" },
+        { id: 3, imageUrl: "https://picsum.photos/800/600?random=3", alt: "Sports", linkedAlbumId: "" },
+        { id: 4, imageUrl: "https://picsum.photos/800/600?random=4", alt: "Campus View", linkedAlbumId: "" }
+    ];
+
+    const [galleryItems, setGalleryItems] = useState(initialGallery.length > 0 ? initialGallery : fallbackGallery);
+    const [loading, setLoading] = useState(false); // Instantly loaded via SSR
     const router = useRouter(); 
 
-    useEffect(() => {
-        const fetchGallery = async () => {
-            try {
-                const galleryRef = collection(db, "campus_gallery");
-                const q = query(galleryRef, orderBy("order"));
-                const querySnapshot = await getDocs(q);
-                const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                
-                if (data.length > 0) {
-                    setGalleryItems(data);
-                } else {
-                    // FALLBACK DATA: Shows images if Firebase is empty (Matches your screenshot)
-                    setGalleryItems([
-                        { id: 1, imageUrl: "https://picsum.photos/800/600?random=1", alt: "Library", linkedAlbumId: "" },
-                        { id: 2, imageUrl: "https://picsum.photos/800/600?random=2", alt: "Hostel Life", linkedAlbumId: "" },
-                        { id: 3, imageUrl: "https://picsum.photos/800/600?random=3", alt: "Sports", linkedAlbumId: "" },
-                        { id: 4, imageUrl: "https://picsum.photos/800/600?random=4", alt: "Campus View", linkedAlbumId: "" }
-                    ]);
-                }
-            } catch (error) {
-                console.error("Error fetching campus gallery:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchGallery();
-    }, []);
+    // No client-side fetching needed
 
     const handleCardClick = (item) => {
         const basePath = '/campus-life/image-gallery'; 

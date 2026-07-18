@@ -1,41 +1,21 @@
 "use client";
 import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
-import { collection, getDocs } from "firebase/firestore"; 
-import { db } from '@/firebase'; 
+// Removed firebase imports as fetching is now done on the server
 import '@/styles/Team.css';
 
-export default function Team() {
-  const [teamMembers, setTeamMembers] = useState([]);
+export default function Team({ initialTeam = [] }) {
+  // Use initialTeam if available, otherwise fallback to placeholders
+  const defaultTeam = initialTeam.length > 0 ? initialTeam : [
+    { id: 1, name: 'Dr. Ram K Sharma', title: 'Vice Chancellor, JEC', imageUrl: 'https://picsum.photos/400/500?random=1' },
+    { id: 2, name: 'Prof. Vijaysekhar', title: 'Dean, Computer Science', imageUrl: 'https://picsum.photos/400/500?random=2' },
+    { id: 3, name: 'Prof. Bhaskar Bhatt', title: 'Dean, Design', imageUrl: 'https://picsum.photos/400/500?random=3' },
+  ];
+
+  const [teamMembers, setTeamMembers] = useState(defaultTeam);
   const carouselRef = useRef(null);
 
-  // Fetch faculty data from Firebase
-  useEffect(() => {
-    const fetchTeam = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "faculty_home"));
-        const members = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        
-        // If database is empty, use placeholder data so the site doesn't look broken
-        if (members.length > 0) {
-          setTeamMembers(members);
-        } else {
-          setTeamMembers([
-            { id: 1, name: 'Dr. Ram K Sharma', title: 'Vice Chancellor, JEC', imageUrl: 'https://picsum.photos/400/500?random=1' },
-            { id: 2, name: 'Prof. Vijaysekhar', title: 'Dean, Computer Science', imageUrl: 'https://picsum.photos/400/500?random=2' },
-            { id: 3, name: 'Prof. Bhaskar Bhatt', title: 'Dean, Design', imageUrl: 'https://picsum.photos/400/500?random=3' },
-          ]);
-        }
-      } catch (error) {
-        console.error("Error fetching team:", error);
-      }
-    };
-
-    fetchTeam();
-  }, []);
+  // No client-side fetching needed
 
   // Scroll function for the carousel
   const scrollCarousel = (scrollAmount) => {

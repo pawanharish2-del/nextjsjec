@@ -1,11 +1,10 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
-import { db } from "@/firebase";
+// Removed firebase imports to improve PageSpeed and eliminate client-side fetching
 import '@/styles/HeroSlider.css'; // Importing the CSS file
 
-export default function Hero() {
+export default function Hero({ initialBanners = [] }) {
     // 1. Define the hardcoded banner outside so we can easily use it
     const hardcodedBanner = {
         imageUrl: "/images/jec-banner-home.png",
@@ -15,25 +14,10 @@ export default function Hero() {
     };
 
     // 2. Set the initial state to load this banner instantly
-    const [banners, setBanners] = useState([hardcodedBanner]);
+    const [banners, setBanners] = useState(initialBanners.length > 0 ? initialBanners : [hardcodedBanner]);
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    useEffect(() => {
-        const fetchBanners = async () => {
-            try {
-                const bannersRef = collection(db, "home_banners");
-                const q = query(bannersRef, orderBy("order"));
-                const querySnapshot = await getDocs(q);
-                const bannerList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                
-                // Use the Firebase banners
-                if (bannerList.length > 0) {
-                    setBanners(bannerList);
-                }
-            } catch (error) { console.error("Error fetching banners:", error); }
-        };
-        fetchBanners();
-    }, []);
+    // No client-side fetching needed
 
     useEffect(() => {
         if (banners.length <= 1) return;
@@ -55,6 +39,20 @@ export default function Hero() {
                         '--bg-mobile': `url('${banner.mobileImageUrl || banner.imageUrl}')` 
                     }}
                 >
+                    {/* OPTIMIZATION: LCP Image element for the FIRST banner to load immediately. */}
+                    {index === 0 && (
+                        <picture style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+                            <source media="(max-width: 768px)" srcSet={banner.mobileImageUrl || banner.imageUrl} />
+                            <img 
+                                src={banner.imageUrl} 
+                                alt={banner.altText || banner.heading || "JEC Banner"} 
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                                fetchPriority="high" 
+                                loading="eager" 
+                            />
+                        </picture>
+                    )}
+
                     {banner.showOverlay !== true && (
                         <Link 
                             href="/admission-enquiry" 
@@ -69,7 +67,6 @@ export default function Hero() {
                             }}
                         />
                     )}
-                    {/* Removed the <img> tag because it was blocking the text */}
 
                     {banner.showOverlay === true && (
                         <>
