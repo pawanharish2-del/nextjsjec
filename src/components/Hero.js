@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 // Removed firebase imports to improve PageSpeed and eliminate client-side fetching
 import '@/styles/HeroSlider.css'; // Importing the CSS file
 
@@ -39,18 +40,18 @@ export default function Hero({ initialBanners = [] }) {
                         '--bg-mobile': index === 0 ? 'none' : `url('${banner.mobileImageUrl || banner.imageUrl}')` 
                     }}
                 >
-                    {/* OPTIMIZATION: LCP Image element for the FIRST banner to load immediately. */}
+                    {/* OPTIMIZATION: LCP Image element for the FIRST banner to load immediately using Next.js Image for compression and preloading. */}
                     {index === 0 && (
-                        <picture style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
-                            <source media="(max-width: 768px)" srcSet={banner.mobileImageUrl || banner.imageUrl} />
-                            <img 
-                                src={banner.imageUrl} 
-                                alt={banner.altText || banner.heading || "JEC Banner"} 
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-                                fetchPriority="high" 
-                                loading="eager" 
+                        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+                            <Image
+                                src={banner.imageUrl}
+                                alt={banner.altText || banner.heading || "JEC Banner"}
+                                fill
+                                priority
+                                style={{ objectFit: 'cover' }}
+                                sizes="100vw"
                             />
-                        </picture>
+                        </div>
                     )}
 
                     {banner.showOverlay !== true && (
