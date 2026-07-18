@@ -1,3 +1,6 @@
+import { db } from '@/firebase';
+import { collection, getDocs } from 'firebase/firestore';
+
 export const revalidate = 3600;
 
 export default async function sitemap() {
@@ -61,5 +64,42 @@ export default async function sitemap() {
     priority: route === '' ? 1 : 0.8,
   }));
 
-  return [...staticRoutes];
+  // 2. Fetch Dynamic Department Pages from Firebase
+  let departmentRoutes = [];
+  try {
+    // This fetches the departments created via your Admin panel
+    const querySnapshot = await getDocs(collection(db, 'departments'));
+    departmentRoutes = querySnapshot.docs.map((doc) => {
+      const data = doc.data();
+      const urlSlug = data.slug ? data.slug : doc.id;
+      return {
+        url: `${baseUrl}/department/${urlSlug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+      };
+    });
+  } catch (error) {
+    console.error("Error fetching dynamic departments for sitemap:", error);
+  }
+
+  // 3. Fetch Dynamic Blog Posts from Firebase
+  let blogRoutes = [];
+  try {
+    const querySnapshot = await getDocs(collection(db, 'blog_posts'));
+    blogRoutes = querySnapshot.docs.map((doc) => {
+      const data = doc.data();
+      const urlSlug = data.slug ? data.slug : doc.id;
+      return {
+        url: `${baseUrl}/blog/${urlSlug}`,
+        lastModified: data.date ? new Date(data.date) : new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.7,
+      };
+    });
+  } catch (error) {
+    console.error("Error fetching blogs for sitemap:", error);
+  }
+
+  return [...staticRoutes, ...departmentRoutes, ...blogRoutes];
 }
