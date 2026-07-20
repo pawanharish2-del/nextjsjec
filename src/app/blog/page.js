@@ -35,6 +35,9 @@ export default async function BlogPage() {
         "isFeatured"
     ]);
 
+    // Filter out draft posts
+    postsData = postsData.filter(post => post.status !== 'draft');
+
     // Sort by Date (Newest first)
     postsData.sort((a, b) => new Date(b.date) - new Date(a.date));
 
