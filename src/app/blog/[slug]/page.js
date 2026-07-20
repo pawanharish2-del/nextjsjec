@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
 
     try {
         // Fetch using safe REST API to prevent Vercel 503 crash
-        const allPosts = await fetchCollectionREST("blog_posts");
+        const allPosts = (await fetchCollectionREST("blog_posts")).filter(p => p.status !== 'draft');
         
         // Find by exact slug
         postData = allPosts.find(p => p.slug === slug);
@@ -62,7 +62,8 @@ export default async function BlogPage({ params }) {
     let recentPosts = [];
 
     try {
-        const allPosts = await fetchCollectionREST("blog_posts");
+        let allPosts = await fetchCollectionREST("blog_posts");
+        allPosts = allPosts.filter(p => p.status !== 'draft');
         allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
         postData = allPosts.find(p => p.slug === slug) 

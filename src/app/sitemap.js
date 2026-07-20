@@ -87,16 +87,18 @@ export default async function sitemap() {
   let blogRoutes = [];
   try {
     const querySnapshot = await getDocs(collection(db, 'blog_posts'));
-    blogRoutes = querySnapshot.docs.map((doc) => {
-      const data = doc.data();
-      const urlSlug = data.slug ? data.slug : doc.id;
-      return {
-        url: `${baseUrl}/blog/${urlSlug}`,
-        lastModified: data.date ? new Date(data.date) : new Date(),
-        changeFrequency: 'weekly',
-        priority: 0.7,
-      };
-    });
+    blogRoutes = querySnapshot.docs
+      .map(doc => ({ id: doc.id, ...doc.data() }))
+      .filter(data => data.status !== 'draft')
+      .map((data) => {
+        const urlSlug = data.slug ? data.slug : data.id;
+        return {
+          url: `${baseUrl}/blog/${urlSlug}`,
+          lastModified: data.date ? new Date(data.date) : new Date(),
+          changeFrequency: 'weekly',
+          priority: 0.7,
+        };
+      });
   } catch (error) {
     console.error("Error fetching blogs for sitemap:", error);
   }

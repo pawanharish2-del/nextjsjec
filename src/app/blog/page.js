@@ -26,6 +26,9 @@ export default async function BlogPage() {
     // Fetch data using the safe REST API to prevent Vercel 503 errors
     let postsData = await fetchCollectionREST("blog_posts");
 
+    // Filter out draft posts
+    postsData = postsData.filter(post => post.status !== 'draft');
+
     // Sort by Date (Newest first)
     postsData.sort((a, b) => new Date(b.date) - new Date(a.date));
 

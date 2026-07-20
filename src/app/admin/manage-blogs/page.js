@@ -58,6 +58,7 @@ const ManageBlogs = () => {
     const [excerpt, setExcerpt] = useState('');
     const [content, setContent] = useState('');
     const [isFeatured, setIsFeatured] = useState(false);
+    const [status, setStatus] = useState('published'); // NEW: Draft status
 
     // SEO State
     const [slug, setSlug] = useState(''); 
@@ -168,19 +169,19 @@ const ManageBlogs = () => {
         return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async (e, submitStatus = 'published') => {
+        if (e) e.preventDefault();
         if (!title || !content || !image) { toast.warn("Required: Title, Content, Image"); return; }
 
         const postData = {
             title, category, author, date, image, imageAlt, excerpt, content,
             slug: slug || autoGenerateSlug(title),
-            isFeatured, metaTitle, metaDesc, metaKeywords, createdAt: new Date()
+            isFeatured, metaTitle, metaDesc, metaKeywords, status: submitStatus, createdAt: new Date()
         };
 
         try {
             if (isEditing) { await updateDoc(doc(db, "blog_posts", editId), postData); toast.success("Updated!"); }
-            else { await addDoc(collection(db, "blog_posts"), postData); toast.success("Published!"); }
+            else { await addDoc(collection(db, "blog_posts"), postData); toast.success("Saved!"); }
             resetForm(); fetchPosts();
         } catch (error) { toast.error("Error saving post."); }
     };
@@ -192,6 +193,7 @@ const ManageBlogs = () => {
         setSlug(post.slug || ''); 
         setImageAlt(post.imageAlt || ''); setMetaTitle(post.metaTitle || '');
         setMetaDesc(post.metaDesc || ''); setMetaKeywords(post.metaKeywords || '');
+        setStatus(post.status || 'published');
         setEditId(post.id); setIsEditing(true); window.scrollTo(0, 0);
     };
 
@@ -203,7 +205,7 @@ const ManageBlogs = () => {
         setTitle(''); setCategory('Engineering'); setAuthor('JEC Admin');
         setDate(new Date().toISOString().split('T')[0]); setImage(''); setExcerpt('');
         setContent(''); setIsFeatured(false); setSlug(''); setImageAlt('');
-        setMetaTitle(''); setMetaDesc(''); setMetaKeywords('');
+        setMetaTitle(''); setMetaDesc(''); setMetaKeywords(''); setStatus('published');
         setIsEditing(false); setEditId(null);
     };
 
@@ -216,7 +218,7 @@ const ManageBlogs = () => {
             </div>
 
             <div style={styles.card}>
-                <form onSubmit={handleSubmit}>
+                <form>
                     <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '25px' }}>
                         {/* Left Column */}
                         <div>
@@ -354,7 +356,10 @@ const ManageBlogs = () => {
                             <label style={styles.label}>Keywords</label>
                             <input type="text" value={metaKeywords} onChange={e => setMetaKeywords(e.target.value)} style={styles.input} />
 
-                            <button type="submit" style={styles.saveBtn}>{isEditing ? "Update Post" : "Publish Post"}</button>
+                            <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+                                <button type="button" onClick={(e) => handleSubmit(e, 'draft')} style={styles.draftBtn}>Save as Draft</button>
+                                <button type="button" onClick={(e) => handleSubmit(e, 'published')} style={styles.saveBtn}>{isEditing ? "Update Post" : "Publish Post"}</button>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -367,7 +372,10 @@ const ManageBlogs = () => {
                     <div key={post.id} style={styles.listItem}>
                         <img src={post.image} alt="thumb" style={styles.thumb} />
                         <div style={{ flex: 1 }}>
-                            <h4 style={{ margin: '0 0 5px' }}>{post.title}</h4>
+                            <h4 style={{ margin: '0 0 5px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                {post.title}
+                                {post.status === 'draft' && <span style={styles.draftBadge}>Draft</span>}
+                            </h4>
                             <small style={{ color: '#64748B' }}>{post.date} • {post.category}</small>
                         </div>
                         <div>
@@ -385,7 +393,8 @@ const styles = {
     card: { background: 'white', padding: '20px', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)' },
     label: { display: 'block', fontWeight: '600', margin: '12px 0 6px', fontSize: '13px', color: '#475569' },
     input: { width: '100%', padding: '10px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '14px', outline: 'none' },
-    saveBtn: { width: '100%', padding: '14px', background: '#2563EB', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', marginTop: '20px', fontSize: '15px' },
+    saveBtn: { flex: 2, padding: '14px', background: '#2563EB', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '15px' },
+    draftBtn: { flex: 1, padding: '14px', background: '#F1F5F9', color: '#475569', border: '1px solid #CBD5E1', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '15px' },
     cancelBtn: { padding: '8px 15px', background: '#64748B', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' },
     listContainer: { display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '40px' },
     listItem: { display: 'flex', alignItems: 'center', gap: '15px', background: 'white', padding: '15px', borderRadius: '10px', border: '1px solid #e2e8f0', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' },
@@ -401,6 +410,14 @@ const styles = {
         display: 'block', 
         cursor: 'pointer', 
         transition: '0.2s all' 
+    },
+    draftBadge: {
+        background: '#FEF3C7',
+        color: '#D97706',
+        fontSize: '11px',
+        padding: '2px 8px',
+        borderRadius: '12px',
+        fontWeight: 'bold'
     }
 };
 
