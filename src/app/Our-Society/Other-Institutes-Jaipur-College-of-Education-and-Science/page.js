@@ -1,4 +1,4 @@
-import React from 'react';
+import Image from 'next/image';
 import '@/styles/JCES.css';
 import LogoCarousel from '@/components/LogoCarousel'; // <--- 1. IMPORT ADDED
 
@@ -56,7 +56,7 @@ export default function JCES() {
                     </div>
                     <div className="jces-img-block">
                         {/* Ensure the image exists in public folder */}
-                        <img src="/JECbuilding.jpg" alt="JCES Campus View" />
+                        <Image src="/JECbuilding.jpg" alt="JCES Campus View" width={500} height={350} style={{ objectFit: 'cover' }} />
                     </div>
                 </div>
 

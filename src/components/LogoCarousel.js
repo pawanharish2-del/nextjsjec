@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import '@/styles/LogoCarousel.css';
 
 function LogoCarousel() {
@@ -16,7 +17,7 @@ function LogoCarousel() {
                     {/* Render original list and a duplicate for infinite scroll effect */}
                     {[...images, ...images].map((img, index) => (
                         <div key={index} className="logo-slide">
-                            <img src={`/images/${img}`} alt={`Partner ${index}`} />
+                            <Image src={`/images/${img}`} alt={`Partner ${index}`} width={200} height={100} style={{ objectFit: 'contain' }} />
                         </div>
                     ))}
                 </div>

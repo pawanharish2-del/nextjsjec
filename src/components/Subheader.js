@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import Fuse from 'fuse.js';
 import '@/styles/Navigation.css';
 
@@ -184,7 +185,7 @@ function Subheader() {
                     <div className="jec-container">
 
                         <Link href="/" className="jec-logo-link">
-                            <img src="/JEC-LOGO.png" alt="JEC Logo" className="jec-logo-img" />
+                            <Image src="/JEC-LOGO.png" alt="JEC Logo" className="jec-logo-img" width={260} height={60} priority />
                         </Link>
 
                         <div className="jec-hamburger" onClick={() => {

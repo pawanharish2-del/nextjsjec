@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap');
+/* Fonts are preloaded globally in layout.js */
 
 :root {
     --jec-blue: #0072C6;
@@ -7,8 +7,8 @@
     --bg-body: #F8FAFC;
     --text-main: #0F172A;
     --text-muted: #475569;
-    --font-head: 'Poppins', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-head: var(--font-poppins), sans-serif;
+    --font-body: var(--font-inter), sans-serif;
 }
 
 .dept-page-wrapper {

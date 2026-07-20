@@ -1,6 +1,5 @@
 import DepartmentContent from './DepartmentClient.js';
-import { db } from '@/firebase';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { fetchCollectionREST } from '@/lib/firestoreRest';
 
 export async function generateMetadata({ params }) {
     const slug = (await params).slug || '';
@@ -11,12 +10,11 @@ export async function generateMetadata({ params }) {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
 
-    // Fetch custom SEO fields from Firestore (set via admin panel)
+    // Fetch custom SEO fields from Firestore via REST API (set via admin panel)
     let dept = null;
     try {
-        const q = query(collection(db, "departments"), where("slug", "==", slug));
-        const snap = await getDocs(q);
-        if (!snap.empty) dept = snap.docs[0].data();
+        const departments = await fetchCollectionREST("departments");
+        dept = departments.find(d => d.slug === slug);
     } catch (e) {
         console.error("generateMetadata fetch error:", e);
     }

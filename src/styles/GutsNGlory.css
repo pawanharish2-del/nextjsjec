@@ -1,7 +1,6 @@
 /* src/styles/GutsNGlory.css */
 
-/* Fonts and Variables */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap');
+/* Fonts are preloaded globally in layout.js */
 
 .guts-page {
   --primary: #0072C6;        /* JEC Blue */
@@ -19,8 +18,8 @@
   --shadow-card: 0 4px 6px -1px rgba(0,0,0,0.05);
   --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1);
   
-  --font-head: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-head: var(--font-poppins), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
 
   font-family: var(--font-body);
   background-color: var(--bg-body);

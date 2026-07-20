@@ -1,4 +1,4 @@
-import React from 'react';
+import Image from 'next/image';
 import '@/styles/KeyTeams.css';
 import LogoCarousel from '@/components/LogoCarousel'; // <--- 1. IMPORT ADDED
 
@@ -56,7 +56,7 @@ export default function KeyTeamsFunctions() {
                     </div>
                     <div className="kt-chart-container">
                         {/* Ensure the image exists in public/images/ folder */}
-                        <img src="/images/management.png" alt="AIATERF Organizational Chart" className="kt-chart-img" />
+                        <Image src="/images/management.png" alt="AIATERF Organizational Chart" className="kt-chart-img" width={450} height={350} style={{ objectFit: 'contain' }} />
                         <p className="kt-chart-caption">Key teams functioning within the ambit of AIATERF</p>
                     </div>
                 </div>

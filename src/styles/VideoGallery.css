@@ -1,8 +1,6 @@
 /* src/pages/VideoGallery.css */
 
-/* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+/* Fonts and FontAwesome are preloaded globally in layout.js */
 
 .video-gallery-wrapper {
     --jec-blue: #0072C6;
@@ -15,8 +13,8 @@
     --border: #E2E8F0;
     --radius-lg: 20px;
     --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
-    --font-head: 'Poppins', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-head: var(--font-poppins), sans-serif;
+    --font-body: var(--font-inter), sans-serif;
 
     font-family: var(--font-body);
     background-color: var(--bg-body);

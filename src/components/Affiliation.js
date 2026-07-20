@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import '@/styles/Affiliation.css';
 
 export default function Affiliation() {
@@ -14,14 +15,14 @@ export default function Affiliation() {
           
           <div className="logo-grid">
             {/* Replace these src with your actual logo images from public/assets/logos/ */}
-            <div className="logo-item"><img src="/assets/logos/aicte.png" alt="AICTE" /></div>
-            <div className="logo-item"><img src="/assets/logos/rtu.png" alt="RTU" /></div>
-            <div className="logo-item"><img src="/assets/logos/google-cloud.png" alt="Google Cloud" /></div>
-            <div className="logo-item"><img src="/assets/logos/startup-india.png" alt="Startup India" /></div>
-            <div className="logo-item"><img src="/assets/logos/jec-nen.png" alt="JEC NEN" /></div>
-            <div className="logo-item"><img src="/assets/logos/tcs-ion.png" alt="TCS iON" /></div>
-            <div className="logo-item"><img src="/assets/logos/nptel.png" alt="NPTEL" /></div>
-            <div className="logo-item"><img src="/assets/logos/iste.png" alt="ISTE" /></div>
+            <div className="logo-item"><Image src="/assets/logos/aicte.png" alt="AICTE" width={120} height={60} style={{ objectFit: 'contain' }} /></div>
+            <div className="logo-item"><Image src="/assets/logos/rtu.png" alt="RTU" width={120} height={60} style={{ objectFit: 'contain' }} /></div>
+            <div className="logo-item"><Image src="/assets/logos/google-cloud.png" alt="Google Cloud" width={120} height={60} style={{ objectFit: 'contain' }} /></div>
+            <div className="logo-item"><Image src="/assets/logos/startup-india.png" alt="Startup India" width={120} height={60} style={{ objectFit: 'contain' }} /></div>
+            <div className="logo-item"><Image src="/assets/logos/jec-nen.png" alt="JEC NEN" width={120} height={60} style={{ objectFit: 'contain' }} /></div>
+            <div className="logo-item"><Image src="/assets/logos/tcs-ion.png" alt="TCS iON" width={120} height={60} style={{ objectFit: 'contain' }} /></div>
+            <div className="logo-item"><Image src="/assets/logos/nptel.png" alt="NPTEL" width={120} height={60} style={{ objectFit: 'contain' }} /></div>
+            <div className="logo-item"><Image src="/assets/logos/iste.png" alt="ISTE" width={120} height={60} style={{ objectFit: 'contain' }} /></div>
           </div>
         </div>
       </section>

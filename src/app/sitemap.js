@@ -1,5 +1,4 @@
-import { db } from '@/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { fetchCollectionREST } from '@/lib/firestoreRest';
 
 export const revalidate = 3600;
 
@@ -64,14 +63,12 @@ export default async function sitemap() {
     priority: route === '' ? 1 : 0.8,
   }));
 
-  // 2. Fetch Dynamic Department Pages from Firebase
+  // 2. Fetch Dynamic Department Pages from Firebase via REST API
   let departmentRoutes = [];
   try {
-    // This fetches the departments created via your Admin panel
-    const querySnapshot = await getDocs(collection(db, 'departments'));
-    departmentRoutes = querySnapshot.docs.map((doc) => {
-      const data = doc.data();
-      const urlSlug = data.slug ? data.slug : doc.id;
+    const departments = await fetchCollectionREST('departments', ['slug']);
+    departmentRoutes = departments.map((doc) => {
+      const urlSlug = doc.slug ? doc.slug : doc.id;
       return {
         url: `${baseUrl}/department/${urlSlug}`,
         lastModified: new Date(),
@@ -83,16 +80,15 @@ export default async function sitemap() {
     console.error("Error fetching dynamic departments for sitemap:", error);
   }
 
-  // 3. Fetch Dynamic Blog Posts from Firebase
+  // 3. Fetch Dynamic Blog Posts from Firebase via REST API
   let blogRoutes = [];
   try {
-    const querySnapshot = await getDocs(collection(db, 'blog_posts'));
-    blogRoutes = querySnapshot.docs.map((doc) => {
-      const data = doc.data();
-      const urlSlug = data.slug ? data.slug : doc.id;
+    const blogs = await fetchCollectionREST('blog_posts', ['slug', 'date']);
+    blogRoutes = blogs.map((doc) => {
+      const urlSlug = doc.slug ? doc.slug : doc.id;
       return {
         url: `${baseUrl}/blog/${urlSlug}`,
-        lastModified: data.date ? new Date(data.date) : new Date(),
+        lastModified: doc.date ? new Date(doc.date) : new Date(),
         changeFrequency: 'weekly',
         priority: 0.7,
       };

@@ -8,6 +8,22 @@ import ClientLayout from "@/components/ClientLayout";
 import Chatbot from "@/components/Chatbot";
 import Sidebar from "@/components/Sidebar";
 import Script from 'next/script';
+import { Poppins, Inter } from 'next/font/google';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-poppins',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata = {
   metadataBase: new URL("https://www.jeckukas.org.in"),
@@ -66,10 +82,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -92,7 +104,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body style={{ margin: 0, padding: 0, fontFamily: "'Poppins', sans-serif" }}>
+      <body className={`${poppins.className} ${poppins.variable} ${inter.variable}`} style={{ margin: 0, padding: 0 }}>
 
         {/* NoPaperForms DTC Tracking Code */}
         <Script id="npf-dtc-tracking" strategy="afterInteractive">

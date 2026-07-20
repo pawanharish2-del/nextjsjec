@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 // Removed firebase imports as fetching is now done on the server via REST API
+import Image from 'next/image';
 import '@/styles/Placements.css';
 import LogoCarousel from '@/components/LogoCarousel';
 
@@ -171,7 +172,7 @@ const PlacementClient = ({ initialYears = [], initialStars = [], initialGallery 
                         
                         <div className="pgx-editorial-media">
                             <div className="pgx-media-card">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/hardcode%20images%2Fcc.JPG?alt=media&token=ee1d7672-6df9-4921-91bb-dde21c680090" alt="Corporate Meeting" />
+                                <Image src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/hardcode%20images%2Fcc.JPG?alt=media&token=ee1d7672-6df9-4921-91bb-dde21c680090" alt="Corporate Meeting" width={600} height={400} style={{ objectFit: 'cover' }} />
                                 <div className="pgx-media-caption">
                                     <h4>Top Placements & Outreach</h4>
                                     <p>Presently, 300+ JEC students are also working on ‘Live Projects’.</p>
@@ -193,10 +194,13 @@ const PlacementClient = ({ initialYears = [], initialStars = [], initialGallery 
                     <div className="pgx-recruiter-grid">
                         {topRecruiters.map((company, index) => (
                             <div className="pgx-rm-card" key={index} title={company.name}>
-                                <img 
+                                <Image 
                                     src={company.logo} 
                                     alt={`${company.name} Logo`} 
                                     className="pgx-rm-logo" 
+                                    width={120} 
+                                    height={50} 
+                                    style={{ objectFit: 'contain' }}
                                     onError={(e) => { 
                                         e.target.style.display = 'none'; 
                                         e.target.nextSibling.style.display = 'block'; 
@@ -225,7 +229,7 @@ const PlacementClient = ({ initialYears = [], initialStars = [], initialGallery 
                             <div className="pgx-star-card" key={index}>
                                 <div className="pgx-star-card-glow"></div>
                                 <div className="pgx-star-card-content">
-                                    <img src={item.image} className="pgx-star-avatar" alt={item.name} />
+                                    <Image src={item.image} className="pgx-star-avatar" alt={item.name} width={100} height={100} style={{ objectFit: 'cover' }} />
                                     <h3 className="pgx-star-name">{item.name}</h3>
                                     <span className="pgx-star-company">{item.company}</span>
                                     <div className="pgx-star-pkg">{item.package}</div>
@@ -249,8 +253,8 @@ const PlacementClient = ({ initialYears = [], initialStars = [], initialGallery 
                     <div className="pgx-gallery-grid" id="studentGrid">
                         {gallery.length > 0 ? gallery.slice(0, galleryLimit).map((item, index) => (
                             <div className={`pgx-gallery-card ${item.isPremium ? 'pgx-premium-card' : ''}`} key={index}>
-                                <div className="pgx-gc-avatar-wrap">
-                                    <img src={item.image} alt={item.name} />
+                                <div className="pgx-gc-avatar-wrap" style={{ position: 'relative', width: '100%', height: '100%', minHeight: '120px' }}>
+                                    <Image src={item.image} alt={item.name} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 50vw, 25vw" />
                                 </div>
                                 <h4 className="pgx-gc-name">{item.name}</h4>
                                 <p className="pgx-gc-company">{item.company}</p>

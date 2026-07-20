@@ -34,25 +34,18 @@ export default function Hero({ initialBanners = [] }) {
                 <div
                     key={index}
                     className={`hero-slide ${index === currentIndex ? 'active' : ''}`}
-                    // FIX: Remove background-image for the FIRST slide to fix LCP.
-                    style={{ 
-                        '--bg-desktop': index === 0 ? 'none' : `url('${banner.imageUrl}')`,
-                        '--bg-mobile': index === 0 ? 'none' : `url('${banner.mobileImageUrl || banner.imageUrl}')` 
-                    }}
                 >
-                    {/* OPTIMIZATION: LCP Image element for the FIRST banner to load immediately using Next.js Image for compression and preloading. */}
-                    {index === 0 && (
-                        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
-                            <Image
-                                src={banner.imageUrl}
-                                alt={banner.altText || banner.heading || "JEC Banner"}
-                                fill
-                                priority
-                                style={{ objectFit: 'cover' }}
-                                sizes="100vw"
-                            />
-                        </div>
-                    )}
+                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+                        <Image
+                            src={banner.imageUrl}
+                            alt={banner.altText || banner.heading || "JEC Banner"}
+                            fill
+                            priority={index === 0}
+                            fetchPriority={index === 0 ? "high" : "auto"}
+                            style={{ objectFit: 'cover' }}
+                            sizes="100vw"
+                        />
+                    </div>
 
                     {banner.showOverlay !== true && (
                         <Link 

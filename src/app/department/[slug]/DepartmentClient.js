@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation'; // Next.js hook for URL params
-import { db } from '@/firebase'; // Updated alias
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { fetchCollectionREST } from '@/lib/firestoreRest';
 import Link from 'next/link'; // Next.js Link
+import Image from 'next/image';
 import LogoCarousel from '@/components/LogoCarousel'; // Assuming this component exists
 import '@/styles/Department.css'; // Import the CSS file directly
 
@@ -17,17 +17,10 @@ function Department() {
         const fetchDepartmentData = async () => {
             setLoading(true);
             try {
-                // Next.js handles the slug extraction for us via params.slug
                 const urlSlug = decodeURIComponent(params.slug);
-
-                const q = query(collection(db, "departments"), where("slug", "==", urlSlug));
-                const querySnapshot = await getDocs(q);
-
-                if (!querySnapshot.empty) {
-                    setData(querySnapshot.docs[0].data());
-                } else {
-                    setData(null);
-                }
+                const departments = await fetchCollectionREST("departments");
+                const deptData = departments.find(d => d.slug === urlSlug);
+                setData(deptData || null);
             } catch (error) {
                 console.error("Error fetching department:", error);
             } finally {
@@ -78,7 +71,7 @@ function Department() {
                 {data.hodName && (
                     <div className="dept-hod-box dept-animated-section">
                         <div className="hod-image-wrapper">
-                            <img src={data.hodImage || "https://via.placeholder.com/150"} alt={data.hodName} />
+                            <Image src={data.hodImage || "https://via.placeholder.com/150"} alt={data.hodName} width={150} height={150} style={{ objectFit: 'cover' }} />
                         </div>
                         <div className="hod-content">
                             <h3 className="hod-title">Message from HOD</h3>

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 // Removed firebase imports as fetching is now done on the server via REST API
 import '@/styles/Blog.css';
 import LogoCarousel from '@/components/LogoCarousel'; // Added LogoCarousel
@@ -83,7 +84,7 @@ const categories = [
                     {featuredPost && (
                         <article className="blog-card featured">
                             <div className="blog-img-wrapper">
-                                <img src={featuredPost.image || "https://via.placeholder.com/800x400"} alt={featuredPost.title} />
+                                <Image src={featuredPost.image || "https://via.placeholder.com/800x400"} alt={featuredPost.title} width={800} height={400} style={{ objectFit: 'cover' }} />
                                 <span className="date-badge">{featuredPost.date}</span>
                             </div>
                             <div className="blog-content">
@@ -107,7 +108,7 @@ const categories = [
                         displayedPosts.map((post) => (
                             <article className="blog-card" key={post.id}>
                                 <div className="blog-img-wrapper">
-                                    <img src={post.image || "https://via.placeholder.com/600x300"} alt={post.title} />
+                                    <Image src={post.image || "https://via.placeholder.com/600x300"} alt={post.title} width={600} height={300} style={{ objectFit: 'cover' }} />
                                     <span className="date-badge">{post.date}</span>
                                 </div>
                                 <div className="blog-content">
@@ -160,7 +161,7 @@ const categories = [
                                 <li key={post.id}>
                                     {/* FIX 5: Sidebar Link */}
                                     <Link href={getPostLink(post)} className="recent-link">
-                                        <img src={post.image} className="recent-thumb" alt="thumb" />
+                                        <Image src={post.image} className="recent-thumb" alt="thumb" width={80} height={80} style={{ objectFit: 'cover' }} />
                                         <div>
                                             <div className="recent-text">{post.title}</div>
                                             <span className="recent-date">{post.date}</span>

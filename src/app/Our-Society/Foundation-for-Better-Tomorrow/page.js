@@ -1,5 +1,4 @@
-import React from 'react';
-// FIXED: Explicitly import the CSS file here so Next.js loads the styles
+import Image from 'next/image';
 import '@/styles/Foundation.css';
 import LogoCarousel from '@/components/LogoCarousel';
 
@@ -108,7 +107,7 @@ export default function Foundation() {
                     </div>
 
                     {/* Ensure the image exists in public/images/ folder */}
-                    <img src="/images/management.png" alt="AIATERF Scope of Operations Tree" className="fbt-scope-img" />
+                    <Image src="/images/management.png" alt="AIATERF Scope of Operations Tree" className="fbt-scope-img" width={450} height={350} style={{ objectFit: 'contain' }} />
 
                     <p style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--fbt-text-muted)' }}>
                         As adopted during the constitution of AIATERF, the society is growing rapidly. It has crafted a benchmark in diverse areas of education and training as illustrated above.
@@ -117,7 +116,7 @@ export default function Foundation() {
 
                 {/* Quote Section */}
                 <div className="fbt-quote-section">
-                    <img src="/images/hero.png" alt="Intelligence plus character - Martin Luther King Jr." />
+                    <Image src="/images/hero.png" alt="Intelligence plus character - Martin Luther King Jr." width={1200} height={450} style={{ width: '100%', height: 'auto' }} />
                 </div>
 
                 {/* Links Grid */}

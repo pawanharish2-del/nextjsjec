@@ -1,4 +1,4 @@
-import React from 'react';
+import Image from 'next/image';
 import '@/styles/AgrasenCollege.css';
 
 
@@ -39,7 +39,7 @@ export default function AgrasenCollege() {
                     </div>
                     <div className="ac-img-block">
                         {/* Ensure the image exists in public/images/ folder */}
-                        <img src="/images/hero.jpg" alt="Agrasen College Campus" />
+                        <Image src="/images/hero.jpg" alt="Agrasen College Campus" width={500} height={350} style={{ objectFit: 'cover' }} />
                     </div>
                 </div>
 

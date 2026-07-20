@@ -36,12 +36,15 @@ function normalizeFirestoreData(fields) {
  * @param {string} [orderByField] - optional field to sort by
  * @returns {Array} - Array of normalized document objects, including 'id'
  */
-export async function fetchCollectionREST(collectionName) {
+export async function fetchCollectionREST(collectionName, fieldsToInclude = []) {
     try {
-        // Fetch data (using no-store for dynamic data or adjust cache as needed)
-        // Adding a large page token limit just in case.
-        const res = await fetch(`${BASE_URL}/${collectionName}?pageSize=1000`, { 
-            cache: 'no-store' 
+        let url = `${BASE_URL}/${collectionName}?pageSize=1000`;
+        if (fieldsToInclude.length > 0) {
+            const queryParams = fieldsToInclude.map(f => `mask.fieldPaths=${encodeURIComponent(f)}`).join('&');
+            url += `&${queryParams}`;
+        }
+        const res = await fetch(url, { 
+            next: { revalidate: 60 } 
         });
 
         if (!res.ok) {

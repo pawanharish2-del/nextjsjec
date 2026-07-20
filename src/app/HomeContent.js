@@ -1,15 +1,17 @@
 "use client";
 import Hero from "@/components/Hero";
 import Highlights from "@/components/Highlights";
-import Stats from "@/components/Stats";
-import Programs from "@/components/Programs";
-import Team from "@/components/Team";
-import WhyJEC from "@/components/WhyJEC";
-import Outcomes from "@/components/Outcomes";
-import VideoTestimonials from "@/components/VideoTestimonials";
-import CampusLife from "@/components/CampusLife";
-import VirtualTour from "@/components/VirtualTour";
-import LogoCarousel from "@/components/LogoCarousel";
+import dynamic from 'next/dynamic';
+
+const Stats = dynamic(() => import("@/components/Stats"));
+const Programs = dynamic(() => import("@/components/Programs"));
+const Team = dynamic(() => import("@/components/Team"));
+const WhyJEC = dynamic(() => import("@/components/WhyJEC"));
+const Outcomes = dynamic(() => import("@/components/Outcomes"));
+const VideoTestimonials = dynamic(() => import("@/components/VideoTestimonials"));
+const CampusLife = dynamic(() => import("@/components/CampusLife"));
+const VirtualTour = dynamic(() => import("@/components/VirtualTour"));
+const LogoCarousel = dynamic(() => import("@/components/LogoCarousel"));
 
 export default function HomePage({ initialBanners, initialTeam, initialVideoTestimonials, initialCampusGallery }) {
   return (

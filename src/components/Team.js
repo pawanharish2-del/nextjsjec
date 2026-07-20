@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 // Removed firebase imports as fetching is now done on the server
 import '@/styles/Team.css';
 
@@ -34,7 +35,7 @@ export default function Team({ initialTeam = [] }) {
           {/* We repeat the list twice to ensure a fuller scrolling effect */}
           {[...teamMembers, ...teamMembers].map((member, index) => (
             <div className="story-card" key={`${member.id}-${index}`}>
-              <img src={member.imageUrl} alt={member.name} className="story-image" />
+              <Image src={member.imageUrl} alt={member.name} width={400} height={500} className="story-image" style={{ objectFit: 'cover' }} />
               <div className="story-content">
                 <h3>{member.name}</h3>
                 <p>{member.title}</p>

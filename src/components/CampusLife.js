@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; 
 // Removed firebase imports as fetching is now done on the server
 import Link from 'next/link';
+import Image from 'next/image';
 import '@/styles/CampusLife.css'; // Ensure this file exists!
 
 function CampusLife({ initialGallery = [] }) {
@@ -48,7 +49,7 @@ function CampusLife({ initialGallery = [] }) {
                             {galleryItems.map((item, index) => (
                                 <div key={item.id} className={`gallery-card ${index === 0 || index === 3 ? 'card-wide' : ''}`} onClick={() => handleCardClick(item)}>
                                     <div className="image-wrapper">
-                                        <img src={item.imageUrl} alt={item.alt || "Campus Life"} loading="lazy" />
+                                        <Image src={item.imageUrl} alt={item.alt || "Campus Life"} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw" />
                                         <div className="gallery-overlay">
                                             <div className="overlay-content">
                                                 <span className="item-category">Gallery</span>

@@ -3,7 +3,7 @@
    WITH ORIGINAL PHOTOGRAPHIC HERO & LOGO GRIDS
    ========================================================================== */
 
-   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+   /* Fonts are preloaded globally in layout.js */
 
    .pgx-layout {
        --pgx-bg-main: #FFFFFF;
@@ -22,7 +22,7 @@
        --pgx-radius-md: 16px;
        --pgx-radius-lg: 24px;
        
-       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+       font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
        background: var(--pgx-bg-main);
        color: var(--pgx-text-primary);
        line-height: 1.6;
@@ -74,7 +74,9 @@
    
    .pgx-text-gradient {
        background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 100%);
-       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+       background-clip: text;
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
    }
    
    .pgx-hero-subtitle {

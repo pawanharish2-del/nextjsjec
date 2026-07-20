@@ -24,7 +24,16 @@ export const revalidate = 60;
 
 export default async function BlogPage() {
     // Fetch data using the safe REST API to prevent Vercel 503 errors
-    let postsData = await fetchCollectionREST("blog_posts");
+    let postsData = await fetchCollectionREST("blog_posts", [
+        "title",
+        "excerpt",
+        "date",
+        "author",
+        "category",
+        "image",
+        "slug",
+        "isFeatured"
+    ]);
 
     // Sort by Date (Newest first)
     postsData.sort((a, b) => new Date(b.date) - new Date(a.date));

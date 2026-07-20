@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'next/navigation'; 
 import Link from 'next/link'; 
 // Removed firebase imports as fetching is now done on the server via REST API
+import Image from 'next/image';
 import '@/styles/Blog.css';
 import LogoCarousel from '@/components/LogoCarousel'; 
 
@@ -76,15 +77,18 @@ const SinglePostClient = ({ initialPost = null, initialRecentPosts = [] }) => {
 
             <div className="single-post-container">
                 <article className="article-body">
-                    <img
+                    <Image
                         src={post.image}
                         alt={post.imageAlt || post.title}
+                        width={800}
+                        height={450}
                         style={{
                             width: '100%',
                             height: 'auto',
                             borderRadius: '8px',
                             marginBottom: '30px',
-                            boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
+                            boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                            objectFit: 'cover'
                         }}
                     />
                     <div
@@ -102,7 +106,7 @@ const SinglePostClient = ({ initialPost = null, initialRecentPosts = [] }) => {
                             {recentPosts.map(rp => (
                                 <li key={rp.id}>
                                     <Link href={`/blog/${rp.slug || rp.id}`} className="recent-link">
-                                        <img src={rp.image || "https://via.placeholder.com/60"} className="recent-thumb" alt={rp.title} />
+                                        <Image src={rp.image || "https://via.placeholder.com/60"} className="recent-thumb" alt={rp.title} width={60} height={60} style={{ objectFit: 'cover' }} />
                                         <div>
                                             <div className="recent-text">{rp.title}</div>
                                             <span className="recent-date">{rp.date}</span>
