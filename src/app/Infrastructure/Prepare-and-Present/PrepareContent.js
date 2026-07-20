@@ -1,5 +1,4 @@
-"use client";
-import React from 'react';
+import Image from 'next/image';
 import '@/styles/PreparePresent.css';
 import LogoCarousel from '@/components/LogoCarousel';
 
@@ -74,7 +73,7 @@ function PrepareAndPresent() {
                         </ul>
                     </div>
                     <div className="prepare-img-block">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2Fbanner-06a7d03e-9f44-42f7-ab94-da203a539e24?alt=media&token=ecb13731-15f0-46f7-9e79-df6f5147e0b7" alt="JEC Library" />
+                        <Image src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2Fbanner-06a7d03e-9f44-42f7-ab94-da203a539e24?alt=media&token=ecb13731-15f0-46f7-9e79-df6f5147e0b7" alt="JEC Library" width={600} height={400} style={{ objectFit: 'cover' }} />
                     </div>
                 </div>
 
@@ -161,7 +160,7 @@ function PrepareAndPresent() {
 
                         {/* NEW: Image Frame */}
                         <div className="prepare-audi-image">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/Untitled%20design.png?alt=media&token=e73a0858-28ce-476c-9a8f-a7c8b21054cd" alt="JEC Auditorium" />
+                            <Image src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/Untitled%20design.png?alt=media&token=e73a0858-28ce-476c-9a8f-a7c8b21054cd" alt="JEC Auditorium" width={600} height={400} style={{ objectFit: 'cover' }} />
                         </div>
                     </div>
                 </div>

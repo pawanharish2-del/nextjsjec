@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useRef } from 'react';
+import Image from 'next/image';
 import '@/styles/Faq.css';
 import LogoCarousel from '@/components/LogoCarousel';
 
@@ -48,7 +49,7 @@ export default function Faq() {
       <section className="faq-hero">
 
         {/* --- CORRECTED IMAGE PATH --- */}
-        <img src="/JECbuilding.jpg" alt="Campus Building" className="hero-bg-img" />
+        <Image src="/JECbuilding.jpg" alt="Campus Building" fill priority style={{ objectFit: 'cover' }} />
 
         {/* Overlay Content */}
         <div className="hero-overlay">

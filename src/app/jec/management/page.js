@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import '@/styles/Management.css';
 import LogoCarousel from '@/components/LogoCarousel'; // Import the EXISTING working component
 
@@ -35,7 +36,7 @@ export default function Management() {
           {/* CARD 1: L.C. Saraogi */}
           <div className="leader-card">
             <div className="leader-img-container">
-              <img src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2FIMG_9600.JPG?alt=media&token=f47c7559-9076-4f05-8d86-a49ce2efce6f" alt="Shri L.C. Saraogi" className="leader-img" />
+              <Image src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2FIMG_9600.JPG?alt=media&token=f47c7559-9076-4f05-8d86-a49ce2efce6f" alt="Shri L.C. Saraogi" className="leader-img" width={300} height={350} style={{ objectFit: 'cover' }} />
             </div>
             <div className="leader-content">
               <div className="leader-name">Mr. L.C. Saraogi</div>
@@ -50,7 +51,7 @@ export default function Management() {
           {/* CARD 2: Lalit K. Saraogi */}
           <div className="leader-card">
             <div className="leader-img-container">
-              <img src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2F1225%20(3)%20(1).png?alt=media&token=fc063e5b-4d0a-48ea-be1e-7ae1da0d3d2a" alt="Shri Lalit K. Saraogi" className="leader-img" />
+              <Image src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2F1225%20(3)%20(1).png?alt=media&token=fc063e5b-4d0a-48ea-be1e-7ae1da0d3d2a" alt="Shri Lalit K. Saraogi" className="leader-img" width={300} height={350} style={{ objectFit: 'cover' }} />
             </div>
             <div className="leader-content">
               <div className="leader-name">Mr. Lalit K. Saraogi</div>
@@ -65,7 +66,7 @@ export default function Management() {
           {/* CARD 3: Harish Saraogi */}
           <div className="leader-card">
             <div className="leader-img-container">
-              <img src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2FShri.%20Harish%20Saraogi.JPG?alt=media&token=9fb1d405-346e-4f0c-a036-c564bcf8a8f9" alt="Shri Harish Saraogi" className="leader-img" />
+              <Image src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2FShri.%20Harish%20Saraogi.JPG?alt=media&token=9fb1d405-346e-4f0c-a036-c564bcf8a8f9" alt="Shri Harish Saraogi" className="leader-img" width={300} height={350} style={{ objectFit: 'cover' }} />
             </div>
             <div className="leader-content">
               <div className="leader-name">Mr. Harish Saraogi</div>
@@ -80,10 +81,13 @@ export default function Management() {
           {/* CARD 4: Dr. Bharat Bhushan Jain */}
           <div className="leader-card">
             <div className="leader-img-container">
-              <img
+              <Image
                 src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2FDr.%20Bharat%20Bhushan%20jain%20electr%20eng%20professor%20and%20principal%20phd.JPG?alt=media&token=5a3893e8-fcb6-4501-b0f0-5104ff574abb"
                 alt="Prof. Dr. Bharat Bhushan Jain"
                 className="leader-img"
+                width={300}
+                height={350}
+                style={{ objectFit: 'cover' }}
               />
             </div>
             <div className="leader-content">
@@ -99,10 +103,13 @@ export default function Management() {
           {/* CARD 5: Dr. Sunita Goyal Rawat */}
           <div className="leader-card">
             <div className="leader-img-container">
-              <img
+              <Image
                 src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2F(Dr.)%20Sunita%20Goyal%20Rawat.jpg?alt=media&token=4c2571f6-5711-4c1a-95f8-3885907e22bc"
                 alt="Prof. Dr. Sunita Goyal Rawat"
                 className="leader-img"
+                width={300}
+                height={350}
+                style={{ objectFit: 'cover' }}
               />
             </div>
             <div className="leader-content">
@@ -118,10 +125,13 @@ export default function Management() {
           {/* CARD 6: Dr. D. G. Mahto */}
           <div className="leader-card">
             <div className="leader-img-container">
-              <img
+              <Image
                 src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2Fmehto.jpg?alt=media&token=51704c46-5ab6-4605-91b7-59fd26ff7170"
                 alt="Prof. Dr. D.G. Mahto"
                 className="leader-img"
+                width={300}
+                height={350}
+                style={{ objectFit: 'cover' }}
               />
             </div>
             <div className="leader-content">
@@ -137,10 +147,13 @@ export default function Management() {
           {/* CARD 7: Lakshya Saraogi */}
           <div className="leader-card">
             <div className="leader-img-container">
-              <img
+              <Image
                 src="/images/lakshaysaraogi.jpg"
                 alt="Mr. Lakshya Saraogi"
                 className="leader-img"
+                width={300}
+                height={350}
+                style={{ objectFit: 'cover' }}
               />
             </div>
             <div className="leader-content">
@@ -156,7 +169,7 @@ export default function Management() {
           {/* CARD 8: Inesh Saraogi */}
           <div className="leader-card">
             <div className="leader-img-container">
-              <img src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2FMr.%20Inesh%20Saraogi.jpg?alt=media&token=98163b9e-f2c1-4d50-ac11-37672d34c98d" alt="Mr. Inesh Saraogi" className="leader-img" />
+              <Image src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2FMr.%20Inesh%20Saraogi.jpg?alt=media&token=98163b9e-f2c1-4d50-ac11-37672d34c98d" alt="Mr. Inesh Saraogi" className="leader-img" width={300} height={350} style={{ objectFit: 'cover' }} />
             </div>
             <div className="leader-content">
               <div className="leader-name">Mr. Inesh Saraogi</div>

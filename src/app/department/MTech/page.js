@@ -1,6 +1,6 @@
-"use client";
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import LogoCarousel from '@/components/LogoCarousel'; // Import Added
 import '@/styles/MTech.css';
 
@@ -157,10 +157,13 @@ function MTech() {
                     {/* Alumni: Atul */}
                     <div className="alumni-card">
                         <div className="alumni-img-wrapper">
-                            <img
+                            <Image
                                 src="/images/atul.jpg"
                                 alt="Atul Kumar"
                                 className="alumni-photo"
+                                width={150}
+                                height={180}
+                                style={{ objectFit: 'cover' }}
                             />
                         </div>
                         <h3 className="alumni-name">Atul Kumar</h3>
@@ -175,10 +178,13 @@ function MTech() {
                     {/* Alumni: Himanshu */}
                     <div className="alumni-card">
                         <div className="alumni-img-wrapper">
-                            <img
+                            <Image
                                 src="/images/himanshu.jpeg"
                                 alt="Himanshu Gupta"
                                 className="alumni-photo"
+                                width={150}
+                                height={180}
+                                style={{ objectFit: 'cover' }}
                             />
                         </div>
                         <h3 className="alumni-name">Himanshu Gupta</h3>
@@ -193,10 +199,13 @@ function MTech() {
                     {/* Alumni: Akshay */}
                     <div className="alumni-card">
                         <div className="alumni-img-wrapper">
-                            <img
+                            <Image
                                 src="/images/akshay.jpeg"
                                 alt="Akshay Tripathi"
                                 className="alumni-photo"
+                                width={150}
+                                height={180}
+                                style={{ objectFit: 'cover' }}
                             />
                         </div>
                         <h3 className="alumni-name">Akshay Tripathi</h3>

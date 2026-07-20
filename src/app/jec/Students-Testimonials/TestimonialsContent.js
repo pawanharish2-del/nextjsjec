@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 // Removed firebase imports as fetching is now done on the server via REST API
 import '@/styles/Testimonials.css';
 import LogoCarousel from '@/components/LogoCarousel';
@@ -39,11 +40,11 @@ const TestimonialCard = ({ item }) => {
       </div>
 
       <div className="student-info">
-        <div className="student-avatar">
+        <div className="student-avatar" style={{ position: 'relative', width: '50px', height: '50px', borderRadius: '50%', overflow: 'hidden' }}>
           {item.imageUrl ? (
-            <img src={item.imageUrl} alt={item.name} />
+            <Image src={item.imageUrl} alt={item.name} width={50} height={50} style={{ objectFit: 'cover' }} />
           ) : (
-            <i className="fas fa-user"></i>
+            <i className="fas fa-user" style={{ fontSize: '24px' }}></i>
           )}
         </div>
         <div className="student-details">
@@ -85,7 +86,7 @@ export default function Testimonials({ initialTestimonials = [] }) {
 
       {/* HERO SECTION - Always Visible */}
       <section className="testimonial-hero">
-        <img src="/images/jec-building.jpeg" alt="Campus Building" className="t-hero-bg-img" />
+        <Image src="/images/jec-building.jpeg" alt="Campus Building" fill priority style={{ objectFit: 'cover' }} />
         <div className="t-hero-overlay">
           <div className="max-width-container">
             <h1>Student Testimonials</h1>

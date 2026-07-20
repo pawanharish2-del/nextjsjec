@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from 'react';
+import Image from 'next/image';
 // Removed firebase imports as fetching is now done on the server via REST API
 import '@/styles/VideoGallery.css';
 
@@ -92,9 +93,9 @@ const VideoGallery = ({ initialVideos = [] }) => {
         <div className="hero-collage">
           <div className="blob blob-1"></div>
           <div className="blob blob-2"></div>
-          <img src={`https://img.youtube.com/vi/${cover1}/hqdefault.jpg`} className="collage-img img-main" alt="Main Video" />
-          <img src={`https://img.youtube.com/vi/${cover2}/hqdefault.jpg`} className="collage-img img-sub-1" alt="Event Video" />
-          <img src={`https://img.youtube.com/vi/${cover3}/hqdefault.jpg`} className="collage-img img-sub-2" alt="Campus Video" />
+          <Image src={`https://img.youtube.com/vi/${cover1}/hqdefault.jpg`} className="collage-img img-main" alt="Main Video" width={480} height={360} priority style={{ objectFit: 'cover' }} />
+          <Image src={`https://img.youtube.com/vi/${cover2}/hqdefault.jpg`} className="collage-img img-sub-1" alt="Event Video" width={320} height={240} style={{ objectFit: 'cover' }} />
+          <Image src={`https://img.youtube.com/vi/${cover3}/hqdefault.jpg`} className="collage-img img-sub-2" alt="Campus Video" width={320} height={240} style={{ objectFit: 'cover' }} />
         </div>
       </header>
 
@@ -116,7 +117,7 @@ const VideoGallery = ({ initialVideos = [] }) => {
               return (
                 <div key={category} className="album-card" onClick={() => openCategory(category)}>
                   <div className="album-cover">
-                    <img src={coverImg} alt={category} />
+                    <Image src={coverImg} alt={category} width={480} height={360} style={{ objectFit: 'cover' }} />
                     <div className="folder-overlay">
                       <div className="view-btn">View Playlist</div>
                     </div>
@@ -158,7 +159,7 @@ const VideoGallery = ({ initialVideos = [] }) => {
               {albums[selectedCategory]?.map((vid) => (
                 <div key={vid.id} className="video-item" onClick={() => playVideo(vid.videoId)}>
                   <div className="vid-thumb">
-                    <img src={`https://img.youtube.com/vi/${vid.videoId}/hqdefault.jpg`} alt={vid.title} />
+                    <Image src={`https://img.youtube.com/vi/${vid.videoId}/hqdefault.jpg`} alt={vid.title} width={480} height={360} style={{ objectFit: 'cover' }} />
                     <div className="play-icon"><i className="fas fa-play-circle"></i></div>
                   </div>
                   <div className="vid-info"><div className="vid-title">{vid.title}</div></div>

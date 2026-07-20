@@ -81,10 +81,12 @@ const FacultyCard = ({ member }) => {
             <div className="card-header">
                 {/* Avatar Wrapper with Inline Styles to prevent layout shift */}
                 <div className="avatar-wrapper" style={{ position: 'relative', width: '100px', height: '100px', margin: '0 auto 15px' }}>
-                    <img
+                    <Image
                         src={member.image || "https://www.w3schools.com/howto/img_avatar.png"}
                         alt={member.name}
                         className="avatar"
+                        width={100}
+                        height={100}
                         style={{
                             width: '100%',
                             height: '100%',

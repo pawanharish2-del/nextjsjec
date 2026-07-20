@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import LogoCarousel from '@/components/LogoCarousel'; // 1. IMPORT ADDED
 import '@/styles/MoocsNptel.css';
 
@@ -76,7 +77,7 @@ const MoocsNptel = () => {
                         <p>In 2011, Peter Norvig and Sebastian Thurn facilitated the Artificial Intelligence MOOC, attracting 160,000 learners from 190 countries. MIT developed MITx web resource which was later incorporated into EdX. The online educational mode is now gradually accepted by many countries including India.</p>
                     </div>
                     <div className="img-block">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2FNPTL.png?alt=media&token=e31b80d0-8fda-4c33-b56e-1e6dedf79385" alt="Students Learning Online" />
+                        <Image src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2FNPTL.png?alt=media&token=e31b80d0-8fda-4c33-b56e-1e6dedf79385" alt="Students Learning Online" width={600} height={400} style={{ objectFit: 'cover' }} />
                     </div>
                 </div>
 
@@ -167,7 +168,7 @@ const MoocsNptel = () => {
                 <div className="section-split animated-section">
                     <div className="img-block">
                         <a href="https://youtu.be/Hr6MJcSR9dQ" target="_blank" rel="noopener noreferrer" style={{ position: 'relative', display: 'block', height: '100%' }}>
-                            <img src="https://img.youtube.com/vi/Hr6MJcSR9dQ/maxresdefault.jpg" alt="NPTEL Video" style={{ opacity: 0.9 }} />
+                            <Image src="https://img.youtube.com/vi/Hr6MJcSR9dQ/maxresdefault.jpg" alt="NPTEL Video" width={600} height={400} style={{ opacity: 0.9, objectFit: 'cover' }} />
                             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'var(--jec-red)', fontSize: '4rem' }}>
                                 <i className="fas fa-play-circle"></i>
                             </div>

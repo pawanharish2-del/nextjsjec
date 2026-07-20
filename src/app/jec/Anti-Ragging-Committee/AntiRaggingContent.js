@@ -1,5 +1,4 @@
-"use client";
-import React from 'react';
+import Image from 'next/image';
 import '@/styles/AntiRagging.css';
 import LogoCarousel from '@/components/LogoCarousel';
 
@@ -8,9 +7,12 @@ export default function AntiRagging() {
     <div className="anti-ragging-page-new">
 
       <section className="anti-ragging-hero">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1649389969653-5f46996ac5d0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Anti-Ragging Banner"
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
         />
         <div className="hero-content">
           <h1>Anti-Ragging Committee</h1>
@@ -40,11 +42,13 @@ export default function AntiRagging() {
           <h3>Committee Head</h3>
 
           <div className="committee-member-card">
-            <img
-              src="/images/(Dr.) Sunita Goyal Rawat.jpg"
+            <Image
+              src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2F(Dr.)%20Sunita%20Goyal%20Rawat.jpg?alt=media&token=4c2571f6-5711-4c1a-95f8-3885907e22bc"
               alt="Prof. Sunita Rawat"
               className="member-photo"
-              onError={(e) => e.target.src = "https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2F(Dr.)%20Sunita%20Goyal%20Rawat.jpg?alt=media&token=4c2571f6-5711-4c1a-95f8-3885907e22bc"}
+              width={120}
+              height={155}
+              style={{ objectFit: 'cover' }}
             />
             <h4 className="member-name">Prof. Sunita Rawat</h4>
             <p className="member-title">Head, Anti-Ragging Committee</p>

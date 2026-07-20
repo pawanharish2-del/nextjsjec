@@ -1,5 +1,4 @@
-"use client";
-import React from 'react';
+import Image from 'next/image';
 import '@/styles/ConvenienceSafety.css'; 
 import LogoCarousel from '@/components/LogoCarousel'; 
 
@@ -61,14 +60,14 @@ function ConvenienceAndSafety() {
                 <p>The college provides transportation for students to visit camps and industry events organized outside the campus.</p>
             </div>
             <div className="cs-image-wrapper">
-                <img src="/Bus.jpeg" alt="JEC Transport Bus" />
+                <Image src="/Bus.jpeg" alt="JEC Transport Bus" width={600} height={400} style={{ objectFit: 'cover' }} />
             </div>
         </div>
 
         {/* 2. Health Care (Image First) */}
         <div className="cs-content-grid cs-image-first">
             <div className="cs-image-wrapper">
-                <img src="/medical.png" alt="Health Care Facility" />
+                <Image src="/medical.png" alt="Health Care Facility" width={600} height={400} style={{ objectFit: 'cover' }} />
             </div>
             <div className="cs-text-content">
                 <h2><i className="fas fa-heartbeat" style={{color: 'var(--cs-accent)'}}></i> Health Care</h2>
@@ -85,14 +84,14 @@ function ConvenienceAndSafety() {
                 <p>They maintain a high-visibility presence to deter illegal and inappropriate actions by looking (either directly, through patrols, or indirectly, by monitoring alarm systems or video surveillance cameras) for signs of hazards.</p>
             </div>
             <div className="cs-image-wrapper">
-                <img src="/Security.png" alt="Campus Security" />
+                <Image src="/Security.png" alt="Campus Security" width={600} height={400} style={{ objectFit: 'cover' }} />
             </div>
         </div>
         
         {/* 4. ATM & Banking (Image First) */}
         <div className="cs-content-grid cs-image-first">
             <div className="cs-image-wrapper">
-                <img src="/ATM.jpg" alt="ATM & Banking" />
+                <Image src="/ATM.jpg" alt="ATM & Banking" width={600} height={400} style={{ objectFit: 'cover' }} />
             </div>
             <div className="cs-text-content">
                 <h2><i className="fas fa-credit-card" style={{color: 'var(--cs-accent)'}}></i> ATM & Banking</h2>

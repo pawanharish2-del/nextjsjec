@@ -1,5 +1,4 @@
-"use client";
-import React from 'react';
+import Image from 'next/image';
 import '@/styles/RefuelRelax.css'; 
 import LogoCarousel from '@/components/LogoCarousel'; 
 
@@ -53,14 +52,14 @@ function RefuelAndRelax() {
                 <p>Proximity to shopping areas, banking and medical facilities makes living convenient and comfortable for boarding students. A well-equipped gymnasium is accessible too. All hostel activities are carried out under the supervision of Hostel Wardens who are present 24X7 to look after the students, thus making JEC hostels a safe and comfortable zone for living.</p>
             </div>
             <div className="refuel-img-block">
-                <img src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2Fcontent-d4a85e62-53cb-4341-8b5b-ae6b20618698?alt=media&token=d05004bd-69b4-4e53-aa5b-48d0d077a875" alt="JEC Hostel" />
+                <Image src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2Fcontent-d4a85e62-53cb-4341-8b5b-ae6b20618698?alt=media&token=d05004bd-69b4-4e53-aa5b-48d0d077a875" alt="JEC Hostel" width={600} height={400} style={{ objectFit: 'cover' }} />
             </div>
         </div>
 
         {/* Cafeteria Section */}
         <div className="refuel-section-split">
             <div className="refuel-img-block">
-                <img src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2Fcanteen.JPG?alt=media&token=729f6dca-faf6-4a36-88f4-c7ef7454e220" alt="JEC Cafeteria" />
+                <Image src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2Fcanteen.JPG?alt=media&token=729f6dca-faf6-4a36-88f4-c7ef7454e220" alt="JEC Cafeteria" width={600} height={400} style={{ objectFit: 'cover' }} />
             </div>
             <div className="refuel-text-block">
                 <h2><i className="fas fa-coffee" style={{color: 'var(--refuel-gold)'}}></i> The Cafeteria</h2>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 // Removed firebase imports as fetching is now done on the server via REST API
 import '@/styles/Gallery.css';
 
@@ -87,9 +88,9 @@ const GalleryContent = ({ initialAlbums = [] }) => {
                 <div className="hero-collage">
                     <div className="blob blob-1"></div>
                     <div className="blob blob-2"></div>
-                    {cover1 && <img src={cover1} className="collage-img img-main" alt="JEC Campus" />}
-                    {cover2 && <img src={cover2} className="collage-img img-sub-1" alt="JEC Events" />}
-                    {cover3 && <img src={cover3} className="collage-img img-sub-2" alt="JEC Life" />}
+                    {cover1 && <Image src={cover1} className="collage-img img-main" alt="JEC Campus" width={480} height={360} priority style={{ objectFit: 'cover' }} />}
+                    {cover2 && <Image src={cover2} className="collage-img img-sub-1" alt="JEC Events" width={320} height={240} style={{ objectFit: 'cover' }} />}
+                    {cover3 && <Image src={cover3} className="collage-img img-sub-2" alt="JEC Life" width={320} height={240} style={{ objectFit: 'cover' }} />}
                 </div>
             </header>
 
@@ -109,7 +110,7 @@ const GalleryContent = ({ initialAlbums = [] }) => {
                         {albums.map(album => (
                             <div key={album.id} className="album-card" onClick={() => openAlbum(album)}>
                                 <div className="album-cover">
-                                    <img src={album.cover} alt={album.coverAlt || album.title} />
+                                    <Image src={album.cover} alt={album.coverAlt || album.title} width={480} height={360} style={{ objectFit: 'cover' }} />
                                     <div className="album-overlay">
                                         <div className="view-btn">View Photos</div>
                                     </div>
@@ -145,7 +146,7 @@ const GalleryContent = ({ initialAlbums = [] }) => {
                             const alt = typeof imgObj === 'string' ? 'Gallery Image' : (imgObj.alt || 'Gallery Image');
                             return (
                                 <div key={index} className="modal-img-wrapper" onClick={() => openViewer(index)}>
-                                    <img src={url} alt={alt} />
+                                    <Image src={url} alt={alt} width={300} height={200} style={{ objectFit: 'cover' }} />
                                 </div>
                             );
                         })}
@@ -165,10 +166,13 @@ const GalleryContent = ({ initialAlbums = [] }) => {
 
                         <span className="viewer-nav viewer-prev" onClick={goPrev}>&#8249;</span>
 
-                        <img
+                        <Image
                             src={url}
                             alt={alt}
                             className="viewer-img"
+                            width={1200}
+                            height={800}
+                            style={{ objectFit: 'contain', width: '100%', height: 'auto', maxHeight: '90vh' }}
                             onClick={e => e.stopPropagation()}
                         />
 

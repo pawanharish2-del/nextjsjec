@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import '@/styles/Employment.css'; 
 import LogoCarousel from '@/components/LogoCarousel'; 
 
@@ -66,7 +67,7 @@ export default function Employment() {
             <p>The Institute values experienced Faculty Members & Technical Experts and invites them to be a part of its family.</p>
           </div>
           <div className="philosophy-img">
-            <img src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/hardcode%20images%2FUntitled%20(Instagram%20Post).png?alt=media&token=627013a7-9295-431b-8cf3-917588dcf875" alt="Our Mission" />
+            <Image src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/hardcode%20images%2FUntitled%20(Instagram%20Post).png?alt=media&token=627013a7-9295-431b-8cf3-917588dcf875" alt="Our Mission" width={500} height={500} style={{ objectFit: 'contain' }} />
           </div>
         </div>
       </section>

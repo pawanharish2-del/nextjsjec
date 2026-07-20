@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import '@/styles/About.css';
 import LogoCarousel from '@/components/LogoCarousel'; // <--- 1. IMPORT ADDED
 
@@ -56,10 +57,13 @@ export default function About() {
                         <p>Since its inception in 2000, Jaipur Engineering College (JEC) has consistently enabled students to carve a niche for themselves and develop a strong personality. The Institute is committed to advancing knowledge and educating students in various branches of engineering that will best serve the nation and the world in the 21st century.</p>
                         <p>Our community is driven by a shared purpose: to make a better world through education, research, and innovation. Our holistic approach, combined with state-of-the-art infrastructure on the serene outskirts of Jaipur, defines JEC as a unique force for positive transformation.</p>
 
-                        <img
+                        <Image
                             src="/images/campus-intro1.jpeg"
                             alt="Panoramic view of Jaipur Engineering College (JEC) campus lush green infrastructure in Kukas, Jaipur"
                             className="intro-image"
+                            width={800}
+                            height={450}
+                            style={{ objectFit: 'cover' }}
                         />
                     </div>
                 </div>

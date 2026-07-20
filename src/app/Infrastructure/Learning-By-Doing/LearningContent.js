@@ -1,5 +1,4 @@
-"use client";
-import React from 'react';
+import Image from 'next/image';
 import '@/styles/LearningByDoing.css'; 
 import LogoCarousel from '@/components/LogoCarousel'; 
 
@@ -64,14 +63,14 @@ function LearningByDoing() {
                 <p>Jaipur Engineering College (JEC) has some of the finest workshops for Mechanical, Electronics and Communication, Civil and Electrical Engineering. The Computer Science and Information Technology labs are provided with latest soft wares for students. Labs help students learn and develop a healthy thought process.</p>
             </div>
             <div className="learning-img-block">
-                <img src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2Flab.jpg?alt=media&token=c44886fe-3fef-42ed-b19c-8de68445e5fe" alt="Engineering Workshop" />
+                <Image src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2Flab.jpg?alt=media&token=c44886fe-3fef-42ed-b19c-8de68445e5fe" alt="Engineering Workshop" width={600} height={400} style={{ objectFit: 'cover' }} />
             </div>
         </div>
 
         {/* NetLab Section Split */}
         <div className="learning-section-split">
             <div className="learning-img-block">
-                <img src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2FCivil%20Engineering%20(1).png?alt=media&token=1d2cfc4e-669b-480c-8f19-1464116cd0f2" alt="NetLab Computers" />
+                <Image src="https://firebasestorage.googleapis.com/v0/b/jec-website-55397.firebasestorage.app/o/images%2FCivil%20Engineering%20(1).png?alt=media&token=1d2cfc4e-669b-480c-8f19-1464116cd0f2" alt="NetLab Computers" width={600} height={400} style={{ objectFit: 'cover' }} />
             </div>
             <div className="learning-text-block">
                 <h2>The High-Tech NetLab</h2>
