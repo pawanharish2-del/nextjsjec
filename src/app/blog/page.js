@@ -19,8 +19,8 @@ export const metadata = {
     },
 };
 
-// Revalidate the page periodically (e.g., every 60 seconds) or keep it dynamic
-export const revalidate = 60;
+// Ensure the page always fetches fresh data to immediately reflect published/draft changes
+export const dynamic = 'force-dynamic';
 
 export default async function BlogPage() {
     // Fetch data using the safe REST API to prevent Vercel 503 errors

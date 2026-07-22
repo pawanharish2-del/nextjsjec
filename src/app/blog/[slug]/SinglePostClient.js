@@ -11,9 +11,9 @@ const SinglePostClient = ({ initialPost = null, initialRecentPosts = [] }) => {
     const params = useParams();
     const slug = params?.slug ? decodeURIComponent(params.slug) : null;
 
-    const [post, setPost] = useState(initialPost);
-    const [recentPosts, setRecentPosts] = useState(initialRecentPosts);
-    const [loading, setLoading] = useState(false); // No loading state needed due to SSR
+    const post = initialPost;
+    const recentPosts = initialRecentPosts;
+    const loading = false; // No loading state needed due to SSR
 
     const contentRef = useRef(null);
 

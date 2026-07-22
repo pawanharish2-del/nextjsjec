@@ -7,8 +7,8 @@ import '@/styles/Blog.css';
 import LogoCarousel from '@/components/LogoCarousel'; // Added LogoCarousel
 
 const BlogClient = ({ initialPosts = [] }) => {
-    const [posts, setPosts] = useState(initialPosts);
-    const [loading, setLoading] = useState(false); // No longer loading initially since data is SSR'd
+    const posts = initialPosts;
+    const loading = false; // No longer loading initially since data is SSR'd
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(''); // added this line now
     const [visibleCount, setVisibleCount] = useState(10);
