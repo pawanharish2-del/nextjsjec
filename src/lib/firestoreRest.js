@@ -44,7 +44,7 @@ export async function fetchCollectionREST(collectionName, fieldsToInclude = []) 
             url += `&${queryParams}`;
         }
         const res = await fetch(url, { 
-            next: { revalidate: 60 } 
+            cache: 'no-store' 
         });
 
         if (!res.ok) {

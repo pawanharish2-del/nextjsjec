@@ -32,7 +32,8 @@ export default async function BlogPage() {
         "category",
         "image",
         "slug",
-        "isFeatured"
+        "isFeatured",
+        "status"
     ]);
 
     // Filter out draft posts
