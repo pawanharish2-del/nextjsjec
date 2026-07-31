@@ -21,7 +21,15 @@ export const revalidate = 60; // Refresh data periodically
 
 export default async function Page() {
     let albums = await fetchCollectionREST("albums");
-    
-    // Sort logic if needed, currently original just fetched them as is. Let's pass them as is.
+
+    // 🔴 PEHLE ALBUM KI COVER IMAGE KO BANNER2.JPG SE OVERRIDE KIYA:
+    if (albums && albums.length > 0) {
+        // Agar banner2.jpg direct 'public/' folder me hai:
+        albums[0].cover = "/images/banner2.jpg";
+
+        // Agar 'public/images/banner2.jpg' me hai toh niche wali line use karein:
+        // albums[0].cover = "/images/banner2.jpg";
+    }
+
     return <GalleryContent initialAlbums={albums} />;
 }

@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false, // 👈 THIS LINE FIXES YOUR ERROR
+
+  // 👇 ADDED THIS TO FIX CROSS-ORIGIN WARNING FOR DEV SERVER
+  allowedDevOrigins: ['172.16.0.2', '172.16.0.2:3000', 'localhost:3000'],
+
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -45,7 +49,7 @@ const nextConfig = {
       },
     ],
   },
-  
+
   // 👇 ADD THIS NEW SECTION BELOW IMAGES 👇
   async redirects() {
     return [
@@ -60,7 +64,7 @@ const nextConfig = {
         ],
         // ...instantly forward them to the official www version!
         destination: 'https://www.jeckukas.org.in/:path*',
-        permanent: true, 
+        permanent: true,
       },
     ];
   },
