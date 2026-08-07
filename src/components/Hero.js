@@ -36,15 +36,31 @@ export default function Hero({ initialBanners = [] }) {
                     className={`hero-slide ${index === currentIndex ? 'active' : ''}`}
                 >
                     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
-                        <Image
-                            src={banner.imageUrl}
-                            alt={banner.altText || banner.heading || "JEC Banner"}
-                            fill
-                            priority={index === 0}
-                            fetchPriority={index === 0 ? "high" : "auto"}
-                            style={{ objectFit: 'cover' }}
-                            sizes="100vw"
-                        />
+                        {/* Desktop Image */}
+                        <div className="hero-desktop-img" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+                            <Image
+                                src={banner.imageUrl}
+                                alt={banner.altText || banner.heading || "JEC Banner"}
+                                fill
+                                priority={index === 0}
+                                fetchPriority={index === 0 ? "high" : "auto"}
+                                style={{ objectFit: 'cover' }}
+                                sizes="100vw"
+                            />
+                        </div>
+                        
+                        {/* Mobile Image */}
+                        <div className="hero-mobile-img" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+                            <Image
+                                src={banner.mobileImageUrl || banner.imageUrl}
+                                alt={banner.altText || banner.heading || "JEC Banner Mobile"}
+                                fill
+                                priority={index === 0}
+                                fetchPriority={index === 0 ? "high" : "auto"}
+                                style={{ objectFit: 'cover' }}
+                                sizes="100vw"
+                            />
+                        </div>
                     </div>
 
                     {banner.showOverlay !== true && (
